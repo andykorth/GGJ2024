@@ -6,6 +6,8 @@
 [Ll]ogs/
 UserSettings/
 
+.DS_Store
+
 EditorAssemblyReloadTime.txt
 BuildTimeReport.txt
 BuildSizeReport.txt
