@@ -16,7 +16,7 @@ public class Player : Singleton<Player>
     void Update()
     {
         Vector2 target = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        rb.AddForce( new Vector3(target.x, 0f, target.y) * speed * Time.deltaTime);
+        rb.AddForce( new Vector3(target.x, target.y) * speed * Time.deltaTime);
         // rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(target.x, 0f, target.y) * speed, accel);
 
     }
