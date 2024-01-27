@@ -7,6 +7,7 @@ using System.Linq;
 using Foundational;
 using futz.ActGhost;
 using Cysharp.Threading.Tasks;
+using Unity.VisualScripting;
 
 public class GhostPlayerManager : Singleton<GhostPlayerManager>
 {
@@ -56,21 +57,9 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
     public void Start(){
         ghostPlayers = new List<GhostPlayer>();
-        var testGhost = new GhostPlayer{name = "TestGhost"};
-
         CreateAllGoals();
 
         // TODO: get all the players that have connected to the Futz here. Assign them goals.
-
-        Goal testGoal = new Goal {
-            goalString = "Touch the sphere-vase",
-            goalType = Goal.GoalType.TouchTestVase
-        };
-
-
-
-        testGhost.activeGoals.Add(testGoal);
-        ghostPlayers.Add(testGhost);
 
         pressPlayToBeginMsg.SetActive(false);
         needTwoPhonePlayersMsg.SetActive(true);
@@ -86,10 +75,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
             pressPlayToBeginMsg.SetActive(true);
             if(Input.GetKeyDown(KeyCode.Space)){
                 GameStarted();
-                readyToBegin = false;
-                Player.i.gameObject.SetActive(true);
-                pressPlayToBeginMsg.SetActive(false);
-                GhostLogic.BeginRoom(GameSysClip.I.GhostAct.Current).Forget();
+                
             }
         }
 
@@ -106,7 +92,27 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
     }
 
     public void GameStarted(){
+        readyToBegin = false;
+        Player.i.gameObject.SetActive(true);
+        pressPlayToBeginMsg.SetActive(false);
+        GhostLogic.BeginRoom(GameSysClip.I.GhostAct.Current).Forget();
+        
         var actors = GameSysClip.I.GhostAct.Current.Actors.Current;
+
+        ghostPlayers = new List<GhostPlayer>();
+        foreach(var phonePlayer in actors){
+            var ghost = new GhostPlayer
+            {
+                name = phonePlayer.Nickname,
+                actor = phonePlayer
+            };
+            var goal = allSharedGoals[Random.Range(0, allSharedGoals.Count)];
+
+            ghost.ClearHints();
+            ghost.AssignGoal(goal);
+            ghostPlayers.Add(ghost);
+        }
+   
 
     }
     
@@ -117,6 +123,7 @@ public class GhostPlayer {
     public string name;
     public int goalsComplete = 0;
     public List<Goal> activeGoals = new List<Goal>();
+    internal GhostActor actor;
 
     public void EvaluateGoals(){
         List<Goal> toRemove = new List<Goal>();
@@ -137,6 +144,19 @@ public class GhostPlayer {
         return $"{name} score: {goalsComplete}";
     }
 
+    internal void AssignGoal(Goal goal)
+    {
+        activeGoals.Add(goal);
+        var hint = new Hint();
+        hint.Message = goal.goalString;
+
+        actor.AssignedHints.Add(hint);
+    }
+
+    internal void ClearHints()
+    {
+        actor.AssignedHints.Clear();
+    }
 }
 
 public class Goal {
