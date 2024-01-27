@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Foundational;
@@ -26,7 +27,6 @@ namespace futz.ActGhost
 
 			$"Initialize GHOST activity".LgOrange0();
 
-
 			NewGame(act);
 		}
 
@@ -48,11 +48,8 @@ namespace futz.ActGhost
 			{
 				case Phase.UNINITIALIZED: return;
 				case Phase.WAITING_TO_START:
-					// if (act.Actors.Count >= fig.MinActorCount)
-					// {
-					// 	BeginRoom(act).Forget();
-					// }
-
+				Log("PHASE WIASTING TOP START");
+					GhostPlayerManager.i.readyToBegin = act.Actors.Count >= fig.MinActorCount;
 					return;
 				case Phase.ROUND_INTRO: return;
 				case Phase.PLAYING_ROOM:

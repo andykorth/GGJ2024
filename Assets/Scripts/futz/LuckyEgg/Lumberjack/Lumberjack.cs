@@ -202,9 +202,9 @@ public static class Lumberjack {
 		const string line = "<><><><><><><><><><><><><><><><><><><><><><><><><><><><><>";
 		var load = $"       FULL RELOAD:   {DateTime.Now.ToLongTimeString()}";
 		
-		Debug.Log($"<b><color=#{color}>{line}</color></b>");
+		// Debug.Log($"<b><color=#{color}>{line}</color></b>");
 		Debug.Log($"<b><color=#{color}>{load}</color></b>");
-		Debug.Log($"<b><color=#{color}>{line}</color></b>");
+		// Debug.Log($"<b><color=#{color}>{line}</color></b>");
 	}
 	
 }

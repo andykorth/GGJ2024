@@ -4,9 +4,16 @@ using UnityEditorInternal;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using Foundational;
+using futz.ActGhost;
+using Cysharp.Threading.Tasks;
 
-public class GhostPlayerManager : MonoBehaviour
+public class GhostPlayerManager : Singleton<GhostPlayerManager>
 {
+    [HideInInspector]
+    public bool readyToBegin = false;
+    public GameObject pressPlayToBeginMsg;
+    public GameObject needTwoPhonePlayersMsg;
 
     public TMPro.TMP_Text ghostText;
 
@@ -64,9 +71,27 @@ public class GhostPlayerManager : MonoBehaviour
 
         testGhost.activeGoals.Add(testGoal);
         ghostPlayers.Add(testGhost);
+
+        pressPlayToBeginMsg.SetActive(false);
+        needTwoPhonePlayersMsg.SetActive(true);
+        readyToBegin = false;
+        Player.i.gameObject.SetActive(false);
+
     }
 
     public void Update(){
+
+        if(readyToBegin){
+            needTwoPhonePlayersMsg.SetActive(false);
+            pressPlayToBeginMsg.SetActive(true);
+            if(Input.GetKeyDown(KeyCode.Space)){
+                GameStarted();
+                readyToBegin = false;
+                Player.i.gameObject.SetActive(true);
+                pressPlayToBeginMsg.SetActive(false);
+                GhostLogic.BeginRoom(GameSysClip.I.GhostAct.Current).Forget();
+            }
+        }
 
         foreach(GhostPlayer g in ghostPlayers){
             g.EvaluateGoals();
@@ -78,6 +103,11 @@ public class GhostPlayerManager : MonoBehaviour
         }
 
         ghostText.text = s;
+    }
+
+    public void GameStarted(){
+        var actors = GameSysClip.I.GhostAct.Current.Actors.Current;
+
     }
     
 }
