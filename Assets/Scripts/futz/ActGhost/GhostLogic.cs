@@ -23,7 +23,7 @@ namespace futz.ActGhost
 		public static void Initialize(GhostActivity act)
 		{
 			var fig = act.Fig;
-			
+
 			$"Initialize GHOST activity".LgOrange0();
 
 
@@ -48,10 +48,10 @@ namespace futz.ActGhost
 			{
 				case Phase.UNINITIALIZED: return;
 				case Phase.WAITING_TO_START:
-					if (act.Actors.Count >= fig.MinActorCount)
-					{
-						BeginRoom(act).Forget();
-					}
+					// if (act.Actors.Count >= fig.MinActorCount)
+					// {
+					// 	BeginRoom(act).Forget();
+					// }
 
 					return;
 				case Phase.ROUND_INTRO: return;
@@ -80,7 +80,7 @@ namespace futz.ActGhost
 				case Phase.UNINITIALIZED: return;
 				case Phase.WAITING_TO_START: return;
 				case Phase.ROUND_INTRO: return;
-				case Phase.PLAYING_ROOM:return;
+				case Phase.PLAYING_ROOM: return;
 				case Phase.ROOM_SUMMARY: return;
 				case Phase.GAME_COMPLETE: return;
 				default: throw new ArgumentOutOfRangeException();
@@ -157,31 +157,6 @@ namespace futz.ActGhost
 			}
 		}
 
-		// public static async UniTask EndGuessing(GhostActivity act)
-		// {
-		// 	// TODO: EndRound / Round summary?
-		// 	await EndRound(act);
-		// }
-		//
-		// public static async UniTask EndRound(GhostActivity act)
-		// {
-		// 	Log($"<><><><><><> {act} Round End".LgTodo(), act);
-		// 	var fig = act.Fig;
-		// 	ChangePhase(act, Phase.ROUND_SUMMARY); // TODO: round summary?
-		// 	SetStatusAll(act, "");
-		// 	act.PkWaiting.SendToAllAgents(new Pk_Waiting { Msg = fig.StrLoading });
-		//
-		// 	var cards = act.Cards.Current;
-		//
-		// 	for (var i = cards.Count - 1; i >= 0; i--)
-		// 	{
-		// 		cards[i].IsRevealed.Change(false);
-		// 		await __WAIT__(fig.RevealDelayMs);
-		// 	}
-		//
-		// 	BeginRound(act).Forget();
-		// }
-
 		public static void DrainPackets(GhostActivity act)
 		{
 			// act.PkClue
@@ -203,32 +178,8 @@ namespace futz.ActGhost
 			// 			CheckClueCount(act);
 			// 		}
 			// 	);
-			//
-			// act.PkGuess
-			// 	.OnlyIf(act.Phase.Current == Phase.GUESSING)
-			// 	.DrainAsActor(
-			// 		act,
-			// 		static (act, actor, pk) =>
-			// 		{
-			// 			var fig = act.Fig;
-			// 			actor.Status.Change(Status.SUBMITTED_GUESS);
-			// 			actor.Agent.Status.Change("submitted guess");
-			// 			pk.Guess.SplitIndexesInto(actor.GuessedCardIds);
-			//
-			// 			act.PkWaiting.SendTo(actor, new Pk_Waiting { Msg = fig.StrWaitingOthers });
-			// 			CheckGuessCount(act);
-			// 		}
-			// 	);
 		}
-		
-		// public static async UniTaskVoid ForceNextRound(GhostActivity act)
-		// {
-		// 	Log($"FORCE NEXT ROUND ----------".LgRed(), act);
-		//
-		// 	await EndRound(act);
-		// 	// await BeginRound(act);
-		// }
-		
+
 		static void SetStatusAll(GhostActivity act, string agentStatus, Status actorStatus = Status.UNSET)
 		{
 			if (actorStatus != Status.UNSET)
