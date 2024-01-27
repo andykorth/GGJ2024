@@ -1,0 +1,3 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:RadioButton label="Moderately Fun Activity" name="C_ActivitySelectRow" />
+</ui:UXML>

@@ -1,0 +1,16 @@
+{
+  "name": "Bobsled",
+  "rootNamespace": "",
+  "references": [
+    "Swoonity"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

@@ -1,0 +1,256 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2087701734390937553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2087701734390937566}
+  - component: {fileID: 2735981168516901462}
+  - component: {fileID: 7282947170114205944}
+  m_Layer: 0
+  m_Name: act~ Bewilder ~fab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2087701734390937566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087701734390937553}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2735981168516901462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087701734390937553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c44c000538457f96f262b134818b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tform: {fileID: 2087701734390937566}
+  HasLiaison: 0
+  LiaisonComp: {fileID: 0}
+  InstanceId: 0
+  IsRegistered: 0
+  EntityId: 0
+  ParentEntity: {fileID: 0}
+  CCache:
+    ListOfHashes:
+    - Value: 505582686
+    - Value: 3972772752
+    - Value: 3697574914
+--- !u!114 &7282947170114205944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087701734390937553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3093105c20ea4af892963359f4f05253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tform: {fileID: 2087701734390937566}
+  Entity: {fileID: 2735981168516901462}
+  HashId:
+    Value: 3697574914
+  Def: {fileID: 0}
+  Actors:
+    Fact:
+      Name: 
+      HashId:
+        Value: 0
+      ParentTypeName: 
+      RequiredTypeNames: []
+      RequiredTypeNamesShort: []
+      RequiredTypeHashes: []
+      Cycle: 0
+      StageName: 
+      StageHash:
+        Value: 0
+      WorkerTrigger: 0
+      WorkerMemberType: 0
+      MakerString: 
+      Domain: 0
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      SyncerName: 
+      TimedSeconds: 0
+    Count: 0
+    Value: []
+  Fig: {fileID: 11400000, guid: 5f4c9c4a3883cf84cb1feb7fc6e400e8, type: 2}
+  Fab_Card: {fileID: 2821056715381945564, guid: 3fbdcdecc39f6054eae3c29d1c4c9f46, type: 3}
+  WordBag: []
+  CurrentWords: []
+  CurrentWordsString: 
+  CardBag: []
+  PendingActorTurn: []
+  ActiveActorTurn: {fileID: 0}
+  Phase:
+    Entity: {fileID: 2735981168516901462}
+    Fact:
+      Name: Phase
+      HashId:
+        Value: 3362944734
+      AuthType: 0
+      CogName: BewilderActivity
+      CogHash:
+        Value: 3697574914
+    IsInitialized: 0
+    Info:
+      Name: 
+      Fact:
+        Name: 
+        HashId:
+          Value: 0
+        AuthType: 0
+        CogName: 
+        CogHash:
+          Value: 0
+      IsInitialized: 0
+    Current: 0
+    Former: 0
+  PhaseTitle:
+    Entity: {fileID: 2735981168516901462}
+    Fact:
+      Name: PhaseTitle
+      HashId:
+        Value: 2320258586
+      AuthType: 0
+      CogName: BewilderActivity
+      CogHash:
+        Value: 3697574914
+    IsInitialized: 0
+    Info:
+      Name: 
+      Fact:
+        Name: 
+        HashId:
+          Value: 0
+        AuthType: 0
+        CogName: 
+        CogHash:
+          Value: 0
+      IsInitialized: 0
+    Current: 
+    Former: 
+  PhaseDesc:
+    Entity: {fileID: 2735981168516901462}
+    Fact:
+      Name: PhaseDesc
+      HashId:
+        Value: 3399502479
+      AuthType: 0
+      CogName: BewilderActivity
+      CogHash:
+        Value: 3697574914
+    IsInitialized: 0
+    Info:
+      Name: 
+      Fact:
+        Name: 
+        HashId:
+          Value: 0
+        AuthType: 0
+        CogName: 
+        CogHash:
+          Value: 0
+      IsInitialized: 0
+    Current: 
+    Former: 
+  ForceNextRound:
+    Entity: {fileID: 2735981168516901462}
+    Fact:
+      Name: ForceNextRound
+      HashId:
+        Value: 4032083373
+      AuthType: 0
+      CogName: BewilderActivity
+      CogHash:
+        Value: 3697574914
+    IsInitialized: 0
+    Info:
+      Name: 
+      Fact:
+        Name: 
+        HashId:
+          Value: 0
+        AuthType: 0
+        CogName: 
+        CogHash:
+          Value: 0
+      IsInitialized: 0
+    Current: 0
+    Former: 0
+  GuessingActorSlotId:
+    Entity: {fileID: 2735981168516901462}
+    Fact:
+      Name: GuessingActorSlotId
+      HashId:
+        Value: 4033745542
+      AuthType: 0
+      CogName: BewilderActivity
+      CogHash:
+        Value: 3697574914
+    IsInitialized: 0
+    Info:
+      Name: 
+      Fact:
+        Name: 
+        HashId:
+          Value: 0
+        AuthType: 0
+        CogName: 
+        CogHash:
+          Value: 0
+      IsInitialized: 0
+    Current: 0
+    Former: 0
+  GuessingClue:
+    Entity: {fileID: 2735981168516901462}
+    Fact:
+      Name: GuessingClue
+      HashId:
+        Value: 1359290177
+      AuthType: 0
+      CogName: BewilderActivity
+      CogHash:
+        Value: 3697574914
+    IsInitialized: 0
+    Info:
+      Name: 
+      Fact:
+        Name: 
+        HashId:
+          Value: 0
+        AuthType: 0
+        CogName: 
+        CogHash:
+          Value: 0
+      IsInitialized: 0
+    Current: 
+    Former: 
+  PromptStart: "I'll give you a list of words. Choose 3 words from the list that
+    are most related, then write a single clue that gets me to guess all of your
+    chosen words. The clue should only be 1 word long.\r Only respond with your clue
+    and your chosen words formatted like \"clue, choice1, choice2, choice3\".\nThe
+    word list is: "

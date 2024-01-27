@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216ca30ca607413c8a3b87a6586c1068, type: 3}
+  m_Name: act~ __ MATCHER ~def
+  m_EditorClassIdentifier: 
+  Idf: matcher
+  Name: Matcher
+  ShowAgentList: 0
+  ShowScore: 1
+  Fab_Activity: {fileID: 1979039916945283666, guid: c86aea11f54e73b41862f08462ac20ef, type: 3}
+  Fab_Actor: {fileID: 0}
+  PacketFacts:
+  - Label: AgentKnockRequest
+    PacketId: 230
+    PacketName: Pk_AgentKnockRequest
+    FullTypeName: FutzSys.Pk_AgentKnockRequest, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    ActivityDef: {fileID: 11400000}
+    FieldInfos:
+    - GlobalId
+    - Nickname
+    - Uuid
+  - Label: AgentKnockResult
+    PacketId: 231
+    PacketName: Pk_AgentKnockResult
+    FullTypeName: FutzSys.Pk_AgentKnockResult, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    ActivityDef: {fileID: 11400000}
+    FieldInfos:
+    - GlobalId
+    - Result
+    - SlotId
+  - Label: AgentLeft
+    PacketId: 232
+    PacketName: Pk_AgentLeft
+    FullTypeName: FutzSys.Pk_AgentLeft, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    ActivityDef: {fileID: 11400000}
+    FieldInfos:
+    - Code
+    - SlotId
+  - Label: CloseRoom
+    PacketId: 233
+    PacketName: Pk_CloseRoom
+    FullTypeName: FutzSys.Pk_CloseRoom, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    ActivityDef: {fileID: 11400000}
+    FieldInfos:
+    - Reason
+  - Label: JoinRoomRequest
+    PacketId: 234
+    PacketName: MatcherActor
+    FullTypeName: FutzSys.MatcherActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    ActivityDef: {fileID: 11400000}
+    FieldInfos:
+    - Agent
+    - Tform
+    - Entity
+    - HashId
+  - Label: JoinRoomResult
+    PacketId: 235
+    PacketName: MatcherActor
+    FullTypeName: FutzSys.MatcherActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    ActivityDef: {fileID: 11400000}
+    FieldInfos:
+    - Agent
+    - Tform
+    - Entity
+    - HashId
+  - Label: LeaveRoom
+    PacketId: 236
+    PacketName: MatcherActor
+    FullTypeName: FutzSys.MatcherActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    ActivityDef: {fileID: 11400000}
+    FieldInfos:
+    - Agent
+    - Tform
+    - Entity
+    - HashId
+  - Label: RegisterRoomRequest
+    PacketId: 237
+    PacketName: Pk_RegisterRoomRequest
+    FullTypeName: FutzSys.Pk_RegisterRoomRequest, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    ActivityDef: {fileID: 11400000}
+    FieldInfos: []
+  - Label: RegisterRoomResult
+    PacketId: 238
+    PacketName: Pk_RegisterRoomResult
+    FullTypeName: FutzSys.Pk_RegisterRoomResult, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    ActivityDef: {fileID: 11400000}
+    FieldInfos:
+    - Result
+    - RoomIdf
+  - Label: RoomClosed
+    PacketId: 239
+    PacketName: MatcherActor
+    FullTypeName: FutzSys.MatcherActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    ActivityDef: {fileID: 11400000}
+    FieldInfos:
+    - Agent
+    - Tform
+    - Entity
+    - HashId
+  - Label: OpenAiRequest
+    PacketId: 240
+    PacketName: Pk_OpenAiRequest
+    FullTypeName: FutzSys.Pk_OpenAiRequest, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    ActivityDef: {fileID: 11400000}
+    FieldInfos:
+    - ReqId
+    - Prompt
+  - Label: OpenAiResult
+    PacketId: 241
+    PacketName: Pk_OpenAiResult
+    FullTypeName: FutzSys.Pk_OpenAiResult, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    ActivityDef: {fileID: 11400000}
+    FieldInfos:
+    - ReqId
+    - Answer
+  SystemOnly: 1
+  IdOffset: 230

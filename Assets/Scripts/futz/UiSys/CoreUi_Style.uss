@@ -1,0 +1,70 @@
+
+
+
+#CoreUi_Doc > TemplateContainer {
+    width: 100%;
+    height: 100%;
+}
+
+#CoreUi_Doc > TemplateContainer > TemplateContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.layer-screen {
+    margin: 10%;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.layer-window {
+    flex-grow: 1;
+    max-width: 2500px;
+    max-height: 2000px;
+}
+
+.overlay-full {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.coreSide {
+    flex-grow: 1;
+    min-height: 20px;
+    min-width: 20px;
+}
+
+.coreMid {
+    flex-direction: row;
+    flex-grow: 8;
+}
+
+.midPanel {
+    flex-grow: 8;
+}
+
+
+
+
+.align-self-start {
+    align-self: flex-start;
+}
+
+.align-self-center {
+    align-self: center;
+}
+
+.align-self-end {
+    align-self: flex-end;
+}
+
+.align-self-stretch {
+    align-self: flex-end;
+}

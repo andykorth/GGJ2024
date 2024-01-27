@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="StyledComponentsInjections">
+    <option name="prefixes">
+      <array>
+        <option value="sty.div" />
+        <option value="sty.box" />
+        <option value="sty.textelement" />
+        <option value="sty.label" />
+        <option value="sty.image" />
+        <option value="sty.foldout" />
+        <option value="sty.template" />
+        <option value="sty.instance" />
+        <option value="sty.templatecontainer" />
+        <option value="sty.button" />
+        <option value="sty.radiobutton" />
+        <option value="sty.radiobuttongroup" />
+        <option value="sty.repeatbutton" />
+        <option value="sty.toggle" />
+        <option value="sty.scroller" />
+        <option value="sty.slider" />
+        <option value="sty.sliderint" />
+        <option value="sty.minmaxslider" />
+        <option value="sty.enumfield" />
+        <option value="sty.progressbar" />
+        <option value="sty.textfield" />
+        <option value="sty.integerfield" />
+        <option value="sty.floatfield" />
+        <option value="sty.vector2field" />
+        <option value="sty.vector2intfield" />
+        <option value="sty.vector3field" />
+        <option value="sty.vector3intfield" />
+        <option value="sty.vector4field" />
+        <option value="sty.rectfield" />
+        <option value="sty.rectintfield" />
+        <option value="sty.boundsfield" />
+        <option value="sty.boundsintfield" />
+        <option value="sty.listview" />
+        <option value="sty.scrollview" />
+        <option value="sty.treeview" />
+        <option value="sty.popupwindow" />
+        <option value="sty.dropdownfield" />
+        <option value="sty.gradientrect" />
+        <option value="sty.flipbook" />
+        <option value="sty.simplelistview" />
+        <option value="uss" />
+        <option value="$div" />
+        <option value="$label" />
+        <option value="$button" />
+        <option value="$radiobuttongroup" />
+        <option value="$radiobutton" />
+        <option value="$img" />
+        <option value="$foldout" />
+      </array>
+    </option>
+  </component>
+</project>

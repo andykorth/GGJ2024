@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements"
+         editor-extension-mode="True">
+    <ui:VisualElement name="root">
+        <ui:VisualElement name="IdRow" style="flex-direction: row;">
+            <ui:Label text="Label" display-tooltip-when-elided="true" name="LblName"
+                      style="font-size: 24px;"/>
+            <ui:VisualElement style="flex-grow: 1;"/>
+            <ui:Button text="P" display-tooltip-when-elided="true" name="BtnParent"
+                       tooltip="Parent entity"
+                       style="margin-left: 6px; margin-right: 6px; margin-top: 6px; margin-bottom: 6px; padding-left: 1px; padding-right: 1px; padding-top: 0; padding-bottom: 0; -unity-font-style: bold;"/>
+            <ui:Label text="Label" display-tooltip-when-elided="true" name="LblIdent"
+                      style="font-size: 24px; -unity-font-style: italic;"/>
+            <ui:Button text="⬆" display-tooltip-when-elided="true" name="BtnUp"
+                       tooltip="Move Entity comp to top"
+                       style="margin-left: 6px; margin-right: 6px; margin-top: 6px; margin-bottom: 6px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

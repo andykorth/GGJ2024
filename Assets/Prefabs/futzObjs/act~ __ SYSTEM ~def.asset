@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216ca30ca607413c8a3b87a6586c1068, type: 3}
+  m_Name: act~ __ SYSTEM ~def
+  m_EditorClassIdentifier: 
+  Idf: system
+  Name: System
+  ShowAgentList: 0
+  ShowScore: 1
+  Fab_Activity: {fileID: 6956240922582708438, guid: 0efa9731e80bfa5498a1324582874a75, type: 3}
+  Fab_Actor: {fileID: 0}
+  PacketFacts:
+  - Label: ActivityChange
+    PacketId: 200
+    PacketName: Pk_ActivityChange
+    FullTypeName: FutzSys.Pk_ActivityChange, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    ActivityDef: {fileID: 11400000}
+    FieldInfos:
+    - Idf
+  - Label: AgentColor
+    PacketId: 201
+    PacketName: Pk_AgentColor
+    FullTypeName: FutzSys.Pk_AgentColor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    ActivityDef: {fileID: 11400000}
+    FieldInfos:
+    - Color
+  - Label: AgentLog
+    PacketId: 202
+    PacketName: Pk_AgentLog
+    FullTypeName: FutzSys.Pk_AgentLog, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    ActivityDef: {fileID: 11400000}
+    FieldInfos:
+    - Msg
+  SystemOnly: 1
+  IdOffset: 200

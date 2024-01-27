@@ -1,0 +1,157 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3223343688310459946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3223343688310459942}
+  - component: {fileID: 3223343688310459947}
+  - component: {fileID: 3223343688310459941}
+  m_Layer: 0
+  m_Name: fab_Agent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3223343688310459942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3223343688310459946}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3223343688310459947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3223343688310459946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c44c000538457f96f262b134818b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tform: {fileID: 3223343688310459942}
+  HasLiaison: 0
+  LiaisonComp: {fileID: 0}
+  InstanceId: 0
+  IsRegistered: 0
+  EntityId: 0
+  ParentEntity: {fileID: 0}
+  CCache:
+    ListOfHashes:
+    - Value: 505582686
+    - Value: 3972772752
+    - Value: 719352216
+--- !u!114 &3223343688310459941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3223343688310459946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e122f7a1934da8ab16d3dfbd4d5370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tform: {fileID: 3223343688310459942}
+  Entity: {fileID: 3223343688310459947}
+  HashId:
+    Value: 719352216
+  Info:
+    Entity: {fileID: 3223343688310459947}
+    Fact:
+      Name: Info
+      HashId:
+        Value: 2105302805
+      AuthType: 0
+      CogName: Agent
+      CogHash:
+        Value: 719352216
+    IsInitialized: 0
+    Info:
+      Name: 
+      Fact:
+        Name: 
+        HashId:
+          Value: 0
+        AuthType: 0
+        CogName: 
+        CogHash:
+          Value: 0
+      IsInitialized: 0
+    Current:
+      SlotId: 0
+      GlobalId: 0
+      Nickname: 
+      Uuid: 
+    Former:
+      SlotId: 0
+      GlobalId: 0
+      Nickname: 
+      Uuid: 
+  Status:
+    Entity: {fileID: 3223343688310459947}
+    Fact:
+      Name: Status
+      HashId:
+        Value: 558091417
+      AuthType: 0
+      CogName: Agent
+      CogHash:
+        Value: 719352216
+    IsInitialized: 0
+    Info:
+      Name: 
+      Fact:
+        Name: 
+        HashId:
+          Value: 0
+        AuthType: 0
+        CogName: 
+        CogHash:
+          Value: 0
+      IsInitialized: 0
+    Current: 
+    Former: 
+  Color:
+    Entity: {fileID: 3223343688310459947}
+    Fact:
+      Name: Color
+      HashId:
+        Value: 834372060
+      AuthType: 0
+      CogName: Agent
+      CogHash:
+        Value: 719352216
+    IsInitialized: 0
+    Info:
+      Name: 
+      Fact:
+        Name: 
+        HashId:
+          Value: 0
+        AuthType: 0
+        CogName: 
+        CogHash:
+          Value: 0
+      IsInitialized: 0
+    Current: {r: 0, g: 0, b: 0, a: 0}
+    Former: {r: 0, g: 0, b: 0, a: 0}
+  CurrentActivity: {fileID: 0}
+  CurrentActor: {fileID: 0}

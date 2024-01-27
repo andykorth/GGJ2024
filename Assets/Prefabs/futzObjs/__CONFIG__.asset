@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad17f5d4b6842229b22862c70a114e1, type: 3}
+  m_Name: __CONFIG__
+  m_EditorClassIdentifier: 
+  RelayUrl: ws://futz-relay.herokuapp.com/
+  UseLanRelay: 0
+  RelayLan: ws://localhost:3005
+  Fab_Agent: {fileID: 3223343688310459941, guid: f9166f0fb98374d7e826f83cda58d3d0, type: 3}
+  AgentColors: {fileID: 11400000, guid: abf07fee46d5eb94795fa84dfd91bc7d, type: 2}
+  MatcherDef: {fileID: 11400000, guid: 3c47e13c89f78474698a3a4913d2892d, type: 2}
+  SystemDef: {fileID: 11400000, guid: a5037856755e64f4e9da87e62332608b, type: 2}
+  ActivityDefs:
+  - {fileID: 11400000, guid: 81b56461dd9efc845aae90dfa5d6dcc9, type: 2}
+  AutoloadActivity: {fileID: 11400000, guid: 81b56461dd9efc845aae90dfa5d6dcc9, type: 2}

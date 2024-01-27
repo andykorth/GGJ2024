@@ -1,0 +1,47 @@
+#W_AgentList {
+    position: absolute;
+    background-color: rgb(32, 32, 32);
+    padding: 8px;
+    width: 220px;
+    left: 8px;
+    bottom: 8px;
+}
+
+#W_AgentList #L_Title {
+    color: rgb(212, 212, 212);
+    font-size: 24px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-left;
+    padding: 0;
+    margin: 0;
+    white-space: normal;
+}
+
+#C_AgentStatus {
+    flex-direction: row;
+    overflow: hidden;
+}
+
+#C_AgentStatus #V_Color {
+    background-color: rgb(255, 0, 183);
+    width: 18px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: 2px;
+}
+
+#C_AgentStatus #L_Name {
+    overflow: hidden;
+    flex-shrink: 1;
+    flex-grow: 1;
+    color: rgb(255, 255, 255);
+}
+
+#C_AgentStatus #L_Status {
+    font-size: 12px;
+    -unity-font-style: italic;
+    width: 20%;
+    flex-shrink: 1;
+    flex-grow: 1;
+    color: rgb(229, 229, 229);
+}

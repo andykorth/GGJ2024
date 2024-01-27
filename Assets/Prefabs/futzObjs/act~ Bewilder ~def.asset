@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216ca30ca607413c8a3b87a6586c1068, type: 3}
+  m_Name: act~ Bewilder ~def
+  m_EditorClassIdentifier: 
+  Idf: bewilder
+  Name: Bewilder
+  ShowAgentList: 0
+  ShowScore: 1
+  Fab_Activity: {fileID: 2087701734390937553, guid: 8235a336bd199824c9fc5f388b132ccc, type: 3}
+  Fab_Actor: {fileID: 6390642552498048425, guid: adac1239ce08b5f4193ef0671922053c, type: 3}
+  PacketFacts:
+  - Label: PkWaiting
+    PacketId: 1
+    PacketName: BewilderActor
+    FullTypeName: ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    ActivityDef: {fileID: 11400000}
+    FieldInfos:
+    - Status
+    - AssignedCards
+    - Clue
+    - ClueCardIds
+    - GuessedCardIds
+    - PendingScore
+    - Agent
+    - Tform
+    - Entity
+    - HashId
+  - Label: PkRoundStart
+    PacketId: 2
+    PacketName: BewilderActor
+    FullTypeName: ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    ActivityDef: {fileID: 11400000}
+    FieldInfos:
+    - Status
+    - AssignedCards
+    - Clue
+    - ClueCardIds
+    - GuessedCardIds
+    - PendingScore
+    - Agent
+    - Tform
+    - Entity
+    - HashId
+  - Label: PkClue
+    PacketId: 3
+    PacketName: BewilderActor
+    FullTypeName: ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    ActivityDef: {fileID: 11400000}
+    FieldInfos:
+    - Status
+    - AssignedCards
+    - Clue
+    - ClueCardIds
+    - GuessedCardIds
+    - PendingScore
+    - Agent
+    - Tform
+    - Entity
+    - HashId
+  - Label: PkGuessing
+    PacketId: 4
+    PacketName: BewilderActor
+    FullTypeName: ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    ActivityDef: {fileID: 11400000}
+    FieldInfos:
+    - Status
+    - AssignedCards
+    - Clue
+    - ClueCardIds
+    - GuessedCardIds
+    - PendingScore
+    - Agent
+    - Tform
+    - Entity
+    - HashId
+  - Label: PkGuess
+    PacketId: 5
+    PacketName: BewilderActor
+    FullTypeName: ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    ActivityDef: {fileID: 11400000}
+    FieldInfos:
+    - Status
+    - AssignedCards
+    - Clue
+    - ClueCardIds
+    - GuessedCardIds
+    - PendingScore
+    - Agent
+    - Tform
+    - Entity
+    - HashId
+  SystemOnly: 0
+  IdOffset: 1

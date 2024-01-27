@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/__Code/ActBewilder/S_Bewilder.uss?fileID=7433441132597879392&amp;guid=31e7ee77d5fc4715807d5432bd65273b&amp;type=3#S_Bewilder" />
+    <ui:Label tabindex="-1" text="Bewilder" display-tooltip-when-elided="true" name="L_Title" style="-unity-font-definition: url(&apos;project://database/Assets/_art/UI/UI_Fonts/Noto_Sans/__NotoSans%20SDF.asset?fileID=11400000&amp;guid=f168b7aa41825324f89bbbea71f71506&amp;type=2#__NotoSans SDF&apos;); font-size: 42px; -unity-text-align: upper-center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 64px; margin-bottom: 0;" />
+    <ui:VisualElement name="W_CardGrid" />
+</ui:UXML>

@@ -1,0 +1,2247 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcfbb2ee6669436aa4c0799e27084e59, type: 3}
+  m_Name: Futz Regent Catalog
+  m_EditorClassIdentifier: 
+  AutoLoad: 1
+  ClickToTriggerAutoLoad: 0
+  BaronFacts:
+  - Name: AgentActorBaron
+    TypeName: Foundational.AgentActorBaron, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    HashId:
+      Value: 1254025961
+    WorkerFacts:
+    - Name: React_LoadedActivityDef
+      HashId:
+        Value: 242801371
+      ParentTypeName: AgentActorBaron
+      RequiredTypeNames:
+      - Foundational.GameSysClip, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      - System.ValueTuple`2[[FutzSys.ActivityDef, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null],[System.Int32, mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      RequiredTypeNamesShort:
+      - GameSysClip
+      - ValueTuple`2
+      RequiredTypeHashes:
+      - Value: 1581047986
+      - Value: 733336653
+      Cycle: 2
+      StageName: UNSURE_WHAT_STAGE
+      StageHash:
+        Value: 557101341
+      WorkerTrigger: 7
+      WorkerMemberType: 1
+      MakerString: MakeReactWorker2
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: ActivityChoice
+      TimedSeconds: 0
+    - Name: Added_Agent
+      HashId:
+        Value: 1124119152
+      ParentTypeName: AgentActorBaron
+      RequiredTypeNames:
+      - FutzSys.Agent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - Agent
+      RequiredTypeHashes:
+      - Value: 719352216
+      Cycle: 1
+      StageName: CUE_SPAWN
+      StageHash:
+        Value: 656897016
+      WorkerTrigger: 1
+      WorkerMemberType: 1
+      MakerString: MakeAddedWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: Disabled_Agent
+      HashId:
+        Value: 725492632
+      ParentTypeName: AgentActorBaron
+      RequiredTypeNames:
+      - FutzSys.Agent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - Agent
+      RequiredTypeHashes:
+      - Value: 719352216
+      Cycle: 5
+      StageName: __SKIP_STAGE__
+      StageHash:
+        Value: 3369202741
+      WorkerTrigger: 4
+      WorkerMemberType: 1
+      MakerString: MakeDisabledWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+  - Name: BewilderBaron
+    TypeName: ActBewilder.BewilderBaron, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    HashId:
+      Value: 958274847
+    WorkerFacts:
+    - Name: Enabled_Bewilder
+      HashId:
+        Value: 3706531480
+      ParentTypeName: BewilderBaron
+      RequiredTypeNames:
+      - ActBewilder.BewilderActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - BewilderActivity
+      RequiredTypeHashes:
+      - Value: 3697574914
+      Cycle: 5
+      StageName: __SKIP_STAGE__
+      StageHash:
+        Value: 3369202741
+      WorkerTrigger: 3
+      WorkerMemberType: 1
+      MakerString: MakeEnabledWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: Disabled_Bewilder
+      HashId:
+        Value: 2925183805
+      ParentTypeName: BewilderBaron
+      RequiredTypeNames:
+      - ActBewilder.BewilderActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - BewilderActivity
+      RequiredTypeHashes:
+      - Value: 3697574914
+      Cycle: 5
+      StageName: __SKIP_STAGE__
+      StageHash:
+        Value: 3369202741
+      WorkerTrigger: 4
+      WorkerMemberType: 1
+      MakerString: MakeDisabledWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: Added_Actor
+      HashId:
+        Value: 2177280662
+      ParentTypeName: BewilderBaron
+      RequiredTypeNames:
+      - ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - BewilderActor
+      RequiredTypeHashes:
+      - Value: 957412834
+      Cycle: 2
+      StageName: POST_SPAWN
+      StageHash:
+        Value: 687736403
+      WorkerTrigger: 1
+      WorkerMemberType: 1
+      MakerString: MakeAddedWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: Disabled_Actor
+      HashId:
+        Value: 3843548562
+      ParentTypeName: BewilderBaron
+      RequiredTypeNames:
+      - ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - BewilderActor
+      RequiredTypeHashes:
+      - Value: 957412834
+      Cycle: 5
+      StageName: __SKIP_STAGE__
+      StageHash:
+        Value: 3369202741
+      WorkerTrigger: 4
+      WorkerMemberType: 1
+      MakerString: MakeDisabledWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: Drain_Packets
+      HashId:
+        Value: 1414316612
+      ParentTypeName: BewilderBaron
+      RequiredTypeNames:
+      - ActBewilder.BewilderActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - BewilderActivity
+      RequiredTypeHashes:
+      - Value: 3697574914
+      Cycle: 2
+      StageName: ACTIVITY_PK
+      StageHash:
+        Value: 4204615860
+      WorkerTrigger: 5
+      WorkerMemberType: 1
+      MakerString: MakeRunnWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: React_ForceNextRound
+      HashId:
+        Value: 1132986832
+      ParentTypeName: BewilderBaron
+      RequiredTypeNames:
+      - ActBewilder.BewilderActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - BewilderActivity
+      RequiredTypeHashes:
+      - Value: 3697574914
+      Cycle: 2
+      StageName: UNSURE_WHAT_STAGE
+      StageHash:
+        Value: 557101341
+      WorkerTrigger: 7
+      WorkerMemberType: 1
+      MakerString: MakeReactWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: ForceNextRound
+      TimedSeconds: 0
+    - Name: Actors_
+      HashId:
+        Value: 2592463809
+      ParentTypeName: BewilderBaron
+      RequiredTypeNames:
+      - ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - BewilderActor
+      RequiredTypeHashes:
+      - Value: 957412834
+      Cycle: 5
+      StageName: __SKIP_STAGE__
+      StageHash:
+        Value: 3369202741
+      WorkerTrigger: 10
+      WorkerMemberType: 2
+      MakerString: MakeRegistryWorker
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: Cards_
+      HashId:
+        Value: 416063644
+      ParentTypeName: BewilderBaron
+      RequiredTypeNames:
+      - ActBewilder.BewilderCard, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - BewilderCard
+      RequiredTypeHashes:
+      - Value: 2940435843
+      Cycle: 5
+      StageName: __SKIP_STAGE__
+      StageHash:
+        Value: 3369202741
+      WorkerTrigger: 10
+      WorkerMemberType: 2
+      MakerString: MakeRegistryWorker
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+  - Name: CoreUiBaron
+    TypeName: UiSys.CoreUiBaron, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    HashId:
+      Value: 2391197715
+    WorkerFacts:
+    - Name: Init_CoreUi
+      HashId:
+        Value: 1245071990
+      ParentTypeName: CoreUiBaron
+      RequiredTypeNames:
+      - UiSys.CoreUiClip, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - CoreUiClip
+      RequiredTypeHashes:
+      - Value: 492817487
+      Cycle: 2
+      StageName: INIT_CLIP
+      StageHash:
+        Value: 2333133544
+      WorkerTrigger: 1
+      WorkerMemberType: 1
+      MakerString: MakeAddedWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: React_CurrentActivity
+      HashId:
+        Value: 4213919100
+      ParentTypeName: CoreUiBaron
+      RequiredTypeNames:
+      - Foundational.GameSysClip, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      - FutzSys.ActivityBase, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - GameSysClip
+      - ActivityBase
+      RequiredTypeHashes:
+      - Value: 1581047986
+      - Value: 1374758029
+      Cycle: 2
+      StageName: FRAME
+      StageHash:
+        Value: 725624726
+      WorkerTrigger: 7
+      WorkerMemberType: 1
+      MakerString: MakeReactWorker2
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: CurrentActivity
+      TimedSeconds: 0
+    - Name: React_OptionsMenu
+      HashId:
+        Value: 40525041
+      ParentTypeName: CoreUiBaron
+      RequiredTypeNames:
+      - UiSys.CoreUiClip, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - CoreUiClip
+      RequiredTypeHashes:
+      - Value: 492817487
+      Cycle: 2
+      StageName: INPUT
+      StageHash:
+        Value: 728290803
+      WorkerTrigger: 7
+      WorkerMemberType: 1
+      MakerString: MakeReactWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: OptionsMenu
+      TimedSeconds: 0
+    - Name: React_ToggleHud
+      HashId:
+        Value: 911434199
+      ParentTypeName: CoreUiBaron
+      RequiredTypeNames:
+      - UiSys.CoreUiClip, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - CoreUiClip
+      RequiredTypeHashes:
+      - Value: 492817487
+      Cycle: 2
+      StageName: INPUT
+      StageHash:
+        Value: 728290803
+      WorkerTrigger: 7
+      WorkerMemberType: 1
+      MakerString: MakeReactWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: ToggleHud
+      TimedSeconds: 0
+    - Name: React_Cancel
+      HashId:
+        Value: 2375503398
+      ParentTypeName: CoreUiBaron
+      RequiredTypeNames:
+      - UiSys.CoreUiClip, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - CoreUiClip
+      RequiredTypeHashes:
+      - Value: 492817487
+      Cycle: 2
+      StageName: INPUT
+      StageHash:
+        Value: 728290803
+      WorkerTrigger: 7
+      WorkerMemberType: 1
+      MakerString: MakeReactWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: Cancel
+      TimedSeconds: 0
+    - Name: React_Console
+      HashId:
+        Value: 1027455787
+      ParentTypeName: CoreUiBaron
+      RequiredTypeNames:
+      - UiSys.CoreUiClip, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - CoreUiClip
+      RequiredTypeHashes:
+      - Value: 492817487
+      Cycle: 2
+      StageName: INPUT
+      StageHash:
+        Value: 728290803
+      WorkerTrigger: 7
+      WorkerMemberType: 1
+      MakerString: MakeReactWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: Console
+      TimedSeconds: 0
+    - Name: React_FKeys
+      HashId:
+        Value: 3958061646
+      ParentTypeName: CoreUiBaron
+      RequiredTypeNames:
+      - UiSys.CoreUiClip, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      - System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+      RequiredTypeNamesShort:
+      - CoreUiClip
+      - Int32
+      RequiredTypeHashes:
+      - Value: 492817487
+      - Value: 218896294
+      Cycle: 2
+      StageName: INPUT
+      StageHash:
+        Value: 728290803
+      WorkerTrigger: 7
+      WorkerMemberType: 1
+      MakerString: MakeReactWorker2
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: FKeys
+      TimedSeconds: 0
+  - Name: GameSysBaron
+    TypeName: Foundational.GameSysBaron, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    HashId:
+      Value: 1766604816
+    WorkerFacts:
+    - Name: Init_GameSys
+      HashId:
+        Value: 2521155867
+      ParentTypeName: GameSysBaron
+      RequiredTypeNames:
+      - Foundational.GameSysClip, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - GameSysClip
+      RequiredTypeHashes:
+      - Value: 1581047986
+      Cycle: 2
+      StageName: INIT_CLIP
+      StageHash:
+        Value: 2333133544
+      WorkerTrigger: 1
+      WorkerMemberType: 1
+      MakerString: MakeAddedWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: Run_Outgoing
+      HashId:
+        Value: 2902446767
+      ParentTypeName: GameSysBaron
+      RequiredTypeNames:
+      - FutzSys.FutzHost, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - FutzHost
+      RequiredTypeHashes:
+      - Value: 2733612906
+      Cycle: 2
+      StageName: SOCKET_OUT
+      StageHash:
+        Value: 2137428921
+      WorkerTrigger: 5
+      WorkerMemberType: 1
+      MakerString: MakeRunnWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: Run_Incoming
+      HashId:
+        Value: 2933561193
+      ParentTypeName: GameSysBaron
+      RequiredTypeNames:
+      - FutzSys.FutzHost, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - FutzHost
+      RequiredTypeHashes:
+      - Value: 2733612906
+      Cycle: 2
+      StageName: SOCKET_IN
+      StageHash:
+        Value: 1870064442
+      WorkerTrigger: 5
+      WorkerMemberType: 1
+      MakerString: MakeRunnWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: Run_MatcherPk
+      HashId:
+        Value: 2778879978
+      ParentTypeName: GameSysBaron
+      RequiredTypeNames:
+      - FutzSys.MatcherActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - MatcherActivity
+      RequiredTypeHashes:
+      - Value: 194240820
+      Cycle: 2
+      StageName: SYS_PK
+      StageHash:
+        Value: 1398727588
+      WorkerTrigger: 5
+      WorkerMemberType: 1
+      MakerString: MakeRunnWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: Run_AgentKnockRequestPk
+      HashId:
+        Value: 3527478712
+      ParentTypeName: GameSysBaron
+      RequiredTypeNames:
+      - FutzSys.MatcherActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - MatcherActivity
+      RequiredTypeHashes:
+      - Value: 194240820
+      Cycle: 1
+      StageName: CUE_SPAWN
+      StageHash:
+        Value: 656897016
+      WorkerTrigger: 5
+      WorkerMemberType: 1
+      MakerString: MakeRunnWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: Run_SysPk
+      HashId:
+        Value: 3056707909
+      ParentTypeName: GameSysBaron
+      RequiredTypeNames:
+      - FutzSys.SystemActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - SystemActivity
+      RequiredTypeHashes:
+      - Value: 2307371307
+      Cycle: 2
+      StageName: SYS_PK
+      StageHash:
+        Value: 1398727588
+      WorkerTrigger: 5
+      WorkerMemberType: 1
+      MakerString: MakeRunnWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: React_LoadedActivityDef
+      HashId:
+        Value: 3270699778
+      ParentTypeName: GameSysBaron
+      RequiredTypeNames:
+      - Foundational.GameSysClip, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      - System.ValueTuple`2[[FutzSys.ActivityDef, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null],[System.Int32, mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      RequiredTypeNamesShort:
+      - GameSysClip
+      - ValueTuple`2
+      RequiredTypeHashes:
+      - Value: 1581047986
+      - Value: 733336653
+      Cycle: 2
+      StageName: ACTIVITY_CHANGE
+      StageHash:
+        Value: 803164649
+      WorkerTrigger: 7
+      WorkerMemberType: 1
+      MakerString: MakeReactWorker2
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: ActivityChoice
+      TimedSeconds: 0
+    - Name: Agents_
+      HashId:
+        Value: 1843270338
+      ParentTypeName: GameSysBaron
+      RequiredTypeNames:
+      - FutzSys.Agent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - Agent
+      RequiredTypeHashes:
+      - Value: 719352216
+      Cycle: 5
+      StageName: __SKIP_STAGE__
+      StageHash:
+        Value: 3369202741
+      WorkerTrigger: 10
+      WorkerMemberType: 2
+      MakerString: MakeRegistryWorker
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+  - Name: OpenAiBaron
+    TypeName: FutzSys.OpenAiBaron, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    HashId:
+      Value: 1945144467
+    WorkerFacts:
+    - Name: Drain_OpenAi
+      HashId:
+        Value: 2073298085
+      ParentTypeName: OpenAiBaron
+      RequiredTypeNames:
+      - FutzSys.MatcherActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - MatcherActivity
+      RequiredTypeHashes:
+      - Value: 194240820
+      Cycle: 2
+      StageName: SYS_PK
+      StageHash:
+        Value: 1398727588
+      WorkerTrigger: 5
+      WorkerMemberType: 1
+      MakerString: MakeRunnWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+  WorkerFacts:
+  - Name: Actors_
+    HashId:
+      Value: 2592463809
+    ParentTypeName: BewilderBaron
+    RequiredTypeNames:
+    - ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - BewilderActor
+    RequiredTypeHashes:
+    - Value: 957412834
+    Cycle: 5
+    StageName: __SKIP_STAGE__
+    StageHash:
+      Value: 3369202741
+    WorkerTrigger: 10
+    WorkerMemberType: 2
+    MakerString: MakeRegistryWorker
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
+  - Name: Added_Actor
+    HashId:
+      Value: 2177280662
+    ParentTypeName: BewilderBaron
+    RequiredTypeNames:
+    - ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - BewilderActor
+    RequiredTypeHashes:
+    - Value: 957412834
+    Cycle: 2
+    StageName: POST_SPAWN
+    StageHash:
+      Value: 687736403
+    WorkerTrigger: 1
+    WorkerMemberType: 1
+    MakerString: MakeAddedWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
+  - Name: Added_Agent
+    HashId:
+      Value: 1124119152
+    ParentTypeName: AgentActorBaron
+    RequiredTypeNames:
+    - FutzSys.Agent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - Agent
+    RequiredTypeHashes:
+    - Value: 719352216
+    Cycle: 1
+    StageName: CUE_SPAWN
+    StageHash:
+      Value: 656897016
+    WorkerTrigger: 1
+    WorkerMemberType: 1
+    MakerString: MakeAddedWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
+  - Name: Agents_
+    HashId:
+      Value: 1843270338
+    ParentTypeName: GameSysBaron
+    RequiredTypeNames:
+    - FutzSys.Agent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - Agent
+    RequiredTypeHashes:
+    - Value: 719352216
+    Cycle: 5
+    StageName: __SKIP_STAGE__
+    StageHash:
+      Value: 3369202741
+    WorkerTrigger: 10
+    WorkerMemberType: 2
+    MakerString: MakeRegistryWorker
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
+  - Name: Cards_
+    HashId:
+      Value: 416063644
+    ParentTypeName: BewilderBaron
+    RequiredTypeNames:
+    - ActBewilder.BewilderCard, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - BewilderCard
+    RequiredTypeHashes:
+    - Value: 2940435843
+    Cycle: 5
+    StageName: __SKIP_STAGE__
+    StageHash:
+      Value: 3369202741
+    WorkerTrigger: 10
+    WorkerMemberType: 2
+    MakerString: MakeRegistryWorker
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
+  - Name: Disabled_Actor
+    HashId:
+      Value: 3843548562
+    ParentTypeName: BewilderBaron
+    RequiredTypeNames:
+    - ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - BewilderActor
+    RequiredTypeHashes:
+    - Value: 957412834
+    Cycle: 5
+    StageName: __SKIP_STAGE__
+    StageHash:
+      Value: 3369202741
+    WorkerTrigger: 4
+    WorkerMemberType: 1
+    MakerString: MakeDisabledWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
+  - Name: Disabled_Agent
+    HashId:
+      Value: 725492632
+    ParentTypeName: AgentActorBaron
+    RequiredTypeNames:
+    - FutzSys.Agent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - Agent
+    RequiredTypeHashes:
+    - Value: 719352216
+    Cycle: 5
+    StageName: __SKIP_STAGE__
+    StageHash:
+      Value: 3369202741
+    WorkerTrigger: 4
+    WorkerMemberType: 1
+    MakerString: MakeDisabledWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
+  - Name: Disabled_Bewilder
+    HashId:
+      Value: 2925183805
+    ParentTypeName: BewilderBaron
+    RequiredTypeNames:
+    - ActBewilder.BewilderActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - BewilderActivity
+    RequiredTypeHashes:
+    - Value: 3697574914
+    Cycle: 5
+    StageName: __SKIP_STAGE__
+    StageHash:
+      Value: 3369202741
+    WorkerTrigger: 4
+    WorkerMemberType: 1
+    MakerString: MakeDisabledWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
+  - Name: Drain_OpenAi
+    HashId:
+      Value: 2073298085
+    ParentTypeName: OpenAiBaron
+    RequiredTypeNames:
+    - FutzSys.MatcherActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - MatcherActivity
+    RequiredTypeHashes:
+    - Value: 194240820
+    Cycle: 2
+    StageName: SYS_PK
+    StageHash:
+      Value: 1398727588
+    WorkerTrigger: 5
+    WorkerMemberType: 1
+    MakerString: MakeRunnWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
+  - Name: Drain_Packets
+    HashId:
+      Value: 1414316612
+    ParentTypeName: BewilderBaron
+    RequiredTypeNames:
+    - ActBewilder.BewilderActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - BewilderActivity
+    RequiredTypeHashes:
+    - Value: 3697574914
+    Cycle: 2
+    StageName: ACTIVITY_PK
+    StageHash:
+      Value: 4204615860
+    WorkerTrigger: 5
+    WorkerMemberType: 1
+    MakerString: MakeRunnWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
+  - Name: Enabled_Bewilder
+    HashId:
+      Value: 3706531480
+    ParentTypeName: BewilderBaron
+    RequiredTypeNames:
+    - ActBewilder.BewilderActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - BewilderActivity
+    RequiredTypeHashes:
+    - Value: 3697574914
+    Cycle: 5
+    StageName: __SKIP_STAGE__
+    StageHash:
+      Value: 3369202741
+    WorkerTrigger: 3
+    WorkerMemberType: 1
+    MakerString: MakeEnabledWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
+  - Name: Init_CoreUi
+    HashId:
+      Value: 1245071990
+    ParentTypeName: CoreUiBaron
+    RequiredTypeNames:
+    - UiSys.CoreUiClip, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - CoreUiClip
+    RequiredTypeHashes:
+    - Value: 492817487
+    Cycle: 2
+    StageName: INIT_CLIP
+    StageHash:
+      Value: 2333133544
+    WorkerTrigger: 1
+    WorkerMemberType: 1
+    MakerString: MakeAddedWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
+  - Name: Init_GameSys
+    HashId:
+      Value: 2521155867
+    ParentTypeName: GameSysBaron
+    RequiredTypeNames:
+    - Foundational.GameSysClip, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - GameSysClip
+    RequiredTypeHashes:
+    - Value: 1581047986
+    Cycle: 2
+    StageName: INIT_CLIP
+    StageHash:
+      Value: 2333133544
+    WorkerTrigger: 1
+    WorkerMemberType: 1
+    MakerString: MakeAddedWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
+  - Name: React_Cancel
+    HashId:
+      Value: 2375503398
+    ParentTypeName: CoreUiBaron
+    RequiredTypeNames:
+    - UiSys.CoreUiClip, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - CoreUiClip
+    RequiredTypeHashes:
+    - Value: 492817487
+    Cycle: 2
+    StageName: INPUT
+    StageHash:
+      Value: 728290803
+    WorkerTrigger: 7
+    WorkerMemberType: 1
+    MakerString: MakeReactWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: Cancel
+    TimedSeconds: 0
+  - Name: React_Console
+    HashId:
+      Value: 1027455787
+    ParentTypeName: CoreUiBaron
+    RequiredTypeNames:
+    - UiSys.CoreUiClip, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - CoreUiClip
+    RequiredTypeHashes:
+    - Value: 492817487
+    Cycle: 2
+    StageName: INPUT
+    StageHash:
+      Value: 728290803
+    WorkerTrigger: 7
+    WorkerMemberType: 1
+    MakerString: MakeReactWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: Console
+    TimedSeconds: 0
+  - Name: React_CurrentActivity
+    HashId:
+      Value: 4213919100
+    ParentTypeName: CoreUiBaron
+    RequiredTypeNames:
+    - Foundational.GameSysClip, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    - FutzSys.ActivityBase, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - GameSysClip
+    - ActivityBase
+    RequiredTypeHashes:
+    - Value: 1581047986
+    - Value: 1374758029
+    Cycle: 2
+    StageName: FRAME
+    StageHash:
+      Value: 725624726
+    WorkerTrigger: 7
+    WorkerMemberType: 1
+    MakerString: MakeReactWorker2
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: CurrentActivity
+    TimedSeconds: 0
+  - Name: React_FKeys
+    HashId:
+      Value: 3958061646
+    ParentTypeName: CoreUiBaron
+    RequiredTypeNames:
+    - UiSys.CoreUiClip, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    - System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+    RequiredTypeNamesShort:
+    - CoreUiClip
+    - Int32
+    RequiredTypeHashes:
+    - Value: 492817487
+    - Value: 218896294
+    Cycle: 2
+    StageName: INPUT
+    StageHash:
+      Value: 728290803
+    WorkerTrigger: 7
+    WorkerMemberType: 1
+    MakerString: MakeReactWorker2
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: FKeys
+    TimedSeconds: 0
+  - Name: React_ForceNextRound
+    HashId:
+      Value: 1132986832
+    ParentTypeName: BewilderBaron
+    RequiredTypeNames:
+    - ActBewilder.BewilderActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - BewilderActivity
+    RequiredTypeHashes:
+    - Value: 3697574914
+    Cycle: 2
+    StageName: UNSURE_WHAT_STAGE
+    StageHash:
+      Value: 557101341
+    WorkerTrigger: 7
+    WorkerMemberType: 1
+    MakerString: MakeReactWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: ForceNextRound
+    TimedSeconds: 0
+  - Name: React_LoadedActivityDef
+    HashId:
+      Value: 242801371
+    ParentTypeName: AgentActorBaron
+    RequiredTypeNames:
+    - Foundational.GameSysClip, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    - System.ValueTuple`2[[FutzSys.ActivityDef, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null],[System.Int32, mscorlib, Version=4.0.0.0,
+      Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0,
+      Culture=neutral, PublicKeyToken=b77a5c561934e089
+    RequiredTypeNamesShort:
+    - GameSysClip
+    - ValueTuple`2
+    RequiredTypeHashes:
+    - Value: 1581047986
+    - Value: 733336653
+    Cycle: 2
+    StageName: UNSURE_WHAT_STAGE
+    StageHash:
+      Value: 557101341
+    WorkerTrigger: 7
+    WorkerMemberType: 1
+    MakerString: MakeReactWorker2
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: ActivityChoice
+    TimedSeconds: 0
+  - Name: React_LoadedActivityDef
+    HashId:
+      Value: 3270699778
+    ParentTypeName: GameSysBaron
+    RequiredTypeNames:
+    - Foundational.GameSysClip, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    - System.ValueTuple`2[[FutzSys.ActivityDef, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null],[System.Int32, mscorlib, Version=4.0.0.0,
+      Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0,
+      Culture=neutral, PublicKeyToken=b77a5c561934e089
+    RequiredTypeNamesShort:
+    - GameSysClip
+    - ValueTuple`2
+    RequiredTypeHashes:
+    - Value: 1581047986
+    - Value: 733336653
+    Cycle: 2
+    StageName: ACTIVITY_CHANGE
+    StageHash:
+      Value: 803164649
+    WorkerTrigger: 7
+    WorkerMemberType: 1
+    MakerString: MakeReactWorker2
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: ActivityChoice
+    TimedSeconds: 0
+  - Name: React_OptionsMenu
+    HashId:
+      Value: 40525041
+    ParentTypeName: CoreUiBaron
+    RequiredTypeNames:
+    - UiSys.CoreUiClip, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - CoreUiClip
+    RequiredTypeHashes:
+    - Value: 492817487
+    Cycle: 2
+    StageName: INPUT
+    StageHash:
+      Value: 728290803
+    WorkerTrigger: 7
+    WorkerMemberType: 1
+    MakerString: MakeReactWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: OptionsMenu
+    TimedSeconds: 0
+  - Name: React_ToggleHud
+    HashId:
+      Value: 911434199
+    ParentTypeName: CoreUiBaron
+    RequiredTypeNames:
+    - UiSys.CoreUiClip, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - CoreUiClip
+    RequiredTypeHashes:
+    - Value: 492817487
+    Cycle: 2
+    StageName: INPUT
+    StageHash:
+      Value: 728290803
+    WorkerTrigger: 7
+    WorkerMemberType: 1
+    MakerString: MakeReactWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: ToggleHud
+    TimedSeconds: 0
+  - Name: Run_AgentKnockRequestPk
+    HashId:
+      Value: 3527478712
+    ParentTypeName: GameSysBaron
+    RequiredTypeNames:
+    - FutzSys.MatcherActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - MatcherActivity
+    RequiredTypeHashes:
+    - Value: 194240820
+    Cycle: 1
+    StageName: CUE_SPAWN
+    StageHash:
+      Value: 656897016
+    WorkerTrigger: 5
+    WorkerMemberType: 1
+    MakerString: MakeRunnWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
+  - Name: Run_Incoming
+    HashId:
+      Value: 2933561193
+    ParentTypeName: GameSysBaron
+    RequiredTypeNames:
+    - FutzSys.FutzHost, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - FutzHost
+    RequiredTypeHashes:
+    - Value: 2733612906
+    Cycle: 2
+    StageName: SOCKET_IN
+    StageHash:
+      Value: 1870064442
+    WorkerTrigger: 5
+    WorkerMemberType: 1
+    MakerString: MakeRunnWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
+  - Name: Run_MatcherPk
+    HashId:
+      Value: 2778879978
+    ParentTypeName: GameSysBaron
+    RequiredTypeNames:
+    - FutzSys.MatcherActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - MatcherActivity
+    RequiredTypeHashes:
+    - Value: 194240820
+    Cycle: 2
+    StageName: SYS_PK
+    StageHash:
+      Value: 1398727588
+    WorkerTrigger: 5
+    WorkerMemberType: 1
+    MakerString: MakeRunnWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
+  - Name: Run_Outgoing
+    HashId:
+      Value: 2902446767
+    ParentTypeName: GameSysBaron
+    RequiredTypeNames:
+    - FutzSys.FutzHost, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - FutzHost
+    RequiredTypeHashes:
+    - Value: 2733612906
+    Cycle: 2
+    StageName: SOCKET_OUT
+    StageHash:
+      Value: 2137428921
+    WorkerTrigger: 5
+    WorkerMemberType: 1
+    MakerString: MakeRunnWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
+  - Name: Run_SysPk
+    HashId:
+      Value: 3056707909
+    ParentTypeName: GameSysBaron
+    RequiredTypeNames:
+    - FutzSys.SystemActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - SystemActivity
+    RequiredTypeHashes:
+    - Value: 2307371307
+    Cycle: 2
+    StageName: SYS_PK
+    StageHash:
+      Value: 1398727588
+    WorkerTrigger: 5
+    WorkerMemberType: 1
+    MakerString: MakeRunnWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
+  CogFacts:
+  - Name: Agent
+    HashId:
+      Value: 719352216
+    SyncerFacts:
+    - Name: Info
+      HashId:
+        Value: 2105302805
+      AuthType: 0
+      CogName: Agent
+      CogHash:
+        Value: 719352216
+    - Name: Status
+      HashId:
+        Value: 558091417
+      AuthType: 0
+      CogName: Agent
+      CogHash:
+        Value: 719352216
+    - Name: Color
+      HashId:
+        Value: 834372060
+      AuthType: 0
+      CogName: Agent
+      CogHash:
+        Value: 719352216
+    - Name: Score
+      HashId:
+        Value: 848793867
+      AuthType: 0
+      CogName: Agent
+      CogHash:
+        Value: 719352216
+  - Name: BewilderActivity
+    HashId:
+      Value: 3697574914
+    SyncerFacts:
+    - Name: Phase
+      HashId:
+        Value: 3362944734
+      AuthType: 0
+      CogName: BewilderActivity
+      CogHash:
+        Value: 3697574914
+    - Name: PhaseTitle
+      HashId:
+        Value: 2320258586
+      AuthType: 0
+      CogName: BewilderActivity
+      CogHash:
+        Value: 3697574914
+    - Name: PhaseDesc
+      HashId:
+        Value: 3399502479
+      AuthType: 0
+      CogName: BewilderActivity
+      CogHash:
+        Value: 3697574914
+    - Name: ForceNextRound
+      HashId:
+        Value: 4032083373
+      AuthType: 0
+      CogName: BewilderActivity
+      CogHash:
+        Value: 3697574914
+    - Name: GuessingActorSlotId
+      HashId:
+        Value: 4033745542
+      AuthType: 0
+      CogName: BewilderActivity
+      CogHash:
+        Value: 3697574914
+    - Name: GuessingClue
+      HashId:
+        Value: 1359290177
+      AuthType: 0
+      CogName: BewilderActivity
+      CogHash:
+        Value: 3697574914
+  - Name: BewilderActor
+    HashId:
+      Value: 957412834
+    SyncerFacts:
+    - Name: Status
+      HashId:
+        Value: 3746414863
+      AuthType: 0
+      CogName: BewilderActor
+      CogHash:
+        Value: 957412834
+    - Name: Clue
+      HashId:
+        Value: 2336373014
+      AuthType: 0
+      CogName: BewilderActor
+      CogHash:
+        Value: 957412834
+  - Name: BewilderCard
+    HashId:
+      Value: 2940435843
+    SyncerFacts:
+    - Name: IsRevealed
+      HashId:
+        Value: 1595936978
+      AuthType: 0
+      CogName: BewilderCard
+      CogHash:
+        Value: 2940435843
+    - Name: Word
+      HashId:
+        Value: 2505142374
+      AuthType: 0
+      CogName: BewilderCard
+      CogHash:
+        Value: 2940435843
+    - Name: IsCorrect
+      HashId:
+        Value: 3370500100
+      AuthType: 0
+      CogName: BewilderCard
+      CogHash:
+        Value: 2940435843
+    - Name: PickedByActorSlotIds
+      HashId:
+        Value: 2335426584
+      AuthType: 0
+      CogName: BewilderCard
+      CogHash:
+        Value: 2940435843
+    - Name: ShowCount
+      HashId:
+        Value: 1065790518
+      AuthType: 0
+      CogName: BewilderCard
+      CogHash:
+        Value: 2940435843
+  - Name: CoreUiClip
+    HashId:
+      Value: 492817487
+    SyncerFacts:
+    - Name: ShowActivitySelect
+      HashId:
+        Value: 1547588440
+      AuthType: 0
+      CogName: CoreUiClip
+      CogHash:
+        Value: 492817487
+    - Name: ShowAgentList
+      HashId:
+        Value: 3553380022
+      AuthType: 0
+      CogName: CoreUiClip
+      CogHash:
+        Value: 492817487
+    - Name: ShowScore
+      HashId:
+        Value: 271833477
+      AuthType: 0
+      CogName: CoreUiClip
+      CogHash:
+        Value: 492817487
+    - Name: OptionsMenu
+      HashId:
+        Value: 880633101
+      AuthType: 0
+      CogName: CoreUiClip
+      CogHash:
+        Value: 492817487
+    - Name: ToggleHud
+      HashId:
+        Value: 3129065715
+      AuthType: 0
+      CogName: CoreUiClip
+      CogHash:
+        Value: 492817487
+    - Name: Cancel
+      HashId:
+        Value: 2169414794
+      AuthType: 0
+      CogName: CoreUiClip
+      CogHash:
+        Value: 492817487
+    - Name: Console
+      HashId:
+        Value: 3228643655
+      AuthType: 0
+      CogName: CoreUiClip
+      CogHash:
+        Value: 492817487
+    - Name: FKeys
+      HashId:
+        Value: 3397224298
+      AuthType: 0
+      CogName: CoreUiClip
+      CogHash:
+        Value: 492817487
+  - Name: FutzHost
+    HashId:
+      Value: 2733612906
+    SyncerFacts: []
+  - Name: GameSysClip
+    HashId:
+      Value: 1581047986
+    SyncerFacts:
+    - Name: RoomIdf
+      HashId:
+        Value: 2633595171
+      AuthType: 0
+      CogName: GameSysClip
+      CogHash:
+        Value: 1581047986
+    - Name: Status
+      HashId:
+        Value: 3720023103
+      AuthType: 0
+      CogName: GameSysClip
+      CogHash:
+        Value: 1581047986
+    - Name: ActivityChoice
+      HashId:
+        Value: 3448771805
+      AuthType: 0
+      CogName: GameSysClip
+      CogHash:
+        Value: 1581047986
+    - Name: CurrentActivity
+      HashId:
+        Value: 3152729595
+      AuthType: 0
+      CogName: GameSysClip
+      CogHash:
+        Value: 1581047986
+  - Name: GluScreen
+    HashId:
+      Value: 2217600798
+    SyncerFacts: []
+  - Name: GluStack
+    HashId:
+      Value: 2150235542
+    SyncerFacts:
+    - Name: CheckVisibleScreens
+      HashId:
+        Value: 3165511572
+      AuthType: 0
+      CogName: GluStack
+      CogHash:
+        Value: 2150235542
+  - Name: MatcherActivity
+    HashId:
+      Value: 194240820
+    SyncerFacts: []
+  - Name: MatcherActor
+    HashId:
+      Value: 2189948400
+    SyncerFacts: []
+  - Name: OpenAiClip
+    HashId:
+      Value: 3110827983
+    SyncerFacts: []
+  - Name: SystemActivity
+    HashId:
+      Value: 2307371307
+    SyncerFacts: []
+  - Name: SystemActor
+    HashId:
+      Value: 1615069529
+    SyncerFacts: []
+  - Name: W_ActivitySelect
+    HashId:
+      Value: 3491268767
+    SyncerFacts: []
+  - Name: W_AgentList
+    HashId:
+      Value: 3021578511
+    SyncerFacts: []
+  - Name: W_CardGrid
+    HashId:
+      Value: 3069524727
+    SyncerFacts: []
+  - Name: W_RoomInfo
+    HashId:
+      Value: 809993949
+    SyncerFacts: []
+  - Name: W_Watermark
+    HashId:
+      Value: 214477872
+    SyncerFacts: []
+  SyncerFacts:
+  - Name: ActivityChoice
+    HashId:
+      Value: 3448771805
+    AuthType: 0
+    CogName: GameSysClip
+    CogHash:
+      Value: 1581047986
+  - Name: Cancel
+    HashId:
+      Value: 2169414794
+    AuthType: 0
+    CogName: CoreUiClip
+    CogHash:
+      Value: 492817487
+  - Name: CheckVisibleScreens
+    HashId:
+      Value: 3165511572
+    AuthType: 0
+    CogName: GluStack
+    CogHash:
+      Value: 2150235542
+  - Name: Clue
+    HashId:
+      Value: 2336373014
+    AuthType: 0
+    CogName: BewilderActor
+    CogHash:
+      Value: 957412834
+  - Name: Color
+    HashId:
+      Value: 834372060
+    AuthType: 0
+    CogName: Agent
+    CogHash:
+      Value: 719352216
+  - Name: Console
+    HashId:
+      Value: 3228643655
+    AuthType: 0
+    CogName: CoreUiClip
+    CogHash:
+      Value: 492817487
+  - Name: CurrentActivity
+    HashId:
+      Value: 3152729595
+    AuthType: 0
+    CogName: GameSysClip
+    CogHash:
+      Value: 1581047986
+  - Name: FKeys
+    HashId:
+      Value: 3397224298
+    AuthType: 0
+    CogName: CoreUiClip
+    CogHash:
+      Value: 492817487
+  - Name: ForceNextRound
+    HashId:
+      Value: 4032083373
+    AuthType: 0
+    CogName: BewilderActivity
+    CogHash:
+      Value: 3697574914
+  - Name: GuessingActorSlotId
+    HashId:
+      Value: 4033745542
+    AuthType: 0
+    CogName: BewilderActivity
+    CogHash:
+      Value: 3697574914
+  - Name: GuessingClue
+    HashId:
+      Value: 1359290177
+    AuthType: 0
+    CogName: BewilderActivity
+    CogHash:
+      Value: 3697574914
+  - Name: Info
+    HashId:
+      Value: 2105302805
+    AuthType: 0
+    CogName: Agent
+    CogHash:
+      Value: 719352216
+  - Name: IsCorrect
+    HashId:
+      Value: 3370500100
+    AuthType: 0
+    CogName: BewilderCard
+    CogHash:
+      Value: 2940435843
+  - Name: IsRevealed
+    HashId:
+      Value: 1595936978
+    AuthType: 0
+    CogName: BewilderCard
+    CogHash:
+      Value: 2940435843
+  - Name: OptionsMenu
+    HashId:
+      Value: 880633101
+    AuthType: 0
+    CogName: CoreUiClip
+    CogHash:
+      Value: 492817487
+  - Name: Phase
+    HashId:
+      Value: 3362944734
+    AuthType: 0
+    CogName: BewilderActivity
+    CogHash:
+      Value: 3697574914
+  - Name: PhaseDesc
+    HashId:
+      Value: 3399502479
+    AuthType: 0
+    CogName: BewilderActivity
+    CogHash:
+      Value: 3697574914
+  - Name: PhaseTitle
+    HashId:
+      Value: 2320258586
+    AuthType: 0
+    CogName: BewilderActivity
+    CogHash:
+      Value: 3697574914
+  - Name: PickedByActorSlotIds
+    HashId:
+      Value: 2335426584
+    AuthType: 0
+    CogName: BewilderCard
+    CogHash:
+      Value: 2940435843
+  - Name: RoomIdf
+    HashId:
+      Value: 2633595171
+    AuthType: 0
+    CogName: GameSysClip
+    CogHash:
+      Value: 1581047986
+  - Name: Score
+    HashId:
+      Value: 848793867
+    AuthType: 0
+    CogName: Agent
+    CogHash:
+      Value: 719352216
+  - Name: ShowActivitySelect
+    HashId:
+      Value: 1547588440
+    AuthType: 0
+    CogName: CoreUiClip
+    CogHash:
+      Value: 492817487
+  - Name: ShowAgentList
+    HashId:
+      Value: 3553380022
+    AuthType: 0
+    CogName: CoreUiClip
+    CogHash:
+      Value: 492817487
+  - Name: ShowCount
+    HashId:
+      Value: 1065790518
+    AuthType: 0
+    CogName: BewilderCard
+    CogHash:
+      Value: 2940435843
+  - Name: ShowScore
+    HashId:
+      Value: 271833477
+    AuthType: 0
+    CogName: CoreUiClip
+    CogHash:
+      Value: 492817487
+  - Name: Status
+    HashId:
+      Value: 558091417
+    AuthType: 0
+    CogName: Agent
+    CogHash:
+      Value: 719352216
+  - Name: Status
+    HashId:
+      Value: 3746414863
+    AuthType: 0
+    CogName: BewilderActor
+    CogHash:
+      Value: 957412834
+  - Name: Status
+    HashId:
+      Value: 3720023103
+    AuthType: 0
+    CogName: GameSysClip
+    CogHash:
+      Value: 1581047986
+  - Name: ToggleHud
+    HashId:
+      Value: 3129065715
+    AuthType: 0
+    CogName: CoreUiClip
+    CogHash:
+      Value: 492817487
+  - Name: Word
+    HashId:
+      Value: 2505142374
+    AuthType: 0
+    CogName: BewilderCard
+    CogHash:
+      Value: 2940435843
+  SpawnStages:
+  - Name: CUE_SPAWN
+    Cycle: 1
+    HashId:
+      Value: 656897016
+  UpdateStages:
+  - Name: INIT_CLIP
+    Cycle: 2
+    HashId:
+      Value: 2333133544
+  - Name: TIME_TICK
+    Cycle: 2
+    HashId:
+      Value: 2627967384
+  - Name: TIME_EVT
+    Cycle: 2
+    HashId:
+      Value: 84759144
+  - Name: VERIFICATION
+    Cycle: 2
+    HashId:
+      Value: 2674545586
+  - Name: POST_SPAWN
+    Cycle: 2
+    HashId:
+      Value: 687736403
+  - Name: PROPAGATION
+    Cycle: 2
+    HashId:
+      Value: 2596838709
+  - Name: SOCKET_OUT
+    Cycle: 2
+    HashId:
+      Value: 2137428921
+  - Name: SOCKET_IN
+    Cycle: 2
+    HashId:
+      Value: 1870064442
+  - Name: SYS_PK
+    Cycle: 2
+    HashId:
+      Value: 1398727588
+  - Name: POLL_INPUT
+    Cycle: 2
+    HashId:
+      Value: 2853590657
+  - Name: INPUT
+    Cycle: 2
+    HashId:
+      Value: 728290803
+  - Name: ACTIVITY_CHANGE
+    Cycle: 2
+    HashId:
+      Value: 803164649
+  - Name: ACTIVITY_PK
+    Cycle: 2
+    HashId:
+      Value: 4204615860
+  - Name: UNSURE_WHAT_STAGE
+    Cycle: 2
+    HashId:
+      Value: 557101341
+  - Name: PRE_FRAME_1
+    Cycle: 2
+    HashId:
+      Value: 26157964
+  - Name: PRE_FRAME_2
+    Cycle: 2
+    HashId:
+      Value: 26157965
+  - Name: FRAME
+    Cycle: 2
+    HashId:
+      Value: 725624726
+  - Name: POST_FRAME_1
+    Cycle: 2
+    HashId:
+      Value: 894028471
+  - Name: POST_FRAME_2
+    Cycle: 2
+    HashId:
+      Value: 894028472
+  - Name: TEMP_1
+    Cycle: 2
+    HashId:
+      Value: 1408693597
+  - Name: TEMP_2
+    Cycle: 2
+    HashId:
+      Value: 1408693598
+  - Name: TEMP_3
+    Cycle: 2
+    HashId:
+      Value: 1408693599
+  - Name: TEMP_4
+    Cycle: 2
+    HashId:
+      Value: 1408693600
+  - Name: TEMP_5
+    Cycle: 2
+    HashId:
+      Value: 1408693601
+  LateStages:
+  - Name: PRE_CAMERA
+    Cycle: 3
+    HashId:
+      Value: 1285079992
+  - Name: CAMERA
+    Cycle: 3
+    HashId:
+      Value: 918292988
+  - Name: MOVE_ATTACH
+    Cycle: 3
+    HashId:
+      Value: 3225012732
+  - Name: WEASELS
+    Cycle: 3
+    HashId:
+      Value: 3371322645
+  - Name: LATE_UNSURE
+    Cycle: 3
+    HashId:
+      Value: 3365159280
+  - Name: PRE_UI
+    Cycle: 3
+    HashId:
+      Value: 1305958567
+  - Name: WORLD_UI
+    Cycle: 3
+    HashId:
+      Value: 2197108632
+  - Name: UI_STACK
+    Cycle: 3
+    HashId:
+      Value: 2355491348
+  - Name: UI_WINDOW
+    Cycle: 3
+    HashId:
+      Value: 110534084
+  - Name: UI_REFRESH
+    Cycle: 3
+    HashId:
+      Value: 3162508135
+  - Name: UI_UNSURE_STAGE
+    Cycle: 3
+    HashId:
+      Value: 2382990433
+  - Name: UI_CLICK
+    Cycle: 3
+    HashId:
+      Value: 2340484372
+  - Name: LAST
+    Cycle: 3
+    HashId:
+      Value: 23570221
+  - Name: CUE_DESPAWN
+    Cycle: 3
+    HashId:
+      Value: 3486638295
+  - Name: POST_DESPAWN
+    Cycle: 3
+    HashId:
+      Value: 3058518130
+  FixedStages:
+  - Name: PRE_PHYSICS
+    Cycle: 4
+    HashId:
+      Value: 47314932
+  - Name: PHYSICS_1
+    Cycle: 4
+    HashId:
+      Value: 1965144546
+  - Name: PHYSICS_2
+    Cycle: 4
+    HashId:
+      Value: 1965144547
+  - Name: PHYSICS_3
+    Cycle: 4
+    HashId:
+      Value: 1965144548
+  - Name: PHYSICS_4
+    Cycle: 4
+    HashId:
+      Value: 1965144549
+  - Name: PHYSICS_5
+    Cycle: 4
+    HashId:
+      Value: 1965144550
+  - Name: POST_PHYSICS
+    Cycle: 4
+    HashId:
+      Value: 915185439
+  CustomStages:
+  - Name: __SKIP_STAGE__
+    Cycle: 5
+    HashId:
+      Value: 3369202741
+  AllStages:
+  - Name: CUE_SPAWN
+    Cycle: 1
+    HashId:
+      Value: 656897016
+  - Name: INIT_CLIP
+    Cycle: 2
+    HashId:
+      Value: 2333133544
+  - Name: TIME_TICK
+    Cycle: 2
+    HashId:
+      Value: 2627967384
+  - Name: TIME_EVT
+    Cycle: 2
+    HashId:
+      Value: 84759144
+  - Name: VERIFICATION
+    Cycle: 2
+    HashId:
+      Value: 2674545586
+  - Name: POST_SPAWN
+    Cycle: 2
+    HashId:
+      Value: 687736403
+  - Name: PROPAGATION
+    Cycle: 2
+    HashId:
+      Value: 2596838709
+  - Name: SOCKET_OUT
+    Cycle: 2
+    HashId:
+      Value: 2137428921
+  - Name: SOCKET_IN
+    Cycle: 2
+    HashId:
+      Value: 1870064442
+  - Name: SYS_PK
+    Cycle: 2
+    HashId:
+      Value: 1398727588
+  - Name: POLL_INPUT
+    Cycle: 2
+    HashId:
+      Value: 2853590657
+  - Name: INPUT
+    Cycle: 2
+    HashId:
+      Value: 728290803
+  - Name: ACTIVITY_CHANGE
+    Cycle: 2
+    HashId:
+      Value: 803164649
+  - Name: ACTIVITY_PK
+    Cycle: 2
+    HashId:
+      Value: 4204615860
+  - Name: UNSURE_WHAT_STAGE
+    Cycle: 2
+    HashId:
+      Value: 557101341
+  - Name: PRE_FRAME_1
+    Cycle: 2
+    HashId:
+      Value: 26157964
+  - Name: PRE_FRAME_2
+    Cycle: 2
+    HashId:
+      Value: 26157965
+  - Name: FRAME
+    Cycle: 2
+    HashId:
+      Value: 725624726
+  - Name: POST_FRAME_1
+    Cycle: 2
+    HashId:
+      Value: 894028471
+  - Name: POST_FRAME_2
+    Cycle: 2
+    HashId:
+      Value: 894028472
+  - Name: TEMP_1
+    Cycle: 2
+    HashId:
+      Value: 1408693597
+  - Name: TEMP_2
+    Cycle: 2
+    HashId:
+      Value: 1408693598
+  - Name: TEMP_3
+    Cycle: 2
+    HashId:
+      Value: 1408693599
+  - Name: TEMP_4
+    Cycle: 2
+    HashId:
+      Value: 1408693600
+  - Name: TEMP_5
+    Cycle: 2
+    HashId:
+      Value: 1408693601
+  - Name: PRE_CAMERA
+    Cycle: 3
+    HashId:
+      Value: 1285079992
+  - Name: CAMERA
+    Cycle: 3
+    HashId:
+      Value: 918292988
+  - Name: MOVE_ATTACH
+    Cycle: 3
+    HashId:
+      Value: 3225012732
+  - Name: WEASELS
+    Cycle: 3
+    HashId:
+      Value: 3371322645
+  - Name: LATE_UNSURE
+    Cycle: 3
+    HashId:
+      Value: 3365159280
+  - Name: PRE_UI
+    Cycle: 3
+    HashId:
+      Value: 1305958567
+  - Name: WORLD_UI
+    Cycle: 3
+    HashId:
+      Value: 2197108632
+  - Name: UI_STACK
+    Cycle: 3
+    HashId:
+      Value: 2355491348
+  - Name: UI_WINDOW
+    Cycle: 3
+    HashId:
+      Value: 110534084
+  - Name: UI_REFRESH
+    Cycle: 3
+    HashId:
+      Value: 3162508135
+  - Name: UI_UNSURE_STAGE
+    Cycle: 3
+    HashId:
+      Value: 2382990433
+  - Name: UI_CLICK
+    Cycle: 3
+    HashId:
+      Value: 2340484372
+  - Name: LAST
+    Cycle: 3
+    HashId:
+      Value: 23570221
+  - Name: CUE_DESPAWN
+    Cycle: 3
+    HashId:
+      Value: 3486638295
+  - Name: POST_DESPAWN
+    Cycle: 3
+    HashId:
+      Value: 3058518130
+  - Name: PRE_PHYSICS
+    Cycle: 4
+    HashId:
+      Value: 47314932
+  - Name: PHYSICS_1
+    Cycle: 4
+    HashId:
+      Value: 1965144546
+  - Name: PHYSICS_2
+    Cycle: 4
+    HashId:
+      Value: 1965144547
+  - Name: PHYSICS_3
+    Cycle: 4
+    HashId:
+      Value: 1965144548
+  - Name: PHYSICS_4
+    Cycle: 4
+    HashId:
+      Value: 1965144549
+  - Name: PHYSICS_5
+    Cycle: 4
+    HashId:
+      Value: 1965144550
+  - Name: POST_PHYSICS
+    Cycle: 4
+    HashId:
+      Value: 915185439
+  - Name: __SKIP_STAGE__
+    Cycle: 5
+    HashId:
+      Value: 3369202741
