@@ -5,14 +5,13 @@ var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cook
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BewilderActorList = void 0;
-var Registry_1 = require("../../util/Registry");
 var _array_1 = require("../../util/buckle/$array");
 var _tyle_1 = require("../../util/$tyle");
 var preact_1 = require("preact");
 var Track_1 = require("../../util/Track");
 function BewilderActorList(props) {
     var act = props.act;
-    var actors = (0, Registry_1.useRegistry)(act.Actors);
+    var actors = (0, Track_1.useTrackList)(act.Actors);
     return ((0, preact_1.h)(W_ActorList, null, (0, _array_1.$map)(actors, function (actor) { return ((0, preact_1.h)(ActorRow, { key: actor.EntityId, actor: actor })); })));
 }
 exports.BewilderActorList = BewilderActorList;

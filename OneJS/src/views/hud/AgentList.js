@@ -6,14 +6,13 @@ var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cook
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AgentRow = exports.AgentList = void 0;
 var preact_1 = require("preact");
-var Registry_1 = require("../../util/Registry");
 var _array_1 = require("../../util/buckle/$array");
 var Track_1 = require("../../util/Track");
 var clips_1 = require("../../clips");
 var _tyle_1 = require("../../util/$tyle");
 var styled_1 = require("onejs/styled");
 function AgentList() {
-    var agents = (0, Registry_1.useRegistry)(clips_1.GameSys_.Agents);
+    var agents = (0, Track_1.useTrackList)(clips_1.GameSys_.Agents);
     var showScore = (0, Track_1.useTrackToggle)(clips_1.CoreUi_.ShowScore)[0];
     return ((0, preact_1.h)(W_AgentList, { showScore: showScore },
         (0, preact_1.h)(L_Title, { text: 'Players' }),

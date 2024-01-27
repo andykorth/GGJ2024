@@ -9,7 +9,6 @@ var Track_1 = require("../../util/Track");
 var preact_1 = require("preact");
 var _tyle_1 = require("../../util/$tyle");
 var styled_1 = require("onejs/styled");
-var Registry_1 = require("../../util/Registry");
 var _array_1 = require("../../util/buckle/$array");
 function BewilderCard(props) {
     var card = props.card;
@@ -31,13 +30,13 @@ var L_Word = (0, _tyle_1.$label)('word')(templateObject_5 || (templateObject_5 =
 function CardPickedList(props) {
     var card = props.card;
     var act = props.act;
-    var actorLup = (0, Registry_1.useRegistryLup)(act.Actors, 'SlotId');
+    var actors = (0, Track_1.useTrackList)(act.Actors);
     var slotIds = (0, Track_1.useTrack)(card.PickedByActorSlotIds);
     var showCount = (0, Track_1.useTrack)(card.ShowCount);
     var showActors = [];
     for (var i = 0; i < showCount; i++) {
         var slotId = slotIds[i];
-        var actor = actorLup[slotId];
+        var actor = actors[slotId];
         showActors.push(actor);
     }
     return ((0, preact_1.h)(_tyle_1.Row, null, (0, _array_1.$map)(showActors, function (actor, i) { return ((0, preact_1.h)(ActorPick, { key: actor.EntityId, actor: actor })); })));

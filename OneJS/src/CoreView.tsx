@@ -24,6 +24,7 @@ const CoreDiv = $div('CoreDiv')`
   height: 100%;
 `;
 
+
 function ActivityView() {
 	const activity = useTrack(GameSys_.CurrentActivity);
 	if (!activity) return <div/>; //>> no activity loaded

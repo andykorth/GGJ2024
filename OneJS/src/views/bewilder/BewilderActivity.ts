@@ -1,10 +1,10 @@
-import {Registry} from '../../util/Registry';
+// import {Registry} from '../../util/Registry';
 import {Track, TrackEvt, TrackList} from '../../util/Track';
 import {T_Actor} from '../../types/foundational';
 
 export interface T_BewilderActivity {
-	Actors: Registry<T_BewilderActor>;
-	Cards: Registry<T_BewilderCard>;
+	Actors: TrackList<T_BewilderActor>;
+	Cards: TrackList<T_BewilderCard>;
 	
 	Phase: Track<E_BewilderPhaseEnum>;
 	PhaseTitle: Track<string>;

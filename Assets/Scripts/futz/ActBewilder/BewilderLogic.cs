@@ -161,7 +161,7 @@ public static class BewilderLogic
 
 		await __WAIT__(fig.RevealStartMs);
 
-		foreach (var card in act.Cards.Value) {
+		foreach (var card in act.Cards.Current) {
 			card.Word.Change(currentWords[card.CardId]);
 			card.IsCorrect.Change(false);
 			card.PickedByActorSlotIds.Clear();
@@ -174,7 +174,7 @@ public static class BewilderLogic
 
 		Log($"  NEW ROUND:      <b>{act.CurrentWordsString}</b>".LgOrange(skipPrefix: true));
 
-		foreach (var actor in act.Actors.Value) {
+		foreach (var actor in act.Actors.Current) {
 			AssignCards(act, actor);
 		}
 	}
@@ -185,7 +185,7 @@ public static class BewilderLogic
 		actor.AssignedCards.GrabBag(
 			act.CardBag,
 			fig.NumOfLocked,
-			act.Cards.Value,
+			act.Cards.Current,
 			true
 		);
 
@@ -208,7 +208,7 @@ public static class BewilderLogic
 	static void CheckClueCount(Act act)
 	{
 		var allSubmitted =
-			act.Actors.Value.All(static a => a.Status.Current != Status.WRITING_CLUE);
+			act.Actors.Current.All(static a => a.Status.Current != Status.WRITING_CLUE);
 
 		if (allSubmitted) {
 			BeginGuessing(act).Forget();
@@ -223,7 +223,7 @@ public static class BewilderLogic
 		SetStatusAll(act, "", Status.READY);
 		act.PkWaiting.SendToAllAgents(new Pk_Waiting { Msg = fig.StrLoading });
 
-		var actors = act.Actors.Value;
+		var actors = act.Actors.Current;
 
 		act.PendingActorTurn
 		   ._Clear()
@@ -235,7 +235,7 @@ public static class BewilderLogic
 	static void CheckGuessCount(Act act)
 	{
 		var allSubmitted =
-			act.Actors.Value.All(static a => a.Status.Current != Status.GUESSING);
+			act.Actors.Current.All(static a => a.Status.Current != Status.GUESSING);
 
 		if (allSubmitted) {
 			ShowGuessResult(act).Forget();
@@ -259,7 +259,7 @@ public static class BewilderLogic
 			return; //>> actor missing clue
 		}
 
-		foreach (var card in act.Cards.Value) {
+		foreach (var card in act.Cards.Current) {
 			card.IsCorrect.Change(false);
 			card.PickedByActorSlotIds.Clear();
 			card.ShowCount.Change(0);
@@ -272,7 +272,7 @@ public static class BewilderLogic
 			Words = act.CurrentWordsString,
 		};
 
-		foreach (var actor in act.Actors.Value) {
+		foreach (var actor in act.Actors.Current) {
 			actor.GuessedCardIds.Clear();
 
 			if (actor == activeActor) {
@@ -297,9 +297,9 @@ public static class BewilderLogic
 	static async UniTask ShowGuessResult(Act act)
 	{
 		var fig = act.Fig;
-		var actors = act.Actors.Value;
+		var actors = act.Actors.Current;
 		var activeActor = act.ActiveActorTurn;
-		var cards = act.Cards.Value;
+		var cards = act.Cards.Current;
 		var scoring = fig.Scoring;
 		var hitsGoal = fig.ChoiceMax + fig.NumOfLocked;
 		var perfectsGoal = actors.Count;
@@ -391,7 +391,7 @@ public static class BewilderLogic
 		SetStatusAll(act, "");
 		act.PkWaiting.SendToAllAgents(new Pk_Waiting { Msg = fig.StrLoading });
 
-		var cards = act.Cards.Value;
+		var cards = act.Cards.Current;
 
 		for (var i = cards.Count - 1; i >= 0; i--) {
 			cards[i].IsRevealed.Change(false);
@@ -449,13 +449,13 @@ public static class BewilderLogic
 	static void SetStatusAll(Act act, string agentStatus, Status actorStatus = Status.UNSET)
 	{
 		if (actorStatus != Status.UNSET) {
-			foreach (var actor in act.Actors.Value) {
+			foreach (var actor in act.Actors.Current) {
 				actor.Agent.Status.Change(agentStatus);
 				actor.Status.Change(actorStatus);
 			}
 		}
 		else {
-			foreach (var actor in act.Actors.Value) {
+			foreach (var actor in act.Actors.Current) {
 				actor.Agent.Status.Change(agentStatus);
 			}
 		}

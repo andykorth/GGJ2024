@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Lumberjack;
 using Regent.Cogs;
 using Regent.Core;
+using Regent.Syncers;
 using Swoonity.Collections;
 using Swoonity.CSharp;
 using Swoonity.Unity;
@@ -35,8 +36,8 @@ public abstract class ActivityBase : CogNative
 			Flows[packetFact.PacketId] = flow;
 		}
 
-		InitCustomSerialization();
-		InitRegistry();
+		// InitCustomSerialization();
+		// InitRegistry();
 	}
 
 	public void Receive(int packetId, Agent agent, MsgBuffer msgBuffer, int dataIndex)
@@ -50,8 +51,8 @@ public abstract class ActivityBase : CogNative
 		flow.Receive(agent, msgBuffer, dataIndex);
 	}
 
-	public virtual void InitCustomSerialization() { }
-	public virtual void InitRegistry() { }
+	// public virtual void InitCustomSerialization() { }
+	// public virtual void InitRegistry() { }
 
 	protected override void WhenDestroyed()
 	{
@@ -67,17 +68,18 @@ public abstract class ActivityBase : CogNative
 public abstract class Activity<TActor> : ActivityBase
 	where TActor : ActorBase
 {
-	public override void InitRegistry()
-	{
-		Actors = GetRegistry(); // TEMP
-	}
+	// public override void InitRegistry()
+	// {
+	// 	Actors = GetRegistry(); // TEMP
+	// }
 
 
 
-	[Btn(nameof(PrintActors))]
-	public Registry<TActor> Actors;
-	public abstract Registry<TActor> GetRegistry();
-	public void PrintActors() => Log($"{Actors.Count} actors: {Actors.GetDict().Join()}".LgRed());
+    [Btn(nameof(PrintActors))]
+    // public Registry<TActor> Actors;
+    public TrackList<TActor> Actors = new();
+	// public abstract Registry<TActor> GetRegistry();
+	public void PrintActors() => Log($"{Actors.Count} actors: {Actors.Current.Join()}".LgRed());
 
 
 	// ReSharper disable once InconsistentNaming

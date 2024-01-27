@@ -9,7 +9,7 @@ public class MatcherActivity : Activity<MatcherActor>
 	public const int PING_ID = 254;
 	public const int PONG_ID = 255;
 
-	public override Registry<MatcherActor> GetRegistry() => null;
+	// public override Registry<MatcherActor> GetRegistry() => null;
 	
 	//## PACKETS	
 	public PkFlow<Pk_AgentKnockRequest> AgentKnockRequest = new(); //## Relay -> Host

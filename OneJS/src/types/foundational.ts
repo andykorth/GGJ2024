@@ -1,7 +1,8 @@
 import {Track, TrackChoice, TrackEvt, TrackList, TrackToggle} from '../util/Track';
 import {uList} from '../util/buckle/UnityTypeHelpers';
 import {Color} from 'UnityEngine';
-import {Registry} from '../util/Registry';
+// import {Registry} from '../util/Registry';
+import {List} from 'System/Collections/Generic';
 
 // TODO: convert to interface types?
 
@@ -12,7 +13,7 @@ export class GameSysClip {
 	RoomIdf: Track<string>;
 	Status: Track<string>;
 	ActivityChoice: TrackChoice<ActivityDef>;
-	Agents: Registry<Agent>;
+	Agents: TrackList<Agent>;
 	CurrentActivity: Track<any>;
 	// MatcherActivity: MatcherActivity
 	// SystemActivity: SystemActivity

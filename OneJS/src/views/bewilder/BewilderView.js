@@ -6,7 +6,6 @@ var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cook
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BewilderView = void 0;
 var preact_1 = require("preact");
-var Registry_1 = require("../../util/Registry");
 var Track_1 = require("../../util/Track");
 var _array_1 = require("../../util/buckle/$array");
 var _tyle_1 = require("../../util/$tyle");
@@ -21,7 +20,7 @@ function BewilderView(props) {
         (0, preact_1.h)(CardGrid, { act: act })));
 }
 exports.BewilderView = BewilderView;
-var W_Bewilder = (0, _tyle_1.$div)('Bewilder')(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  flex-direction: row;\n  width: 100%;\n  height: 100%;\n"], ["\n  flex-direction: row;\n  width: 100%;\n  height: 100%;\n"])));
+var W_Bewilder = (0, _tyle_1.$div)('Bewilder')(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  flex-direction: row;\n  width: 100%;\n  height: 40%;\n"], ["\n  flex-direction: row;\n  width: 100%;\n  height: 40%;\n"])));
 function InfoPanel(props) {
     var act = props.act;
     var phaseTitle = (0, Track_1.useTrack)(act.PhaseTitle);
@@ -33,17 +32,17 @@ function InfoPanel(props) {
         (0, preact_1.h)(BewilderActorList_1.BewilderActorList, { act: act })));
 }
 var W_InfoPanel = (0, _tyle_1.$div)('W_InfoPanel')(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  width: 30%;\n  background-color: #c1efbb;\n  padding: 8px;\n"], ["\n  width: 30%;\n  background-color: #c1efbb;\n  padding: 8px;\n"])));
-var L_PhaseTitle = (0, _tyle_1.$label)('L_PhaseTitle')(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  font-size: 48px;\n  white-space: normal;\n  -unity-text-align: middle-center;\n"], ["\n  font-size: 48px;\n  white-space: normal;\n  -unity-text-align: middle-center;\n"])));
+var L_PhaseTitle = (0, _tyle_1.$label)('L_PhaseTitle')(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  font-size: 24px;\n  white-space: normal;\n  -unity-text-align: middle-center;\n"], ["\n  font-size: 24px;\n  white-space: normal;\n  -unity-text-align: middle-center;\n"])));
 var L_PhaseDesc = (0, _tyle_1.$label)('L_PhaseDesc')(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  font-size: 28px;\n  white-space: normal;\n  margin: 0 16px;\n"], ["\n  font-size: 28px;\n  white-space: normal;\n  margin: 0 16px;\n"])));
 function CardGrid(props) {
     var act = props.act;
-    var cards = (0, Registry_1.useRegistry)(act.Cards);
+    var cards = (0, Track_1.useTrackList)(act.Cards);
     return ((0, preact_1.h)(W_CardGrid, null, (0, _array_1.$map)(cards, function (card) { return ((0, preact_1.h)(BewilderCard_1.BewilderCard, { key: card.EntityId, card: card, act: act })); })));
 }
 var W_CardGrid = (0, _tyle_1.$div)('grid')(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  flex: 1 1 auto;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: #cbc9a1;\n"], ["\n  flex: 1 1 auto;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: #cbc9a1;\n"])));
 function Clues(props) {
     var act = props.act;
-    var actors = (0, Registry_1.useRegistry)(act.Actors);
+    var actors = (0, Track_1.useTrackList)(act.Actors);
     var evtForceNextRound = (0, Track_1.useTrackEvt)(act.ForceNextRound);
     return ((0, preact_1.h)(W_Clues, null,
         (0, preact_1.h)(_tyle_1.Col, null, (0, _array_1.$map)(actors, function (actor) { return ((0, preact_1.h)(ActorClue, { key: actor.EntityId, actor: actor })); })),

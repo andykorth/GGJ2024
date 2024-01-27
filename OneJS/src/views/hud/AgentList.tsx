@@ -1,8 +1,8 @@
 import {h} from 'preact';
 import {Agent} from '../../types/foundational';
-import {useRegistry} from '../../util/Registry';
+// import {useRegistry} from '../../util/Registry';
 import {$map} from '../../util/buckle/$array';
-import {useTrack, useTrackToggle} from '../../util/Track';
+import {useTrack, useTrackList, useTrackToggle} from '../../util/Track';
 import {lg} from '../../util/lg';
 import {CoreUi_, GameSys_} from '../../clips';
 import {$div, $label, Col} from '../../util/$tyle';
@@ -10,7 +10,7 @@ import {uss} from 'onejs/styled';
 
 
 export function AgentList() {
-	const agents = useRegistry(GameSys_.Agents);
+	const agents = useTrackList(GameSys_.Agents);
 	const [showScore] = useTrackToggle(CoreUi_.ShowScore);
 	
 	// lg(`${gameSys.Agents.Count} agents, (reg id: ${gameSys.Agents.Id})`, this);

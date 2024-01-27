@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using FutzSys;
 using Regent.Clips;
 using Regent.Core;
@@ -22,13 +23,14 @@ public class GameSysClip : ClipNative
 	public MatcherActivity MatcherActivity;
 	public SystemActivity SystemActivity;
 	public TrackChoice<ActivityDef> ActivityChoice = new();
-	public Registry<Agent> Agents;
+	// public Registry<Agent> Agents;
+    public List<Agent> Agents = new();
 	public Track<ActivityBase> CurrentActivity = new(); // TODO: combine with host?
 
 	protected override void WhenAwake()
 	{
 		GlobalMiscSystemInitializers.Initialize(this);
-		Agents = GameSysBaron.Agents_; // TEMP
+		// Agents = GameSysBaron.Agents_; // TEMP
 	}
 }
 }

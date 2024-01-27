@@ -103,6 +103,102 @@ MonoBehaviour:
     HashId:
       Value: 958274847
     WorkerFacts:
+    - Name: Enabled_Actor
+      HashId:
+        Value: 3648368663
+      ParentTypeName: BewilderBaron
+      RequiredTypeNames:
+      - ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - BewilderActor
+      RequiredTypeHashes:
+      - Value: 957412834
+      Cycle: 2
+      StageName: POST_SPAWN
+      StageHash:
+        Value: 687736403
+      WorkerTrigger: 1
+      WorkerMemberType: 1
+      MakerString: MakeAddedWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: Disabled_Actor
+      HashId:
+        Value: 3843548562
+      ParentTypeName: BewilderBaron
+      RequiredTypeNames:
+      - ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - BewilderActor
+      RequiredTypeHashes:
+      - Value: 957412834
+      Cycle: 5
+      StageName: __SKIP_STAGE__
+      StageHash:
+        Value: 3369202741
+      WorkerTrigger: 4
+      WorkerMemberType: 1
+      MakerString: MakeDisabledWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: Enabled_Card
+      HashId:
+        Value: 3304335534
+      ParentTypeName: BewilderBaron
+      RequiredTypeNames:
+      - ActBewilder.BewilderCard, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - BewilderCard
+      RequiredTypeHashes:
+      - Value: 2940435843
+      Cycle: 5
+      StageName: __SKIP_STAGE__
+      StageHash:
+        Value: 3369202741
+      WorkerTrigger: 3
+      WorkerMemberType: 1
+      MakerString: MakeEnabledWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: Disabled_Card
+      HashId:
+        Value: 2479347667
+      ParentTypeName: BewilderBaron
+      RequiredTypeNames:
+      - ActBewilder.BewilderCard, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - BewilderCard
+      RequiredTypeHashes:
+      - Value: 2940435843
+      Cycle: 5
+      StageName: __SKIP_STAGE__
+      StageHash:
+        Value: 3369202741
+      WorkerTrigger: 4
+      WorkerMemberType: 1
+      MakerString: MakeDisabledWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
     - Name: Enabled_Bewilder
       HashId:
         Value: 3706531480
@@ -138,54 +234,6 @@ MonoBehaviour:
       - BewilderActivity
       RequiredTypeHashes:
       - Value: 3697574914
-      Cycle: 5
-      StageName: __SKIP_STAGE__
-      StageHash:
-        Value: 3369202741
-      WorkerTrigger: 4
-      WorkerMemberType: 1
-      MakerString: MakeDisabledWorker1
-      Domain: 1000
-      RequiresAuthor: 0
-      RequiresRemote: 0
-      IsInstant: 0
-      SyncerName: 
-      TimedSeconds: 0
-    - Name: Added_Actor
-      HashId:
-        Value: 2177280662
-      ParentTypeName: BewilderBaron
-      RequiredTypeNames:
-      - ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      RequiredTypeNamesShort:
-      - BewilderActor
-      RequiredTypeHashes:
-      - Value: 957412834
-      Cycle: 2
-      StageName: POST_SPAWN
-      StageHash:
-        Value: 687736403
-      WorkerTrigger: 1
-      WorkerMemberType: 1
-      MakerString: MakeAddedWorker1
-      Domain: 1000
-      RequiresAuthor: 0
-      RequiresRemote: 0
-      IsInstant: 0
-      SyncerName: 
-      TimedSeconds: 0
-    - Name: Disabled_Actor
-      HashId:
-        Value: 3843548562
-      ParentTypeName: BewilderBaron
-      RequiredTypeNames:
-      - ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      RequiredTypeNamesShort:
-      - BewilderActor
-      RequiredTypeHashes:
-      - Value: 957412834
       Cycle: 5
       StageName: __SKIP_STAGE__
       StageHash:
@@ -246,54 +294,6 @@ MonoBehaviour:
       RequiresRemote: 0
       IsInstant: 0
       SyncerName: ForceNextRound
-      TimedSeconds: 0
-    - Name: Actors_
-      HashId:
-        Value: 2592463809
-      ParentTypeName: BewilderBaron
-      RequiredTypeNames:
-      - ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      RequiredTypeNamesShort:
-      - BewilderActor
-      RequiredTypeHashes:
-      - Value: 957412834
-      Cycle: 5
-      StageName: __SKIP_STAGE__
-      StageHash:
-        Value: 3369202741
-      WorkerTrigger: 10
-      WorkerMemberType: 2
-      MakerString: MakeRegistryWorker
-      Domain: 1000
-      RequiresAuthor: 0
-      RequiresRemote: 0
-      IsInstant: 0
-      SyncerName: 
-      TimedSeconds: 0
-    - Name: Cards_
-      HashId:
-        Value: 416063644
-      ParentTypeName: BewilderBaron
-      RequiredTypeNames:
-      - ActBewilder.BewilderCard, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      RequiredTypeNamesShort:
-      - BewilderCard
-      RequiredTypeHashes:
-      - Value: 2940435843
-      Cycle: 5
-      StageName: __SKIP_STAGE__
-      StageHash:
-        Value: 3369202741
-      WorkerTrigger: 10
-      WorkerMemberType: 2
-      MakerString: MakeRegistryWorker
-      Domain: 1000
-      RequiresAuthor: 0
-      RequiresRemote: 0
-      IsInstant: 0
-      SyncerName: 
       TimedSeconds: 0
   - Name: CoreUiBaron
     TypeName: UiSys.CoreUiBaron, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
@@ -500,6 +500,52 @@ MonoBehaviour:
       IsInstant: 0
       SyncerName: 
       TimedSeconds: 0
+    - Name: Enabled_Agent
+      HashId:
+        Value: 3704681048
+      ParentTypeName: GameSysBaron
+      RequiredTypeNames:
+      - FutzSys.Agent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - Agent
+      RequiredTypeHashes:
+      - Value: 719352216
+      Cycle: 5
+      StageName: __SKIP_STAGE__
+      StageHash:
+        Value: 3369202741
+      WorkerTrigger: 3
+      WorkerMemberType: 1
+      MakerString: MakeEnabledWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: Disabled_Agent
+      HashId:
+        Value: 1291123601
+      ParentTypeName: GameSysBaron
+      RequiredTypeNames:
+      - FutzSys.Agent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - Agent
+      RequiredTypeHashes:
+      - Value: 719352216
+      Cycle: 5
+      StageName: __SKIP_STAGE__
+      StageHash:
+        Value: 3369202741
+      WorkerTrigger: 4
+      WorkerMemberType: 1
+      MakerString: MakeDisabledWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
     - Name: Run_Outgoing
       HashId:
         Value: 2902446767
@@ -648,29 +694,6 @@ MonoBehaviour:
       IsInstant: 0
       SyncerName: ActivityChoice
       TimedSeconds: 0
-    - Name: Agents_
-      HashId:
-        Value: 1843270338
-      ParentTypeName: GameSysBaron
-      RequiredTypeNames:
-      - FutzSys.Agent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      RequiredTypeNamesShort:
-      - Agent
-      RequiredTypeHashes:
-      - Value: 719352216
-      Cycle: 5
-      StageName: __SKIP_STAGE__
-      StageHash:
-        Value: 3369202741
-      WorkerTrigger: 10
-      WorkerMemberType: 2
-      MakerString: MakeRegistryWorker
-      Domain: 1000
-      RequiresAuthor: 0
-      RequiresRemote: 0
-      IsInstant: 0
-      SyncerName: 
-      TimedSeconds: 0
   - Name: OpenAiBaron
     TypeName: FutzSys.OpenAiBaron, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
@@ -702,54 +725,6 @@ MonoBehaviour:
       SyncerName: 
       TimedSeconds: 0
   WorkerFacts:
-  - Name: Actors_
-    HashId:
-      Value: 2592463809
-    ParentTypeName: BewilderBaron
-    RequiredTypeNames:
-    - ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-    RequiredTypeNamesShort:
-    - BewilderActor
-    RequiredTypeHashes:
-    - Value: 957412834
-    Cycle: 5
-    StageName: __SKIP_STAGE__
-    StageHash:
-      Value: 3369202741
-    WorkerTrigger: 10
-    WorkerMemberType: 2
-    MakerString: MakeRegistryWorker
-    Domain: 1000
-    RequiresAuthor: 0
-    RequiresRemote: 0
-    IsInstant: 0
-    SyncerName: 
-    TimedSeconds: 0
-  - Name: Added_Actor
-    HashId:
-      Value: 2177280662
-    ParentTypeName: BewilderBaron
-    RequiredTypeNames:
-    - ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-    RequiredTypeNamesShort:
-    - BewilderActor
-    RequiredTypeHashes:
-    - Value: 957412834
-    Cycle: 2
-    StageName: POST_SPAWN
-    StageHash:
-      Value: 687736403
-    WorkerTrigger: 1
-    WorkerMemberType: 1
-    MakerString: MakeAddedWorker1
-    Domain: 1000
-    RequiresAuthor: 0
-    RequiresRemote: 0
-    IsInstant: 0
-    SyncerName: 
-    TimedSeconds: 0
   - Name: Added_Agent
     HashId:
       Value: 1124119152
@@ -767,53 +742,6 @@ MonoBehaviour:
     WorkerTrigger: 1
     WorkerMemberType: 1
     MakerString: MakeAddedWorker1
-    Domain: 1000
-    RequiresAuthor: 0
-    RequiresRemote: 0
-    IsInstant: 0
-    SyncerName: 
-    TimedSeconds: 0
-  - Name: Agents_
-    HashId:
-      Value: 1843270338
-    ParentTypeName: GameSysBaron
-    RequiredTypeNames:
-    - FutzSys.Agent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    RequiredTypeNamesShort:
-    - Agent
-    RequiredTypeHashes:
-    - Value: 719352216
-    Cycle: 5
-    StageName: __SKIP_STAGE__
-    StageHash:
-      Value: 3369202741
-    WorkerTrigger: 10
-    WorkerMemberType: 2
-    MakerString: MakeRegistryWorker
-    Domain: 1000
-    RequiresAuthor: 0
-    RequiresRemote: 0
-    IsInstant: 0
-    SyncerName: 
-    TimedSeconds: 0
-  - Name: Cards_
-    HashId:
-      Value: 416063644
-    ParentTypeName: BewilderBaron
-    RequiredTypeNames:
-    - ActBewilder.BewilderCard, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-    RequiredTypeNamesShort:
-    - BewilderCard
-    RequiredTypeHashes:
-    - Value: 2940435843
-    Cycle: 5
-    StageName: __SKIP_STAGE__
-    StageHash:
-      Value: 3369202741
-    WorkerTrigger: 10
-    WorkerMemberType: 2
-    MakerString: MakeRegistryWorker
     Domain: 1000
     RequiresAuthor: 0
     RequiresRemote: 0
@@ -867,6 +795,29 @@ MonoBehaviour:
     IsInstant: 0
     SyncerName: 
     TimedSeconds: 0
+  - Name: Disabled_Agent
+    HashId:
+      Value: 1291123601
+    ParentTypeName: GameSysBaron
+    RequiredTypeNames:
+    - FutzSys.Agent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - Agent
+    RequiredTypeHashes:
+    - Value: 719352216
+    Cycle: 5
+    StageName: __SKIP_STAGE__
+    StageHash:
+      Value: 3369202741
+    WorkerTrigger: 4
+    WorkerMemberType: 1
+    MakerString: MakeDisabledWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
   - Name: Disabled_Bewilder
     HashId:
       Value: 2925183805
@@ -878,6 +829,30 @@ MonoBehaviour:
     - BewilderActivity
     RequiredTypeHashes:
     - Value: 3697574914
+    Cycle: 5
+    StageName: __SKIP_STAGE__
+    StageHash:
+      Value: 3369202741
+    WorkerTrigger: 4
+    WorkerMemberType: 1
+    MakerString: MakeDisabledWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
+  - Name: Disabled_Card
+    HashId:
+      Value: 2479347667
+    ParentTypeName: BewilderBaron
+    RequiredTypeNames:
+    - ActBewilder.BewilderCard, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - BewilderCard
+    RequiredTypeHashes:
+    - Value: 2940435843
     Cycle: 5
     StageName: __SKIP_STAGE__
     StageHash:
@@ -939,6 +914,53 @@ MonoBehaviour:
     IsInstant: 0
     SyncerName: 
     TimedSeconds: 0
+  - Name: Enabled_Actor
+    HashId:
+      Value: 3648368663
+    ParentTypeName: BewilderBaron
+    RequiredTypeNames:
+    - ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - BewilderActor
+    RequiredTypeHashes:
+    - Value: 957412834
+    Cycle: 2
+    StageName: POST_SPAWN
+    StageHash:
+      Value: 687736403
+    WorkerTrigger: 1
+    WorkerMemberType: 1
+    MakerString: MakeAddedWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
+  - Name: Enabled_Agent
+    HashId:
+      Value: 3704681048
+    ParentTypeName: GameSysBaron
+    RequiredTypeNames:
+    - FutzSys.Agent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - Agent
+    RequiredTypeHashes:
+    - Value: 719352216
+    Cycle: 5
+    StageName: __SKIP_STAGE__
+    StageHash:
+      Value: 3369202741
+    WorkerTrigger: 3
+    WorkerMemberType: 1
+    MakerString: MakeEnabledWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
   - Name: Enabled_Bewilder
     HashId:
       Value: 3706531480
@@ -950,6 +972,30 @@ MonoBehaviour:
     - BewilderActivity
     RequiredTypeHashes:
     - Value: 3697574914
+    Cycle: 5
+    StageName: __SKIP_STAGE__
+    StageHash:
+      Value: 3369202741
+    WorkerTrigger: 3
+    WorkerMemberType: 1
+    MakerString: MakeEnabledWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
+  - Name: Enabled_Card
+    HashId:
+      Value: 3304335534
+    ParentTypeName: BewilderBaron
+    RequiredTypeNames:
+    - ActBewilder.BewilderCard, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - BewilderCard
+    RequiredTypeHashes:
+    - Value: 2940435843
     Cycle: 5
     StageName: __SKIP_STAGE__
     StageHash:
@@ -1436,6 +1482,20 @@ MonoBehaviour:
       CogName: BewilderActivity
       CogHash:
         Value: 3697574914
+    - Name: Cards
+      HashId:
+        Value: 3350746310
+      AuthType: 0
+      CogName: BewilderActivity
+      CogHash:
+        Value: 3697574914
+    - Name: Actors
+      HashId:
+        Value: 1336361253
+      AuthType: 0
+      CogName: BewilderActivity
+      CogHash:
+        Value: 3697574914
   - Name: BewilderActor
     HashId:
       Value: 957412834
@@ -1607,7 +1667,14 @@ MonoBehaviour:
   - Name: MatcherActivity
     HashId:
       Value: 194240820
-    SyncerFacts: []
+    SyncerFacts:
+    - Name: Actors
+      HashId:
+        Value: 2760143659
+      AuthType: 0
+      CogName: MatcherActivity
+      CogHash:
+        Value: 194240820
   - Name: MatcherActor
     HashId:
       Value: 2189948400
@@ -1619,7 +1686,14 @@ MonoBehaviour:
   - Name: SystemActivity
     HashId:
       Value: 2307371307
-    SyncerFacts: []
+    SyncerFacts:
+    - Name: Actors
+      HashId:
+        Value: 3038141198
+      AuthType: 0
+      CogName: SystemActivity
+      CogHash:
+        Value: 2307371307
   - Name: SystemActor
     HashId:
       Value: 1615069529
@@ -1652,6 +1726,27 @@ MonoBehaviour:
     CogName: GameSysClip
     CogHash:
       Value: 1581047986
+  - Name: Actors
+    HashId:
+      Value: 1336361253
+    AuthType: 0
+    CogName: BewilderActivity
+    CogHash:
+      Value: 3697574914
+  - Name: Actors
+    HashId:
+      Value: 2760143659
+    AuthType: 0
+    CogName: MatcherActivity
+    CogHash:
+      Value: 194240820
+  - Name: Actors
+    HashId:
+      Value: 3038141198
+    AuthType: 0
+    CogName: SystemActivity
+    CogHash:
+      Value: 2307371307
   - Name: Cancel
     HashId:
       Value: 2169414794
@@ -1659,6 +1754,13 @@ MonoBehaviour:
     CogName: CoreUiClip
     CogHash:
       Value: 492817487
+  - Name: Cards
+    HashId:
+      Value: 3350746310
+    AuthType: 0
+    CogName: BewilderActivity
+    CogHash:
+      Value: 3697574914
   - Name: CheckVisibleScreens
     HashId:
       Value: 3165511572

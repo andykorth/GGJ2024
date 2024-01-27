@@ -7,7 +7,7 @@ public class SystemActivity : Activity<SystemActor>
 {
 	public const int SYSTEM_ID_START = 200;
 
-	public override Registry<SystemActor> GetRegistry() => null;
+	// public override Registry<SystemActor> GetRegistry() => null;
 	
 	//## PACKETS	
 	public PkFlow<Pk_ActivityChange> ActivityChange = new(); //## outgoing

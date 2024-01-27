@@ -1,6 +1,6 @@
 import {h} from 'preact';
-import {useRegistry} from '../../util/Registry';
-import {useTrack, useTrackEvt} from '../../util/Track';
+// import {useRegistry} from '../../util/Registry';
+import {useTrack, useTrackEvt, useTrackList} from '../../util/Track';
 import {$map} from '../../util/buckle/$array';
 import {$button, $div, $label, Col, Grow} from '../../util/$tyle';
 import {E_BewilderActorStatusEnum, P_BewilderView, T_BewilderActor} from './BewilderActivity';
@@ -22,7 +22,7 @@ export function BewilderView(props: P_BewilderView) {
 const W_Bewilder = $div('Bewilder')`
   flex-direction: row;
   width: 100%;
-  height: 100%;
+  height: 40%;
 `;
 
 function InfoPanel(props: P_BewilderView) {
@@ -47,7 +47,7 @@ const W_InfoPanel = $div('W_InfoPanel')`
 `;
 
 const L_PhaseTitle = $label('L_PhaseTitle')`
-  font-size: 48px;
+  font-size: 24px;
   white-space: normal;
   -unity-text-align: middle-center;
 `;
@@ -61,7 +61,7 @@ const L_PhaseDesc = $label('L_PhaseDesc')`
 
 function CardGrid(props: P_BewilderView) {
 	const act = props.act;
-	const cards = useRegistry(act.Cards);
+	const cards = useTrackList(act.Cards);
 	
 	return (
 		<W_CardGrid>
@@ -90,7 +90,7 @@ const W_CardGrid = $div('grid')`
 
 function Clues(props: P_BewilderView) {
 	const act = props.act;
-	const actors = useRegistry(act.Actors);
+	const actors = useTrackList(act.Actors);
 	const evtForceNextRound = useTrackEvt(act.ForceNextRound);
 	
 	return (

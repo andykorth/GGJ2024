@@ -1,9 +1,9 @@
 import {T_BewilderActivity, T_BewilderActor, T_BewilderCard} from './BewilderActivity';
-import {useTrack} from '../../util/Track';
+import {useTrack, useTrackList} from '../../util/Track';
 import {h} from 'preact';
 import {$div, $label, Row} from '../../util/$tyle';
 import {uss} from 'onejs/styled';
-import {useRegistryLup} from '../../util/Registry';
+// import {useRegistryLup} from '../../util/Registry';
 import {$map} from '../../util/buckle/$array';
 
 export function BewilderCard(props) {
@@ -69,7 +69,13 @@ const L_Word = $label('word')`
 function CardPickedList(props) {
 	const card: T_BewilderCard = props.card;
 	const act: T_BewilderActivity = props.act;
-	const actorLup = useRegistryLup(act.Actors, 'SlotId')
+	// const actorLup = useRegistryLup(act.Actors, 'SlotId')
+	const actors = useTrackList(act.Actors);
+	
+	// BROKEN
+	// BROKEN
+	// BROKEN
+	// BROKEN
 	
 	const slotIds = useTrack(card.PickedByActorSlotIds);
 	const showCount = useTrack(card.ShowCount);
@@ -79,7 +85,8 @@ function CardPickedList(props) {
 	
 	for (let i = 0; i < showCount; i++) {
 		const slotId = slotIds[i];
-		const actor = actorLup[slotId];
+		// const actor = actorLup[slotId];
+		const actor = actors[slotId]; //## BROKEN
 		showActors.push(actor);
 	}
 	

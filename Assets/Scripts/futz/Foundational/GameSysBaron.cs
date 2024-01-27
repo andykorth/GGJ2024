@@ -14,8 +14,8 @@ public class GameSysBaron : FutzBaron
 {
 	static GameSysClip GameSys_ => GameSysClip.I;
 
+	// [Registry] public static Registry<Agent> Agents_ = new();
 
-	[Registry] public static Registry<Agent> Agents_ = new();
 
 	static Transform _AgentRoot;
 
@@ -46,6 +46,13 @@ public class GameSysBaron : FutzBaron
 
 		StartRelayRoom(gameSys).Forget();
 	}
+
+    [Enabled.Native]
+    static void Enabled_Agent(Agent agent) => GameSys_.Agents.Add(agent);
+
+    [Disabled.Native]
+    static void Disabled_Agent(Agent agent) => GameSys_?.Agents.Remove(agent);
+
 
 	/// TEMP
 	/// TODO: reconnect, etc.
@@ -229,7 +236,7 @@ public class GameSysBaron : FutzBaron
 		var system = gameSys.SystemActivity;
 		var host = gameSys.FutzHost;
 
-		foreach (var agent in Agents_.Value) {
+		foreach (var agent in gameSys.Agents) {
 			agent.Score.Change(0);
 		}
 

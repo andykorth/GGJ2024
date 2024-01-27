@@ -30,8 +30,9 @@ public class BewilderActivity : Activity<BewilderActor>
 	public Track<int> GuessingActorSlotId = new();
 	public Track<string> GuessingClue = new();
 
-	public Registry<BewilderCard> Cards => BewilderBaron.Cards_; // TEMP
-	public override Registry<BewilderActor> GetRegistry() => BewilderBaron.Actors_; // TEMP
+	// public Registry<BewilderCard> Cards = new (); // TEMP
+	public TrackList<BewilderCard> Cards = new (); // TEMP
+	// public override Registry<BewilderActor> GetRegistry() => BewilderBaron.Actors_; // TEMP
 
 	//## PACKETS	
 	public Pk<Pk_Waiting> PkWaiting = new(); //## outgoing

@@ -1,15 +1,15 @@
 import {T_BewilderActivity, T_BewilderActor} from './BewilderActivity';
-import {useRegistry} from '../../util/Registry';
+// import {useRegistry} from '../../util/Registry';
 import {$map} from '../../util/buckle/$array';
 import {$div, $label} from '../../util/$tyle';
 import {h} from 'preact';
 import {Agent} from '../../types/foundational';
-import {useTrack} from '../../util/Track';
+import {useTrack, useTrackList} from '../../util/Track';
 
 
 export function BewilderActorList(props) {
 	const act: T_BewilderActivity = props.act;
-	const actors = useRegistry(act.Actors);
+	const actors = useTrackList(act.Actors);
 	
 	return (
 		<W_ActorList>

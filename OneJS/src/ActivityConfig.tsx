@@ -1,12 +1,12 @@
 import {BewilderView} from './views/bewilder/BewilderView';
 import {h} from 'preact';
-import {GolfView} from './views/golf/GolfView';
-import {SticklerView} from './views/stickler/SticklerView';
+// import {GolfView} from './views/golf/GolfView';
+// import {SticklerView} from './views/stickler/SticklerView';
 
 export const ACTIVITY_VIEWS = {
 	bewilder: BewilderView,
-	golf: GolfView,
-	stickler: SticklerView,
+	// golf: GolfView,
+	// stickler: SticklerView,
 };
 
 export type T_ActivityView = (props: P_ActivityView) => h.JSX.Element;
