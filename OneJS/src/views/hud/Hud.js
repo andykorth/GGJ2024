@@ -11,10 +11,10 @@ var AgentList_1 = require("./AgentList");
 var Watermark_1 = require("./Watermark");
 var UIElements_1 = require("UnityEngine/UIElements");
 var Track_1 = require("../../util/Track");
-var clips_1 = require("../../clips");
 var _tyle_1 = require("../../util/$tyle");
+var FutzInterop_1 = require("../../FutzInterop");
 function Hud() {
-    var showAgentList = (0, Track_1.useTrackToggle)(clips_1.CoreUi_.ShowAgentList)[0];
+    var showAgentList = (0, Track_1.useTrackToggle)(FutzInterop_1.Clips.CoreUi_.ShowAgentList)[0];
     return ((0, preact_1.h)(S_Hud, { "picking-mode": UIElements_1.PickingMode.Ignore },
         (0, preact_1.h)(RoomInfo_1.RoomInfo, null),
         showAgentList && (0, preact_1.h)(AgentList_1.AgentList, null),

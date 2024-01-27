@@ -3,6 +3,7 @@ import {uList} from '../util/buckle/UnityTypeHelpers';
 import {Color} from 'UnityEngine';
 // import {Registry} from '../util/Registry';
 import {List} from 'System/Collections/Generic';
+import {T_GhostActivity} from '../views/ghost/GhostActivity';
 
 // TODO: convert to interface types?
 
@@ -15,6 +16,8 @@ export class GameSysClip {
 	ActivityChoice: TrackChoice<ActivityDef>;
 	Agents: TrackList<Agent>;
 	CurrentActivity: Track<any>;
+	
+	GhostAct: Track<T_GhostActivity>; // HACK
 	// MatcherActivity: MatcherActivity
 	// SystemActivity: SystemActivity
 	// LoadedActivityDef: Track<ActivityDef>

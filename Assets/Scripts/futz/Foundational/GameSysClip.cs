@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using futz.ActGhost;
 using FutzSys;
 using Regent.Clips;
 using Regent.Core;
@@ -26,6 +27,8 @@ public class GameSysClip : ClipNative
 	// public Registry<Agent> Agents;
     public List<Agent> Agents = new();
 	public Track<ActivityBase> CurrentActivity = new(); // TODO: combine with host?
+
+	public Track<GhostActivity> GhostAct = new(); // HACK
 
 	protected override void WhenAwake()
 	{

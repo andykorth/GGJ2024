@@ -110,12 +110,14 @@ public class GameSysBaron : FutzBaron
 	}
 
 	// DUMMY
-	static Action<Pk_RegisterRoomResult> FnRegisterRoomResult = static pk => {
+	private static Action<Pk_RegisterRoomResult> FnRegisterRoomResult = static pk => {
 		var gameSys_ = GameSys_;
 		var host = gameSys_.FutzHost;
 
 		var result = pk.Result;
 		var roomIdf = pk.RoomIdf;
+
+		$"futzRoomIdf: {roomIdf}".LgOrange0();
 
 		if (result != RoomCreateResultEnum.SUCCESS) {
 			Log($"handle room fail {result}".LgTodo()); // TODO

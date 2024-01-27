@@ -43,3 +43,15 @@ export function $toLup<TEl>(
 	}
 	return lup;
 }
+
+export function $lupContainsAny<TEl>(
+	lup: Lup<TEl>,
+	list: TEl[] | uList<TEl>,
+	keyProp: string,
+): boolean {
+	// @ts-ignore
+	for (const el of list) {
+		if (lup[el[keyProp]]) return true;
+	}
+	return false;
+}

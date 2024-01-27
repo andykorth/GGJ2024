@@ -178,6 +178,30 @@ MonoBehaviour:
       IsInitialized: 0
     Current: {fileID: 0}
     Former: {fileID: 0}
+  GhostAct:
+    Entity: {fileID: 2009617478509626345}
+    Fact:
+      Name: GhostAct
+      HashId:
+        Value: 430224528
+      AuthType: 0
+      CogName: GameSysClip
+      CogHash:
+        Value: 1581047986
+    IsInitialized: 0
+    Info:
+      Name: 
+      Fact:
+        Name: 
+        HashId:
+          Value: 0
+        AuthType: 0
+        CogName: 
+        CogHash:
+          Value: 0
+      IsInitialized: 0
+    Current: {fileID: 0}
+    Former: {fileID: 0}
 --- !u!1 &2670626057214988214
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,7 +899,6 @@ Transform:
   - {fileID: 2260818283995558275}
   - {fileID: 5658589839912134264}
   - {fileID: 6785815228450559758}
-  - {fileID: 3772351508630346032}
   m_Father: {fileID: 7318764995987984741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7332459801333777000
@@ -1006,85 +1029,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &9061713603832514323
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3772351508630346032}
-  - component: {fileID: 2812246128716180120}
-  - component: {fileID: 2849416215008882347}
-  m_Layer: 0
-  m_Name: Open AI clip
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3772351508630346032
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9061713603832514323}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2692141399844445012}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2812246128716180120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9061713603832514323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3c44c000538457f96f262b134818b28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tform: {fileID: 3772351508630346032}
-  HasLiaison: 0
-  LiaisonComp: {fileID: 0}
-  InstanceId: 0
-  IsRegistered: 0
-  EntityId: 0
-  ParentEntity: {fileID: 0}
-  CCache:
-    ListOfHashes:
-    - Value: 505582686
-    - Value: 3972772752
-    - Value: 3110827983
---- !u!114 &2849416215008882347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9061713603832514323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2abb7bdc56054f45a28806b0035dc35c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Tform: {fileID: 3772351508630346032}
-  Entity: {fileID: 2812246128716180120}
-  HashId:
-    Value: 3110827983
-  Prompt: "I'll give you a list of words. Choose 3 words from the list, then write
-    a single clue that gets me to guess all of your chosen words. The clue should
-    only be 1  word long.\r Only respond with your clue and your chosen words formatted
-    like \"clue, choice1, choice2, choice3\".\nThe word list is: \"airplane,breath,idea,beast,stick,window,uncle,pancake,note\""
-  IgnoreThis: 0
-  Answer: 
 --- !u!1001 &9194319638955307326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1155,7 +1099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6661873769672997518, guid: 171073f8a323d004f82984c58ed3049a, type: 3}
       propertyPath: _objects.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6661873769672997518, guid: 171073f8a323d004f82984c58ed3049a, type: 3}
       propertyPath: _styleSheets.Array.size
@@ -1168,11 +1112,11 @@ PrefabInstance:
     - target: {fileID: 6661873769672997518, guid: 171073f8a323d004f82984c58ed3049a, type: 3}
       propertyPath: _objects.Array.data[0].obj
       value: 
-      objectReference: {fileID: 2005996551473536684}
+      objectReference: {fileID: 11400000, guid: 1ef2978d24adfa648a012cc55c9852df, type: 2}
     - target: {fileID: 6661873769672997518, guid: 171073f8a323d004f82984c58ed3049a, type: 3}
       propertyPath: _objects.Array.data[1].obj
       value: 
-      objectReference: {fileID: 6117145819760156788}
+      objectReference: {fileID: 4042606531959984409}
     - target: {fileID: 6661873769672997518, guid: 171073f8a323d004f82984c58ed3049a, type: 3}
       propertyPath: _objects.Array.data[2].obj
       value: 
@@ -1183,7 +1127,7 @@ PrefabInstance:
       objectReference: {fileID: 7433441132597879392, guid: 180ec6795dfe4931bdeabb45bc6599ba, type: 3}
     - target: {fileID: 6661873769672997518, guid: 171073f8a323d004f82984c58ed3049a, type: 3}
       propertyPath: _objects.Array.data[0].module
-      value: GameSys
+      value: FutzInterop
       objectReference: {fileID: 0}
     - target: {fileID: 6661873769672997518, guid: 171073f8a323d004f82984c58ed3049a, type: 3}
       propertyPath: _objects.Array.data[1].module

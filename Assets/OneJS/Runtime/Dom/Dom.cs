@@ -10,6 +10,11 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace OneJS.Dom {
+    public class RegisteredCallbackHolder {
+        public EventCallback<EventBase> callback;
+        public JsValue jsValue;
+    }
+
     public class Dom {
         public Document document => _document;
 
@@ -69,8 +74,8 @@ namespace OneJS.Dom {
         object __children;
         Dictionary<string, JsValue> __listeners = new Dictionary<string, JsValue>();
 
-        Dictionary<string, EventCallback<EventBase>> _registeredCallbacks =
-            new Dictionary<string, EventCallback<EventBase>>();
+        Dictionary<string, List<RegisteredCallbackHolder>> _registeredCallbacks =
+            new Dictionary<string, List<RegisteredCallbackHolder>>();
 
         static Dictionary<string, RegisterCallbackDelegate> _eventCache =
             new Dictionary<string, RegisterCallbackDelegate>();
@@ -129,12 +134,13 @@ namespace OneJS.Dom {
                 engine.Call(jsval, thisDom, new[] { JsValue.FromObject(engine, e) });
             });
             var isValueChanged = name == "ValueChanged";
+            // Debug.Log("addEventListener " + name + " on " + _ve.name + " " + isValueChanged);
 
             if (!isValueChanged && _eventCache.ContainsKey(name)) {
                 _eventCache[name](_ve, callback, TrickleDown.NoTrickleDown);
                 // Debug.Log("Registered " + name + " on " + _ve.name);
             } else {
-                var eventType = typeof(VisualElement).Assembly.GetType($"UnityEngine.UIElements.{name}Event");
+                var eventType = _document.FindUIElementEventType(name);
                 if (isValueChanged) {
                     var notifyInterface = _ve.GetType().GetInterfaces().Where(i => i.Name == "INotifyValueChanged`1")
                         .FirstOrDefault();
@@ -149,28 +155,46 @@ namespace OneJS.Dom {
                     mi = mi.MakeGenericMethod(eventType);
                     // mi.Invoke(null, new object[] { _ve, callback });
                     var del = (RegisterCallbackDelegate)Delegate.CreateDelegate(typeof(RegisterCallbackDelegate), mi);
-                    if (!isValueChanged)
+                    if (!isValueChanged && !_eventCache.ContainsKey(name))
                         _eventCache.Add(name, del);
                     del(_ve, callback, TrickleDown.NoTrickleDown);
                     // Debug.Log("Registered " + name + " on " + _ve.name);
                 }
             }
 
-            _registeredCallbacks.Add(name, callback);
+            var callbackHolder = new RegisteredCallbackHolder() { callback = callback, jsValue = jsval };
+            if (_registeredCallbacks.ContainsKey(name))
+                _registeredCallbacks[name].Add(callbackHolder);
+            else
+                _registeredCallbacks.Add(name, new List<RegisteredCallbackHolder> { callbackHolder });
+
             // Debug.Log($"{name} {(DateTime.Now - t).TotalMilliseconds}ms");
         }
 
+        /// <summary>
+        /// Note that this method will remove ALL callbacks registered for the given event name.
+        /// </summary>
         public void removeEventListener(string name, JsValue jsval, bool useCapture = false) {
-            var callback = _registeredCallbacks[name];
-            var eventType = typeof(VisualElement).Assembly.GetType($"UnityEngine.UIElements.{name}Event");
+            if (!_registeredCallbacks.ContainsKey(name))
+                return;
+            var callbackHolders = _registeredCallbacks[name];
+            var eventType = _document.FindUIElementEventType(name);
             if (eventType != null) {
                 var flags = BindingFlags.Public | BindingFlags.Instance;
                 var mi = _ve.GetType().GetMethods(flags)
                     .Where(m => m.Name == "UnregisterCallback" && m.GetGenericArguments().Length == 1).First();
                 mi = mi.MakeGenericMethod(eventType);
-                mi.Invoke(_ve, new object[] { callback, null });
+                for (var i = 0; i < callbackHolders.Count; i++) {
+                    if (callbackHolders[i].jsValue == jsval) {
+                        mi.Invoke(_ve, new object[] { callbackHolders[i].callback, null });
+                        callbackHolders.RemoveAt(i);
+                        i--;
+                    }
+                }
+                if (callbackHolders.Count == 0) {
+                    _registeredCallbacks.Remove(name);
+                }
             }
-            _registeredCallbacks.Remove(name);
         }
 
         public void appendChild(Dom node) {
@@ -193,7 +217,7 @@ namespace OneJS.Dom {
         }
 
         public void removeChild(Dom child) {
-            if (!this._ve.Contains(child.ve))
+            if (child == null || !this._ve.Contains(child.ve))
                 return;
             using (var evt = TransitionCancelEvent.GetPooled()) {
                 evt.target = child.ve;
@@ -238,6 +262,8 @@ namespace OneJS.Dom {
                 }
             } else if (name == "id" || name == "name") {
                 _ve.name = val.ToString();
+            } else if (name == "disabled") {
+                _ve.SetEnabled(!Convert.ToBoolean(val));
             } else {
                 name = name.Replace("-", "");
                 var flags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase;

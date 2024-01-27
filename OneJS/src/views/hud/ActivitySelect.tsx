@@ -1,20 +1,20 @@
 import {h} from 'preact';
 import {useTrackChoiceList, useTrackToggle} from '../../util/Track';
 import {$map} from '../../util/buckle/$array';
-import {CoreUi_, GameSys_} from '../../clips';
 import {lg} from '../../util/lg';
 import {$button, $div, $label, $radiobutton, $radiobuttongroup, Row} from '../../util/$tyle';
+import {Clips} from '../../FutzInterop';
 
 
 export function ActivitySelect() {
-	const [show, toggleShow] = useTrackToggle(CoreUi_.ShowActivitySelect);
+	const [show, toggleShow] = useTrackToggle(Clips.CoreUi_.ShowActivitySelect);
 	
 	const [
 		defs,
 		currentIndex,
 		currentDef,
 		setIndex,
-	] = useTrackChoiceList(GameSys_.ActivityChoice);
+	] = useTrackChoiceList(Clips.GameSys_.ActivityChoice);
 	
 	// const show = false;
 	// const toggleShow = () => {};

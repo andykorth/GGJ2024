@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.useTrackToggle = exports.useTrackEvt = exports.useTrackChoice = exports.useTrackChoiceList = exports.useTrackList = exports.useTrackSet = exports.useTrack = void 0;
+exports.useTrackEffect = exports.useTrackEvtFn = exports.useTrackBoolVisible = exports.useTrackRefFn = exports.useTrackFn = exports.useTrackToggle = exports.useTrackEvt = exports.useTrackChoice = exports.useTrackChoiceList = exports.useTrackList = exports.useTrack = void 0;
 var hooks_1 = require("preact/hooks");
 var lg_1 = require("./lg");
 var valueKey = 'Current';
@@ -29,12 +29,6 @@ function useTrack(track) {
     return track[valueKey];
 }
 exports.useTrack = useTrack;
-function useTrackSet(track) {
-    var val = useTrack(track);
-    var setVal = (0, hooks_1.useCallback)(function (val) { return track.ChangeDiff(val); }, [track]);
-    return [val, setVal];
-}
-exports.useTrackSet = useTrackSet;
 function useTrackList(trackList) {
     var _a = (0, hooks_1.useState)(1), v = _a[0], setV = _a[1];
     var onValueChangedCallback = (0, hooks_1.useCallback)(function () {
@@ -94,7 +88,6 @@ function useTrackToggle(track) {
     var _a = (0, hooks_1.useState)({}), updateState = _a[1];
     var forceUpdate = (0, hooks_1.useCallback)(function () { return updateState({}); }, []);
     var handler = function () {
-        (0, lg_1.lg)("useTrackToggle.handler", this);
         forceUpdate();
     };
     (0, hooks_1.useEffect)(function () {
@@ -105,3 +98,48 @@ function useTrackToggle(track) {
     return [track.IsOn, function () { return track.Toggle(); }];
 }
 exports.useTrackToggle = useTrackToggle;
+function useTrackFn(track, fn) {
+    var callFn = (0, hooks_1.useCallback)(function () { return fn(track[valueKey]); }, []);
+    useTrackEffect(track, callFn);
+}
+exports.useTrackFn = useTrackFn;
+function useTrackRefFn(track, fn) {
+    var ref = (0, hooks_1.useRef)();
+    var callFn = (0, hooks_1.useCallback)(function () { return fn(track[valueKey], ref.current); }, []);
+    useTrackEffect(track, callFn);
+    return ref;
+}
+exports.useTrackRefFn = useTrackRefFn;
+function useTrackBoolVisible(track) {
+    var ref = (0, hooks_1.useRef)();
+    var callFn = (0, hooks_1.useCallback)(function () {
+        ref.current.style.display = track[valueKey] ? 'Flex' : 'None';
+    }, []);
+    useTrackEffect(track, callFn);
+    return ref;
+}
+exports.useTrackBoolVisible = useTrackBoolVisible;
+function useTrackEvtFn(track, fn) {
+    var ref = (0, hooks_1.useRef)();
+    var callFn = (0, hooks_1.useCallback)(function () { return fn(ref.current); }, []);
+    useTrackEffect(track, callFn);
+    return ref;
+}
+exports.useTrackEvtFn = useTrackEvtFn;
+function useTrackEffect(track, callFn) {
+    (0, hooks_1.useEffect)(function () {
+        var addEvent = track[addEventKey];
+        var removeEvent = track[removeEventKey];
+        callFn();
+        addEvent.call(track, callFn);
+        onEngineReload(removeHandler);
+        return function () {
+            removeHandler();
+            unregisterOnEngineReload(removeHandler);
+        };
+        function removeHandler() {
+            removeEvent.call(track, callFn);
+        }
+    }, [track]);
+}
+exports.useTrackEffect = useTrackEffect;
