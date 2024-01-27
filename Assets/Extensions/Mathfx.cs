@@ -102,4 +102,24 @@ public static class Mathfx
 		(0.7548776662466927f*i)%1,
 		(0.5698402909980532f*i)%1
 	);
+
+
+	public static float Sinerp(float start, float end, float value)
+	{
+		value = Mathf.Clamp01(value);
+		return Mathf.Lerp(start, end, Mathf.Sin(value * Mathf.PI * 0.5f));
+	}
+
+	public static float Coserp(float start, float end, float value)
+	{
+		value = Mathf.Clamp01(value);
+		return Mathf.Lerp(start, end, 1f - Mathf.Cos(value * Mathf.PI * 0.5f));
+	}
+
+	public static float Berp(float start, float end, float value)
+	{
+		value = Mathf.Clamp01(value);
+		value = (Mathf.Sin(value * Mathf.PI * (0.2f + 2.5f * value * value * value)) * Mathf.Pow(1f - value, 2.2f) + value) * (1f + (1.2f * (1f - value)));
+		return start + (end - start) * value;
+	}
 }

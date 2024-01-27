@@ -1,22 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 public class InteractableObject : MonoBehaviour
 {
     public enum InteractableType{
-        Torch, Vase, Crate
+        Torch, Vase, Crate, Candle, Portrait
     }
     public GameObject interactEffectPrefab;
     public InteractableType interactableType;
 
-
     public Light2D tiedToLight;
     private SpriteRenderer[] allSprites;
 
+    public bool hasBeenEnabledByPlayer = false;
+
+    private static List<InteractableObject> allInteractables;
+
+    public enum InteractionMode {
+        NoneOrCustom, CrookedPainting, FlipUpsideDown
+    }
+    public InteractionMode interactionMode;
+    public bool randomInteractionModeState = false;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    static void ReloadAssembly()
+    {
+        allInteractables = new List<InteractableObject>();
+    }
+
     public void Start(){
         allSprites = GetComponentsInChildren<SpriteRenderer>();
+        allInteractables.Add(this);
+        // Debug.Log("Interactable count: " + allInteractables.Count);\
+
+        if(randomInteractionModeState){
+            hasBeenEnabledByPlayer = Random.value > 0.5f;
+        }
+
+        if(interactionMode == InteractionMode.CrookedPainting){
+            float angle = Random.value > 0.5f ? 25f: -25f;
+            this.transform.rotation = Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : angle);
+        }else if (interactionMode == InteractionMode.FlipUpsideDown){
+            this.transform.rotation = Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : 180f);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -50,9 +79,27 @@ public class InteractableObject : MonoBehaviour
             Destroy(go, 10.0f);
         }
 
+        hasBeenEnabledByPlayer = !hasBeenEnabledByPlayer;
         if(tiedToLight != null){
-            tiedToLight.enabled = !tiedToLight.enabled;
+            tiedToLight.enabled = !hasBeenEnabledByPlayer;
         }
+
+        if(interactionMode == InteractionMode.CrookedPainting){
+            float angle = Random.value > 0.5f ? 25f: -25f;
+            Quaternion original = this.transform.rotation;
+            Quaternion target = this.transform.rotation = Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : angle);
+            this.AddTween(0.7f, (a) => {
+                this.transform.rotation = Quaternion.Slerp(original, target, Mathfx.Berp(0, 1, a));
+            });
+        }else if (interactionMode == InteractionMode.FlipUpsideDown){
+            float angle = hasBeenEnabledByPlayer ? 0f : 180f;
+            Quaternion original = this.transform.rotation;
+            Quaternion target = this.transform.rotation = Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : angle);
+            this.AddTween(0.7f, (a) => {
+                this.transform.rotation = Quaternion.Slerp(original, target, Mathfx.Berp(0, 1, a));
+            });
+        }
+
     }
 
 
