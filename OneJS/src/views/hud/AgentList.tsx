@@ -4,14 +4,14 @@ import {Agent} from '../../types/foundational';
 import {$map} from '../../util/buckle/$array';
 import {useTrack, useTrackList, useTrackToggle} from '../../util/Track';
 import {lg} from '../../util/lg';
-import {CoreUi_, GameSys_} from '../../clips';
 import {$div, $label, Col} from '../../util/$tyle';
 import {uss} from 'onejs/styled';
+import {Clips} from '../../FutzInterop';
 
 
 export function AgentList() {
-	const agents = useTrackList(GameSys_.Agents);
-	const [showScore] = useTrackToggle(CoreUi_.ShowScore);
+	const agents = useTrackList(Clips.GameSys_.Agents);
+	const [showScore] = useTrackToggle(Clips.CoreUi_.ShowScore);
 	
 	// lg(`${gameSys.Agents.Count} agents, (reg id: ${gameSys.Agents.Id})`, this);
 	

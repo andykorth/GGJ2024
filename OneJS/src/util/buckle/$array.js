@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.$toLup = exports.$map = exports.$isIterable = void 0;
+exports.$lupContainsAny = exports.$toLup = exports.$map = exports.$isIterable = void 0;
 function $isIterable(x) {
     return !!(x === null || x === void 0 ? void 0 : x[Symbol.iterator]);
 }
@@ -30,3 +30,12 @@ function $toLup(x, keyProp) {
     return lup;
 }
 exports.$toLup = $toLup;
+function $lupContainsAny(lup, list, keyProp) {
+    for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {
+        var el = list_1[_i];
+        if (lup[el[keyProp]])
+            return true;
+    }
+    return false;
+}
+exports.$lupContainsAny = $lupContainsAny;

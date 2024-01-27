@@ -3,8 +3,9 @@ import {lg} from './util/lg';
 import {Hud} from './views/hud/Hud';
 import {useTrack} from './util/Track';
 import {ACTIVITY_VIEWS} from './ActivityConfig';
-import {GameSys_} from './clips';
 import {$div} from './util/$tyle';
+import {GhostView} from './views/ghost/GhostView';
+import {Clips} from './FutzInterop';
 
 
 export const CoreView = () => {
@@ -13,27 +14,59 @@ export const CoreView = () => {
 	
 	return (
 		<CoreDiv>
-			<ActivityView/>
+			<GhostViewWrapperTemp/>
+			{/*<ActivityView/>*/}
 			<Hud/>
 		</CoreDiv>
 	);
 };
 
 const CoreDiv = $div('CoreDiv')`
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 `;
+
+function GhostViewWrapperTemp() {
+	const act = useTrack(Clips.GameSys_.GhostAct);
+	
+	if (!act) {
+		lg(`no ghost act`);
+		return <div/>;
+	}
+	
+	
+	lg(`found ghost act`);
+	
+	return (
+		
+		<GhostView act={act}/>
+	)
+}
 
 
 function ActivityView() {
-	const activity = useTrack(GameSys_.CurrentActivity);
+	lg(`ActivityView ${Clips.GameSys_}, ${Clips.GameSys_.CurrentActivity}`);
+	
+	// if (!GameSys_) {
+	// 	lg(`no GameSys clip`);
+	// 	return <div/>;
+	// }
+	
+	if (!Clips.GameSys_.CurrentActivity) {
+		lg(`no CurrentActivity`);
+		return <div/>;
+	}
+	
+	const activity = useTrack(Clips.GameSys_.CurrentActivity);
+	lg(`ActivityView2`);
 	if (!activity) return <div/>; //>> no activity loaded
 	
 	const idf = activity.Idf;
 	const View = ACTIVITY_VIEWS[idf];
 	
-	if (!View) return <MissingActivity>missing ActivityView: {idf}</MissingActivity>;
+	lg(`ActivityView ${idf}`);
 	
+	if (!View) return <MissingActivity>missing ActivityView: {idf}</MissingActivity>;
 	return (
 		<ActivityDiv>
 			<View act={activity}/>
@@ -42,15 +75,15 @@ function ActivityView() {
 }
 
 const ActivityDiv = $div('ActivityDiv')`
-  flex: 1 1 auto;
-  margin: 10%;
+	flex: 1 1 auto;
+	margin: 10%;
 `;
 
 const MissingActivity = $div('MissingActivity')`
-  flex: 1 1 auto;
-  margin: 10%;
-  font-size: 48px;
-  color: white;
-  background-color: red;
-  padding: 32px;
+	flex: 1 1 auto;
+	margin: 10%;
+	font-size: 48px;
+	color: white;
+	background-color: red;
+	padding: 32px;
 `;

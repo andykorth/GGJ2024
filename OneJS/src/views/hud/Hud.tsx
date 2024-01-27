@@ -5,21 +5,21 @@ import {AgentList} from './AgentList';
 import {Watermark} from './Watermark';
 import {PickingMode} from 'UnityEngine/UIElements';
 import {useTrackToggle} from '../../util/Track';
-import {CoreUi_} from '../../clips';
 import {$div} from '../../util/$tyle';
+import {Clips} from '../../FutzInterop';
 
 export function Hud() {
-	const [showAgentList] = useTrackToggle(CoreUi_.ShowAgentList);
+	const [showAgentList] = useTrackToggle(Clips.CoreUi_.ShowAgentList);
 	
 	return (
 		<S_Hud picking-mode={PickingMode.Ignore}>
 			<RoomInfo/>
-			{/*<ActivitySelect/>*/}
 			{showAgentList && <AgentList/>}
 			<Watermark/>
 		</S_Hud>
 	);
 }
+// <ActivitySelect/>
 
 const S_Hud = $div('hud')`
   position: absolute;

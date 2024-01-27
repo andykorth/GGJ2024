@@ -15,7 +15,7 @@ MonoBehaviour:
   Idf: system
   Name: System
   ShowAgentList: 0
-  ShowScore: 1
+  ShowScore: 0
   Fab_Activity: {fileID: 6956240922582708438, guid: 0efa9731e80bfa5498a1324582874a75, type: 3}
   Fab_Actor: {fileID: 0}
   PacketFacts:

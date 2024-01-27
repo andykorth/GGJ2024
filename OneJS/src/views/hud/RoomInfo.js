@@ -7,11 +7,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomInfo = void 0;
 var Track_1 = require("../../util/Track");
 var preact_1 = require("preact");
-var clips_1 = require("../../clips");
 var _tyle_1 = require("../../util/$tyle");
+var FutzInterop_1 = require("../../FutzInterop");
 function RoomInfo() {
-    var roomIdf = (0, Track_1.useTrack)(clips_1.GameSys_.RoomIdf);
-    var status = (0, Track_1.useTrack)(clips_1.GameSys_.Status);
+    var roomIdf = (0, Track_1.useTrack)(FutzInterop_1.Clips.GameSys_.RoomIdf);
+    var status = (0, Track_1.useTrack)(FutzInterop_1.Clips.GameSys_.Status);
     return ((0, preact_1.h)(W_RoomInfo, null,
         (0, preact_1.h)(L_RoomIdf, { text: roomIdf }),
         (0, preact_1.h)(L_Status, { text: status })));

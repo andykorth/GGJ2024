@@ -10,6 +10,7 @@ using OneJS.Dom;
 using OneJS.Engine;
 using OneJS.Utils;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
 
@@ -73,10 +74,16 @@ namespace OneJS {
             get { return _playerModeWorkingDirInfo; }
             set { _playerModeWorkingDirInfo = value; }
         }
+        public bool SetDontDestroyOnLoad => _setDontDestroyOnLoad;
+        public Assembly[] LoadedAssemblies => _loadedAssemblies;
         #endregion
 
         public event Action OnPostInit;
         public event Action OnReload;
+        public event Action OnEngineDestroy;
+        public event Action<Options> OnInitOptions;
+
+        public Func<string, Type, Type> TagTypeResolver;
 
         [Tooltip("Include any assembly you'd want to access from Javascript.")] [SerializeField]
         [PlainString]
@@ -157,6 +164,21 @@ namespace OneJS {
         [PairMapping("baseDir", "relativePath", "/", "Player WorkingDir")]
         [SerializeField] PlayerModeWorkingDirInfo _playerModeWorkingDirInfo;
 
+        [Tooltip("For CommonJS Path Resolver")]
+        [SerializeField] string[] _pathMappings = new[]
+            { "ScriptLib/3rdparty/", "ScriptLib/", "Addons/", "Modules/", "node_modules/" };
+
+
+        [FormerlySerializedAs("_dontDestroyOnLoad")]
+        [Tooltip("Set DontDestoryOnLoad for this ScriptEngine GameObject.")]
+        [SerializeField] bool _setDontDestroyOnLoad;
+
+        [Tooltip("Uncheck this if you want to initialize the engine yourself in code.")]
+        [SerializeField] bool _initEngineOnStart = true;
+
+        [Tooltip("Enable extra informational logging")]
+        [SerializeField] bool _enableExtraLogging = true;
+
         [SerializeField] int _selectedTab;
 
         UIDocument _uiDocument;
@@ -165,7 +187,10 @@ namespace OneJS {
         Jint.Engine _engine;
         AsyncEngine.AsyncContext _asyncContext;
 
-        List<Action> _engineReloadJSHandlers = new List<Action>();
+        List<Jint.Native.Function.FunctionInstance> _engineReloadJSHandlers =
+            new List<Jint.Native.Function.FunctionInstance>();
+        List<Jint.Native.Function.FunctionInstance> _engineDestroyJSHandlers =
+            new List<Jint.Native.Function.FunctionInstance>();
         List<IClassStrProcessor> _classStrProcessors = new List<IClassStrProcessor>();
         List<Type> _globalFuncTypes;
 
@@ -177,6 +202,7 @@ namespace OneJS {
 
         List<Action> _frameActions = new List<Action>();
         List<Action> _frameActionBuffer = new List<Action>();
+        List<int> _frameActionIdsToRemove = new List<int>();
 
         int _tick = 0;
 
@@ -189,15 +215,42 @@ namespace OneJS {
 
             _globalFuncTypes = this.GetType().Assembly.GetTypes()
                 .Where(t => t.IsVisible && t.FullName.StartsWith("OneJS.Engine.JSGlobals")).ToList();
+
+            if (_setDontDestroyOnLoad) {
+                DontDestroyOnLoad(gameObject);
+            }
         }
 
         void Start() {
-            InitEngine();
+            if (_initEngineOnStart)
+                InitEngine();
+#if ENABLE_INPUT_SYSTEM
+            if (_enableExtraLogging && FindObjectOfType<UnityEngine.EventSystems.EventSystem>() == null) {
+                Debug.Log("New Input System is enabled but there's no EventSystem in the scene." +
+                          " UI Toolkit may need an EventSystem in the scene in order to work correctly with the " +
+                          " New InputSystem. You can add one by going to Hierarchy Add -> UI -> Event System.");
+            }
+#endif
+        }
+
+        void OnDestroy() {
+            OnEngineDestroy?.Invoke();
+            RunOnDestroyHandlers();
         }
 
         void LateUpdate() {
+            if (_engine == null) return;
             _engine.ResetConstraints();
+            _engine.RunAvailableContinuations(); // RunAvailableContinuations is not public in normal Jint
+            // _engine.Advanced.ProcessTasks(); // Can use this instead
 
+            _frameActionIdsToRemove.Sort();
+            _frameActionIdsToRemove.Reverse();
+            for (int i = 0; i < _frameActionIdsToRemove.Count; i++) {
+                var id = _frameActionIdsToRemove[i];
+                _frameActions.RemoveAt(id);
+            }
+            _frameActionIdsToRemove.Clear();
             _frameActionBuffer.AddRange(_frameActions);
             _frameActions.Clear();
             for (int i = 0; i < _frameActionBuffer.Count; i++) {
@@ -244,10 +297,19 @@ namespace OneJS {
                 Debug.LogError($"File ({path}) doesn't exist.");
                 return;
             }
+
+            Reload();
+            RunModule(scriptPath);
+        }
+
+        /// <summary>
+        /// Clears up everything and sets the jint engine to null. All OnReload handlers (C# or JS) will still be run.
+        /// </summary>
+        public void Shutdown() {
+            RunOnReloadHandlers();
             OnReload?.Invoke();
             CleanUp();
-            InitEngine();
-            RunModule(scriptPath);
+            _engine = null;
         }
 
         public void RunScriptRaw(string scriptPath) {
@@ -266,7 +328,7 @@ namespace OneJS {
 
         public void ClearFrameAction(int id) {
             if (_frameActions.Count > id) {
-                _frameActions.RemoveAt(id);
+                _frameActionIdsToRemove.Add(id);
             }
         }
 
@@ -296,15 +358,45 @@ namespace OneJS {
 
         /// <summary>
         /// This is a helper func for subscribing to the ScriptEngine.OnReload event.
-        /// Will automatically take care of the cleaning up during engine reload. 
+        /// Will be cleaned up on engine reload, but call UnregisterReloadHandler() if
+        /// want to clean up before then.
         /// </summary>
-        public void RegisterReloadHandler(Action handler) {
-            OnReload += handler;
+        public void RegisterReloadHandler(Jint.Native.Function.FunctionInstance handler) {
             _engineReloadJSHandlers.Add(handler);
         }
 
         /// <summary>
-        /// Apply all class string processors. 
+        /// This is a helper func for unsubscribing to the ScriptEngine.OnReload event.
+        /// Use if you've called RegisterReloadHandler(), but the handler is no longer relevant.
+        /// </summary>
+        public void UnregisterReloadHandler(Jint.Native.Function.FunctionInstance handler) {
+            _engineReloadJSHandlers.Remove(handler);
+        }
+
+        void RunOnReloadHandlers() {
+            // The callbacks may attempt to register or unregister reload handlers, so make a copy
+            // of the list to avoid a concurrent modification exception.
+            foreach (var handler in _engineReloadJSHandlers.ToArray()) {
+                handler.Call();
+            }
+        }
+
+        public void RegisterDestroyHandler(Jint.Native.Function.FunctionInstance handler) {
+            _engineDestroyJSHandlers.Add(handler);
+        }
+
+        public void UnregisterDestroyHandler(Jint.Native.Function.FunctionInstance handler) {
+            _engineDestroyJSHandlers.Remove(handler);
+        }
+
+        void RunOnDestroyHandlers() {
+            foreach (var handler in _engineDestroyJSHandlers.ToArray()) {
+                handler.Call();
+            }
+        }
+
+        /// <summary>
+        /// Apply all class string processors.
         /// </summary>
         /// <param name="classString">String of class names</param>
         /// <param name="dom">The Dom that is setting the class attribute right now</param>
@@ -324,7 +416,7 @@ namespace OneJS {
 
         void CleanUp() {
             _document.clearRuntimeStyleSheets();
-            _engineReloadJSHandlers.ForEach((a) => { OnReload -= a; });
+            _uiDocument.rootVisualElement.Clear();
             _engineReloadJSHandlers.Clear();
 
             _queuedActionIds.Clear();
@@ -348,22 +440,26 @@ namespace OneJS {
         /// Search loaded assemblies for a lowercase type name. Order of assemblies matter.
         /// First match wins.
         /// </summary>
-        /// <param name="typeName">type name to search for</param>
+        /// <param name="tagName">tag name to search for</param>
         /// <returns>System.Type found by lowercase name.</returns>
-        public System.Type FindVisualElementType(string typeName) {
-            var typeNameL = typeName.ToLower();
+        public System.Type FindVisualElementType(string tagName) {
+            Type foundType = null;
+            var typeNameL = tagName.ToLower();
             foreach (var assembly in _loadedAssemblies) {
                 var typesToSearch = assembly.GetTypes();
-                var type = typesToSearch.Where(t => t.Name.ToLower() == typeNameL)
-                    .FirstOrDefault();
+                var type = typesToSearch.Where(t => t.Name.ToLower() == typeNameL).FirstOrDefault();
                 if (type != null && type.IsSubclassOf(typeof(VisualElement))) {
-                    return type;
+                    foundType = type;
+                    break;
                 }
             }
-            return null;
+            if (TagTypeResolver != null) {
+                foundType = TagTypeResolver(tagName, foundType);
+            }
+            return foundType;
         }
 
-        void InitEngine() {
+        public void InitEngine() {
             StartTime = DateTime.Now;
             _loadedAssemblies = _assemblies.Select((a) => {
 #if UNITY_2022_2_OR_NEWER
@@ -385,6 +481,9 @@ namespace OneJS {
             _asyncContext = new AsyncEngine.AsyncContext();
             _engine = new Jint.Engine(opts => {
                     opts.Interop.TrackObjectWrapperIdentity = false; // Unity too buggy with ConditionalWeakTable
+                    opts.SetTypeResolver(new TypeResolver {
+                        MemberNameComparer = StringComparer.Ordinal
+                    });
                     opts.AllowClr(_loadedAssemblies);
                     _extensions.ToList().ForEach((e) => {
                         var type = AssemblyFinder.FindType(e);
@@ -402,9 +501,11 @@ namespace OneJS {
                     if (_memoryLimit > 0) opts.LimitMemory(_memoryLimit * 1048576);
                     if (_timeout > 0) opts.TimeoutInterval(TimeSpan.FromMilliseconds(_timeout));
                     if (_recursionDepth > 0) opts.LimitRecursion(_recursionDepth);
+
+                    OnInitOptions?.Invoke(opts);
                 }
             );
-            _cjsEngine = _engine.CommonJS(WorkingDir);
+            _cjsEngine = _engine.CommonJS(WorkingDir, _pathMappings);
 
             SetupGlobals();
 
@@ -445,7 +546,7 @@ namespace OneJS {
             });
         }
 
-        void RunModule(string scriptPath) {
+        public void RunModule(string scriptPath) {
             // var preloadsPath = Path.Combine(WorkingDir, "ScriptLib/onejs/preloads");
             // if (Directory.Exists(preloadsPath)) {
             //     var files = Directory.GetFiles(preloadsPath,
@@ -463,6 +564,13 @@ namespace OneJS {
             // print($"RunModule {(DateTime.Now - t).TotalMilliseconds}ms");
             _postloadedScripts.ForEach(p => _cjsEngine.RunMain(p));
         }
+
+        public void Reload() {
+            RunOnReloadHandlers();
+            OnReload?.Invoke();
+            CleanUp();
+            InitEngine();
+        }
     }
 
     #region Extra
@@ -475,6 +583,15 @@ namespace OneJS {
             ProjectPath,
             PersistentDataPath
         }
+
+        public override string ToString() {
+            var basePath = baseDir switch {
+                EditorModeBaseDir.ProjectPath => Path.GetDirectoryName(Application.dataPath),
+                EditorModeBaseDir.PersistentDataPath => Application.persistentDataPath,
+                _ => throw new ArgumentOutOfRangeException()
+            };
+            return Path.Combine(basePath, relativePath);
+        }
     }
 
     [Serializable]
@@ -485,6 +602,15 @@ namespace OneJS {
         public enum PlayerModeBaseDir {
             PersistentDataPath,
             AppPath,
+        }
+
+        public override string ToString() {
+            var basePath = baseDir switch {
+                PlayerModeBaseDir.PersistentDataPath => Application.persistentDataPath,
+                PlayerModeBaseDir.AppPath => Path.GetDirectoryName(Application.dataPath),
+                _ => throw new ArgumentOutOfRangeException()
+            };
+            return Path.Combine(basePath, relativePath);
         }
     }
 

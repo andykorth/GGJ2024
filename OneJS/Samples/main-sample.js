@@ -14,7 +14,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var color_palettes_1 = require("onejs/utils/color-palettes");
 var color_parser_1 = require("onejs/utils/color-parser");
 var preact_1 = require("preact");
-var compact_1 = require("preact/compact");
+var compat_1 = require("preact/compat");
 var hooks_1 = require("preact/hooks");
 var tweenjs_1 = require("tweenjs");
 var UnityEngine_1 = require("UnityEngine");
@@ -49,7 +49,7 @@ function createRandomBall() {
     ball.GetComp(UnityEngine_1.SphereCollider).material = pm;
     balls.push(ball);
 }
-var Dot = (0, compact_1.forwardRef)(function (props, ref) {
+var Dot = (0, compat_1.forwardRef)(function (props, ref) {
     var _a, _b;
     var color = (_a = props.color) !== null && _a !== void 0 ? _a : (0, color_parser_1.namedColor)("tomato");
     var size = (_b = props.size) !== null && _b !== void 0 ? _b : 80;

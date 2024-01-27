@@ -15,7 +15,7 @@ MonoBehaviour:
   Idf: matcher
   Name: Matcher
   ShowAgentList: 0
-  ShowScore: 1
+  ShowScore: 0
   Fab_Activity: {fileID: 1979039916945283666, guid: c86aea11f54e73b41862f08462ac20ef, type: 3}
   Fab_Actor: {fileID: 0}
   PacketFacts:

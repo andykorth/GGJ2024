@@ -59,7 +59,8 @@ namespace Jint.CommonJS {
                 parent.Children.Add(this);
             }
 #pragma warning disable 618
-            this.Exports = engine.engine.Object.Construct(new JsValue[] { });
+            // this.Exports = engine.engine.Object.Construct(new JsValue[] { });
+            this.Exports = new JsObject(engine.engine);
 #pragma warning restore 618
 
             string extension = Path.GetExtension(this.filePath);
@@ -71,7 +72,12 @@ namespace Jint.CommonJS {
         }
 
         protected JsValue Require(string moduleId) {
-            return engine.Load(moduleId, this);
+            // RunAvailableContinuations is needed here (before engine.Load) to accomodate require() inside
+            // of Promise.resolve().then() chains such as in the case of dynamic imports. However, there may
+            // be better ways to handle this.
+            engine.engine.RunAvailableContinuations();
+            var jsVal = engine.Load(moduleId, this);
+            return jsVal;
         }
 
         public JsValue Compile(string sourceCode, string filePath) {

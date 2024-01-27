@@ -1,31 +1,33 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace OneJS.Samples {
-    public class Character : MonoBehaviour {
-        public float Health {
-            get { return _health; }
-            set {
-                _health = value;
-                OnHealthChanged?.Invoke(_health);
-            }
-        }
+    public partial class Character : MonoBehaviour {
+        [SerializeField, EventfulProperty] float _health = 200f;
+        [SerializeField, EventfulProperty] float _maxHealth = 200f;
 
-        public float MaxHealth {
-            get { return _maxHealth; }
-            set {
-                _maxHealth = value;
-                OnMaxHealthChanged?.Invoke(_maxHealth);
-            }
-        }
-
-        public event Action<float> OnHealthChanged;
-        public event Action<float> OnMaxHealthChanged;
-
-        [SerializeField] float _health = 200f;
-        [SerializeField] float _maxHealth = 200f;
+        // [EventfulProperty] will generate additional codes:
+        //
+        // public float Health {
+        //     get { return _health; }
+        //     set {
+        //         _health = value;
+        //         OnHealthChanged?.Invoke(_health);
+        //     }
+        // }
+        //
+        // public event Action<float> OnHealthChanged;
+        //
+        // public float MaxHealth {
+        //     get { return _maxHealth; }
+        //     set {
+        //         _maxHealth = value;
+        //         OnMaxHealthChanged?.Invoke(_maxHealth);
+        //     }
+        // }
+        //
+        // public event Action<float> OnMaxHealthChanged;
 
         void Start() {
             StartCoroutine(ChangeHealthCo());
@@ -38,8 +40,7 @@ namespace OneJS.Samples {
         }
 
         void ChangeHealth() {
-            _health = Random.Range(0, _maxHealth); // Mimic health change
-            OnHealthChanged?.Invoke(_health);
+            Health = Random.Range(0, _maxHealth); // Mimic health change
             StartCoroutine(ChangeHealthCo());
         }
     }

@@ -15,7 +15,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Col = exports.Row = exports.Grow = exports.$radiobuttongroup = exports.$radiobutton = exports.$button = exports.$foldout = exports.$img = exports.$label = exports.$div = void 0;
+exports.Frag = exports.Col = exports.Row = exports.Grow = exports.$field = exports.$radiobuttongroup = exports.$radiobutton = exports.$button = exports.$foldout = exports.$img = exports.$label = exports.$screen = exports.$div = void 0;
 var preact_1 = require("preact");
 var generateComponentId_1 = require("onejs/styled/utils/generateComponentId");
 var css_flatten_1 = require("css-flatten");
@@ -36,21 +36,25 @@ function _processTemplate(props, strings, values) {
     }, strings[0]);
     return style;
 }
-var $div = function (name) { return styling('div', name); };
+var $div = function (name, className) { return styling('div', name, className); };
 exports.$div = $div;
-var $label = function (name) { return styling('label', name); };
+var $screen = function (name) { return styling('div', name, 'full-screen'); };
+exports.$screen = $screen;
+var $label = function (name, className) { return styling('label', name, className); };
 exports.$label = $label;
-var $img = function (name) { return styling('image', name); };
+var $img = function (name, className) { return styling('image', name, className); };
 exports.$img = $img;
-var $foldout = function (name) { return styling('foldout', name); };
+var $foldout = function (name, className) { return styling('foldout', name, className); };
 exports.$foldout = $foldout;
-var $button = function (name) { return styling('button', name); };
+var $button = function (name, className) { return styling('button', name, className); };
 exports.$button = $button;
-var $radiobutton = function (name) { return styling('radiobutton', name); };
+var $radiobutton = function (name, className) { return styling('radiobutton', name, className); };
 exports.$radiobutton = $radiobutton;
-var $radiobuttongroup = function (name) { return styling('radiobuttongroup', name); };
+var $radiobuttongroup = function (name, className) { return styling('radiobuttongroup', name, className); };
 exports.$radiobuttongroup = $radiobuttongroup;
-function styling(JsxTag, name) {
+var $field = function (name, className) { return styling('textfield', name, className); };
+exports.$field = $field;
+function styling(JsxTag, name, className) {
     return function (strings) {
         var values = [];
         for (var _i = 1; _i < arguments.length; _i++) {
@@ -59,12 +63,14 @@ function styling(JsxTag, name) {
         return function (props) {
             var style = _processTemplate(props, strings, values);
             var compId = _hashAndAddRuntimeUSS(style);
-            var className = props.class ? "".concat(compId, " ").concat(props.class) : compId;
-            return (0, preact_1.h)(JsxTag, __assign({ name: name }, props, { class: className }));
+            var finalClass = "".concat(compId, " ").concat(props.class || '', " ").concat(className || '');
+            return (0, preact_1.h)(JsxTag, __assign({ name: name }, props, { class: finalClass }));
         };
     };
 }
 exports.Grow = (0, exports.$div)('grow')(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  flex: 1 0 auto;\n"], ["\n  flex: 1 0 auto;\n"])));
 exports.Row = (0, exports.$div)('row')(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  flex-direction: row;\n"], ["\n  flex-direction: row;\n"])));
 exports.Col = (0, exports.$div)('col')(templateObject_3 || (templateObject_3 = __makeTemplateObject([""], [""])));
+var Frag = function () { return (0, preact_1.h)(preact_1.Fragment, null); };
+exports.Frag = Frag;
 var templateObject_1, templateObject_2, templateObject_3;

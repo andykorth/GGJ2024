@@ -8,12 +8,12 @@ exports.ActivitySelect = void 0;
 var preact_1 = require("preact");
 var Track_1 = require("../../util/Track");
 var _array_1 = require("../../util/buckle/$array");
-var clips_1 = require("../../clips");
 var lg_1 = require("../../util/lg");
 var _tyle_1 = require("../../util/$tyle");
+var FutzInterop_1 = require("../../FutzInterop");
 function ActivitySelect() {
-    var _a = (0, Track_1.useTrackToggle)(clips_1.CoreUi_.ShowActivitySelect), show = _a[0], toggleShow = _a[1];
-    var _b = (0, Track_1.useTrackChoiceList)(clips_1.GameSys_.ActivityChoice), defs = _b[0], currentIndex = _b[1], currentDef = _b[2], setIndex = _b[3];
+    var _a = (0, Track_1.useTrackToggle)(FutzInterop_1.Clips.CoreUi_.ShowActivitySelect), show = _a[0], toggleShow = _a[1];
+    var _b = (0, Track_1.useTrackChoiceList)(FutzInterop_1.Clips.GameSys_.ActivityChoice), defs = _b[0], currentIndex = _b[1], currentDef = _b[2], setIndex = _b[3];
     var inner = show ? ((0, preact_1.h)(G_Activities, null, (0, _array_1.$map)(defs, function (def, i) { return ((0, preact_1.h)(R_Act, { key: def.Idf, text: def.Name, onClick: function () { return setIndex(i); }, value: i === currentIndex })); }))) : (0, preact_1.h)("div", null);
     (0, lg_1.lg)("render ", this);
     return ((0, preact_1.h)(W_ActivitySelect, null,

@@ -8,12 +8,12 @@ exports.AgentRow = exports.AgentList = void 0;
 var preact_1 = require("preact");
 var _array_1 = require("../../util/buckle/$array");
 var Track_1 = require("../../util/Track");
-var clips_1 = require("../../clips");
 var _tyle_1 = require("../../util/$tyle");
 var styled_1 = require("onejs/styled");
+var FutzInterop_1 = require("../../FutzInterop");
 function AgentList() {
-    var agents = (0, Track_1.useTrackList)(clips_1.GameSys_.Agents);
-    var showScore = (0, Track_1.useTrackToggle)(clips_1.CoreUi_.ShowScore)[0];
+    var agents = (0, Track_1.useTrackList)(FutzInterop_1.Clips.GameSys_.Agents);
+    var showScore = (0, Track_1.useTrackToggle)(FutzInterop_1.Clips.CoreUi_.ShowScore)[0];
     return ((0, preact_1.h)(W_AgentList, { showScore: showScore },
         (0, preact_1.h)(L_Title, { text: 'Players' }),
         (0, preact_1.h)(_tyle_1.Col, null, (0, _array_1.$map)(agents, function (agent) { return ((0, preact_1.h)(AgentRow, { key: agent.EntityId, agent: agent, showScore: showScore })); }))));

@@ -1,11 +1,11 @@
 import {useTrack} from '../../util/Track';
 import {h} from 'preact';
-import {GameSys_} from '../../clips';
 import {$div, $label} from '../../util/$tyle';
+import {Clips} from '../../FutzInterop';
 
 export function RoomInfo() {
-	const roomIdf = useTrack(GameSys_.RoomIdf);
-	const status = useTrack(GameSys_.Status);
+	const roomIdf = useTrack(Clips.GameSys_.RoomIdf);
+	const status = useTrack(Clips.GameSys_.Status);
 	
 	return (
 		<W_RoomInfo>

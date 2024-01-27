@@ -8,7 +8,7 @@ using OneJS.Utils;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
-namespace OneJS {
+namespace OneJS.Engine {
     [DefaultExecutionOrder(50)]
     public class Bundler : MonoBehaviour {
         // [Tooltip(
@@ -18,14 +18,14 @@ namespace OneJS {
         // [PlainString]
         // string[] _subDirectoriesToIgnore = new[] { "Addons" };
 
-        [Tooltip("This is the zip file of your bundled scripts.")]
+        [Tooltip("This is the gzip file of your bundled scripts.")]
         [SerializeField] TextAsset _scriptsBundleZip;
 
         [SerializeField]
-        [Tooltip("The zip file that contains sample scripts. You normally don't need to touch this.")]
+        [Tooltip("The gzip file that contains sample scripts. You normally don't need to touch this.")]
         TextAsset _samplesZip;
 
-        [Tooltip("This is the zip file that OneJS uses to fill your " +
+        [Tooltip("This is the gzip file that OneJS uses to fill your " +
                  "ScriptLib folder if one isn't found under {ProjectDir}/OneJS. You normally don't need to touch this.")]
         [SerializeField]
         TextAsset _scriptLibZip;
@@ -35,10 +35,19 @@ namespace OneJS {
         [SerializeField]
         TextAsset _vscodeSettings;
 
+        [Tooltip("Default vscode tasks.json. If one isn't found under {ProjectDir}/OneJS/.vscode, " +
+                 "this is the template that will be copied over. You normally don't need to touch this.")]
+        [SerializeField]
+        TextAsset _vscodeTasks;
+
         [Tooltip("Default tsconfig.json. If one isn't found under {ProjectDir}/OneJS, " +
                  "this is the template that will be copied over. You normally don't need to touch this.")]
         [SerializeField]
         TextAsset _tsconfig;
+
+        [Tooltip("Default tailwind.config.js. If one isn't found under {ProjectDir}/OneJS, " +
+                 "this is the template that will be copied over. You normally don't need to touch this.")]
+        [SerializeField] TextAsset _tailwindConfig;
 
         [Tooltip("Files and folders that you don't want to be bundled with your standalone app build." +
                  "")]
@@ -55,7 +64,7 @@ namespace OneJS {
         [Tooltip("Will automatically extract built-in Samples folder to your WorkingDir")]
         [SerializeField] bool _extractSamples = true;
 
-        string _onejsVersion = "1.5.7";
+        string _onejsVersion = "1.6.7";
 
         ScriptEngine _scriptEngine;
 
@@ -103,7 +112,7 @@ namespace OneJS {
             DeleteEverythingInPath(scriptLibPath);
 
             Extract(_scriptLibZip.bytes);
-            Debug.Log($"ScriptLib Zip extracted. ({scriptLibPath})");
+            Debug.Log($"ScriptLib gzip extracted. ({scriptLibPath})");
         }
 
         /// <summary>
@@ -120,7 +129,7 @@ namespace OneJS {
             DeleteEverythingInPath(samplesPath);
 
             Extract(_samplesZip.bytes);
-            Debug.Log($"Samples Zip extracted. ({samplesPath})");
+            Debug.Log($"Samples gzip extracted. ({samplesPath})");
         }
 
         /// <summary>
@@ -188,6 +197,9 @@ namespace OneJS {
             var tsconfigPath = Path.Combine(_scriptEngine.WorkingDir, "tsconfig.json");
             var gitignorePath = Path.Combine(_scriptEngine.WorkingDir, ".gitignore");
             var vscodeSettingsPath = Path.Combine(_scriptEngine.WorkingDir, ".vscode/settings.json");
+            var vscodeTasksPath = Path.Combine(_scriptEngine.WorkingDir, ".vscode/tasks.json");
+            var inputCssPath = Path.Combine(_scriptEngine.WorkingDir, "input.css");
+            var tailwindConfigPath = Path.Combine(_scriptEngine.WorkingDir, "tailwind.config.js");
 
             var indexjsFound = File.Exists(indexjsPath);
             var scriptLibFound = Directory.Exists(scriptLibPath);
@@ -195,6 +207,9 @@ namespace OneJS {
             var tsconfigFound = File.Exists(tsconfigPath);
             var gitignoreFound = File.Exists(gitignorePath);
             var vscodeSettingsFound = File.Exists(vscodeSettingsPath);
+            var vscodeTasksFound = File.Exists(vscodeTasksPath);
+            var inputCssFound = File.Exists(inputCssPath);
+            var tailwindConfigFound = File.Exists(tailwindConfigPath);
 
             if (!indexjsFound) {
                 File.WriteAllText(indexjsPath, "log(\"[index.js]: OneJS is good to go.\")");
@@ -203,7 +218,7 @@ namespace OneJS {
 
             if (!scriptLibFound) {
                 Extract(_scriptLibZip.bytes);
-                Debug.Log("ScriptLib Folder wasn't found. So a default one was created (from ScriptLib Zip).");
+                Debug.Log("ScriptLib Folder wasn't found. So a default one was created (from ScriptLib gzip).");
             }
 
             if (!samplesFound && _extractSamples) {
@@ -217,7 +232,7 @@ namespace OneJS {
             }
 
             if (!gitignoreFound) {
-                File.WriteAllText(gitignorePath, "ScriptLib");
+                File.WriteAllText(gitignorePath, "ScriptLib/\nnode_modules/");
             }
 
             if (!vscodeSettingsFound) {
@@ -227,6 +242,24 @@ namespace OneJS {
                 }
                 File.WriteAllText(vscodeSettingsPath, _vscodeSettings.text);
                 Debug.Log(".vscode/settings.json wasn't found. So a default one was created.");
+            }
+
+            if (!vscodeTasksFound) {
+                var dirPath = Path.Combine(_scriptEngine.WorkingDir, ".vscode");
+                if (!Directory.Exists(dirPath)) {
+                    Directory.CreateDirectory(dirPath);
+                }
+                File.WriteAllText(vscodeTasksPath, _vscodeTasks.text);
+                Debug.Log(".vscode/tasks.json wasn't found. So a default one was created.");
+            }
+
+            if (!inputCssFound) {
+                File.WriteAllText(inputCssPath, "@tailwind utilities;");
+            }
+
+            if (!tailwindConfigFound) {
+                File.WriteAllText(tailwindConfigPath, _tailwindConfig.text);
+                Debug.Log("tailwind.config.js wasn't found. So a default one was created.");
             }
 #endif
         }

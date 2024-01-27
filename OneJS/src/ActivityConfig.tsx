@@ -1,13 +1,11 @@
-import {BewilderView} from './views/bewilder/BewilderView';
+import {GhostView} from './views/ghost/GhostView';
 import {h} from 'preact';
-// import {GolfView} from './views/golf/GolfView';
-// import {SticklerView} from './views/stickler/SticklerView';
 
 export const ACTIVITY_VIEWS = {
-	// bewilder: BewilderView,
+	// ghost: BewilderView,
 	// golf: GolfView,
 	// stickler: SticklerView,
-	ghost: BewilderView,
+	ghost: GhostView,
 };
 
 export type T_ActivityView = (props: P_ActivityView) => h.JSX.Element;
@@ -32,6 +30,6 @@ export type P_ActivityView = {}
 //
 // /* v v v v           ADD BELOW          v v v v  */
 //
-// Register('bewilder', BewilderView);
+// Register('ghost', BewilderView);
 
 

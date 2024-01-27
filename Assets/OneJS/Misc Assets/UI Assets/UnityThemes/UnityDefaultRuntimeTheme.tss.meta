@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 7f4b69a09aa4dc9409800e41bd40d6cd
+labels:
+- SGguiText
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
