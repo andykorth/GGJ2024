@@ -392,16 +392,16 @@ MonoBehaviour:
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 0
-  m_ApplyToSortingLayers: bf9f744900000000
+  m_ApplyToSortingLayers: 00000000bf9f7449
   m_ShapePath:
-  - {x: -0.36988592, y: 0.26876533, z: 0}
-  - {x: -0.47325706, y: 0.67437804, z: 0}
-  - {x: 0.039098263, y: 0.8190979, z: 0}
-  - {x: 0.51693726, y: 0.6184014, z: 0}
-  - {x: 0.4732573, y: 0.28943968, z: 0}
-  m_ShapePathHash: 1665026991
+  - {x: -0.150908, y: -0.011039853, z: 0}
+  - {x: -0.55841494, y: 0.3580767, z: 0}
+  - {x: 0.0026016235, y: 0.55145836, z: 0}
+  - {x: 0.56559896, y: 0.39942348, z: 0}
+  - {x: 0.19345236, y: -0.014696121, z: 0}
+  m_ShapePathHash: -1762778961
   m_Mesh: {fileID: 0}
   m_InstanceId: -95190
   m_LocalBounds:
-    m_Center: {x: 0.021840096, y: 0.5439316, z: 0}
-    m_Extent: {x: 0.49509716, y: 0.27516627, z: 0}
+    m_Center: {x: 0.0035920143, y: 0.26838112, z: 0}
+    m_Extent: {x: 0.56200695, y: 0.28307724, z: 0}
