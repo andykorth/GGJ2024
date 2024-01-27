@@ -1,0 +1,1007 @@
+fileFormatVersion: 2
+guid: 3af6f6cb89cd54aaf97057937e07b10e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a63d63b7a51346bbaa18e90a8bfd03d
+      internalID: 542207500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 144
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64e46edeee61040eda3cee19d57f2df0
+      internalID: 1811775796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_2
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 144
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25c3649bce9cc4fce943f1385f68ad14
+      internalID: -2061352283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_3
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 144
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48914d87a893f4a92b1230dd5d5e343f
+      internalID: -116097199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_4
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 144
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 234f05d4d402346e383d99fd68544379
+      internalID: -959006018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_5
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 144
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cef4798c04f5e4438a959cfbcfe1a720
+      internalID: 1926042664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_6
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 144
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bfb3ae25a0ef44018787f961cc0e5a7
+      internalID: 1915899748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_7
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 144
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd6ac80af1df14fb7bb148eec1d69c72
+      internalID: 1421668467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_8
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 144
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 211952349a0ab43678431629ab75eb2d
+      internalID: -303934374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_9
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 144
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f0d2fea26e914268b1cd823d84eb9ab
+      internalID: -230107417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 323afc69e066a46b3acfafa97eabb149
+      internalID: -444621191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_11
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 96
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76cb250e21cd446c0834d70577c301cd
+      internalID: -194826906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_12
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 96
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7a1f659c2d464eb39b8906efa2a6993
+      internalID: 1432839486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_13
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 96
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaa063830781644f0b71b4bbe040569b
+      internalID: 2017090908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_14
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 96
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbcaae2ce0fe74389bfda87c733da2c6
+      internalID: 189363459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_15
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 96
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab0618392562c41fdac3964c25e824a9
+      internalID: 1111741819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_16
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 96
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1fbd2d5101f742d89ffdce2a7d85f66
+      internalID: -397067609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_17
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 96
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da6ec422b4d5c4ab4973ed41d59ccf9a
+      internalID: -1000925077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_18
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 96
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab1a919f29d654ae3a63f8a6a693fe1b
+      internalID: 1101245965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_19
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 96
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 036c4683517d24a36aa8ba84ab85e811
+      internalID: -1637874847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2feea66273fcc47b585af330475b2ca0
+      internalID: -1828355624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_21
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 48
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d05cd104798b48c78960c6f04861e0d
+      internalID: 1549025774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_22
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 48
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c216ad94de1af4fa48e64e971bab06de
+      internalID: 1398515188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_23
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 48
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d31985a8b880d4a199c622a8b854bab8
+      internalID: 644103644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_24
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 48
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 219620b88c08f437cac620662057da81
+      internalID: -938705124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_25
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 48
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e0155de77b9a497488a8a566a8ba892
+      internalID: -101376290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_26
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 48
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea3422d63772741ffbbf73439149992a
+      internalID: 2132668127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_27
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 48
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 645532aef691c4c2ca0c0ea7ef9b02aa
+      internalID: 1383607603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_28
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 48
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d43e66eef1e34f5da065a35969da69a
+      internalID: -400370630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_29
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 48
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f82243ce3198b46c59ef7f0875fa9dab
+      internalID: 70281878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ef90e9da192b4fe6925658ff73c22fa
+      internalID: -1657571798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_31
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 0
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b5bb5ce7a34947cbbea0f2daaaad686
+      internalID: 1537094215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_32
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 0
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6616f3aa6188c4c17b33d5cad2d31b92
+      internalID: 1448910606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_33
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 0
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e5430ad653654631b7d3da1f3c10850
+      internalID: -1712482301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_34
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 0
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a39b0b9006ae34325a251b52116c42eb
+      internalID: -1025809646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_35
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 0
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19ef1b36f9f4c495a964692530aba575
+      internalID: 1174345923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_36
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 0
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89502a0e905fc429385532a069896681
+      internalID: -49841296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_37
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 0
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa0aeadae02b4f068ff075627481079
+      internalID: 744043571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_38
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 0
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a85e002a0ad624bef8284e7a97796c9c
+      internalID: -1043002168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FF6_iOS_Ghost_Sprites_39
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 0
+        width: 46.8
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b690965d7a614990a475ef202f147bd
+      internalID: -132761344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      FF6_iOS_Ghost_Sprites_0: 542207500
+      FF6_iOS_Ghost_Sprites_1: 1811775796
+      FF6_iOS_Ghost_Sprites_10: -444621191
+      FF6_iOS_Ghost_Sprites_11: -194826906
+      FF6_iOS_Ghost_Sprites_12: 1432839486
+      FF6_iOS_Ghost_Sprites_13: 2017090908
+      FF6_iOS_Ghost_Sprites_14: 189363459
+      FF6_iOS_Ghost_Sprites_15: 1111741819
+      FF6_iOS_Ghost_Sprites_16: -397067609
+      FF6_iOS_Ghost_Sprites_17: -1000925077
+      FF6_iOS_Ghost_Sprites_18: 1101245965
+      FF6_iOS_Ghost_Sprites_19: -1637874847
+      FF6_iOS_Ghost_Sprites_2: -2061352283
+      FF6_iOS_Ghost_Sprites_20: -1828355624
+      FF6_iOS_Ghost_Sprites_21: 1549025774
+      FF6_iOS_Ghost_Sprites_22: 1398515188
+      FF6_iOS_Ghost_Sprites_23: 644103644
+      FF6_iOS_Ghost_Sprites_24: -938705124
+      FF6_iOS_Ghost_Sprites_25: -101376290
+      FF6_iOS_Ghost_Sprites_26: 2132668127
+      FF6_iOS_Ghost_Sprites_27: 1383607603
+      FF6_iOS_Ghost_Sprites_28: -400370630
+      FF6_iOS_Ghost_Sprites_29: 70281878
+      FF6_iOS_Ghost_Sprites_3: -116097199
+      FF6_iOS_Ghost_Sprites_30: -1657571798
+      FF6_iOS_Ghost_Sprites_31: 1537094215
+      FF6_iOS_Ghost_Sprites_32: 1448910606
+      FF6_iOS_Ghost_Sprites_33: -1712482301
+      FF6_iOS_Ghost_Sprites_34: -1025809646
+      FF6_iOS_Ghost_Sprites_35: 1174345923
+      FF6_iOS_Ghost_Sprites_36: -49841296
+      FF6_iOS_Ghost_Sprites_37: 744043571
+      FF6_iOS_Ghost_Sprites_38: -1043002168
+      FF6_iOS_Ghost_Sprites_39: -132761344
+      FF6_iOS_Ghost_Sprites_4: -959006018
+      FF6_iOS_Ghost_Sprites_5: 1926042664
+      FF6_iOS_Ghost_Sprites_6: 1915899748
+      FF6_iOS_Ghost_Sprites_7: 1421668467
+      FF6_iOS_Ghost_Sprites_8: -303934374
+      FF6_iOS_Ghost_Sprites_9: -230107417
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

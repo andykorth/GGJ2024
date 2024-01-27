@@ -13,6 +13,8 @@ public class GhostPlayerManager : MonoBehaviour
 
     public List<Goal> allSharedGoals;
 
+    public SpriteRenderer[] ghostsToFade;
+
     public void CreateAllGoals(){
         allSharedGoals = new List<Goal>
         {
