@@ -4,9 +4,10 @@ import {h} from 'preact';
 // import {SticklerView} from './views/stickler/SticklerView';
 
 export const ACTIVITY_VIEWS = {
-	bewilder: BewilderView,
+	// bewilder: BewilderView,
 	// golf: GolfView,
 	// stickler: SticklerView,
+	ghost: BewilderView,
 };
 
 export type T_ActivityView = (props: P_ActivityView) => h.JSX.Element;

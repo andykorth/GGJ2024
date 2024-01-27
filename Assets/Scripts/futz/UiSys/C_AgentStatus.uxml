@@ -1,8 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/__Code/UiSys/S_Hud_Style.uss?fileID=7433441132597879392&amp;guid=7e483e3068fe8c14cbfaf673c6482f02&amp;type=3#S_Hud_Style" />
-    <ui:VisualElement name="C_AgentStatus" class="C_AgentStatus">
-        <ui:VisualElement name="V_Color" class="V_Color" />
-        <ui:Label text="whatAl0ng@$$name12345678" name="L_Name" class="L_Name" />
-        <ui:Label text="is typing way too much" name="L_Status" class="L_Status" />
-    </ui:VisualElement>
-</ui:UXML>

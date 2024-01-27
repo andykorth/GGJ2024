@@ -97,204 +97,6 @@ MonoBehaviour:
       IsInstant: 0
       SyncerName: 
       TimedSeconds: 0
-  - Name: BewilderBaron
-    TypeName: ActBewilder.BewilderBaron, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-    HashId:
-      Value: 958274847
-    WorkerFacts:
-    - Name: Enabled_Actor
-      HashId:
-        Value: 3648368663
-      ParentTypeName: BewilderBaron
-      RequiredTypeNames:
-      - ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      RequiredTypeNamesShort:
-      - BewilderActor
-      RequiredTypeHashes:
-      - Value: 957412834
-      Cycle: 2
-      StageName: POST_SPAWN
-      StageHash:
-        Value: 687736403
-      WorkerTrigger: 1
-      WorkerMemberType: 1
-      MakerString: MakeAddedWorker1
-      Domain: 1000
-      RequiresAuthor: 0
-      RequiresRemote: 0
-      IsInstant: 0
-      SyncerName: 
-      TimedSeconds: 0
-    - Name: Disabled_Actor
-      HashId:
-        Value: 3843548562
-      ParentTypeName: BewilderBaron
-      RequiredTypeNames:
-      - ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      RequiredTypeNamesShort:
-      - BewilderActor
-      RequiredTypeHashes:
-      - Value: 957412834
-      Cycle: 5
-      StageName: __SKIP_STAGE__
-      StageHash:
-        Value: 3369202741
-      WorkerTrigger: 4
-      WorkerMemberType: 1
-      MakerString: MakeDisabledWorker1
-      Domain: 1000
-      RequiresAuthor: 0
-      RequiresRemote: 0
-      IsInstant: 0
-      SyncerName: 
-      TimedSeconds: 0
-    - Name: Enabled_Card
-      HashId:
-        Value: 3304335534
-      ParentTypeName: BewilderBaron
-      RequiredTypeNames:
-      - ActBewilder.BewilderCard, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      RequiredTypeNamesShort:
-      - BewilderCard
-      RequiredTypeHashes:
-      - Value: 2940435843
-      Cycle: 5
-      StageName: __SKIP_STAGE__
-      StageHash:
-        Value: 3369202741
-      WorkerTrigger: 3
-      WorkerMemberType: 1
-      MakerString: MakeEnabledWorker1
-      Domain: 1000
-      RequiresAuthor: 0
-      RequiresRemote: 0
-      IsInstant: 0
-      SyncerName: 
-      TimedSeconds: 0
-    - Name: Disabled_Card
-      HashId:
-        Value: 2479347667
-      ParentTypeName: BewilderBaron
-      RequiredTypeNames:
-      - ActBewilder.BewilderCard, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      RequiredTypeNamesShort:
-      - BewilderCard
-      RequiredTypeHashes:
-      - Value: 2940435843
-      Cycle: 5
-      StageName: __SKIP_STAGE__
-      StageHash:
-        Value: 3369202741
-      WorkerTrigger: 4
-      WorkerMemberType: 1
-      MakerString: MakeDisabledWorker1
-      Domain: 1000
-      RequiresAuthor: 0
-      RequiresRemote: 0
-      IsInstant: 0
-      SyncerName: 
-      TimedSeconds: 0
-    - Name: Enabled_Bewilder
-      HashId:
-        Value: 3706531480
-      ParentTypeName: BewilderBaron
-      RequiredTypeNames:
-      - ActBewilder.BewilderActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      RequiredTypeNamesShort:
-      - BewilderActivity
-      RequiredTypeHashes:
-      - Value: 3697574914
-      Cycle: 5
-      StageName: __SKIP_STAGE__
-      StageHash:
-        Value: 3369202741
-      WorkerTrigger: 3
-      WorkerMemberType: 1
-      MakerString: MakeEnabledWorker1
-      Domain: 1000
-      RequiresAuthor: 0
-      RequiresRemote: 0
-      IsInstant: 0
-      SyncerName: 
-      TimedSeconds: 0
-    - Name: Disabled_Bewilder
-      HashId:
-        Value: 2925183805
-      ParentTypeName: BewilderBaron
-      RequiredTypeNames:
-      - ActBewilder.BewilderActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      RequiredTypeNamesShort:
-      - BewilderActivity
-      RequiredTypeHashes:
-      - Value: 3697574914
-      Cycle: 5
-      StageName: __SKIP_STAGE__
-      StageHash:
-        Value: 3369202741
-      WorkerTrigger: 4
-      WorkerMemberType: 1
-      MakerString: MakeDisabledWorker1
-      Domain: 1000
-      RequiresAuthor: 0
-      RequiresRemote: 0
-      IsInstant: 0
-      SyncerName: 
-      TimedSeconds: 0
-    - Name: Drain_Packets
-      HashId:
-        Value: 1414316612
-      ParentTypeName: BewilderBaron
-      RequiredTypeNames:
-      - ActBewilder.BewilderActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      RequiredTypeNamesShort:
-      - BewilderActivity
-      RequiredTypeHashes:
-      - Value: 3697574914
-      Cycle: 2
-      StageName: ACTIVITY_PK
-      StageHash:
-        Value: 4204615860
-      WorkerTrigger: 5
-      WorkerMemberType: 1
-      MakerString: MakeRunnWorker1
-      Domain: 1000
-      RequiresAuthor: 0
-      RequiresRemote: 0
-      IsInstant: 0
-      SyncerName: 
-      TimedSeconds: 0
-    - Name: React_ForceNextRound
-      HashId:
-        Value: 1132986832
-      ParentTypeName: BewilderBaron
-      RequiredTypeNames:
-      - ActBewilder.BewilderActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      RequiredTypeNamesShort:
-      - BewilderActivity
-      RequiredTypeHashes:
-      - Value: 3697574914
-      Cycle: 2
-      StageName: UNSURE_WHAT_STAGE
-      StageHash:
-        Value: 557101341
-      WorkerTrigger: 7
-      WorkerMemberType: 1
-      MakerString: MakeReactWorker1
-      Domain: 1000
-      RequiresAuthor: 0
-      RequiresRemote: 0
-      IsInstant: 0
-      SyncerName: ForceNextRound
-      TimedSeconds: 0
   - Name: CoreUiBaron
     TypeName: UiSys.CoreUiBaron, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
@@ -694,6 +496,233 @@ MonoBehaviour:
       IsInstant: 0
       SyncerName: ActivityChoice
       TimedSeconds: 0
+  - Name: GhostBaron
+    TypeName: futz.ActGhost.GhostBaron, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    HashId:
+      Value: 2248835218
+    WorkerFacts:
+    - Name: Enabled_Actor
+      HashId:
+        Value: 1359580746
+      ParentTypeName: GhostBaron
+      RequiredTypeNames:
+      - futz.ActGhost.GhostActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - GhostActor
+      RequiredTypeHashes:
+      - Value: 2247973205
+      Cycle: 2
+      StageName: POST_SPAWN
+      StageHash:
+        Value: 687736403
+      WorkerTrigger: 1
+      WorkerMemberType: 1
+      MakerString: MakeAddedWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: Disabled_Actor
+      HashId:
+        Value: 1610599871
+      ParentTypeName: GhostBaron
+      RequiredTypeNames:
+      - futz.ActGhost.GhostActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - GhostActor
+      RequiredTypeHashes:
+      - Value: 2247973205
+      Cycle: 5
+      StageName: __SKIP_STAGE__
+      StageHash:
+        Value: 3369202741
+      WorkerTrigger: 4
+      WorkerMemberType: 1
+      MakerString: MakeDisabledWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: Enabled_Card
+      HashId:
+        Value: 321009691
+      ParentTypeName: GhostBaron
+      RequiredTypeNames:
+      - futz.ActGhost.GhostCard, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - GhostCard
+      RequiredTypeHashes:
+      - Value: 72572848
+      Cycle: 5
+      StageName: __SKIP_STAGE__
+      StageHash:
+        Value: 3369202741
+      WorkerTrigger: 3
+      WorkerMemberType: 1
+      MakerString: MakeEnabledWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: Disabled_Card
+      HashId:
+        Value: 190559750
+      ParentTypeName: GhostBaron
+      RequiredTypeNames:
+      - futz.ActGhost.GhostCard, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - GhostCard
+      RequiredTypeHashes:
+      - Value: 72572848
+      Cycle: 5
+      StageName: __SKIP_STAGE__
+      StageHash:
+        Value: 3369202741
+      WorkerTrigger: 4
+      WorkerMemberType: 1
+      MakerString: MakeDisabledWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: Enabled_Bewilder
+      HashId:
+        Value: 1031520133
+      ParentTypeName: GhostBaron
+      RequiredTypeNames:
+      - futz.ActGhost.GhostActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - GhostActivity
+      RequiredTypeHashes:
+      - Value: 2234353583
+      Cycle: 5
+      StageName: __SKIP_STAGE__
+      StageHash:
+        Value: 3369202741
+      WorkerTrigger: 3
+      WorkerMemberType: 1
+      MakerString: MakeEnabledWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: Disabled_Bewilder
+      HashId:
+        Value: 1604210672
+      ParentTypeName: GhostBaron
+      RequiredTypeNames:
+      - futz.ActGhost.GhostActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - GhostActivity
+      RequiredTypeHashes:
+      - Value: 2234353583
+      Cycle: 5
+      StageName: __SKIP_STAGE__
+      StageHash:
+        Value: 3369202741
+      WorkerTrigger: 4
+      WorkerMemberType: 1
+      MakerString: MakeDisabledWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: Drain_Packets
+      HashId:
+        Value: 3420495991
+      ParentTypeName: GhostBaron
+      RequiredTypeNames:
+      - futz.ActGhost.GhostActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - GhostActivity
+      RequiredTypeHashes:
+      - Value: 2234353583
+      Cycle: 2
+      StageName: ACTIVITY_PK
+      StageHash:
+        Value: 4204615860
+      WorkerTrigger: 5
+      WorkerMemberType: 1
+      MakerString: MakeRunnWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
+    - Name: React_ForceNextRound
+      HashId:
+        Value: 2807714877
+      ParentTypeName: GhostBaron
+      RequiredTypeNames:
+      - futz.ActGhost.GhostActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - GhostActivity
+      RequiredTypeHashes:
+      - Value: 2234353583
+      Cycle: 2
+      StageName: UNSURE_WHAT_STAGE
+      StageHash:
+        Value: 557101341
+      WorkerTrigger: 7
+      WorkerMemberType: 1
+      MakerString: MakeReactWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: ForceNextRound
+      TimedSeconds: 0
+    - Name: React_AssignedClues
+      HashId:
+        Value: 1867190143
+      ParentTypeName: GhostBaron
+      RequiredTypeNames:
+      - futz.ActGhost.GhostActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      - Regent.Syncers.TrackList`1[[futz.ActGhost.Hint, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null]], Regent, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - GhostActor
+      - TrackList`1
+      RequiredTypeHashes:
+      - Value: 2247973205
+      - Value: 3298293186
+      Cycle: 2
+      StageName: UNSURE_WHAT_STAGE
+      StageHash:
+        Value: 557101341
+      WorkerTrigger: 7
+      WorkerMemberType: 1
+      MakerString: MakeReactWorker2
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: AssignedHints
+      TimedSeconds: 0
   - Name: OpenAiBaron
     TypeName: FutzSys.OpenAiBaron, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
@@ -750,15 +779,15 @@ MonoBehaviour:
     TimedSeconds: 0
   - Name: Disabled_Actor
     HashId:
-      Value: 3843548562
-    ParentTypeName: BewilderBaron
+      Value: 1610599871
+    ParentTypeName: GhostBaron
     RequiredTypeNames:
-    - ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    - futz.ActGhost.GhostActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     RequiredTypeNamesShort:
-    - BewilderActor
+    - GhostActor
     RequiredTypeHashes:
-    - Value: 957412834
+    - Value: 2247973205
     Cycle: 5
     StageName: __SKIP_STAGE__
     StageHash:
@@ -820,15 +849,15 @@ MonoBehaviour:
     TimedSeconds: 0
   - Name: Disabled_Bewilder
     HashId:
-      Value: 2925183805
-    ParentTypeName: BewilderBaron
+      Value: 1604210672
+    ParentTypeName: GhostBaron
     RequiredTypeNames:
-    - ActBewilder.BewilderActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    - futz.ActGhost.GhostActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     RequiredTypeNamesShort:
-    - BewilderActivity
+    - GhostActivity
     RequiredTypeHashes:
-    - Value: 3697574914
+    - Value: 2234353583
     Cycle: 5
     StageName: __SKIP_STAGE__
     StageHash:
@@ -844,15 +873,15 @@ MonoBehaviour:
     TimedSeconds: 0
   - Name: Disabled_Card
     HashId:
-      Value: 2479347667
-    ParentTypeName: BewilderBaron
+      Value: 190559750
+    ParentTypeName: GhostBaron
     RequiredTypeNames:
-    - ActBewilder.BewilderCard, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    - futz.ActGhost.GhostCard, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     RequiredTypeNamesShort:
-    - BewilderCard
+    - GhostCard
     RequiredTypeHashes:
-    - Value: 2940435843
+    - Value: 72572848
     Cycle: 5
     StageName: __SKIP_STAGE__
     StageHash:
@@ -892,15 +921,15 @@ MonoBehaviour:
     TimedSeconds: 0
   - Name: Drain_Packets
     HashId:
-      Value: 1414316612
-    ParentTypeName: BewilderBaron
+      Value: 3420495991
+    ParentTypeName: GhostBaron
     RequiredTypeNames:
-    - ActBewilder.BewilderActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    - futz.ActGhost.GhostActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     RequiredTypeNamesShort:
-    - BewilderActivity
+    - GhostActivity
     RequiredTypeHashes:
-    - Value: 3697574914
+    - Value: 2234353583
     Cycle: 2
     StageName: ACTIVITY_PK
     StageHash:
@@ -916,15 +945,15 @@ MonoBehaviour:
     TimedSeconds: 0
   - Name: Enabled_Actor
     HashId:
-      Value: 3648368663
-    ParentTypeName: BewilderBaron
+      Value: 1359580746
+    ParentTypeName: GhostBaron
     RequiredTypeNames:
-    - ActBewilder.BewilderActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    - futz.ActGhost.GhostActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     RequiredTypeNamesShort:
-    - BewilderActor
+    - GhostActor
     RequiredTypeHashes:
-    - Value: 957412834
+    - Value: 2247973205
     Cycle: 2
     StageName: POST_SPAWN
     StageHash:
@@ -963,15 +992,15 @@ MonoBehaviour:
     TimedSeconds: 0
   - Name: Enabled_Bewilder
     HashId:
-      Value: 3706531480
-    ParentTypeName: BewilderBaron
+      Value: 1031520133
+    ParentTypeName: GhostBaron
     RequiredTypeNames:
-    - ActBewilder.BewilderActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    - futz.ActGhost.GhostActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     RequiredTypeNamesShort:
-    - BewilderActivity
+    - GhostActivity
     RequiredTypeHashes:
-    - Value: 3697574914
+    - Value: 2234353583
     Cycle: 5
     StageName: __SKIP_STAGE__
     StageHash:
@@ -987,15 +1016,15 @@ MonoBehaviour:
     TimedSeconds: 0
   - Name: Enabled_Card
     HashId:
-      Value: 3304335534
-    ParentTypeName: BewilderBaron
+      Value: 321009691
+    ParentTypeName: GhostBaron
     RequiredTypeNames:
-    - ActBewilder.BewilderCard, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    - futz.ActGhost.GhostCard, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     RequiredTypeNamesShort:
-    - BewilderCard
+    - GhostCard
     RequiredTypeHashes:
-    - Value: 2940435843
+    - Value: 72572848
     Cycle: 5
     StageName: __SKIP_STAGE__
     StageHash:
@@ -1055,6 +1084,35 @@ MonoBehaviour:
     RequiresRemote: 0
     IsInstant: 0
     SyncerName: 
+    TimedSeconds: 0
+  - Name: React_AssignedClues
+    HashId:
+      Value: 1867190143
+    ParentTypeName: GhostBaron
+    RequiredTypeNames:
+    - futz.ActGhost.GhostActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    - Regent.Syncers.TrackList`1[[futz.ActGhost.Hint, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null]], Regent, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - GhostActor
+    - TrackList`1
+    RequiredTypeHashes:
+    - Value: 2247973205
+    - Value: 3298293186
+    Cycle: 2
+    StageName: UNSURE_WHAT_STAGE
+    StageHash:
+      Value: 557101341
+    WorkerTrigger: 7
+    WorkerMemberType: 1
+    MakerString: MakeReactWorker2
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: AssignedHints
     TimedSeconds: 0
   - Name: React_Cancel
     HashId:
@@ -1157,15 +1215,15 @@ MonoBehaviour:
     TimedSeconds: 0
   - Name: React_ForceNextRound
     HashId:
-      Value: 1132986832
-    ParentTypeName: BewilderBaron
+      Value: 2807714877
+    ParentTypeName: GhostBaron
     RequiredTypeNames:
-    - ActBewilder.BewilderActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    - futz.ActGhost.GhostActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     RequiredTypeNamesShort:
-    - BewilderActivity
+    - GhostActivity
     RequiredTypeHashes:
-    - Value: 3697574914
+    - Value: 2234353583
     Cycle: 2
     StageName: UNSURE_WHAT_STAGE
     StageHash:
@@ -1436,123 +1494,6 @@ MonoBehaviour:
       CogName: Agent
       CogHash:
         Value: 719352216
-  - Name: BewilderActivity
-    HashId:
-      Value: 3697574914
-    SyncerFacts:
-    - Name: Phase
-      HashId:
-        Value: 3362944734
-      AuthType: 0
-      CogName: BewilderActivity
-      CogHash:
-        Value: 3697574914
-    - Name: PhaseTitle
-      HashId:
-        Value: 2320258586
-      AuthType: 0
-      CogName: BewilderActivity
-      CogHash:
-        Value: 3697574914
-    - Name: PhaseDesc
-      HashId:
-        Value: 3399502479
-      AuthType: 0
-      CogName: BewilderActivity
-      CogHash:
-        Value: 3697574914
-    - Name: ForceNextRound
-      HashId:
-        Value: 4032083373
-      AuthType: 0
-      CogName: BewilderActivity
-      CogHash:
-        Value: 3697574914
-    - Name: GuessingActorSlotId
-      HashId:
-        Value: 4033745542
-      AuthType: 0
-      CogName: BewilderActivity
-      CogHash:
-        Value: 3697574914
-    - Name: GuessingClue
-      HashId:
-        Value: 1359290177
-      AuthType: 0
-      CogName: BewilderActivity
-      CogHash:
-        Value: 3697574914
-    - Name: Cards
-      HashId:
-        Value: 3350746310
-      AuthType: 0
-      CogName: BewilderActivity
-      CogHash:
-        Value: 3697574914
-    - Name: Actors
-      HashId:
-        Value: 1336361253
-      AuthType: 0
-      CogName: BewilderActivity
-      CogHash:
-        Value: 3697574914
-  - Name: BewilderActor
-    HashId:
-      Value: 957412834
-    SyncerFacts:
-    - Name: Status
-      HashId:
-        Value: 3746414863
-      AuthType: 0
-      CogName: BewilderActor
-      CogHash:
-        Value: 957412834
-    - Name: Clue
-      HashId:
-        Value: 2336373014
-      AuthType: 0
-      CogName: BewilderActor
-      CogHash:
-        Value: 957412834
-  - Name: BewilderCard
-    HashId:
-      Value: 2940435843
-    SyncerFacts:
-    - Name: IsRevealed
-      HashId:
-        Value: 1595936978
-      AuthType: 0
-      CogName: BewilderCard
-      CogHash:
-        Value: 2940435843
-    - Name: Word
-      HashId:
-        Value: 2505142374
-      AuthType: 0
-      CogName: BewilderCard
-      CogHash:
-        Value: 2940435843
-    - Name: IsCorrect
-      HashId:
-        Value: 3370500100
-      AuthType: 0
-      CogName: BewilderCard
-      CogHash:
-        Value: 2940435843
-    - Name: PickedByActorSlotIds
-      HashId:
-        Value: 2335426584
-      AuthType: 0
-      CogName: BewilderCard
-      CogHash:
-        Value: 2940435843
-    - Name: ShowCount
-      HashId:
-        Value: 1065790518
-      AuthType: 0
-      CogName: BewilderCard
-      CogHash:
-        Value: 2940435843
   - Name: CoreUiClip
     HashId:
       Value: 492817487
@@ -1649,21 +1590,130 @@ MonoBehaviour:
       CogName: GameSysClip
       CogHash:
         Value: 1581047986
-  - Name: GluScreen
+  - Name: GhostActivity
     HashId:
-      Value: 2217600798
-    SyncerFacts: []
-  - Name: GluStack
-    HashId:
-      Value: 2150235542
+      Value: 2234353583
     SyncerFacts:
-    - Name: CheckVisibleScreens
+    - Name: Phase
       HashId:
-        Value: 3165511572
+        Value: 1757627595
       AuthType: 0
-      CogName: GluStack
+      CogName: GhostActivity
       CogHash:
-        Value: 2150235542
+        Value: 2234353583
+    - Name: PhaseTitle
+      HashId:
+        Value: 31470669
+      AuthType: 0
+      CogName: GhostActivity
+      CogHash:
+        Value: 2234353583
+    - Name: PhaseDesc
+      HashId:
+        Value: 416176636
+      AuthType: 0
+      CogName: GhostActivity
+      CogHash:
+        Value: 2234353583
+    - Name: ForceNextRound
+      HashId:
+        Value: 2711110240
+      AuthType: 0
+      CogName: GhostActivity
+      CogHash:
+        Value: 2234353583
+    - Name: GuessingActorSlotId
+      HashId:
+        Value: 2834660787
+      AuthType: 0
+      CogName: GhostActivity
+      CogHash:
+        Value: 2234353583
+    - Name: GuessingClue
+      HashId:
+        Value: 857357492
+      AuthType: 0
+      CogName: GhostActivity
+      CogHash:
+        Value: 2234353583
+    - Name: Cards
+      HashId:
+        Value: 1745429171
+      AuthType: 0
+      CogName: GhostActivity
+      CogHash:
+        Value: 2234353583
+    - Name: Actors
+      HashId:
+        Value: 1459263846
+      AuthType: 0
+      CogName: GhostActivity
+      CogHash:
+        Value: 2234353583
+  - Name: GhostActor
+    HashId:
+      Value: 2247973205
+    SyncerFacts:
+    - Name: Status
+      HashId:
+        Value: 795027004
+      AuthType: 0
+      CogName: GhostActor
+      CogHash:
+        Value: 2247973205
+    - Name: AssignedHints
+      HashId:
+        Value: 2804893716
+      AuthType: 0
+      CogName: GhostActor
+      CogHash:
+        Value: 2247973205
+    - Name: Clue
+      HashId:
+        Value: 634979715
+      AuthType: 0
+      CogName: GhostActor
+      CogHash:
+        Value: 2247973205
+  - Name: GhostCard
+    HashId:
+      Value: 72572848
+    SyncerFacts:
+    - Name: IsRevealed
+      HashId:
+        Value: 3370713221
+      AuthType: 0
+      CogName: GhostCard
+      CogHash:
+        Value: 72572848
+    - Name: Word
+      HashId:
+        Value: 94954073
+      AuthType: 0
+      CogName: GhostCard
+      CogHash:
+        Value: 72572848
+    - Name: IsCorrect
+      HashId:
+        Value: 1765182961
+      AuthType: 0
+      CogName: GhostCard
+      CogHash:
+        Value: 72572848
+    - Name: PickedByActorSlotIds
+      HashId:
+        Value: 4190565387
+      AuthType: 0
+      CogName: GhostCard
+      CogHash:
+        Value: 72572848
+    - Name: ShowCount
+      HashId:
+        Value: 3755440675
+      AuthType: 0
+      CogName: GhostCard
+      CogHash:
+        Value: 72572848
   - Name: MatcherActivity
     HashId:
       Value: 194240820
@@ -1698,26 +1748,6 @@ MonoBehaviour:
     HashId:
       Value: 1615069529
     SyncerFacts: []
-  - Name: W_ActivitySelect
-    HashId:
-      Value: 3491268767
-    SyncerFacts: []
-  - Name: W_AgentList
-    HashId:
-      Value: 3021578511
-    SyncerFacts: []
-  - Name: W_CardGrid
-    HashId:
-      Value: 3069524727
-    SyncerFacts: []
-  - Name: W_RoomInfo
-    HashId:
-      Value: 809993949
-    SyncerFacts: []
-  - Name: W_Watermark
-    HashId:
-      Value: 214477872
-    SyncerFacts: []
   SyncerFacts:
   - Name: ActivityChoice
     HashId:
@@ -1728,11 +1758,11 @@ MonoBehaviour:
       Value: 1581047986
   - Name: Actors
     HashId:
-      Value: 1336361253
+      Value: 1459263846
     AuthType: 0
-    CogName: BewilderActivity
+    CogName: GhostActivity
     CogHash:
-      Value: 3697574914
+      Value: 2234353583
   - Name: Actors
     HashId:
       Value: 2760143659
@@ -1747,6 +1777,13 @@ MonoBehaviour:
     CogName: SystemActivity
     CogHash:
       Value: 2307371307
+  - Name: AssignedHints
+    HashId:
+      Value: 2804893716
+    AuthType: 0
+    CogName: GhostActor
+    CogHash:
+      Value: 2247973205
   - Name: Cancel
     HashId:
       Value: 2169414794
@@ -1756,25 +1793,18 @@ MonoBehaviour:
       Value: 492817487
   - Name: Cards
     HashId:
-      Value: 3350746310
+      Value: 1745429171
     AuthType: 0
-    CogName: BewilderActivity
+    CogName: GhostActivity
     CogHash:
-      Value: 3697574914
-  - Name: CheckVisibleScreens
-    HashId:
-      Value: 3165511572
-    AuthType: 0
-    CogName: GluStack
-    CogHash:
-      Value: 2150235542
+      Value: 2234353583
   - Name: Clue
     HashId:
-      Value: 2336373014
+      Value: 634979715
     AuthType: 0
-    CogName: BewilderActor
+    CogName: GhostActor
     CogHash:
-      Value: 957412834
+      Value: 2247973205
   - Name: Color
     HashId:
       Value: 834372060
@@ -1805,25 +1835,25 @@ MonoBehaviour:
       Value: 492817487
   - Name: ForceNextRound
     HashId:
-      Value: 4032083373
+      Value: 2711110240
     AuthType: 0
-    CogName: BewilderActivity
+    CogName: GhostActivity
     CogHash:
-      Value: 3697574914
+      Value: 2234353583
   - Name: GuessingActorSlotId
     HashId:
-      Value: 4033745542
+      Value: 2834660787
     AuthType: 0
-    CogName: BewilderActivity
+    CogName: GhostActivity
     CogHash:
-      Value: 3697574914
+      Value: 2234353583
   - Name: GuessingClue
     HashId:
-      Value: 1359290177
+      Value: 857357492
     AuthType: 0
-    CogName: BewilderActivity
+    CogName: GhostActivity
     CogHash:
-      Value: 3697574914
+      Value: 2234353583
   - Name: Info
     HashId:
       Value: 2105302805
@@ -1833,18 +1863,18 @@ MonoBehaviour:
       Value: 719352216
   - Name: IsCorrect
     HashId:
-      Value: 3370500100
+      Value: 1765182961
     AuthType: 0
-    CogName: BewilderCard
+    CogName: GhostCard
     CogHash:
-      Value: 2940435843
+      Value: 72572848
   - Name: IsRevealed
     HashId:
-      Value: 1595936978
+      Value: 3370713221
     AuthType: 0
-    CogName: BewilderCard
+    CogName: GhostCard
     CogHash:
-      Value: 2940435843
+      Value: 72572848
   - Name: OptionsMenu
     HashId:
       Value: 880633101
@@ -1854,32 +1884,32 @@ MonoBehaviour:
       Value: 492817487
   - Name: Phase
     HashId:
-      Value: 3362944734
+      Value: 1757627595
     AuthType: 0
-    CogName: BewilderActivity
+    CogName: GhostActivity
     CogHash:
-      Value: 3697574914
+      Value: 2234353583
   - Name: PhaseDesc
     HashId:
-      Value: 3399502479
+      Value: 416176636
     AuthType: 0
-    CogName: BewilderActivity
+    CogName: GhostActivity
     CogHash:
-      Value: 3697574914
+      Value: 2234353583
   - Name: PhaseTitle
     HashId:
-      Value: 2320258586
+      Value: 31470669
     AuthType: 0
-    CogName: BewilderActivity
+    CogName: GhostActivity
     CogHash:
-      Value: 3697574914
+      Value: 2234353583
   - Name: PickedByActorSlotIds
     HashId:
-      Value: 2335426584
+      Value: 4190565387
     AuthType: 0
-    CogName: BewilderCard
+    CogName: GhostCard
     CogHash:
-      Value: 2940435843
+      Value: 72572848
   - Name: RoomIdf
     HashId:
       Value: 2633595171
@@ -1910,11 +1940,11 @@ MonoBehaviour:
       Value: 492817487
   - Name: ShowCount
     HashId:
-      Value: 1065790518
+      Value: 3755440675
     AuthType: 0
-    CogName: BewilderCard
+    CogName: GhostCard
     CogHash:
-      Value: 2940435843
+      Value: 72572848
   - Name: ShowScore
     HashId:
       Value: 271833477
@@ -1931,18 +1961,18 @@ MonoBehaviour:
       Value: 719352216
   - Name: Status
     HashId:
-      Value: 3746414863
-    AuthType: 0
-    CogName: BewilderActor
-    CogHash:
-      Value: 957412834
-  - Name: Status
-    HashId:
       Value: 3720023103
     AuthType: 0
     CogName: GameSysClip
     CogHash:
       Value: 1581047986
+  - Name: Status
+    HashId:
+      Value: 795027004
+    AuthType: 0
+    CogName: GhostActor
+    CogHash:
+      Value: 2247973205
   - Name: ToggleHud
     HashId:
       Value: 3129065715
@@ -1952,11 +1982,11 @@ MonoBehaviour:
       Value: 492817487
   - Name: Word
     HashId:
-      Value: 2505142374
+      Value: 94954073
     AuthType: 0
-    CogName: BewilderCard
+    CogName: GhostCard
     CogHash:
-      Value: 2940435843
+      Value: 72572848
   SpawnStages:
   - Name: CUE_SPAWN
     Cycle: 1

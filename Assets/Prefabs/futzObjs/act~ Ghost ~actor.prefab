@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6390642552498048425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1504916481780313648}
+  - component: {fileID: 4733686528327694923}
+  - component: {fileID: 4551048207929327360}
+  m_Layer: 0
+  m_Name: act~ Ghost ~actor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1504916481780313648
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6390642552498048425}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4733686528327694923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6390642552498048425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c44c000538457f96f262b134818b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tform: {fileID: 1504916481780313648}
+  HasLiaison: 0
+  LiaisonComp: {fileID: 0}
+  InstanceId: 0
+  IsRegistered: 0
+  EntityId: 0
+  ParentEntity: {fileID: 0}
+  CCache:
+    ListOfHashes:
+    - Value: 505582686
+    - Value: 3972772752
+    - Value: 957412834
+--- !u!114 &4551048207929327360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6390642552498048425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02bf8f83971e479387d4915bcc05c1de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tform: {fileID: 1504916481780313648}
+  Entity: {fileID: 4733686528327694923}
+  HashId:
+    Value: 957412834
+  Agent: {fileID: 0}

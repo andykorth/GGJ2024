@@ -7,7 +7,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Hud = void 0;
 var preact_1 = require("preact");
 var RoomInfo_1 = require("./RoomInfo");
-var ActivitySelect_1 = require("./ActivitySelect");
 var AgentList_1 = require("./AgentList");
 var Watermark_1 = require("./Watermark");
 var UIElements_1 = require("UnityEngine/UIElements");
@@ -18,7 +17,6 @@ function Hud() {
     var showAgentList = (0, Track_1.useTrackToggle)(clips_1.CoreUi_.ShowAgentList)[0];
     return ((0, preact_1.h)(S_Hud, { "picking-mode": UIElements_1.PickingMode.Ignore },
         (0, preact_1.h)(RoomInfo_1.RoomInfo, null),
-        (0, preact_1.h)(ActivitySelect_1.ActivitySelect, null),
         showAgentList && (0, preact_1.h)(AgentList_1.AgentList, null),
         (0, preact_1.h)(Watermark_1.Watermark, null)));
 }

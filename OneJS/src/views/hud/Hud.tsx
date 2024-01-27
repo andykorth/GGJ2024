@@ -14,7 +14,7 @@ export function Hud() {
 	return (
 		<S_Hud picking-mode={PickingMode.Ignore}>
 			<RoomInfo/>
-			<ActivitySelect/>
+			{/*<ActivitySelect/>*/}
 			{showAgentList && <AgentList/>}
 			<Watermark/>
 		</S_Hud>
