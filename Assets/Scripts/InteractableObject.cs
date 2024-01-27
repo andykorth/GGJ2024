@@ -42,9 +42,9 @@ public class InteractableObject : MonoBehaviour
 
         if(interactionMode == InteractionMode.CrookedPainting){
             float angle = Random.value > 0.5f ? 25f: -25f;
-            this.transform.rotation = Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : angle);
+            transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : angle);
         }else if (interactionMode == InteractionMode.FlipUpsideDown){
-            this.transform.rotation = Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : 180f);
+            transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : 180f);
         }
 
         if(tiedToLight != null){
@@ -93,14 +93,14 @@ public class InteractableObject : MonoBehaviour
             Quaternion original = transform.GetChild(0).rotation;
             Quaternion target = transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : angle);
             this.AddTween(0.7f, (a) => {
-                transform.GetChild(0).rotation = Quaternion.Slerp(original, target, Mathfx.Berp(0, 1, a));
+                transform.GetChild(0).rotation = Quaternion.SlerpUnclamped(original, target, Mathfx.Berp(0, 1, a));
             });
         }else if (interactionMode == InteractionMode.FlipUpsideDown){
             float angle = hasBeenEnabledByPlayer ? 0f : 180f;
             Quaternion original = transform.GetChild(0).rotation;
             Quaternion target = transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : angle);
             this.AddTween(0.7f, (a) => {
-                transform.GetChild(0).rotation = Quaternion.Slerp(original, target, Mathfx.Berp(0, 1, a));
+                transform.GetChild(0).rotation = Quaternion.SlerpUnclamped(original, target, Mathfx.Berp(0, 1, a));
             });
         }
 
