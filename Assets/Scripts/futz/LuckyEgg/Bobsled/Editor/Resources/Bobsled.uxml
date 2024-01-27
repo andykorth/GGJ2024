@@ -1,8 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
-    <ui:Label text="Label">
-        <Style src="Bobsled.uss"/>
-    </ui:Label>
-    <ui:Button text="Button">
-        <Style src="Bobsled.uss"/>
-    </ui:Button>
-</ui:UXML>
