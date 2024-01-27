@@ -46,6 +46,10 @@ public class InteractableObject : MonoBehaviour
         }else if (interactionMode == InteractionMode.FlipUpsideDown){
             this.transform.rotation = Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : 180f);
         }
+
+        if(tiedToLight != null){
+            tiedToLight.enabled = !hasBeenEnabledByPlayer;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
