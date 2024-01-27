@@ -15,7 +15,7 @@ export function GhostActorList(props) {
 	lg(`GhostActorList`);
 	
 	
-	return <div/>;
+	// return <div/>;
 	
 	return (
 		<W_ActorList>
@@ -30,10 +30,30 @@ export function GhostActorList(props) {
 }
 
 const W_ActorList = $div('ActorList')`
-  padding: 8px;
+	position: absolute;
+	left: 0;
+	top: 20%;
+	width: 200px;
+	padding: 8px;
+	background-color: #c1efbb;
 `;
 
 function ActorRow(props: {
+	actor: T_GhostActor,
+}) {
+	const actor = props.actor;
+	const agent = actor.Agent;
+	
+	const info = useTrack(agent.Info);
+	
+	return (
+		<C_AgentRow>
+			<L_Name text={info.Nickname}/>
+		</C_AgentRow>
+	);
+}
+
+function ActorRow66(props: {
 	actor: T_GhostActor,
 }) {
 	const actor = props.actor;

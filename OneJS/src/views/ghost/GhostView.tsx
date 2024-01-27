@@ -18,9 +18,8 @@ export function GhostView(props: P_GhostView) {
 }
 
 const W_Ghost = $div('Ghost')`
-  flex-direction: row;
   width: 100%;
-  height: 40%;
+  height: 100%;
 `;
 
 function InfoPanel(props: P_GhostView) {
@@ -40,15 +39,18 @@ function InfoPanel(props: P_GhostView) {
 }
 
 const W_InfoPanel = $div('W_InfoPanel')`
-  width: 30%;
-  background-color: #c1efbb;
-  padding: 8px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	padding: 8px;
 `;
 
 const L_PhaseTitle = $label('L_PhaseTitle')`
-  font-size: 24px;
-  white-space: normal;
-  -unity-text-align: middle-center;
+	font-size: 24px;
+	white-space: normal;
+	margin-left: 400px;
 `;
 
 const L_PhaseDesc = $label('L_PhaseDesc')`

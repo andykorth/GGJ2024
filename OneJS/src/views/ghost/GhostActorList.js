@@ -14,12 +14,18 @@ function GhostActorList(props) {
     var act = props.act;
     var actors = (0, Track_1.useTrackList)(act.Actors);
     (0, lg_1.lg)("GhostActorList");
-    return (0, preact_1.h)("div", null);
     return ((0, preact_1.h)(W_ActorList, null, (0, _array_1.$map)(actors, function (actor) { return ((0, preact_1.h)(ActorRow, { key: actor.EntityId, actor: actor })); })));
 }
 exports.GhostActorList = GhostActorList;
-var W_ActorList = (0, _tyle_1.$div)('ActorList')(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  padding: 8px;\n"], ["\n  padding: 8px;\n"])));
+var W_ActorList = (0, _tyle_1.$div)('ActorList')(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n\tposition: absolute;\n\tleft: 0;\n\ttop: 20%;\n\twidth: 200px;\n\tpadding: 8px;\n\tbackground-color: #c1efbb;\n"], ["\n\tposition: absolute;\n\tleft: 0;\n\ttop: 20%;\n\twidth: 200px;\n\tpadding: 8px;\n\tbackground-color: #c1efbb;\n"])));
 function ActorRow(props) {
+    var actor = props.actor;
+    var agent = actor.Agent;
+    var info = (0, Track_1.useTrack)(agent.Info);
+    return ((0, preact_1.h)(C_AgentRow, null,
+        (0, preact_1.h)(L_Name, { text: info.Nickname })));
+}
+function ActorRow66(props) {
     var actor = props.actor;
     var agent = actor.Agent;
     var info = (0, Track_1.useTrack)(agent.Info);
