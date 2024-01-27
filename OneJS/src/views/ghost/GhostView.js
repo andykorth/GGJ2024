@@ -15,7 +15,7 @@ function GhostView(props) {
         (0, preact_1.h)(InfoPanel, { act: act })));
 }
 exports.GhostView = GhostView;
-var W_Ghost = (0, _tyle_1.$div)('Ghost')(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  flex-direction: row;\n  width: 100%;\n  height: 40%;\n"], ["\n  flex-direction: row;\n  width: 100%;\n  height: 40%;\n"])));
+var W_Ghost = (0, _tyle_1.$div)('Ghost')(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  width: 100%;\n  height: 100%;\n"], ["\n  width: 100%;\n  height: 100%;\n"])));
 function InfoPanel(props) {
     var act = props.act;
     var phaseTitle = (0, Track_1.useTrack)(act.PhaseTitle);
@@ -26,8 +26,8 @@ function InfoPanel(props) {
         (0, preact_1.h)(_tyle_1.Grow, null),
         (0, preact_1.h)(GhostActorList_1.GhostActorList, { act: act })));
 }
-var W_InfoPanel = (0, _tyle_1.$div)('W_InfoPanel')(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  width: 30%;\n  background-color: #c1efbb;\n  padding: 8px;\n"], ["\n  width: 30%;\n  background-color: #c1efbb;\n  padding: 8px;\n"])));
-var L_PhaseTitle = (0, _tyle_1.$label)('L_PhaseTitle')(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  font-size: 24px;\n  white-space: normal;\n  -unity-text-align: middle-center;\n"], ["\n  font-size: 24px;\n  white-space: normal;\n  -unity-text-align: middle-center;\n"])));
+var W_InfoPanel = (0, _tyle_1.$div)('W_InfoPanel')(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n\tposition: absolute;\n\tleft: 0;\n\tright: 0;\n\ttop: 0;\n\tbottom: 0;\n\tpadding: 8px;\n"], ["\n\tposition: absolute;\n\tleft: 0;\n\tright: 0;\n\ttop: 0;\n\tbottom: 0;\n\tpadding: 8px;\n"])));
+var L_PhaseTitle = (0, _tyle_1.$label)('L_PhaseTitle')(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n\tfont-size: 24px;\n\twhite-space: normal;\n\tmargin-left: 400px;\n"], ["\n\tfont-size: 24px;\n\twhite-space: normal;\n\tmargin-left: 400px;\n"])));
 var L_PhaseDesc = (0, _tyle_1.$label)('L_PhaseDesc')(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  font-size: 28px;\n  white-space: normal;\n  margin: 0 16px;\n"], ["\n  font-size: 28px;\n  white-space: normal;\n  margin: 0 16px;\n"])));
 var W_CardGrid = (0, _tyle_1.$div)('grid')(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  flex: 1 1 auto;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: #cbc9a1;\n"], ["\n  flex: 1 1 auto;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: #cbc9a1;\n"])));
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
