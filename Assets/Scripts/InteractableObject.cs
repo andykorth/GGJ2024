@@ -17,7 +17,7 @@ public class InteractableObject : MonoBehaviour
 
     public bool hasBeenEnabledByPlayer = false;
 
-    private static List<InteractableObject> allInteractables;
+    public static List<InteractableObject> allInteractables;
 
     public enum InteractionMode {
         NoneOrCustom, CrookedPainting, FlipUpsideDown
@@ -34,7 +34,7 @@ public class InteractableObject : MonoBehaviour
     public void Start(){
         allSprites = GetComponentsInChildren<SpriteRenderer>();
         allInteractables.Add(this);
-        // Debug.Log("Interactable count: " + allInteractables.Count);\
+        // Debug.Log("Interactable count: " + allInteractables.Count);
 
         if(randomInteractionModeState){
             hasBeenEnabledByPlayer = Random.value > 0.5f;
@@ -86,17 +86,17 @@ public class InteractableObject : MonoBehaviour
 
         if(interactionMode == InteractionMode.CrookedPainting){
             float angle = Random.value > 0.5f ? 25f: -25f;
-            Quaternion original = this.transform.rotation;
-            Quaternion target = this.transform.rotation = Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : angle);
+            Quaternion original = transform.GetChild(0).rotation;
+            Quaternion target = transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : angle);
             this.AddTween(0.7f, (a) => {
-                this.transform.rotation = Quaternion.Slerp(original, target, Mathfx.Berp(0, 1, a));
+                transform.GetChild(0).rotation = Quaternion.Slerp(original, target, Mathfx.Berp(0, 1, a));
             });
         }else if (interactionMode == InteractionMode.FlipUpsideDown){
             float angle = hasBeenEnabledByPlayer ? 0f : 180f;
-            Quaternion original = this.transform.rotation;
-            Quaternion target = this.transform.rotation = Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : angle);
+            Quaternion original = transform.GetChild(0).rotation;
+            Quaternion target = transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : angle);
             this.AddTween(0.7f, (a) => {
-                this.transform.rotation = Quaternion.Slerp(original, target, Mathfx.Berp(0, 1, a));
+                transform.GetChild(0).rotation = Quaternion.Slerp(original, target, Mathfx.Berp(0, 1, a));
             });
         }
 

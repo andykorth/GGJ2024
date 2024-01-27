@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class GhostPlayerManager : MonoBehaviour
 {
@@ -33,8 +34,14 @@ public class GhostPlayerManager : MonoBehaviour
             new Goal {
                 goalString = "Straighten one portrait.",
                 goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Portrait) <= 0
-            }
-            
+            },
+            new Goal {
+                goalString = "I hate crooked paintings!",
+                goalAction = () => InteractableObject.allInteractables.All(
+                    (a) => a.interactableType != InteractableObject.InteractableType.Portrait
+                    || a.hasBeenEnabledByPlayer )
+                    // that means all the portraits must be "enabled".
+            },
             
         };
     }
