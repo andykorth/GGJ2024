@@ -19,6 +19,16 @@ public class Player : Singleton<Player>
         rb.AddForce( new Vector3(target.x, target.y) * speed * Time.deltaTime);
         // rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(target.x, 0f, target.y) * speed, accel);
 
+        if(Input.GetKeyDown(KeyCode.Space)){
+            if(mostRecentTouch != null){
+                Debug.Log("Interact with " + mostRecentTouch.name);
+                mostRecentTouch.PlayerInteract();
+            }else{
+                Debug.Log("Nothing to interact with!");
+            }
+            
+        }
+
     }
 
     public void PlayerInteract(InteractableObject o){
@@ -36,5 +46,19 @@ public class Player : Singleton<Player>
             }
         }
         return count;
+    }
+
+    private InteractableObject mostRecentTouch;
+
+    internal void PlayerStartTouch(InteractableObject interactableObject)
+    {
+        mostRecentTouch = interactableObject;
+    }
+
+    internal void PlayerEndTouch(InteractableObject interactableObject)
+    {
+        if(mostRecentTouch == interactableObject){
+            mostRecentTouch = null;
+        }
     }
 }
