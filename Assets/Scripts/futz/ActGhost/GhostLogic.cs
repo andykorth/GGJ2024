@@ -53,7 +53,7 @@ namespace futz.ActGhost
 					return;
 				case Phase.ROUND_INTRO: return;
 				case Phase.PLAYING_ROOM:
-					AssignHints(act); // TEMP
+					// AssignHints(act); // TEMP
 					return;
 				case Phase.ROOM_SUMMARY: return;
 				case Phase.GAME_COMPLETE: return;
