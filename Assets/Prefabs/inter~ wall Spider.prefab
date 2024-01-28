@@ -10,11 +10,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 696635461832015754, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_Name
-      value: inter~ wall Painting Tree
+      value: inter~ wall Spider
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513418714737658706, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513418714737658706, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513418714737658706, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 2513418714737658706, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.32
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513418714737658706, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3947809476831853665, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_LocalPosition.x
@@ -75,14 +91,14 @@ PrefabInstance:
     - target: {fileID: 5614533666950543312, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: f74928c7e579d43599c88652d07add72, type: 3}
+      objectReference: {fileID: 21300000, guid: 75e05d0ee8cb99c4b8a0a86034b0fdc0, type: 3}
     - target: {fileID: 5614533666950543312, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Name
-      value: Painting
+      value: Spider
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: verb
@@ -114,23 +130,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Label
-      value: normal
+      value: hiding
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].Label
-      value: crooked
+      value: ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].UseSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a6f478963500fd74b88e6317bc240766, type: 3}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].UseSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 75e05d0ee8cb99c4b8a0a86034b0fdc0, type: 3}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].VerbToNext
+      value: taunt
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].VerbToNext
+      value: shoo
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].SfxInteract
       value: 
-      objectReference: {fileID: 11400000, guid: 6ce2401eaa0d34be686be1f575e7b550, type: 2}
+      objectReference: {fileID: 11400000, guid: 7c950ba65cc8f8346bfe5b8601eb1360, type: 2}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].SfxInteract
       value: 
-      objectReference: {fileID: 11400000, guid: 6ce2401eaa0d34be686be1f575e7b550, type: 2}
+      objectReference: {fileID: 11400000, guid: 7c950ba65cc8f8346bfe5b8601eb1360, type: 2}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].RotateAmount
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Hates.Array.size

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8805074135315048098
+--- !u!1001 &1852817112493076272
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,19 +10,35 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 696635461832015754, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_Name
-      value: inter~ wall Painting Tree
+      value: inter~ Book
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513418714737658706, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513418714737658706, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513418714737658706, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513418714737658706, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.108
       objectReference: {fileID: 0}
     - target: {fileID: 2513418714737658706, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.32
+      value: 0.852
       objectReference: {fileID: 0}
     - target: {fileID: 3947809476831853665, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.24
+      value: -6.43
       objectReference: {fileID: 0}
     - target: {fileID: 3947809476831853665, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.41
+      value: -5.2
       objectReference: {fileID: 0}
     - target: {fileID: 3947809476831853665, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_LocalPosition.z
@@ -57,48 +73,108 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
-      propertyPath: m_Enabled
-      value: 0
+      propertyPath: m_InstanceId
+      value: -1151554
       objectReference: {fileID: 0}
     - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
-      propertyPath: m_InstanceId
-      value: -38662
+      propertyPath: m_ShapePathHash
+      value: -566503819
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalBounds.m_Center.x
+      value: 0.010274887
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalBounds.m_Center.y
+      value: -0.34063816
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.y
+      value: 0.14570594
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[0].x
+      value: -0.21920538
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[0].y
+      value: -0.4863441
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[1].x
+      value: -0.30825424
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[1].y
+      value: -0.22233105
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[2].x
+      value: 0.32880402
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[2].y
+      value: -0.19493222
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[3].x
+      value: 0.22605562
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[3].y
+      value: -0.4794941
       objectReference: {fileID: 0}
     - target: {fileID: 5614533666950543312, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_Size.x
-      value: 1.78
+      value: 0.94
       objectReference: {fileID: 0}
     - target: {fileID: 5614533666950543312, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_Size.y
-      value: 2.69
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 5614533666950543312, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: f74928c7e579d43599c88652d07add72, type: 3}
+      objectReference: {fileID: 21300000, guid: e6515a8a201b6cd4a9ce4ba9462d35b5, type: 3}
     - target: {fileID: 5614533666950543312, guid: bf55b48be37b44036b5947547737c692, type: 3}
-      propertyPath: m_WasSpriteAssigned
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614533666950543312, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614533666950543312, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Name
-      value: Painting
+      value: Book
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: verb
-      value: flip
+      value: kick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: ColorText
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: flipAngle
-      value: 25
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: interactionMode
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: interactableType
-      value: 4
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: interactableColor
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.size
@@ -114,23 +190,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Label
-      value: normal
+      value: closed
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].Label
-      value: crooked
+      value: open
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].UseSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2a46187635980394a96c68f9e1e7d12e, type: 3}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].UseSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e6515a8a201b6cd4a9ce4ba9462d35b5, type: 3}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].VerbToNext
+      value: open
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].VerbToNext
+      value: shut
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].SfxInteract
       value: 
-      objectReference: {fileID: 11400000, guid: 6ce2401eaa0d34be686be1f575e7b550, type: 2}
+      objectReference: {fileID: 11400000, guid: d66dd19333b9345af944ddfbde534128, type: 2}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].SfxInteract
       value: 
-      objectReference: {fileID: 11400000, guid: 6ce2401eaa0d34be686be1f575e7b550, type: 2}
+      objectReference: {fileID: 11400000, guid: d66dd19333b9345af944ddfbde534128, type: 2}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].RotateAmount
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Hates.Array.size
@@ -153,8 +245,20 @@ PrefabInstance:
       value: 'TODO Ghost want: {color} {name} NOT {label}'
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].Hates.Array.data[1]
+      value: I was trapped in that stupid {color} {name} for a month. I hate it!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Wants.Array.data[0]
       value: 'TODO Ghost want: {color} {name} {label}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].Wants.Array.data[1]
+      value: I always liked that old {color} {name}.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].Wants.Array.data[2]
+      value: That {color} {name} reminds me of the sky. I miss the sky.
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].Hates.Array.data[0]
