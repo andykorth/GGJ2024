@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.1341472, b: 0.121078566, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1578,6 +1578,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 74350895763059696, guid: 17714400199ab406486b744fa9c61539, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1921353556084886419}
     - target: {fileID: 6069022743966875666, guid: 17714400199ab406486b744fa9c61539, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.209153
@@ -2446,11 +2450,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8487555925506317589, guid: dd8d45ffac7da42528b4f23d474c5b09, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.76
+      value: -6.69
       objectReference: {fileID: 0}
     - target: {fileID: 8487555925506317589, guid: dd8d45ffac7da42528b4f23d474c5b09, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.02
+      value: -5.09
       objectReference: {fileID: 0}
     - target: {fileID: 8487555925506317589, guid: dd8d45ffac7da42528b4f23d474c5b09, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2489,6 +2493,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd8d45ffac7da42528b4f23d474c5b09, type: 3}
+--- !u!114 &1921353556084886419 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7345164576788658901, guid: dd8d45ffac7da42528b4f23d474c5b09, type: 3}
+  m_PrefabInstance: {fileID: 1921353556084886418}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ca67721dc4b421ba909f23530c72c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1972243467672967252
 PrefabInstance:
   m_ObjectHideFlags: 0
