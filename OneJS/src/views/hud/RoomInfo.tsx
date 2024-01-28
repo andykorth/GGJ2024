@@ -10,17 +10,17 @@ export function RoomInfo() {
 	return (
 		<W_RoomInfo>
 			<L_RoomIdf text={roomIdf}/>
-			<L_Status text={status}/>
+			{/*<L_Status text={status}/>*/}
 		</W_RoomInfo>
 	);
 }
 
 const W_RoomInfo = $div('W_RoomInfo')`
-  position: absolute;
-  left: 8px;
-  top: 8px;
-  background-color: rgb(118, 200, 110);
-  padding: 16px;
+	position: absolute;
+	left: 8px;
+	top: 8px;
+	background-color: rgba(118, 200, 110, 0.34);
+	padding: 16px;
 `;
 
 const L_RoomIdf = $label('L_RoomIdf')`
