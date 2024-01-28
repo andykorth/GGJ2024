@@ -8,12 +8,12 @@ using UnityEngine.Serialization;
 
 public class RoomManager : MonoBehaviour
 {
-	[Header("Config")] 
-	public GhostFig Fig;
-	public List<InteractableObject> PossibleWallObjs = new();
-	public List<InteractableObject> PossibleFloorObjs = new();
+	[Header("Config")] public GhostFig Fig;
+	public List<GameObject> WallObjPrefabs = new();
+	public List<GameObject> FloorObjPrefabs = new();
 	public List<Transform> PossibleWallSpawns = new();
 	public List<Transform> PossibleFloorSpawns = new();
+	public Transform InteractablesRoot;
 
 	[Header("State")] public RoomState StateToExit;
 	public List<RoomState> Ghosts = new();
@@ -26,33 +26,36 @@ public class RoomManager : MonoBehaviour
 	{
 		var act = GameSysClip.I.GhostAct.Current;
 		var fig = Fig;
-		
+
 		RoomInteractables.Clear();
+		if (InteractablesRoot) Destroy(InteractablesRoot.gameObject);
+		InteractablesRoot = new GameObject("INTERACTABLES").transform;
 
-		foreach (var wall in PossibleWallObjs) wall.gameObject.SetActive(false);
-		foreach (var floor in PossibleFloorObjs) floor.gameObject.SetActive(false);
-
-		var availableWallObjs = new List<InteractableObject>(PossibleWallObjs);
-		var availableFloorObjs = new List<InteractableObject>(PossibleFloorObjs);
+		var availableWallObjs = new List<GameObject>(WallObjPrefabs);
+		var availableFloorObjs = new List<GameObject>(FloorObjPrefabs);
 		var availableWallSpawns = new List<Transform>(PossibleWallSpawns);
 		var availableFloorSpawns = new List<Transform>(PossibleFloorSpawns);
 
 		for (var i = 0; i < fig.NumOfWallObjs; i++)
 		{
-			var interactable = availableWallObjs.GrabRandom();
+			var interactable = Instantiate(
+				availableWallObjs.GrabRandom(),
+				InteractablesRoot
+			).GetComponent<InteractableObject>();
 			interactable.transform.position = availableWallSpawns.GrabRandom().position;
-			interactable.gameObject.SetActive(true);
 			RoomInteractables.Add(interactable);
 		}
-		
+
 		for (var i = 0; i < fig.NumOfFloorObjs; i++)
 		{
-			var interactable = availableFloorObjs.GrabRandom();
+			var interactable = Instantiate(
+				availableFloorObjs.GrabRandom(),
+				InteractablesRoot
+			).GetComponent<InteractableObject>();
 			interactable.transform.position = availableFloorSpawns.GrabRandom().position;
-			interactable.gameObject.SetActive(true);
 			RoomInteractables.Add(interactable);
 		}
-		
+
 
 		Ghosts.Clear();
 		AllCriteria.Clear();
@@ -68,7 +71,7 @@ public class RoomManager : MonoBehaviour
 			Ghosts.Add(ghostState);
 			AllCriteria.AddRange(ghostState.Criteria);
 		}
-		
+
 		act.DebugString.Change(AllCriteria.Join(c => c.Hint, "\n"));
 	}
 }

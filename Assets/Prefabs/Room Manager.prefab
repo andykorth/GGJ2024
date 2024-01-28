@@ -610,7 +610,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5254575460266213871}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -632,18 +632,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Fig: {fileID: 11400000, guid: 5f4c9c4a3883cf84cb1feb7fc6e400e8, type: 2}
-  PossibleWallObjs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  PossibleFloorObjs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  WallObjPrefabs:
+  - {fileID: 6904585005940535332, guid: 968e9541265067d46b1fcb3269ccac7e, type: 3}
+  - {fileID: 8330280542918482216, guid: 842fac5185f35d142a5fe7c85110a585, type: 3}
+  FloorObjPrefabs:
+  - {fileID: 5017708859137192792, guid: 5f1a0e62bddc8c54ba07f0a2e44245e9, type: 3}
+  - {fileID: 5017708859137192792, guid: 4f379060567cbd648aa36b0e97a4ff68, type: 3}
+  - {fileID: 5017708859137192792, guid: bbf7112d19a0a854786675ce0492b880, type: 3}
+  - {fileID: 1160931559147425978, guid: e78a89bb3078ffc489b65a949f531c6c, type: 3}
+  - {fileID: 1160931559147425978, guid: b8267f65aff701748aabae875d0b98f4, type: 3}
+  - {fileID: 1160931559147425978, guid: 433f7566f0f84fa43b36192fc3c130d4, type: 3}
+  - {fileID: 298358061540657556, guid: 1b61e6bfce6fb5c4d942ca4c59af62cc, type: 3}
   PossibleWallSpawns:
   - {fileID: 8210568671598000509}
   - {fileID: 8096529762780753611}
@@ -673,6 +672,7 @@ MonoBehaviour:
   - {fileID: 4066234305534952800}
   - {fileID: 8190318416749072484}
   - {fileID: 8818887932214635713}
+  InteractablesRoot: {fileID: 0}
   StateToExit:
     Label: 
     Criteria: []
