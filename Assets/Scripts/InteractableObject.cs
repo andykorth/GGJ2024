@@ -20,7 +20,7 @@ public class StateOption
 	[Tooltip("verb used while in this state (indicating the NEXT state)")]
 	public string VerbToNext = "poke";
 	public SonicSfx SfxInteract;
-	// public string Verb = "poke"; // TODO?
+	public float RotateAmount;
 
 	[Header("Ghosts")]
 	[Tooltip("if this state is chosen to be 'wanted' (meaning the object MUST be in this state)")]
@@ -61,7 +61,8 @@ public enum InteractionMode
 	NoneOrCustom,
 	CrookedPainting,
 	FlipUpsideDown,
-	SwapToActivatedSprite
+	SwapToActivatedSprite,
+	Dynamic
 }
 
 
@@ -74,6 +75,7 @@ public class InteractableObject : MonoBehaviour
 	public InteractableColor interactableColor;
 	public InteractionMode interactionMode;
 	public float flipAngle;
+	public string ColorText;
 
 	[Header("Misc config")] public Vector3 TextOffset;
 	public Sprite spriteWhenActivated;
@@ -175,6 +177,14 @@ public class InteractableObject : MonoBehaviour
 
 		var option = Options[stateId];
 		var spriteTf = mainSprite.transform;
+		
+		
+		var rotStart = spriteTf.rotation;
+		var rotEnd = Quaternion.Euler(0f, 0f, option.RotateAmount);
+		this.AddTween(0.3f,
+			a => spriteTf.rotation =
+				Quaternion.SlerpUnclamped(rotStart, rotEnd, Mathfx.Berp(0, 1, a)));
+		
 
 		switch (interactionMode)
 		{
@@ -223,6 +233,9 @@ public class InteractableObject : MonoBehaviour
 				break;
 
 			case InteractionMode.NoneOrCustom:
+				break;
+
+			case InteractionMode.Dynamic:
 				break;
 
 			default:

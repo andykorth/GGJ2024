@@ -30,8 +30,8 @@ MonoBehaviour:
   FloorObjPrefabs:
   - {fileID: 298358061540657556, guid: 1b61e6bfce6fb5c4d942ca4c59af62cc, type: 3}
   - {fileID: 5017708859137192792, guid: 5f1a0e62bddc8c54ba07f0a2e44245e9, type: 3}
-  - {fileID: 5017708859137192792, guid: 4f379060567cbd648aa36b0e97a4ff68, type: 3}
-  - {fileID: 5017708859137192792, guid: bbf7112d19a0a854786675ce0492b880, type: 3}
+  - {fileID: 5017708859137192792, guid: 799ede5a7b9813242a73ce2c3a915ec9, type: 3}
+  - {fileID: 5017708859137192792, guid: acf10b7df999ede43b6ca9b1360499bc, type: 3}
   - {fileID: 1160931559147425978, guid: e78a89bb3078ffc489b65a949f531c6c, type: 3}
   - {fileID: 1160931559147425978, guid: b8267f65aff701748aabae875d0b98f4, type: 3}
   - {fileID: 1160931559147425978, guid: 433f7566f0f84fa43b36192fc3c130d4, type: 3}

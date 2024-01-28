@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfdc21bc4a3384ff8a5516540da28006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightToChange: {fileID: 0}
+  lightToChange: {fileID: 8846844719936382319}
   minIntensity: 2.1
   intensityVariance: 0.35
   noiseSpeed: 6
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Intensity: 2.1
   m_LightVolumeIntensity: 0.002
   m_LightVolumeIntensityEnabled: 1
-  m_ApplyToSortingLayers: bf9f744900000000
+  m_ApplyToSortingLayers: bf9f74498d1acc4100000000b5475ba6a785658d
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0

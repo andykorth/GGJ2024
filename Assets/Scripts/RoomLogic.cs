@@ -96,7 +96,8 @@ public static class RoomLogic
 
 	public static string MakeHintString(InteractableObject interactableObject, StateOption stateOption, string str) =>
 		str
-			.Replace(STR_COLOR, interactableObject.interactableColor.ToString().ToLower())
+			// .Replace(STR_COLOR, interactableObject.interactableColor.ToString().ToLower())
+			.Replace(STR_COLOR, interactableObject.ColorText.ToLower())
 			.Replace(STR_OBJ_NAME, interactableObject.Name.ToLower())
 			.Replace(STR_OPTION_LABEL, stateOption.Label.ToLower());
 }
