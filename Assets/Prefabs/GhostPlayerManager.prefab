@@ -342,7 +342,9 @@ MonoBehaviour:
   ghostText: {fileID: 0}
   goalDebugText: {fileID: 0}
   exitGoalText: {fileID: 0}
-  spiritNames: []
-  spiritsToFade: []
-  exitDoor: {fileID: 0}
+  spiritNames:
+  - Eliza
+  - Algernon
+  - Esmeralda
+  RoomManager: {fileID: 0}
   goalDebugString: 
