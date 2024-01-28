@@ -1490,6 +1490,13 @@ MonoBehaviour:
       CogName: GhostActivity
       CogHash:
         Value: 2234353583
+    - Name: ShowDebug
+      HashId:
+        Value: 3208918182
+      AuthType: 0
+      CogName: GhostActivity
+      CogHash:
+        Value: 2234353583
     - Name: GhostsRescued
       HashId:
         Value: 1982809117
@@ -1707,6 +1714,13 @@ MonoBehaviour:
     CogName: CoreUiClip
     CogHash:
       Value: 492817487
+  - Name: ShowDebug
+    HashId:
+      Value: 3208918182
+    AuthType: 0
+    CogName: GhostActivity
+    CogHash:
+      Value: 2234353583
   - Name: ShowScore
     HashId:
       Value: 271833477

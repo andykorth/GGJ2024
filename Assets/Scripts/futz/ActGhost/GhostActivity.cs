@@ -21,6 +21,7 @@ public class GhostActivity : Activity<GhostActor>
 	public Track<string> DebugString = new();
 	
 	public Track<string> TimerString = new();
+	public Track<bool> ShowDebug = new();
 
 	public Track<int> GhostsRescued = new();
 	public bool SuccessfullyEscaped;

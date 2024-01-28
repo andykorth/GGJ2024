@@ -99,6 +99,9 @@ const W_Timer = $div('W_Timer')`
 function DebugView(props: P_GhostView) {
 	const act = props.act;
 	
+	const show = useTrack(act.ShowDebug);
+	if (!show) return <div/>;
+	
 	return (
 		<W_DebugView>
 			<TrackLabel

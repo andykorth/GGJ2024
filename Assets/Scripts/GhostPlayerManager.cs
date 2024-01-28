@@ -187,6 +187,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
 		if (Input.GetKeyDown(KeyCode.F1))
 		{
+			act.ShowDebug.Change(!act.ShowDebug.Current);
 			goalDebugText.enabled = !goalDebugText.enabled;
 		}
 
