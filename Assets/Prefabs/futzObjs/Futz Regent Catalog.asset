@@ -1344,6 +1344,10 @@ MonoBehaviour:
       CogName: Agent
       CogHash:
         Value: 719352216
+  - Name: AudioSonicClip
+    HashId:
+      Value: 3032418952
+    SyncerFacts: []
   - Name: CoreUiClip
     HashId:
       Value: 492817487
@@ -1475,6 +1479,13 @@ MonoBehaviour:
     - Name: TimerString
       HashId:
         Value: 1971161862
+      AuthType: 0
+      CogName: GhostActivity
+      CogHash:
+        Value: 2234353583
+    - Name: GhostsRescued
+      HashId:
+        Value: 1982809117
       AuthType: 0
       CogName: GhostActivity
       CogHash:
@@ -1612,6 +1623,13 @@ MonoBehaviour:
     CogName: GameSysClip
     CogHash:
       Value: 1581047986
+  - Name: GhostsRescued
+    HashId:
+      Value: 1982809117
+    AuthType: 0
+    CogName: GhostActivity
+    CogHash:
+      Value: 2234353583
   - Name: Info
     HashId:
       Value: 2105302805

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightToChange: {fileID: 4042511523766374858}
-  minIntensity: 0.6
+  minIntensity: 1.7
   intensityVariance: 0.35
   noiseSpeed: 6
 --- !u!114 &4042511523766374858

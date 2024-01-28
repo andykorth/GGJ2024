@@ -69,8 +69,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: verb
+      value: kick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: interactionMode
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: randomInteractionModeState
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8029022756370381290, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_Materials.Array.data[0]

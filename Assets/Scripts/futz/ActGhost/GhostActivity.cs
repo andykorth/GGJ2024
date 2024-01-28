@@ -19,6 +19,11 @@ public class GhostActivity : Activity<GhostActor>
 	public Track<string> PhaseDesc = new();
 
 	public Track<string> TimerString = new();
+
+	public Track<int> GhostsRescued = new();
+	public bool SuccessfullyEscaped;
+	
+	
 	// public TrackEvt ForceNextRound = new();
 
 	//## PACKETS	

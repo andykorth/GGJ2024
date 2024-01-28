@@ -52,6 +52,7 @@ MonoBehaviour:
   speed: 1200
   accel: 0.99
   rb: {fileID: 1436327271966130966}
+  interactColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!54 &1436327271966130966
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -315,9 +316,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4999674481308404918}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.843, z: 0}
+  m_LocalScale: {x: 0.551025, y: 0.551025, z: 0.551025}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8487555925506317589}
@@ -363,7 +364,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e446352880787456f8f12dc763db44e5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9eeb74ee72936c743bbc296f000db0c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -401,7 +402,7 @@ MonoBehaviour:
   - {x: 0.19345236, y: -0.014696121, z: 0}
   m_ShapePathHash: -1762778961
   m_Mesh: {fileID: 0}
-  m_InstanceId: -278060
+  m_InstanceId: 69248
   m_LocalBounds:
     m_Center: {x: 0.0035920143, y: 0.26838112, z: 0}
     m_Extent: {x: 0.56200695, y: 0.28307724, z: 0}

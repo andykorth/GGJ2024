@@ -48,7 +48,8 @@ namespace futz.ActGhost
 			{
 				case Phase.UNINITIALIZED: return;
 				case Phase.WAITING_TO_START:
-				Log("PHASE WIASTING TOP START");
+					Log("PHASE waiting to START");
+					actor.AssignedHints.Add(new Hint{Message = "Waiting for others..."});
 					GhostPlayerManager.i.readyToBegin = act.Actors.Count >= fig.MinActorCount;
 					return;
 				case Phase.ROUND_INTRO: return;
@@ -112,6 +113,8 @@ namespace futz.ActGhost
 
 			_cancelSource = _cancelSource.Remake();
 
+			act.SuccessfullyEscaped = false;
+
 			ChangePhase(act, Phase.WAITING_TO_START);
 			if (act.Actors.Count >= fig.MinActorCount)
 			{
@@ -135,6 +138,18 @@ namespace futz.ActGhost
 			Log($"  NEW ROOM:      <b>TODO</b>".LgOrange(skipPrefix: true));
 
 			// AssignTestHints(act);
+		}
+
+		public static void EndSuccessful(GhostActivity act)
+		{
+			act.SuccessfullyEscaped = true;
+			ChangePhase(act, Phase.GAME_COMPLETE);
+		}
+
+		public static void EndFailure(GhostActivity act)
+		{
+			act.SuccessfullyEscaped = false;
+			ChangePhase(act, Phase.GAME_COMPLETE);
 		}
 
 		public static void AssignTestHints(GhostActivity act)

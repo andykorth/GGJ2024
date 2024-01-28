@@ -48,7 +48,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactEffectPrefab: {fileID: 5055170605293863104, guid: 93c0b1218d5a54cb7b2d29de79795d90, type: 3}
   interactableType: 1
+  interactableColor: 0
   tiedToLight: {fileID: 0}
+  spriteWhenActivated: {fileID: 0}
+  mainSprite: {fileID: 5614533666950543312}
+  hasBeenEnabledByPlayer: 0
+  interactionMode: 0
+  randomInteractionModeState: 0
 --- !u!135 &2829362980905669278
 SphereCollider:
   m_ObjectHideFlags: 0

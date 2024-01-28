@@ -1,7 +1,7 @@
 import {h} from 'preact';
 import {useTrack} from '../../util/Track';
-import {$button, $div, $label, Col, Grow} from '../../util/$tyle';
-import {P_GhostView} from './GhostActivity';
+import {$div, $label, Grow} from '../../util/$tyle';
+import {E_GhostPhaseEnum, P_GhostView} from './GhostActivity';
 // import {lg, lgRender} from '../../util/lg';
 import {GhostActorList} from './GhostActorList';
 import {TrackLabel} from '../../util/TrackLabel';
@@ -9,6 +9,13 @@ import {TrackLabel} from '../../util/TrackLabel';
 export function GhostView(props: P_GhostView) {
 	const act = props.act;
 	// lgRender(this);
+	
+	const phase = useTrack(act.Phase);
+	
+	// return <EndScreen act={act}/>;
+	if (phase == E_GhostPhaseEnum.GAME_COMPLETE) {
+		return <EndScreen act={act}/>;
+	}
 	
 	return (
 		<W_Ghost>
@@ -76,17 +83,60 @@ function Timer(props: P_GhostView) {
 		</W_Timer>
 	);
 }
+
 const W_Timer = $div('W_Timer')`
 	position: absolute;
 	right: 32px;
 	top: 32px;
 	-unity-font-style: bold;
-	color: rgb(255, 255, 255);
+	color: rgb(255, 25, 25);
 	-unity-text-align: middle-center;
 	margin: 0;
 	background-color: rgb(0, 0, 0);
 	padding: 16px;
 `;
+
+
+function EndScreen(props: P_GhostView) {
+	const act = props.act;
+	
+	const rescued = useTrack(act.GhostsRescued);
+	
+	const successfullyEscaped = act.SuccessfullyEscaped;
+	
+	const text = successfullyEscaped
+		? `You escaped! You rescued ${rescued} ghosts.`
+		: `You (and ${rescued} ghosts) were consumed by the darkness.`;
+	
+	
+	return (
+		<W_EndScreen>
+			<L_End
+				text={text}
+			/>
+		</W_EndScreen>
+	);
+}
+
+const W_EndScreen = $div('W_EndScreen')`
+	position: absolute;
+	left: 200px;
+	right: 32px;
+	top: 32px;
+	bottom: 32px;
+	color: rgb(255, 255, 255);
+	-unity-text-align: middle-center;
+	margin: 0;
+	background-color: rgb(0, 0, 0);
+	padding: 16px;
+	justify-content: center;
+`;
+
+const L_End = $label('L_End = $label')`
+	font-size: 64px;
+	white-space: normal;
+`;
+
 
 // function CardGrid(props: P_GhostView) {
 // 	const act = props.act;

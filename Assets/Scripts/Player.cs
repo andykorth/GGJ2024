@@ -11,7 +11,7 @@ public class Player : Singleton<Player>
 
     public Rigidbody rb;
 
-    private List<InteractableObject> haveInteractedWith = new List<InteractableObject>();
+    // public Color interactColor = Color.red;
 
     void Update()
     {
@@ -23,6 +23,9 @@ public class Player : Singleton<Player>
             if(mostRecentTouch != null){
                 Debug.Log("Interact with " + mostRecentTouch.name);
                 mostRecentTouch.PlayerInteract();
+                
+                GhostPlayerManager.i.AssessRoomStates();
+                
             }else{
                 Debug.Log("Nothing to interact with!");
             }
@@ -31,27 +34,7 @@ public class Player : Singleton<Player>
 
     }
 
-    public void PlayerInteract(InteractableObject o){
-        if(!haveInteractedWith.Contains(o)){
-            haveInteractedWith.Add(o);
-        }
-    }
-
-    internal int InteractCount(InteractableObject.InteractableType interactionType, InteractableObject.InteractableColor color = InteractableObject.InteractableColor.Any)
-    {
-        int count = 0;
-        foreach(var v in haveInteractedWith){
-            bool matchType = v.interactableType == interactionType;
-            bool matchColor = color == InteractableObject.InteractableColor.Any
-                || v.interactableColor == color;
-            if(matchType && matchColor) {
-                count += 1;
-            }
-        }
-        return count;
-    }
-
-    private InteractableObject mostRecentTouch;
+    public InteractableObject mostRecentTouch;
 
     internal void PlayerStartTouch(InteractableObject interactableObject)
     {

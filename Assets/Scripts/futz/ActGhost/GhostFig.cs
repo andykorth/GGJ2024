@@ -13,6 +13,12 @@ public class GhostFig : ScriptableObject
 	public float RoomTimeSec = 120f;
 	public float TimerSlowThreshold = 5;
 	public float TimerSlowMulti = .5f;
+
+	[Header("Room Gen")]
+	public float WantedChance = .7f;
+	public int NumOfGhosts = 3;
+	public int GhostOptions = 3;
+	public int ExitOptions = 3;
 	
 	// TEMP
 	[Header("Temp Strings")]
