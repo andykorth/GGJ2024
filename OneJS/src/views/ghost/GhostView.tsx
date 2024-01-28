@@ -106,13 +106,13 @@ function EndScreen(props: P_GhostView) {
 	
 	const text = successfullyEscaped
 		? `You escaped! You rescued ${rescued} ghosts.`
-		: `You were `;
+		: `You (and ${rescued} ghosts) were consumed by the darkness.`;
 	
 	
 	return (
 		<W_EndScreen>
 			<L_End
-				text={'adsf'}
+				text={text}
 			/>
 		</W_EndScreen>
 	);

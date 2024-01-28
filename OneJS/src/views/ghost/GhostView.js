@@ -48,9 +48,9 @@ function EndScreen(props) {
     var successfullyEscaped = act.SuccessfullyEscaped;
     var text = successfullyEscaped
         ? "You escaped! You rescued ".concat(rescued, " ghosts.")
-        : "You were ";
+        : "You (and ".concat(rescued, " ghosts) were consumed by the darkness.");
     return ((0, preact_1.h)(W_EndScreen, null,
-        (0, preact_1.h)(L_End, { text: 'adsf' })));
+        (0, preact_1.h)(L_End, { text: text })));
 }
 var W_EndScreen = (0, _tyle_1.$div)('W_EndScreen')(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n\tposition: absolute;\n\tleft: 200px;\n\tright: 32px;\n\ttop: 32px;\n\tbottom: 32px;\n\tcolor: rgb(255, 255, 255);\n\t-unity-text-align: middle-center;\n\tmargin: 0;\n\tbackground-color: rgb(0, 0, 0);\n\tpadding: 16px;\n\tjustify-content: center;\n"], ["\n\tposition: absolute;\n\tleft: 200px;\n\tright: 32px;\n\ttop: 32px;\n\tbottom: 32px;\n\tcolor: rgb(255, 255, 255);\n\t-unity-text-align: middle-center;\n\tmargin: 0;\n\tbackground-color: rgb(0, 0, 0);\n\tpadding: 16px;\n\tjustify-content: center;\n"])));
 var L_End = (0, _tyle_1.$label)('L_End = $label')(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n\tfont-size: 64px;\n\twhite-space: normal;\n"], ["\n\tfont-size: 64px;\n\twhite-space: normal;\n"])));
