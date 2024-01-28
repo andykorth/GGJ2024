@@ -113,6 +113,8 @@ namespace futz.ActGhost
 
 			_cancelSource = _cancelSource.Remake();
 
+			act.SuccessfullyEscaped = false;
+
 			ChangePhase(act, Phase.WAITING_TO_START);
 			if (act.Actors.Count >= fig.MinActorCount)
 			{
@@ -136,6 +138,18 @@ namespace futz.ActGhost
 			Log($"  NEW ROOM:      <b>TODO</b>".LgOrange(skipPrefix: true));
 
 			// AssignTestHints(act);
+		}
+
+		public static void EndSuccessful(GhostActivity act)
+		{
+			act.SuccessfullyEscaped = true;
+			ChangePhase(act, Phase.GAME_COMPLETE);
+		}
+
+		public static void EndFailure(GhostActivity act)
+		{
+			act.SuccessfullyEscaped = false;
+			ChangePhase(act, Phase.GAME_COMPLETE);
 		}
 
 		public static void AssignTestHints(GhostActivity act)
