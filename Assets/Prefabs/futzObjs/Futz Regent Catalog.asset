@@ -1344,6 +1344,10 @@ MonoBehaviour:
       CogName: Agent
       CogHash:
         Value: 719352216
+  - Name: AudioSonicClip
+    HashId:
+      Value: 3032418952
+    SyncerFacts: []
   - Name: CoreUiClip
     HashId:
       Value: 492817487

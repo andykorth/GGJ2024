@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sonic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -24,6 +25,12 @@ public class InteractableObject : MonoBehaviour
     private SpriteRenderer mainSprite;
 
     public bool hasBeenEnabledByPlayer = false;
+
+    [Header("Sounds")]
+    public SonicSfx SfxInteract;
+    public SonicSfx SfxLoop;
+    
+    
 
     public static List<InteractableObject> allInteractables;
 
@@ -92,6 +99,8 @@ public class InteractableObject : MonoBehaviour
     }
 
     public void PlayerInteract(){
+	    SfxInteract.PlayAt(transform.position);
+	    
         if(interactEffectPrefab != null){
             GameObject go = Instantiate(interactEffectPrefab, transform.position, Quaternion.identity);
             Destroy(go, 10.0f);
