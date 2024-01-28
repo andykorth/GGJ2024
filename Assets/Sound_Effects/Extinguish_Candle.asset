@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Extinguish_Candle
   m_EditorClassIdentifier: 
   MixerGroup: {fileID: 0}
-  Clips: []
+  Clips:
+  - {fileID: 8300000, guid: 0c2854637acd647c1abaa861ea7189da, type: 3}
   PitchDeviation: 0
   Volume: 1
   Loop: 0
