@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6745678310233686328}
   - component: {fileID: 2829362980905669278}
   m_Layer: 0
-  m_Name: InteractiveTestObject
+  m_Name: Interactive BaseObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,15 +46,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c91a8e8852548018aaba4685d6efa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Name: 
+  verb: poke
   interactEffectPrefab: {fileID: 5055170605293863104, guid: 93c0b1218d5a54cb7b2d29de79795d90, type: 3}
   interactableType: 1
   interactableColor: 0
+  interactionMode: 0
+  tiedToChild: {fileID: 0}
   tiedToLight: {fileID: 0}
   spriteWhenActivated: {fileID: 0}
   mainSprite: {fileID: 5614533666950543312}
   hasBeenEnabledByPlayer: 0
-  interactionMode: 0
-  randomInteractionModeState: 0
+  SfxInteract: {fileID: 0}
+  RandomStart: 1
+  Options: []
+  CurrentStateId: 0
 --- !u!135 &2829362980905669278
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -86,6 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2513418714737658706}
   - component: {fileID: 5614533666950543312}
+  - component: {fileID: 4273644978958668726}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -160,3 +167,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4273644978958668726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5572049299237209359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: bf9f74498d1acc4100000000a785658d
+  m_ShapePath:
+  - {x: -0.21235561, y: -0.013699815, z: 0}
+  - {x: -0.30140448, y: 0.25031328, z: 0}
+  - {x: 0.33565378, y: 0.27771294, z: 0}
+  - {x: 0.23290539, y: -0.00684987, z: 0}
+  m_ShapePathHash: 20504709
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 37080
+  m_LocalBounds:
+    m_Center: {x: 0.017124653, y: 0.13200657, z: 0}
+    m_Extent: {x: 0.31852913, y: 0.14570639, z: 0}

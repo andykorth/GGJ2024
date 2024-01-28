@@ -12,13 +12,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractablePicture Frame Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2513418714737658706, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3947809476831853665, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.56
+      value: -5.24
       objectReference: {fileID: 0}
     - target: {fileID: 3947809476831853665, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.75
+      value: 2.66
       objectReference: {fileID: 0}
     - target: {fileID: 3947809476831853665, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_LocalPosition.z
@@ -30,15 +34,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3947809476831853665, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3947809476831853665, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3947809476831853665, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3947809476831853665, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -52,6 +56,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_InstanceId
+      value: -49718
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614533666950543312, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cf93a0077e57e634e9da5f810118d861, type: 3}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Name
       value: Painting
@@ -66,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: interactableType
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.size

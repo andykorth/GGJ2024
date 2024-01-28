@@ -20,12 +20,14 @@ public class RoomManager : MonoBehaviour
 
 	public List<ObjCriteria> AllCriteria = new();
 
-	[FormerlySerializedAs("AllInteractables")] public List<InteractableObject> RoomInteractables = new();
+	public List<InteractableObject> RoomInteractables = new();
 
 	public void CreateRoom()
 	{
 		var act = GameSysClip.I.GhostAct.Current;
 		var fig = Fig;
+		
+		RoomInteractables.Clear();
 
 		foreach (var wall in PossibleWallObjs) wall.gameObject.SetActive(false);
 		foreach (var floor in PossibleFloorObjs) floor.gameObject.SetActive(false);
@@ -40,6 +42,7 @@ public class RoomManager : MonoBehaviour
 			var interactable = availableWallObjs.GrabRandom();
 			interactable.transform.position = availableWallSpawns.GrabRandom().position;
 			interactable.gameObject.SetActive(true);
+			RoomInteractables.Add(interactable);
 		}
 		
 		for (var i = 0; i < fig.NumOfFloorObjs; i++)
@@ -47,6 +50,7 @@ public class RoomManager : MonoBehaviour
 			var interactable = availableFloorObjs.GrabRandom();
 			interactable.transform.position = availableFloorSpawns.GrabRandom().position;
 			interactable.gameObject.SetActive(true);
+			RoomInteractables.Add(interactable);
 		}
 		
 

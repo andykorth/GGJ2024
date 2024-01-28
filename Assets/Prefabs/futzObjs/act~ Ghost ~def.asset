@@ -28,7 +28,6 @@ MonoBehaviour:
     FieldInfos:
     - Status
     - AssignedHints
-    - TestHintAdder
     - Agent
     - Tform
     - Entity
@@ -42,7 +41,6 @@ MonoBehaviour:
     FieldInfos:
     - Status
     - AssignedHints
-    - TestHintAdder
     - Agent
     - Tform
     - Entity

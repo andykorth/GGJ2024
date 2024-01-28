@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightToChange: {fileID: 4042511523766374858}
-  minIntensity: 1.7
+  minIntensity: 1.02
   intensityVariance: 0.35
   noiseSpeed: 6
 --- !u!114 &4042511523766374858
@@ -66,10 +66,10 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.223
   m_Color: {r: 0.9245283, g: 0.84364235, b: 0.40557134, a: 1}
-  m_Intensity: 1.7
+  m_Intensity: 1.02
   m_LightVolumeIntensity: 0.06
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: bf9f744900000000414e884a
+  m_ApplyToSortingLayers: bf9f7449000000008d1acc41
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_NormalMapDistance: 2.5
   m_NormalMapQuality: 0
   m_UseNormalMap: 0
-  m_ShadowIntensityEnabled: 1
+  m_ShadowIntensityEnabled: 0
   m_ShadowIntensity: 0.574
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75

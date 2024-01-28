@@ -52,6 +52,58 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_InstanceId
+      value: -34414
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePathHash
+      value: -566503819
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalBounds.m_Center.x
+      value: 0.010274887
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalBounds.m_Center.y
+      value: -0.34063816
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.y
+      value: 0.14570594
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[0].x
+      value: -0.21920538
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[0].y
+      value: -0.4863441
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[1].x
+      value: -0.30825424
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[1].y
+      value: -0.22233105
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[2].x
+      value: 0.32880402
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[2].y
+      value: -0.19493222
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[3].x
+      value: 0.22605562
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[3].y
+      value: -0.4794941
+      objectReference: {fileID: 0}
     - target: {fileID: 5614533666950543312, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_Size.x
       value: 0.94
@@ -63,7 +115,7 @@ PrefabInstance:
     - target: {fileID: 5614533666950543312, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8c1769842e97648358feb3978fc36911, type: 3}
+      objectReference: {fileID: 21300000, guid: 64e048c4f2aef4d12ae073d27492bf2f, type: 3}
     - target: {fileID: 5700399372018903900, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -114,11 +166,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Hates.Array.data[0]
-      value: 'TODO Ghost want: {color} {name} NOT {label}'
+      value: The {color} vase is an embarrassment!
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Wants.Array.data[0]
       value: 'TODO Ghost want: {color} {name} {label}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].Wants.Array.data[1]
+      value: I really like pottery
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].Hates.Array.data[0]
