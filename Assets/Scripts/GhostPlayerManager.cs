@@ -7,6 +7,7 @@ using System.Linq;
 using Foundational;
 using futz.ActGhost;
 using Cysharp.Threading.Tasks;
+using DefaultNamespace;
 using Unity.VisualScripting;
 using UnityEngine.Serialization;
 
@@ -28,7 +29,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
     [FormerlySerializedAs("ghostsToFade")]
     public SpriteRenderer[] spiritsToFade;
-    public GameObject exit;
+    public ExitDoor exitDoor;
 
     public const int SPIRIT_COUNT = 3;
 
