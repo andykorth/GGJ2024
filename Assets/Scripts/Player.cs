@@ -37,11 +37,14 @@ public class Player : Singleton<Player>
         }
     }
 
-    internal int InteractCount(InteractableObject.InteractableType interactionType)
+    internal int InteractCount(InteractableObject.InteractableType interactionType, InteractableObject.InteractableColor color = InteractableObject.InteractableColor.Any)
     {
         int count = 0;
         foreach(var v in haveInteractedWith){
-            if(v.interactableType == interactionType){
+            bool matchType = v.interactableType == interactionType;
+            bool matchColor = color == InteractableObject.InteractableColor.Any
+                || v.interactableColor == color;
+            if(matchType && matchColor) {
                 count += 1;
             }
         }

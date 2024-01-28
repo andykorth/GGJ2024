@@ -13,9 +13,12 @@ public class GhostActivity : Activity<GhostActor>
 	public GhostFig Fig;
 
 	[Header("Observable State")]
+	public float TimeLeftSec;
 	public Track<PhaseEnum> Phase = new();
 	public Track<string> PhaseTitle = new();
 	public Track<string> PhaseDesc = new();
+
+	public Track<string> TimerString = new();
 	// public TrackEvt ForceNextRound = new();
 
 	//## PACKETS	

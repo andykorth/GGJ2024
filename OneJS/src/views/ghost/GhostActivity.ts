@@ -8,6 +8,7 @@ export interface T_GhostActivity {
 	PhaseTitle: Track<string>;
 	PhaseDesc: Track<string>;
 	// ForceNextRound: TrackEvt;
+	TimerString: Track<string>;
 }
 
 export enum E_GhostPhaseEnum {

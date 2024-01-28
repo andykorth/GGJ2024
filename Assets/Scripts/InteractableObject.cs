@@ -9,18 +9,26 @@ public class InteractableObject : MonoBehaviour
     public enum InteractableType{
         Torch, Vase, Crate, Candle, Portrait
     }
+    public enum InteractableColor{
+        Any, Blue, Purple, Green
+    }
+
     public GameObject interactEffectPrefab;
     public InteractableType interactableType;
+    public InteractableColor interactableColor = InteractableColor.Any;
 
     public Light2D tiedToLight;
+    public Sprite spriteWhenActivated;
+    private Sprite originalSprite;
     private SpriteRenderer[] allSprites;
+    private SpriteRenderer mainSprite;
 
     public bool hasBeenEnabledByPlayer = false;
 
     public static List<InteractableObject> allInteractables;
 
     public enum InteractionMode {
-        NoneOrCustom, CrookedPainting, FlipUpsideDown
+        NoneOrCustom, CrookedPainting, FlipUpsideDown, SwapToActivatedSprite
     }
     public InteractionMode interactionMode;
     public bool randomInteractionModeState = false;
@@ -35,6 +43,7 @@ public class InteractableObject : MonoBehaviour
         allSprites = GetComponentsInChildren<SpriteRenderer>();
         allInteractables.Add(this);
         // Debug.Log("Interactable count: " + allInteractables.Count);
+        originalSprite = mainSprite.sprite;
 
         if(randomInteractionModeState){
             hasBeenEnabledByPlayer = Random.value > 0.5f;
@@ -45,6 +54,11 @@ public class InteractableObject : MonoBehaviour
             transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : angle);
         }else if (interactionMode == InteractionMode.FlipUpsideDown){
             transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : 180f);
+        }else if (interactionMode == InteractionMode.SwapToActivatedSprite){
+            if(mainSprite.sprite == spriteWhenActivated)
+                mainSprite.sprite = originalSprite;
+            else
+                mainSprite.sprite = spriteWhenActivated;
         }
 
         if(tiedToLight != null){

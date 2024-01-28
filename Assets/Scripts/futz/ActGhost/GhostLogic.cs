@@ -53,7 +53,7 @@ namespace futz.ActGhost
 					return;
 				case Phase.ROUND_INTRO: return;
 				case Phase.PLAYING_ROOM:
-					AssignHints(act); // TEMP
+					// AssignHints(act); // TEMP
 					return;
 				case Phase.ROOM_SUMMARY: return;
 				case Phase.GAME_COMPLETE: return;
@@ -130,13 +130,14 @@ namespace futz.ActGhost
 			// await __WAIT__(fig.RevealStartMs);
 
 			ChangePhase(act, Phase.PLAYING_ROOM);
+			act.TimeLeftSec = fig.RoomTimeSec;
 
 			Log($"  NEW ROOM:      <b>TODO</b>".LgOrange(skipPrefix: true));
 
-			AssignHints(act);
+			// AssignTestHints(act);
 		}
 
-		public static void AssignHints(GhostActivity act)
+		public static void AssignTestHints(GhostActivity act)
 		{
 			var fig = act.Fig;
 

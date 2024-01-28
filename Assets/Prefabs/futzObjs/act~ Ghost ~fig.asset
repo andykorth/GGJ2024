@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: act~ Ghost ~fig
   m_EditorClassIdentifier: 
   NumHints: 5
+  MinActorCount: 2
+  RoomTimeSec: 120
+  TimerSlowThreshold: 10
+  TimerSlowMulti: 0.5
   TestClues:
   - The vase is cursed!
   - Exit needs 3 candles.
@@ -24,35 +28,14 @@ MonoBehaviour:
   - The tree painting is cursed!
   - Green needs 2 candles.
   - Green hates darkness.
-  NumOfCards: 9
-  ChoiceMin: 2
-  ChoiceMax: 2
-  NumOfLocked: 1
-  MinActorCount: 2
-  RevealStartMs: 500
-  RevealDelayMs: 50
-  GuessStartMs: 1000
-  GuessIntervalMs: 400
-  GuessEndMs: 5000
-  ScoreIntervalMs: 300
-  ScoreEndMs: 5000
-  Scoring:
-    ClueHit: 6
-    CluePerfectPerPlayer: 5
-    CluePerfectAll: 10
-    GuessHit: 10
-    GuessHitPerfect: 10
   StrLoading: Loading
   StrWaitingOthers: Waiting for others
-  StrOthersGuessing: Others are guessing your words
   StrPhaseTitle_WaitingToStart: Need 2 or more players
   StrPhaseDesc_WaitingToStart: 
   StrPhaseTitle_RoundIntro: 'TODO: Round Intro'
   StrPhaseDesc_RoundIntro: 
-  StrPhaseTitle_WritingClues: Write Clues!
-  StrPhaseDesc_WritingClues: Write a clue to get others to guess your words.
-  StrPhaseTitle_Guessing: Guess Words!
-  StrPhaseDesc_Guessing: Pick words based on the clue.
+  StrPhaseTitle_PlayingRoom: 'TODO: Playing Room'
+  StrPhaseDesc_PlayingRoom: 
   StrPhaseTitle_RoundSummary: 'TODO: Round Summary'
   StrPhaseDesc_RoundSummary: 
   StrPhaseTitle_GameComplete: 'TODO: Game Complete'

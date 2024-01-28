@@ -23,6 +23,7 @@ export type P_TrackLabel<
 	pad?: number | number[];
 	fontSize?: number | string;
 	fontStyle?: 'Normal' | 'Bold' | 'Italic' | 'BoldAndItalic';
+	mono?: boolean;
 }
 
 export function TrackLabel<
@@ -76,6 +77,7 @@ export function TrackLabel<
 				unityFontStyleAndWeight: props.fontStyle,
 				...props.style,
 			}}
+			class={props.mono ? 'monospaced': ''}
 		/>
 	);
 }

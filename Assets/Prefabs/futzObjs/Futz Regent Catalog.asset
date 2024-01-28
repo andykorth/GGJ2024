@@ -651,6 +651,30 @@ MonoBehaviour:
       IsInstant: 0
       SyncerName: AssignedHints
       TimedSeconds: 0
+    - Name: Run_Timer
+      HashId:
+        Value: 1179217124
+      ParentTypeName: GhostBaron
+      RequiredTypeNames:
+      - futz.ActGhost.GhostActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      RequiredTypeNamesShort:
+      - GhostActivity
+      RequiredTypeHashes:
+      - Value: 2234353583
+      Cycle: 2
+      StageName: FRAME
+      StageHash:
+        Value: 725624726
+      WorkerTrigger: 5
+      WorkerMemberType: 1
+      MakerString: MakeRunnWorker1
+      Domain: 1000
+      RequiresAuthor: 0
+      RequiresRemote: 0
+      IsInstant: 0
+      SyncerName: 
+      TimedSeconds: 0
   WorkerFacts:
   - Name: Added_Agent
     HashId:
@@ -1263,6 +1287,30 @@ MonoBehaviour:
     IsInstant: 0
     SyncerName: 
     TimedSeconds: 0
+  - Name: Run_Timer
+    HashId:
+      Value: 1179217124
+    ParentTypeName: GhostBaron
+    RequiredTypeNames:
+    - futz.ActGhost.GhostActivity, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    RequiredTypeNamesShort:
+    - GhostActivity
+    RequiredTypeHashes:
+    - Value: 2234353583
+    Cycle: 2
+    StageName: FRAME
+    StageHash:
+      Value: 725624726
+    WorkerTrigger: 5
+    WorkerMemberType: 1
+    MakerString: MakeRunnWorker1
+    Domain: 1000
+    RequiresAuthor: 0
+    RequiresRemote: 0
+    IsInstant: 0
+    SyncerName: 
+    TimedSeconds: 0
   CogFacts:
   - Name: Agent
     HashId:
@@ -1420,6 +1468,13 @@ MonoBehaviour:
     - Name: PhaseDesc
       HashId:
         Value: 416176636
+      AuthType: 0
+      CogName: GhostActivity
+      CogHash:
+        Value: 2234353583
+    - Name: TimerString
+      HashId:
+        Value: 1971161862
       AuthType: 0
       CogName: GhostActivity
       CogHash:
@@ -1648,6 +1703,13 @@ MonoBehaviour:
     CogName: GhostActor
     CogHash:
       Value: 2247973205
+  - Name: TimerString
+    HashId:
+      Value: 1971161862
+    AuthType: 0
+    CogName: GhostActivity
+    CogHash:
+      Value: 2234353583
   - Name: ToggleHud
     HashId:
       Value: 3129065715
