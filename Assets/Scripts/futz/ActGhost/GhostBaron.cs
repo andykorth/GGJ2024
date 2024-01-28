@@ -80,8 +80,12 @@ namespace futz.ActGhost
 	        }
 
 	        act.TimeLeftSec -= dt;
-	        
-	        if (act.TimeLeftSec < 0) act.TimeLeftSec = 0;
+
+	        if (act.TimeLeftSec < 0)
+	        {
+		        act.TimeLeftSec = 0;
+		        GhostLogic.EndFailure(act);
+	        }
 
 
 	        var mins = (act.TimeLeftSec / 60).FloorToInt();

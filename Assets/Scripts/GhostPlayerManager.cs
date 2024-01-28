@@ -4,6 +4,8 @@ using Foundational;
 using futz.ActGhost;
 using Cysharp.Threading.Tasks;
 using UnityEngine.Serialization;
+using InterType = InteractableObject.InteractableType;
+using InterColor = InteractableObject.InteractableColor;
 
 public class GhostPlayerManager : Singleton<GhostPlayerManager>
 {
@@ -41,20 +43,19 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 			new Goal
 			{
 				goalString = "I hate the smell of burning cauldrons.",
-				goalAction = () => MatchesInteraction(InteractableObject.InteractableType.Cauldron) == 0,
+				goalAction = () => MatchesInteraction(InterType.Cauldron) == 0,
 				spiritIndex = 0,
 			},
 			new Goal
 			{
 				goalString = "But I can't stand the dark.",
-				goalAction = () => MatchesInteraction(InteractableObject.InteractableType.Candle) >= 1,
+				goalAction = () => MatchesInteraction(InterType.Candle) >= 1,
 				spiritIndex = 0,
 			},
 			new Goal
 			{
 				goalString = "Ooooh that vase reminds me of limes!",
-				goalAction = () => MatchesInteraction(InteractableObject.InteractableType.Vase,
-					InteractableObject.InteractableColor.Green) >= 1,
+				goalAction = () => MatchesInteraction(InterType.Vase, InterColor.Green) >= 1,
 				spiritIndex = 0,
 			},
 
@@ -63,25 +64,22 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 			{
 				goalString = "I always loved pottery.",
 				goalAction = () =>
-					MatchesInteraction(InteractableObject.InteractableType.Vase,
-						InteractableObject.InteractableColor.Green) >= 1
-					&& MatchesInteraction(InteractableObject.InteractableType.Vase,
-						InteractableObject.InteractableColor.Purple) >= 1,
+					MatchesInteraction(InterType.Vase, InterColor.Green) >= 1
+					&& MatchesInteraction(InterType.Vase, InterColor.Purple) >= 1,
 				spiritIndex = 1,
 			},
 			new Goal
 			{
 				goalString = "That blue vase is an embarrassment.",
 				goalAction = () =>
-					MatchesInteraction(InteractableObject.InteractableType.Vase,
-						InteractableObject.InteractableColor.Blue) == 0,
+					MatchesInteraction(InterType.Vase,
+						InterColor.Blue) == 0,
 				spiritIndex = 1,
 			},
 			new Goal
 			{
 				goalString = "I do love blue though!",
-				goalAction = () => MatchesInteraction(InteractableObject.InteractableType.Cauldron,
-					InteractableObject.InteractableColor.Blue) >= 1,
+				goalAction = () => MatchesInteraction(InterType.Cauldron, InterColor.Blue) >= 1,
 				spiritIndex = 1,
 			},
 
@@ -89,21 +87,19 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 			new Goal
 			{
 				goalString = "Ewww, purple!",
-				goalAction = () => MatchesInteraction(InteractableObject.InteractableType.Cauldron,
-					InteractableObject.InteractableColor.Purple) <= 0,
+				goalAction = () => MatchesInteraction(InterType.Cauldron, InterColor.Purple) <= 0,
 				spiritIndex = 2,
 			},
 			new Goal
 			{
 				goalString = "I didn't know there was a painting of me.",
-				goalAction = () => MatchesInteraction(InteractableObject.InteractableType.Portrait,
-					InteractableObject.InteractableColor.Blue) > 0,
+				goalAction = () => MatchesInteraction(InterType.Portrait, InterColor.Blue) > 0,
 				spiritIndex = 2,
 			},
 			new Goal
 			{
 				goalString = "These vases are all hideous!",
-				goalAction = () => MatchesInteraction(InteractableObject.InteractableType.Vase) <= 0,
+				goalAction = () => MatchesInteraction(InterType.Vase) <= 0,
 				spiritIndex = 2,
 			},
 		};
@@ -118,8 +114,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 			new Goal
 			{
 				goalString = $"We need one disordered painting to leave.",
-				goalAction = () => MatchesInteraction(InteractableObject.InteractableType.Portrait,
-					InteractableObject.InteractableColor.Blue) < 2
+				goalAction = () => MatchesInteraction(InterType.Portrait, InterColor.Blue) < 2
 			},
 			new Goal
 			{
@@ -129,8 +124,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 			new Goal
 			{
 				goalString = $"The candle on the table will light the way",
-				goalAction = () => MatchesInteraction(InteractableObject.InteractableType.Candle,
-					InteractableObject.InteractableColor.Blue) >= 1
+				goalAction = () => MatchesInteraction(InterType.Candle, InterColor.Blue) >= 1
 			},
 			new Goal
 			{
@@ -145,14 +139,13 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 		};
 	}
 
-	internal int MatchesInteraction(InteractableObject.InteractableType interactionType,
-		InteractableObject.InteractableColor color = InteractableObject.InteractableColor.Any)
+	internal int MatchesInteraction(InterType interactionType, InterColor color = InterColor.Any)
 	{
 		int count = 0;
 		foreach (var v in InteractableObject.allInteractables)
 		{
 			bool matchType = v.interactableType == interactionType;
-			bool matchColor = color == InteractableObject.InteractableColor.Any
+			bool matchColor = color == InterColor.Any
 			                  || v.interactableColor == color;
 			if (matchType && matchColor && v.hasBeenEnabledByPlayer)
 			{
@@ -179,6 +172,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
 	public void Update()
 	{
+		var act = GameSysClip.I.GhostAct.Current;
 		var player = Player.i;
 
 		if (Input.GetKeyDown(KeyCode.C))
@@ -186,6 +180,20 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 			needTwoPhonePlayersMsg.SetActive(false);
 			pressPlayToBeginMsg.SetActive(false);
 			GameStarted();
+		}
+
+		if (Input.GetKeyDown(KeyCode.F1))
+		{
+			goalDebugText.enabled = !goalDebugText.enabled;
+		}
+
+		if (Input.GetKeyDown(KeyCode.F7))
+		{
+			act.TimeLeftSec -= 10;
+		}
+		else if (Input.GetKeyDown(KeyCode.F8))
+		{
+			act.TimeLeftSec += 60;
 		}
 
 		if (readyToBegin)

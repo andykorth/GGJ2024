@@ -89,7 +89,7 @@ const W_Timer = $div('W_Timer')`
 	right: 32px;
 	top: 32px;
 	-unity-font-style: bold;
-	color: rgb(255, 255, 255);
+	color: rgb(255, 25, 25);
 	-unity-text-align: middle-center;
 	margin: 0;
 	background-color: rgb(0, 0, 0);

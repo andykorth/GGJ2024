@@ -20,13 +20,4 @@ public class ExitDoor : MonoBehaviour
 		OpenObj.SetActive(isOpen);
 		ClosedObj.SetActive(!isOpen);
 	}
-
-	internal void TryToGoInsideTheDoor()
-	{
-		if(OpenObj.activeSelf){
-			// we go in!
-			Debug.Log("Win the game");
-			GhostLogic.EndSuccessful(GameSysClip.I.GhostAct.Current);
-		}
-	}
 }
