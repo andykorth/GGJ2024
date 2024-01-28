@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Idealist;
 using Lumberjack;
 using Sonic;
-using Swoonity.Collections;
-using Swoonity.CSharp;
 using Swoonity.Unity;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -14,10 +11,15 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class StateOption
 {
-	[Header("Config")] public string Label = "?";
+	[Header("Config")]
+	public string Label = "?";
+
+	public Sprite UseSprite;
+	public GameObject EnableObj;
 
 	[Tooltip("verb used while in this state (indicating the NEXT state)")]
 	public string VerbToNext = "poke";
+	public SonicSfx SfxInteract;
 	// public string Verb = "poke"; // TODO?
 
 	[Header("Ghosts")]
@@ -73,8 +75,7 @@ public class InteractableObject : MonoBehaviour
 	public InteractionMode interactionMode;
 	public float flipAngle;
 
-	[Header("Misc config")] public GameObject tiedToChild;
-	public Light2D tiedToLight;
+	[Header("Misc config")] public Vector3 TextOffset;
 	public Sprite spriteWhenActivated;
 	private Sprite originalSprite;
 	private SpriteRenderer[] allSprites;
@@ -146,9 +147,13 @@ public class InteractableObject : MonoBehaviour
 
 	public void PlayerInteract()
 	{
+		var option = Options[CurrentStateId];
+		option.SfxInteract.PlayAt(transform);
+		
+		SfxInteract.PlayAt(transform);
+		
 		SetState(CurrentStateId + 1);
 
-		SfxInteract.PlayAt(transform.position);
 
 		// TODO
 		// TODO: update below
@@ -168,8 +173,8 @@ public class InteractableObject : MonoBehaviour
 
 		$"{name} set: {stateId}, {Options[stateId].Label}".LgOrange0(this);
 
+		var option = Options[stateId];
 		var spriteTf = mainSprite.transform;
-
 
 		switch (interactionMode)
 		{
@@ -224,8 +229,12 @@ public class InteractableObject : MonoBehaviour
 				throw new ArgumentOutOfRangeException();
 		}
 
-		if (tiedToChild != null) tiedToChild.SetActive(stateId == 1);
-		if (tiedToLight != null) tiedToLight.enabled = stateId == 1;
+		foreach (var otherOption in Options)
+		{
+			if (otherOption.EnableObj) otherOption.EnableObj.SetActive(otherOption == option);
+		}
+
+		if (option.UseSprite) mainSprite.sprite = option.UseSprite;
 
 		CurrentStateId = stateId;
 	}

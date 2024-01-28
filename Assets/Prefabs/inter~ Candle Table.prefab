@@ -210,7 +210,7 @@ MonoBehaviour:
   - {x: 0.6654288, y: -1.0372733, z: 0}
   m_ShapePathHash: -2102981070
   m_Mesh: {fileID: 0}
-  m_InstanceId: -893396
+  m_InstanceId: 161872
   m_LocalBounds:
     m_Center: {x: -0.015167654, y: -0.8886312, z: 0}
     m_Extent: {x: 0.6805965, y: 0.14864206, z: 0}
@@ -319,6 +319,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1354017696838957919}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: TextOffset.y
+      value: -1.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: interactionMode
       value: 0
       objectReference: {fileID: 0}
@@ -354,6 +358,34 @@ PrefabInstance:
       propertyPath: Options.Array.data[1].Label
       value: lit
       objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].UseSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1cad0523300579444a4419c9a118e8a8, type: 3}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].EnableObj
+      value: 
+      objectReference: {fileID: 4054782203493842611}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].UseSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fec463cb4743e33428216aa83e49f422, type: 3}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].VerbToNext
+      value: light
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].VerbToNext
+      value: snuff
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].SfxInteract
+      value: 
+      objectReference: {fileID: 11400000, guid: 8a7a22bbe67c740a2aa977ca66df4db3, type: 2}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].SfxInteract
+      value: 
+      objectReference: {fileID: 11400000, guid: a569a05dbf3e64c0d9148a58efbe16f9, type: 2}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Hates.Array.size
       value: 1

@@ -233,7 +233,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 		if (touchingObj)
 		{
 			// interactMarker.position = touchingObj.transform.position + touchingObj.markerOffset;
-			interactMarker.position = touchingObj.mainSprite.bounds.center;
+			interactMarker.position = touchingObj.mainSprite.bounds.center + touchingObj.TextOffset;
 			interactText.text = touchingObj.Options[touchingObj.CurrentStateId].VerbToNext;
 		}
 		else
