@@ -20,19 +20,8 @@ public class SoundEffectManager : Singleton<SoundEffectManager>
 
 	public AudioSource musicSource;
 
-	public AudioClip music;
+	public AudioClip gameplayMusic;
 	public AudioClip titleMusic;
-
-	public AudioBunch swordSwoosh;
-	public AudioBunch footstep;
-	public AudioBunch swordHit;
-
-	public AudioClip damage;
-	public AudioClip door;
-
-	public AudioClip itemFound;
-	public AudioClip plotItemFound;
-	public AudioClip coolStuffFound;
 
 	public void Start(){
 		musicSource.loop = true;
@@ -42,7 +31,7 @@ public class SoundEffectManager : Singleton<SoundEffectManager>
 
 	public void SwitchSongs(){
 		musicSource.loop = true;
-		musicSource.clip = (musicSource.clip == titleMusic) ? music : titleMusic;
+		musicSource.clip = (musicSource.clip == titleMusic) ? gameplayMusic : titleMusic;
 		musicSource.Play ();
 	}
 
