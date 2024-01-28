@@ -43,6 +43,9 @@ namespace futz.ActGhost
 			actor.Status.Change(Status.READY);
 			actor.Agent.Status.Change("waiting");
 			act.PkWaiting.SendTo(actor, new Pk_Waiting { Msg = fig.StrWaitingOthers });
+			
+			actor.AssignedHints.Clear();
+			actor.AssignedHints.Add(new ObjCriteria {Hint = "Please wait..."});
 
 			switch (act.Phase.Current)
 			{
