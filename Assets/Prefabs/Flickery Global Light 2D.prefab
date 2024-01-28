@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightToChange: {fileID: 4042511523766374858}
-  minIntensity: 1.7
+  minIntensity: 1.02
   intensityVariance: 0.35
   noiseSpeed: 6
 --- !u!114 &4042511523766374858
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.223
   m_Color: {r: 0.9245283, g: 0.84364235, b: 0.40557134, a: 1}
-  m_Intensity: 1.7
+  m_Intensity: 1.02
   m_LightVolumeIntensity: 0.06
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: bf9f7449000000008d1acc41

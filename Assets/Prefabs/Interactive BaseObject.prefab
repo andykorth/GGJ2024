@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6745678310233686328}
   - component: {fileID: 2829362980905669278}
   m_Layer: 0
-  m_Name: InteractiveTestObject
+  m_Name: Interactive BaseObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_ShadowGroup: 0
   m_ComponentVersion: 1
   m_HasRenderer: 1
-  m_UseRendererSilhouette: 0
+  m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 0
   m_ApplyToSortingLayers: bf9f74498d1acc4100000000a785658d
@@ -193,7 +193,7 @@ MonoBehaviour:
   - {x: 0.23290539, y: -0.00684987, z: 0}
   m_ShapePathHash: 20504709
   m_Mesh: {fileID: 0}
-  m_InstanceId: -22316
+  m_InstanceId: 37080
   m_LocalBounds:
     m_Center: {x: 0.017124653, y: 0.13200657, z: 0}
     m_Extent: {x: 0.31852913, y: 0.14570639, z: 0}
