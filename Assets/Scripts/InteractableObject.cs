@@ -14,8 +14,8 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class StateOption
 {
-	[Header("Config")]
-	public string Label = "?";
+	[Header("Config")] public string Label = "?";
+
 	[Tooltip("verb used while in this state (indicating the NEXT state)")]
 	public string VerbToNext = "poke";
 	// public string Verb = "poke"; // TODO?
@@ -35,48 +35,45 @@ public class StateOption
 
 	[Tooltip("if this state is chosen to be 'hated' (meaning the object CANNOT be in this state)")] [TextArea]
 	public List<string> ExitHates = new();
-
 }
+
+public enum InteractableType
+{
+	Cauldron,
+	Vase,
+	Crate,
+	Candle,
+	Portrait
+}
+
+public enum InteractableColor
+{
+	Any,
+	Blue,
+	Purple,
+	Green
+}
+
+public enum InteractionMode
+{
+	NoneOrCustom,
+	CrookedPainting,
+	FlipUpsideDown,
+	SwapToActivatedSprite
+}
+
 
 [SelectionBase]
 public class InteractableObject : MonoBehaviour
 {
-	public enum InteractableType
-	{
-		Cauldron,
-		Vase,
-		Crate,
-		Candle,
-		Portrait
-	}
-
-	public enum InteractableColor
-	{
-		Any,
-		Blue,
-		Purple,
-		Green
-	}
-
-	public enum InteractionMode
-	{
-		NoneOrCustom,
-		CrookedPainting,
-		FlipUpsideDown,
-		SwapToActivatedSprite
-	}
-
-
-	[Header("Interact config")] 
-	public string Name = "";
+	[Header("Interact config")] public string Name = "";
 	public GameObject interactEffectPrefab;
 	public InteractableType interactableType;
 	public InteractableColor interactableColor;
 	public InteractionMode interactionMode;
 	public float flipAngle;
 
-	[Header("Misc config")] 
-	public GameObject tiedToChild;
+	[Header("Misc config")] public GameObject tiedToChild;
 	public Light2D tiedToLight;
 	public Sprite spriteWhenActivated;
 	private Sprite originalSprite;
@@ -85,17 +82,15 @@ public class InteractableObject : MonoBehaviour
 	private Color originalSpriteColor;
 
 	public bool hasBeenEnabledByPlayer = false;
-	
-	[Header("Sounds")] 
-	public SonicSfx SfxInteract;
+
+	[Header("Sounds")] public SonicSfx SfxInteract;
 
 
-	[Header("Room State")] 
-	[Btn(nameof(GeneratePlaceholders))]
+	[Header("Room State")] [Btn(nameof(GeneratePlaceholders))]
 	public bool RandomStart = true;
+
 	public List<StateOption> Options = new();
 	public int CurrentStateId;
-
 
 
 	public static List<InteractableObject> allInteractables;
@@ -109,7 +104,7 @@ public class InteractableObject : MonoBehaviour
 	public void Start()
 	{
 		if (Name == "") Name = name;
-		
+
 		allSprites = GetComponentsInChildren<SpriteRenderer>();
 		allInteractables.Add(this);
 		// Debug.Log("Interactable count: " + allInteractables.Count);
@@ -158,7 +153,7 @@ public class InteractableObject : MonoBehaviour
 		// TODO
 		// TODO: update below
 		// TODO
-		
+
 		if (interactEffectPrefab != null)
 		{
 			GameObject go = Instantiate(interactEffectPrefab, transform.position, Quaternion.identity);
@@ -170,7 +165,7 @@ public class InteractableObject : MonoBehaviour
 	public void SetState(int stateId)
 	{
 		if (stateId >= Options.Count) stateId = 0;
-		
+
 		$"{name} set: {stateId}, {Options[stateId].Label}".LgOrange0(this);
 
 		var spriteTf = mainSprite.transform;
@@ -228,23 +223,22 @@ public class InteractableObject : MonoBehaviour
 			default:
 				throw new ArgumentOutOfRangeException();
 		}
-		
+
 		if (tiedToChild != null) tiedToChild.SetActive(stateId == 1);
 		if (tiedToLight != null) tiedToLight.enabled = stateId == 1;
 
 		CurrentStateId = stateId;
 	}
-	
-	
+
 
 	public void GeneratePlaceholders()
 	{
 		if (Name == "") Name = name;
-		
+
 		if (Options.Count == 0)
 		{
-			Options.Add(new StateOption { Label = "normal"});
-			Options.Add(new StateOption { Label = "activated"});
+			Options.Add(new StateOption { Label = "normal" });
+			Options.Add(new StateOption { Label = "activated" });
 		}
 
 		foreach (var option in Options)

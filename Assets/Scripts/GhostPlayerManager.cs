@@ -6,8 +6,8 @@ using Cysharp.Threading.Tasks;
 using Idealist;
 using Lumberjack;
 using UnityEngine.Serialization;
-using InterType = InteractableObject.InteractableType;
-using InterColor = InteractableObject.InteractableColor;
+using InterType = InteractableType;
+using InterColor = InteractableColor;
 
 public class GhostPlayerManager : Singleton<GhostPlayerManager>
 {
@@ -249,18 +249,23 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 	public void AssessRoomStates()
 	{
 		var act = GameSysClip.I.GhostAct.Current;
-		RoomManager.StateToExit.Assess();
+		RoomLogic.UpdateRoomState(RoomManager.StateToExit);
 		// $"check: {RoomManager.StateToExit.PrevCheck}".LgOrange0();
 
 		foreach (var ghost in RoomManager.Ghosts)
 		{
-			ghost.Assess();
-			// $"check: {ghost.PrevCheck}".LgOrange0();
-
-			if (ghost.PrevCheck)
-			{
-				$"SUCCESS for {ghost.Label}".LgOrange0();
-			}
+			if (ghost.IsRescued) continue;
+			
+			RoomLogic.UpdateRoomState(ghost.DesiredRoomState);
+			
+			var percent = ghost.DesiredRoomState.Percent;
+			ghost.SpriteRenderer.color = ghost.SpriteRenderer.color.WithAlpha(percent);
+			
+			if (!ghost.DesiredRoomState.IsMet) continue;
+			
+			$"RESCUED: {ghost.Name}".LgOrange0();
+			ghost.IsRescued = true;
+			act.GhostsRescued.Change(act.GhostsRescued.Current + 1);
 		}
 
 		act.DebugString.Change(RoomManager.AllCriteria.Join(
@@ -366,6 +371,8 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 		{
 			phonePlayer.AssignedHints.Clear();
 		}
+		
+		if (actors.Count == 0) return;
 		
 		var playerIndex = 0;
 		while (allCriteria.Count > 0)
