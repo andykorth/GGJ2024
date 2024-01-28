@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
 using Idealist;
-using UnityEngine;
+using uRandom = UnityEngine.Random;
 
 public static class RoomLogic
 {
-	private const string STR_COLOR = "{color}";
-	
 	static List<InteractableObject> _availableObjs = new();
 
 	public static RoomState GenerateGhostDesire(RoomManager room)
@@ -22,12 +20,15 @@ public static class RoomLogic
 			var crit = new ObjCriteria();
 
 			crit.Obj = _availableObjs.GrabRandom();
-			crit.IsWanted = Random.value <= fig.WantedChance;
-			var (option, stateId) = crit.Obj.Options.GetRandomAndIndex();
-			crit.TargetStateId = stateId;
-			var hint = crit.IsWanted ? option.Wants.GetRandom() : option.Hates.GetRandom();
-			hint = hint.Replace(STR_COLOR, crit.Obj.interactableColor.ToString().ToLower());
-			crit.Hint = hint;
+			crit.IsWanted = uRandom.value <= fig.WantedChance;
+			(crit.StateOption, crit.TargetStateId) = crit.Obj.Options.GetRandomAndIndex();
+			crit.Hint = MakeHintString(
+				crit.Obj,
+				crit.StateOption,
+				crit.IsWanted
+					? crit.StateOption.Wants.GetRandom()
+					: crit.StateOption.Hates.GetRandom()
+			);
 
 			state.Criteria.Add(crit);
 		}
@@ -50,16 +51,29 @@ public static class RoomLogic
 			var crit = new ObjCriteria();
 
 			crit.Obj = _availableObjs.GrabRandom();
-			crit.IsWanted = Random.value <= fig.WantedChance;
-			var (option, stateId) = crit.Obj.Options.GetRandomAndIndex();
-			crit.TargetStateId = stateId;
-			var hint = crit.IsWanted ? option.ExitWants.GetRandom() : option.ExitHates.GetRandom();
-			hint = hint.Replace(STR_COLOR, crit.Obj.interactableColor.ToString().ToLower());
-			crit.Hint = hint;
+			crit.IsWanted = uRandom.value <= fig.WantedChance;
+			(crit.StateOption, crit.TargetStateId) = crit.Obj.Options.GetRandomAndIndex();
+			crit.Hint = MakeHintString(
+				crit.Obj,
+				crit.StateOption,
+				crit.IsWanted
+					? crit.StateOption.ExitWants.GetRandom()
+					: crit.StateOption.ExitHates.GetRandom()
+			);
 
 			state.Criteria.Add(crit);
 		}
 
 		return state;
 	}
+
+	const string STR_COLOR = "{color}";
+	const string STR_OBJ_NAME = "{name}";
+	const string STR_OPTION_LABEL = "{label}";
+
+	public static string MakeHintString(InteractableObject interactableObject, StateOption stateOption, string str) =>
+		str
+			.Replace(STR_COLOR, interactableObject.interactableColor.ToString().ToLower())
+			.Replace(STR_OBJ_NAME, interactableObject.Name.ToLower())
+			.Replace(STR_OPTION_LABEL, stateOption.Label.ToLower());
 }

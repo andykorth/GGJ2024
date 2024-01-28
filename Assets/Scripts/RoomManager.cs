@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Foundational;
 using futz.ActGhost;
 using Idealist;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class RoomManager : MonoBehaviour
 
 	public void CreateRoom()
 	{
+		var act = GameSysClip.I.GhostAct.Current;
 		var fig = Fig;
 
 		// TODO: gen interactables
@@ -28,14 +30,18 @@ public class RoomManager : MonoBehaviour
 		AllCriteria.Clear();
 
 		StateToExit = RoomLogic.GenerateExitDesire(this);
+		StateToExit.Label = "Exit";
 		AllCriteria.AddRange(StateToExit.Criteria);
 
 		for (var i = 0; i < fig.NumOfGhosts; i++)
 		{
 			var ghostState = RoomLogic.GenerateGhostDesire(this);
+			ghostState.Label = $"Ghost {i}";
 			Ghosts.Add(ghostState);
 			AllCriteria.AddRange(ghostState.Criteria);
 		}
+		
+		act.DebugString.Change(AllCriteria.Join(c => c.Hint, "\n"));
 	}
 }
 
@@ -43,6 +49,7 @@ public class RoomManager : MonoBehaviour
 [Serializable]
 public class RoomState
 {
+	public string Label;
 	public List<ObjCriteria> Criteria = new();
 
 	public bool PrevCheck; // debugging
@@ -53,6 +60,7 @@ public class RoomState
 public class ObjCriteria
 {
 	public InteractableObject Obj;
+	public StateOption StateOption;
 	public bool IsWanted;
 	public int TargetStateId;
 	public string Hint;

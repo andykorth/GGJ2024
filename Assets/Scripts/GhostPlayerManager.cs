@@ -3,6 +3,7 @@ using UnityEngine;
 using Foundational;
 using futz.ActGhost;
 using Cysharp.Threading.Tasks;
+using Idealist;
 using Lumberjack;
 using UnityEngine.Serialization;
 using InterType = InteractableObject.InteractableType;
@@ -34,9 +35,8 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
 	public SpriteRenderer[] spiritsToFade;
 	public ExitDoor exitDoor;
-	
-	[Header("Room State stuff")]
-	public RoomManager RoomManager;
+
+	[Header("Room State stuff")] public RoomManager RoomManager;
 
 	public const int SPIRIT_COUNT = 3;
 
@@ -162,9 +162,6 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
 	public void Start()
 	{
-		RoomManager.CreateRoom();
-		
-		
 		ghostPlayers = new List<GhostPlayer>();
 		CreateAllGoals();
 
@@ -218,7 +215,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 		{
 			AssessRoomStates();
 			EvaluateGoals();
-			
+
 			timeTilUpdate = 1.0f;
 		}
 
@@ -251,16 +248,27 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
 	public void AssessRoomStates()
 	{
+		var act = GameSysClip.I.GhostAct.Current;
 		RoomManager.StateToExit.Assess();
-		$"check: {RoomManager.StateToExit.PrevCheck}".LgOrange0();
-		
+		// $"check: {RoomManager.StateToExit.PrevCheck}".LgOrange0();
+
 		foreach (var ghost in RoomManager.Ghosts)
 		{
 			ghost.Assess();
-			$"check: {ghost.PrevCheck}".LgOrange0();
+			// $"check: {ghost.PrevCheck}".LgOrange0();
+
+			if (ghost.PrevCheck)
+			{
+				$"SUCCESS for {ghost.Label}".LgOrange0();
+			}
 		}
+
+		act.DebugString.Change(RoomManager.AllCriteria.Join(
+			c => c.PrevCheck ? $"YES {c.Hint}" : $"NO {c.Hint}",
+			"\n")
+		);
 	}
-	
+
 	public void EvaluateGoals()
 	{
 		if (assignedGoals == null) return;
@@ -307,6 +315,9 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
 	public void GameStarted()
 	{
+		RoomManager.CreateRoom();
+
+
 		readyToBegin = false;
 		Player.i.gameObject.SetActive(true);
 		pressPlayToBeginMsg.SetActive(false);
@@ -335,7 +346,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 			};
 
 			ghost.ClearHints();
-			
+
 			for (int i = 0; i < goalsPerPlayer; i++)
 			{
 				if (allSharedGoals.Count > 0)
@@ -387,7 +398,7 @@ public class Goal
 	public bool Evaluate()
 	{
 		bool b = goalAction();
-		Debug.Log("Goal " + goalString + " = " + b);
+		// Debug.Log("Goal " + goalString + " = " + b);
 
 		if (b)
 		{

@@ -9,7 +9,10 @@ export interface T_GhostActivity {
 	PhaseDesc: Track<string>;
 	// ForceNextRound: TrackEvt;
 	
+	DebugString: Track<string>;
+	
 	TimerString: Track<string>;
+	
 	GhostsRescued: Track<int>;
 	SuccessfullyEscaped: boolean;
 }

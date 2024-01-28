@@ -18,6 +18,8 @@ public class GhostActivity : Activity<GhostActor>
 	public Track<string> PhaseTitle = new();
 	public Track<string> PhaseDesc = new();
 
+	public Track<string> DebugString = new();
+	
 	public Track<string> TimerString = new();
 
 	public Track<int> GhostsRescued = new();

@@ -1476,6 +1476,13 @@ MonoBehaviour:
       CogName: GhostActivity
       CogHash:
         Value: 2234353583
+    - Name: DebugString
+      HashId:
+        Value: 793384852
+      AuthType: 0
+      CogName: GhostActivity
+      CogHash:
+        Value: 2234353583
     - Name: TimerString
       HashId:
         Value: 1971161862
@@ -1609,6 +1616,13 @@ MonoBehaviour:
     CogName: GameSysClip
     CogHash:
       Value: 1581047986
+  - Name: DebugString
+    HashId:
+      Value: 793384852
+    AuthType: 0
+    CogName: GhostActivity
+    CogHash:
+      Value: 2234353583
   - Name: FKeys
     HashId:
       Value: 3397224298
