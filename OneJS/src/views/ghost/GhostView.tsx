@@ -12,7 +12,7 @@ export function GhostView(props: P_GhostView) {
 	
 	const phase = useTrack(act.Phase);
 	
-	return <EndScreen act={act}/>;
+	// return <EndScreen act={act}/>;
 	if (phase == E_GhostPhaseEnum.GAME_COMPLETE) {
 		return <EndScreen act={act}/>;
 	}
@@ -100,7 +100,14 @@ const W_Timer = $div('W_Timer')`
 function EndScreen(props: P_GhostView) {
 	const act = props.act;
 	
+	const rescued = useTrack(act.GhostsRescued);
+	
 	const successfullyEscaped = act.SuccessfullyEscaped;
+	
+	const text = successfullyEscaped
+		? `You escaped! You rescued ${rescued} ghosts.`
+		: `You were `;
+	
 	
 	return (
 		<W_EndScreen>
@@ -108,7 +115,7 @@ function EndScreen(props: P_GhostView) {
 				text={'adsf'}
 			/>
 		</W_EndScreen>
-	)
+	);
 }
 
 const W_EndScreen = $div('W_EndScreen')`

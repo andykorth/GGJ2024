@@ -14,7 +14,6 @@ var TrackLabel_1 = require("../../util/TrackLabel");
 function GhostView(props) {
     var act = props.act;
     var phase = (0, Track_1.useTrack)(act.Phase);
-    return (0, preact_1.h)(EndScreen, { act: act });
     if (phase == GhostActivity_1.E_GhostPhaseEnum.GAME_COMPLETE) {
         return (0, preact_1.h)(EndScreen, { act: act });
     }
@@ -45,7 +44,11 @@ function Timer(props) {
 var W_Timer = (0, _tyle_1.$div)('W_Timer')(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n\tposition: absolute;\n\tright: 32px;\n\ttop: 32px;\n\t-unity-font-style: bold;\n\tcolor: rgb(255, 255, 255);\n\t-unity-text-align: middle-center;\n\tmargin: 0;\n\tbackground-color: rgb(0, 0, 0);\n\tpadding: 16px;\n"], ["\n\tposition: absolute;\n\tright: 32px;\n\ttop: 32px;\n\t-unity-font-style: bold;\n\tcolor: rgb(255, 255, 255);\n\t-unity-text-align: middle-center;\n\tmargin: 0;\n\tbackground-color: rgb(0, 0, 0);\n\tpadding: 16px;\n"])));
 function EndScreen(props) {
     var act = props.act;
+    var rescued = (0, Track_1.useTrack)(act.GhostsRescued);
     var successfullyEscaped = act.SuccessfullyEscaped;
+    var text = successfullyEscaped
+        ? "You escaped! You rescued ".concat(rescued, " ghosts.")
+        : "You were ";
     return ((0, preact_1.h)(W_EndScreen, null,
         (0, preact_1.h)(L_End, { text: 'adsf' })));
 }
