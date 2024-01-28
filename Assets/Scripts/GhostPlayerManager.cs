@@ -24,6 +24,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
     public List<GhostPlayer>  ghostPlayers;
 
     public List<Goal> allSharedGoals;
+    public List<Goal> assignedGoals;
 
     public string[] spiritNames;
 
@@ -128,6 +129,12 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
     private float timeTilUpdate = 1.0f;
     public void Update(){
 
+        if(Input.GetKeyDown(KeyCode.C)){
+            needTwoPhonePlayersMsg.SetActive(false);
+            pressPlayToBeginMsg.SetActive(false);
+            GameStarted();
+        }
+
         if(readyToBegin){
             needTwoPhonePlayersMsg.SetActive(false);
             pressPlayToBeginMsg.SetActive(true);
@@ -152,19 +159,18 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
     public string goalDebugString;
     public void EvaluateGoals(){
+        if(assignedGoals == null) return;
 
         goalDebugString = "Debugging String:\n";
 
         int[] spiritGoalCount = new int[SPIRIT_COUNT];
         int[] spiritGoalComplete = new int[SPIRIT_COUNT];
-        foreach(GhostPlayer g in ghostPlayers){
-            foreach(Goal goal in g.activeGoals){
-                spiritGoalCount[goal.spiritIndex] += 1;
-                bool b = goal.Evaluate();
-                goalDebugString += (b ? "YES" : "NO" ) + $" spirit {goal.spiritIndex}: {goal.goalString}\n";
-                if(b){
-                    spiritGoalComplete[goal.spiritIndex] += 1;
-                }
+        foreach(Goal goal in assignedGoals){
+            spiritGoalCount[goal.spiritIndex] += 1;
+            bool b = goal.Evaluate();
+            goalDebugString += (b ? "YES" : "NO" ) + $" spirit {goal.spiritIndex}: {goal.goalString}\n";
+            if(b){
+                spiritGoalComplete[goal.spiritIndex] += 1;
             }
         }
         // update spirits:
@@ -172,6 +178,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
             Color c = spiritsToFade[i].color;
             float alpha = spiritGoalComplete[i] / (float) spiritGoalCount[i];
             spiritsToFade[i].color = c.WithAlpha(alpha);
+            Debug.Log($"At {Time.time} spirit {i} = {alpha}");
         }
 
         if(goalDebugText != null) goalDebugText.text = goalDebugString;
@@ -188,6 +195,9 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
         ghostPlayers = new List<GhostPlayer>();
         int goalsPerPlayer = (int) Mathf.Ceil(9.0f / actors.Count);
+
+        assignedGoals = new List<Goal>();
+        assignedGoals.AddRange(allSharedGoals);
 
         foreach(var phonePlayer in actors){
             var ghost = new GhostPlayer

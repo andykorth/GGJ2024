@@ -21,7 +21,8 @@ public class InteractableObject : MonoBehaviour
     public Sprite spriteWhenActivated;
     private Sprite originalSprite;
     private SpriteRenderer[] allSprites;
-    private SpriteRenderer mainSprite;
+    public SpriteRenderer mainSprite;
+    private Color originalSpriteColor;
 
     public bool hasBeenEnabledByPlayer = false;
 
@@ -44,6 +45,7 @@ public class InteractableObject : MonoBehaviour
         allInteractables.Add(this);
         // Debug.Log("Interactable count: " + allInteractables.Count);
         originalSprite = mainSprite.sprite;
+        originalSpriteColor = mainSprite.color;
 
         if(randomInteractionModeState){
             hasBeenEnabledByPlayer = Random.value > 0.5f;
@@ -81,7 +83,7 @@ public class InteractableObject : MonoBehaviour
         if(player != null){
             // the player has interacted with this, activate it. 
             player.PlayerEndTouch(this);
-            SetColor(Color.white);
+            SetColor(originalSpriteColor);
         }
     }
 
@@ -105,7 +107,7 @@ public class InteractableObject : MonoBehaviour
         if(interactionMode == InteractionMode.CrookedPainting){
             float angle = Random.value > 0.5f ? 25f: -25f;
             Quaternion original = transform.GetChild(0).rotation;
-            Quaternion target = transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, angle);
+            Quaternion target = transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : angle);
             this.AddTween(0.7f, (a) => {
                 transform.GetChild(0).rotation = Quaternion.SlerpUnclamped(original, target, Mathfx.Berp(0, 1, a));
             });
