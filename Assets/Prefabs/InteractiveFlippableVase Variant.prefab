@@ -114,11 +114,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Hates.Array.data[0]
-      value: 'TODO Ghost want: {color} {name} NOT {label}'
+      value: The {color} vase is an embarrassment!
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Wants.Array.data[0]
       value: 'TODO Ghost want: {color} {name} {label}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].Wants.Array.data[1]
+      value: I really like pottery
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].Hates.Array.data[0]
