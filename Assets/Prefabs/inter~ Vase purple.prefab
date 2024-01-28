@@ -154,7 +154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: interactableType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: interactableColor
