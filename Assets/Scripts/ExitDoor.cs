@@ -1,22 +1,32 @@
-﻿using UnityEngine;
+﻿using System;
+using Foundational;
+using futz.ActGhost;
+using UnityEngine;
 
-namespace DefaultNamespace
+
+public class ExitDoor : MonoBehaviour
 {
-	public class ExitDoor : MonoBehaviour
+	public GameObject OpenObj;
+	public GameObject ClosedObj;
+
+
+	public void Start()
 	{
-		public GameObject OpenObj;
-		public GameObject ClosedObj;
+		SetDoor(false);
+	}
 
+	public void SetDoor(bool isOpen)
+	{
+		OpenObj.SetActive(isOpen);
+		ClosedObj.SetActive(!isOpen);
+	}
 
-		public void Start()
-		{
-			SetDoor(false);
-		}
-
-		public void SetDoor(bool isOpen)
-		{
-			OpenObj.SetActive(isOpen);
-			ClosedObj.SetActive(!isOpen);
+	internal void TryToGoInsideTheDoor()
+	{
+		if(OpenObj.activeSelf){
+			// we go in!
+			Debug.Log("Win the game");
+			GhostLogic.EndSuccessful(GameSysClip.I.GhostAct.Current);
 		}
 	}
 }
