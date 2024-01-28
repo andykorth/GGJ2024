@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Stone_Step_2
   m_EditorClassIdentifier: 
   MixerGroup: {fileID: 0}
-  Clips: []
+  Clips:
+  - {fileID: 8300000, guid: 8ddb6db56ad5c43008fc168cca57f6dd, type: 3}
   PitchDeviation: 0
   Volume: 1
   Loop: 0
