@@ -25,7 +25,7 @@ public class SoundEffectManager : Singleton<SoundEffectManager>
 
 	public void Start(){
 		musicSource.loop = true;
-		musicSource.clip = titleMusic;
+		musicSource.clip = gameplayMusic;
 		musicSource.Play ();
 	}
 
