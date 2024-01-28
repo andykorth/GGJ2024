@@ -214,7 +214,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 		if (timeTilUpdate < 0f)
 		{
 			AssessRoomStates();
-			EvaluateGoals();
+			// EvaluateGoals();
 
 			timeTilUpdate = 1.0f;
 		}
@@ -234,7 +234,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 		{
 			// interactMarker.position = touchingObj.transform.position + touchingObj.markerOffset;
 			interactMarker.position = touchingObj.mainSprite.bounds.center;
-			interactText.text = touchingObj.verb;
+			interactText.text = touchingObj.Options[touchingObj.CurrentStateId].VerbToNext;
 		}
 		else
 		{
@@ -326,38 +326,55 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 		var actors = GameSysClip.I.GhostAct.Current.Actors.Current;
 
 		ghostPlayers = new List<GhostPlayer>();
-		int goalsPerPlayer = (int)Mathf.Ceil(9.0f / actors.Count);
+		// int goalsPerPlayer = (int)Mathf.Ceil(9.0f / actors.Count);
 
 		assignedGoals = new List<Goal>();
 		assignedGoals.AddRange(allSharedGoals);
 
 
-		int index = Random.Range(0, possibleExitGoals.Count);
-		selectedExitGoal1 = possibleExitGoals[index];
-		selectedExitGoal2 = possibleExitGoals[(index + 1) % possibleExitGoals.Count];
+		// int index = Random.Range(0, possibleExitGoals.Count);
+		// selectedExitGoal1 = possibleExitGoals[index];
+		// selectedExitGoal2 = possibleExitGoals[(index + 1) % possibleExitGoals.Count];
 
+		// foreach (var phonePlayer in actors)
+		// {
+		// 	var ghost = new GhostPlayer
+		// 	{
+		// 		name = phonePlayer.Nickname,
+		// 		actor = phonePlayer
+		// 	};
+		//
+		// 	ghost.ClearHints();
+		//
+		// 	for (int i = 0; i < goalsPerPlayer; i++)
+		// 	{
+		// 		
+		// 		if (allSharedGoals.Count > 0)
+		// 		{
+		// 			var goal = allSharedGoals[Random.Range(0, allSharedGoals.Count)];
+		// 			ghost.AssignGoal(goal);
+		// 			allSharedGoals.Remove(goal);
+		// 		}
+		// 	}
+		//
+		// 	ghostPlayers.Add(ghost);
+		// }
 
+		var allCriteria = new List<ObjCriteria>(RoomManager.AllCriteria);
+		
 		foreach (var phonePlayer in actors)
 		{
-			var ghost = new GhostPlayer
-			{
-				name = phonePlayer.Nickname,
-				actor = phonePlayer
-			};
+			phonePlayer.AssignedHints.Clear();
+		}
+		
+		var playerIndex = 0;
+		while (allCriteria.Count > 0)
+		{
+			var crit = allCriteria.GrabRandom();
+			actors[playerIndex].AssignedHints.Add(crit);
 
-			ghost.ClearHints();
-
-			for (int i = 0; i < goalsPerPlayer; i++)
-			{
-				if (allSharedGoals.Count > 0)
-				{
-					var goal = allSharedGoals[Random.Range(0, allSharedGoals.Count)];
-					ghost.AssignGoal(goal);
-					allSharedGoals.Remove(goal);
-				}
-			}
-
-			ghostPlayers.Add(ghost);
+			playerIndex++;
+			if (playerIndex >= actors.Count) playerIndex = 0;
 		}
 	}
 }
@@ -371,20 +388,20 @@ public class GhostPlayer
 
 	public override string ToString() => $"{name} score: {goalsComplete}";
 
-	internal void AssignGoal(Goal goal)
-	{
-		activeGoals.Add(goal);
-		var hint = new Hint();
-		hint.Message = GhostPlayerManager.i.spiritNames[goal.spiritIndex] + ": " + goal.goalString;
-		Debug.Log("Assign hint to " + this.name + ": " + hint.Message);
-
-		actor.AssignedHints.Add(hint);
-	}
-
-	internal void ClearHints()
-	{
-		actor.AssignedHints.Clear();
-	}
+	// internal void AssignGoal(Goal goal)
+	// {
+	// 	activeGoals.Add(goal);
+	// 	var hint = new Hint();
+	// 	hint.Message = GhostPlayerManager.i.spiritNames[goal.spiritIndex] + ": " + goal.goalString;
+	// 	Debug.Log("Assign hint to " + this.name + ": " + hint.Message);
+	//
+	// 	actor.AssignedHints.Add(hint);
+	// }
+	//
+	// internal void ClearHints()
+	// {
+	// 	actor.AssignedHints.Clear();
+	// }
 }
 
 public class Goal

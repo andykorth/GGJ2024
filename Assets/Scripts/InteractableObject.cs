@@ -16,6 +16,8 @@ public class StateOption
 {
 	[Header("Config")]
 	public string Label = "?";
+	[Tooltip("verb used while in this state (indicating the NEXT state)")]
+	public string VerbToNext = "poke";
 	// public string Verb = "poke"; // TODO?
 
 	[Header("Ghosts")]
@@ -67,11 +69,11 @@ public class InteractableObject : MonoBehaviour
 
 	[Header("Interact config")] 
 	public string Name = "";
-	public string verb = "poke";
 	public GameObject interactEffectPrefab;
 	public InteractableType interactableType;
 	public InteractableColor interactableColor;
 	public InteractionMode interactionMode;
+	public float flipAngle;
 
 	[Header("Misc config")] 
 	public GameObject tiedToChild;
@@ -181,7 +183,7 @@ public class InteractableObject : MonoBehaviour
 				var angle = stateId switch
 				{
 					0 => 0f, // straight
-					1 => Random.value > 0.5f ? 25f : -25f // crooked
+					1 => Random.value > 0.5f ? flipAngle : -flipAngle // crooked
 				};
 
 				var original = spriteTf.rotation;
@@ -198,7 +200,7 @@ public class InteractableObject : MonoBehaviour
 				var angle = stateId switch
 				{
 					0 => 0f, // normal
-					1 => 180f // flipped
+					1 => flipAngle // flipped
 				};
 				var original = spriteTf.rotation;
 				var target = Quaternion.Euler(0f, 0f, angle);

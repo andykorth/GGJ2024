@@ -49,7 +49,7 @@ namespace futz.ActGhost
 				case Phase.UNINITIALIZED: return;
 				case Phase.WAITING_TO_START:
 					Log("PHASE waiting to START");
-					actor.AssignedHints.Add(new Hint{Message = "Waiting for others..."});
+					// actor.AssignedHints.Add(new Hint{Message = "Waiting for others..."});
 					GhostPlayerManager.i.readyToBegin = act.Actors.Count >= fig.MinActorCount;
 					return;
 				case Phase.ROUND_INTRO: return;
@@ -152,23 +152,23 @@ namespace futz.ActGhost
 			ChangePhase(act, Phase.GAME_COMPLETE);
 		}
 
-		public static void AssignTestHints(GhostActivity act)
-		{
-			var fig = act.Fig;
-
-			foreach (var actor in act.Actors.Current)
-			{
-				actor.AssignedHints.Clear();
-
-				for (var i = 0; i < fig.NumHints; i++)
-				{
-					actor.AssignedHints.Add(new Hint
-					{
-						Message = fig.TestClues.GetRandom(),
-					});
-				}
-			}
-		}
+		// public static void AssignTestHints(GhostActivity act)
+		// {
+		// 	var fig = act.Fig;
+		//
+		// 	foreach (var actor in act.Actors.Current)
+		// 	{
+		// 		actor.AssignedHints.Clear();
+		//
+		// 		for (var i = 0; i < fig.NumHints; i++)
+		// 		{
+		// 			actor.AssignedHints.Add(new Hint
+		// 			{
+		// 				Message = fig.TestClues.GetRandom(),
+		// 			});
+		// 		}
+		// 	}
+		// }
 
 		public static void DrainPackets(GhostActivity act)
 		{
