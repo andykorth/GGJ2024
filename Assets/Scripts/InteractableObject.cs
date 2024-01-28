@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Lumberjack;
 using Sonic;
+using Swoonity.CSharp;
 using Swoonity.Unity;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -21,6 +22,7 @@ public class StateOption
 
 	public SonicSfx SfxInteract;
 	public float RotateAmount;
+	public float Scale;
 
 	[Header("Ghosts")]
 	[Tooltip("if this state is chosen to be 'wanted' (meaning the object MUST be in this state)")]
@@ -144,63 +146,11 @@ public class InteractableObject : MonoBehaviour
 			a => spriteTf.rotation =
 				Quaternion.SlerpUnclamped(rotStart, rotEnd, Mathfx.Berp(0, 1, a)));
 
-
-		// switch (interactionMode)
-		// {
-		// 	case InteractionMode.CrookedPainting:
-		// 	{
-		// 		var angle = stateId switch
-		// 		{
-		// 			0 => 0f, // straight
-		// 			1 => Random.value > 0.5f ? flipAngle : -flipAngle // crooked
-		// 		};
-		//
-		// 		var original = spriteTf.rotation;
-		// 		var target = Quaternion.Euler(0f, 0f, angle);
-		// 		this.AddTween(0.7f,
-		// 			a => spriteTf.rotation =
-		// 				Quaternion.SlerpUnclamped(original, target, Mathfx.Berp(0, 1, a)));
-		// 		// spriteTf.rotation = target;
-		// 		break;
-		// 	}
-		//
-		// 	case InteractionMode.FlipUpsideDown:
-		// 	{
-		// 		var angle = stateId switch
-		// 		{
-		// 			0 => 0f, // normal
-		// 			1 => flipAngle // flipped
-		// 		};
-		// 		var original = spriteTf.rotation;
-		// 		var target = Quaternion.Euler(0f, 0f, angle);
-		// 		this.AddTween(0.7f,
-		// 			(a) =>
-		// 			{
-		// 				spriteTf.rotation =
-		// 					Quaternion.SlerpUnclamped(original, target, Mathfx.Berp(0, 1, a));
-		// 			});
-		// 		// spriteTf.rotation = target;
-		// 		break;
-		// 	}
-		//
-		// 	case InteractionMode.SwapToActivatedSprite:
-		// 		mainSprite.sprite = stateId switch
-		// 		{
-		// 			0 => originalSprite, // default
-		// 			1 => spriteWhenActivated // activated
-		// 		};
-		// 		break;
-		//
-		// 	case InteractionMode.NoneOrCustom:
-		// 		break;
-		//
-		// 	case InteractionMode.Dynamic:
-		// 		break;
-		//
-		// 	default:
-		// 		throw new ArgumentOutOfRangeException();
-		// }
-
+		if (option.Scale.NotZero())
+		{
+			spriteTf.localScale = Vector3.one * option.Scale;
+		}
+		
 		foreach (var otherOption in Options)
 		{
 			if (otherOption.EnableObj) otherOption.EnableObj.SetActive(otherOption == option);
