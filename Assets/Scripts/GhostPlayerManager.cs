@@ -171,12 +171,6 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
 	private float timeTilUpdate = 1.0f;
 
-	public void ResetRoom()
-	{
-		readyToBegin = false;
-		Player.i.transform.position = Vector3.zero;
-	}
-
 	public void Update()
 	{
 		var act = GameSysClip.I.GhostAct.Current;
@@ -184,7 +178,8 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
 		if (Input.GetKeyDown(KeyCode.C))
 		{
-			ResetRoom();
+			readyToBegin = false;
+			Player.i.transform.position = Vector3.zero;
 			needTwoPhonePlayersMsg.SetActive(false);
 			pressPlayToBeginMsg.SetActive(false);
 			GameStarted();
@@ -342,13 +337,6 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 		GhostLogic.BeginRoom(GameSysClip.I.GhostAct.Current).Forget();
 
 		var actors = GameSysClip.I.GhostAct.Current.Actors.Current;
-
-		ghostPlayers = new List<DEPRECATED_GhostPlayer>();
-		// int goalsPerPlayer = (int)Mathf.Ceil(9.0f / actors.Count);
-
-		assignedGoals = new List<DEPRECATED_Goal>();
-		assignedGoals.AddRange(allSharedGoals);
-
 		var allCriteria = new List<ObjCriteria>(RoomManager.AllCriteria);
 		
 		foreach (var phonePlayer in actors)
