@@ -52,6 +52,7 @@ MonoBehaviour:
   speed: 1200
   accel: 0.99
   rb: {fileID: 1436327271966130966}
+  interactColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!54 &1436327271966130966
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -401,7 +402,7 @@ MonoBehaviour:
   - {x: 0.19345236, y: -0.014696121, z: 0}
   m_ShapePathHash: -1762778961
   m_Mesh: {fileID: 0}
-  m_InstanceId: 53484
+  m_InstanceId: 69248
   m_LocalBounds:
     m_Center: {x: 0.0035920143, y: 0.26838112, z: 0}
     m_Extent: {x: 0.56200695, y: 0.28307724, z: 0}

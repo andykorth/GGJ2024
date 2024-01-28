@@ -11,6 +11,8 @@ public class Player : Singleton<Player>
 
     public Rigidbody rb;
 
+    // public Color interactColor = Color.red;
+
     void Update()
     {
         Vector2 target = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
@@ -29,7 +31,7 @@ public class Player : Singleton<Player>
 
     }
 
-    private InteractableObject mostRecentTouch;
+    public InteractableObject mostRecentTouch;
 
     internal void PlayerStartTouch(InteractableObject interactableObject)
     {

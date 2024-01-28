@@ -14,6 +14,8 @@ public class InteractableObject : MonoBehaviour
         Any, Blue, Purple, Green
     }
 
+    public string verb = "poke";
+
     public GameObject interactEffectPrefab;
     public InteractableType interactableType;
     public InteractableColor interactableColor = InteractableColor.Any;
@@ -82,7 +84,7 @@ public class InteractableObject : MonoBehaviour
         if(player != null){
             // the player has interacted with this, activate it. 
             player.PlayerStartTouch(this);
-            SetColor(Color.red);
+            // SetColor(player.interactColor);
         }
     }
 
