@@ -10,6 +10,9 @@ public class GhostFig : ScriptableObject
 	[Header("Config")]
 	public int NumHints = 5;
 	public int MinActorCount = 2;
+	public float RoomTimeSec = 120f;
+	public float TimerSlowThreshold = 5;
+	public float TimerSlowMulti = .5f;
 	
 	// TEMP
 	[Header("Temp Strings")]

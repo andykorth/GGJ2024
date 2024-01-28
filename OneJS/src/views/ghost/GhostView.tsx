@@ -4,6 +4,7 @@ import {$button, $div, $label, Col, Grow} from '../../util/$tyle';
 import {P_GhostView} from './GhostActivity';
 // import {lg, lgRender} from '../../util/lg';
 import {GhostActorList} from './GhostActorList';
+import {TrackLabel} from '../../util/TrackLabel';
 
 export function GhostView(props: P_GhostView) {
 	const act = props.act;
@@ -13,13 +14,14 @@ export function GhostView(props: P_GhostView) {
 		<W_Ghost>
 			<InfoPanel act={act}/>
 			{/*<CardGrid act={act}/>*/}
+			<Timer act={act}/>
 		</W_Ghost>
 	);
 }
 
 const W_Ghost = $div('Ghost')`
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 `;
 
 function InfoPanel(props: P_GhostView) {
@@ -54,11 +56,37 @@ const L_PhaseTitle = $label('L_PhaseTitle')`
 `;
 
 const L_PhaseDesc = $label('L_PhaseDesc')`
-  font-size: 28px;
-  white-space: normal;
-  margin: 0 16px;
+	font-size: 28px;
+	white-space: normal;
+	margin: 0 16px;
 `;
 
+function Timer(props: P_GhostView) {
+	const act = props.act;
+	
+	
+	return (
+		<W_Timer>
+			<TrackLabel
+				track={act.TimerString}
+				fnText={s => s}
+				fontSize={64}
+				mono
+			/>
+		</W_Timer>
+	);
+}
+const W_Timer = $div('W_Timer')`
+	position: absolute;
+	right: 32px;
+	top: 32px;
+	-unity-font-style: bold;
+	color: rgb(255, 255, 255);
+	-unity-text-align: middle-center;
+	margin: 0;
+	background-color: rgb(0, 0, 0);
+	padding: 16px;
+`;
 
 // function CardGrid(props: P_GhostView) {
 // 	const act = props.act;
@@ -77,12 +105,12 @@ const L_PhaseDesc = $label('L_PhaseDesc')`
 // 	);
 // }
 
-const W_CardGrid = $div('grid')`
-  flex: 1 1 auto;
-  flex-direction: row;
-  flex-wrap: wrap;
-  background-color: #cbc9a1;
-`;
+// const W_CardGrid = $div('grid')`
+// 	flex: 1 1 auto;
+// 	flex-direction: row;
+// 	flex-wrap: wrap;
+// 	background-color: #cbc9a1;
+// `;
 
 
 // &:hover {

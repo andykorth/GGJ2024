@@ -130,6 +130,7 @@ namespace futz.ActGhost
 			// await __WAIT__(fig.RevealStartMs);
 
 			ChangePhase(act, Phase.PLAYING_ROOM);
+			act.TimeLeftSec = fig.RoomTimeSec;
 
 			Log($"  NEW ROOM:      <b>TODO</b>".LgOrange(skipPrefix: true));
 
