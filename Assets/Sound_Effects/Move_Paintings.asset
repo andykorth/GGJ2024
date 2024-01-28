@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fbe1d18042343b7b43812981b3ee5da, type: 3}
-  m_Name: Stone_Step_2
+  m_Name: Move_Paintings
   m_EditorClassIdentifier: 
   MixerGroup: {fileID: 0}
   Clips:
-  - {fileID: 8300000, guid: 3a0e11b733ccf42fd9a7e6bf8f10acdc, type: 3}
+  - {fileID: 8300000, guid: 006d2d19e8ad545f688817a56baa22e4, type: 3}
   PitchDeviation: 0
   Volume: 1
   Loop: 0
