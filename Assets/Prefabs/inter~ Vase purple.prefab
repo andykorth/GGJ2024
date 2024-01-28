@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_InstanceId
-      value: -923358
+      value: -1130680
       objectReference: {fileID: 0}
     - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_ShapePathHash
@@ -153,12 +153,16 @@ PrefabInstance:
       value: kick
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: ColorText
+      value: purple
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: flipAngle
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: interactionMode
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: interactableType
@@ -166,11 +170,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: interactableColor
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: interactEffectPrefab
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: randomInteractionModeState
@@ -191,6 +199,18 @@ PrefabInstance:
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].VerbToNext
       value: tip
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].SfxInteract
+      value: 
+      objectReference: {fileID: 11400000, guid: 2d9e8184dc864fc4e9d5ff93162373a6, type: 2}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].SfxInteract
+      value: 
+      objectReference: {fileID: 11400000, guid: 2d9e8184dc864fc4e9d5ff93162373a6, type: 2}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].RotateAmount
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Hates.Array.size

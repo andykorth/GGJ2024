@@ -15,7 +15,7 @@ MonoBehaviour:
   MixerGroup: {fileID: 0}
   Clips:
   - {fileID: 8300000, guid: 006d2d19e8ad545f688817a56baa22e4, type: 3}
-  PitchDeviation: 0
+  PitchDeviation: 0.1
   Volume: 1
   Loop: 0
   MaxLength: 99

@@ -5,9 +5,8 @@ using futz.ActGhost;
 using Cysharp.Threading.Tasks;
 using Idealist;
 using Lumberjack;
+using Swoonity.CSharp;
 using UnityEngine.Serialization;
-using InterType = InteractableType;
-using InterColor = InteractableColor;
 
 public class GhostPlayerManager : Singleton<GhostPlayerManager>
 {
@@ -234,7 +233,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 		{
 			// interactMarker.position = touchingObj.transform.position + touchingObj.markerOffset;
 			interactMarker.position = touchingObj.mainSprite.bounds.center + touchingObj.TextOffset;
-			interactText.text = touchingObj.Options[touchingObj.CurrentStateId].VerbToNext;
+			interactText.text = touchingObj.Options[touchingObj.CurrentStateId].VerbToNext.Or("poke");
 		}
 		else
 		{
