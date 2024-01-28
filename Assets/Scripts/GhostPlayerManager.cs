@@ -83,7 +83,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
             },
             new Goal {
                 goalString = "I didn't know there was a painting of me.",
-                goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Vase, InteractableObject.InteractableColor.Blue) == 0,
+                goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Portrait, InteractableObject.InteractableColor.Blue) == 0,
                 spiritIndex = 2,
             },
             new Goal {
