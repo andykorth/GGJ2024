@@ -47,7 +47,7 @@ function TrackLabel(props) {
             removeEvent.call(track, setText);
         }
     }, [track]);
-    return ((0, preact_1.h)("label", { ref: ref, style: __assign({ margin: props.mar || 0, padding: props.pad || 0, fontSize: props.fontSize || 18, unityFontStyleAndWeight: props.fontStyle }, props.style) }));
+    return ((0, preact_1.h)("label", { ref: ref, style: __assign({ margin: props.mar || 0, padding: props.pad || 0, fontSize: props.fontSize || 18, unityFontStyleAndWeight: props.fontStyle }, props.style), class: props.mono ? 'monospaced' : '' }));
 }
 exports.TrackLabel = TrackLabel;
 var L_Lbl = (0, _tyle_1.$label)('B_Lbl')(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  color: #000000;\n"], ["\n  color: #000000;\n"])));

@@ -8,6 +8,7 @@ using Foundational;
 using futz.ActGhost;
 using Cysharp.Threading.Tasks;
 using Unity.VisualScripting;
+using UnityEngine.Serialization;
 
 public class GhostPlayerManager : Singleton<GhostPlayerManager>
 {
@@ -22,19 +23,74 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
     public List<Goal> allSharedGoals;
 
-    public SpriteRenderer[] ghostsToFade;
+    public string[] spiritNames;
+
+    [FormerlySerializedAs("ghostsToFade")]
+    public SpriteRenderer[] spiritsToFade;
+    public GameObject exit;
 
     public void CreateAllGoals(){
         allSharedGoals = new List<Goal>
         {
             new Goal {
-                goalString = "Flip one more vases upside down.",
-                goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Vase) > 0
+                goalString = "I hate the smell of burning torches.",
+                goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Torch) == 0,
+                spiritIndex = 0,
             },
             new Goal {
-                goalString = "Light all torches.",
-                goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Torch) > 4
+                goalString = "But I can't stand the dark.",
+                goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Candle) >= 1,
+                spiritIndex = 0,
             },
+            new Goal {
+                goalString = "Ooooh that vase reminds me of limes!",
+                goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Vase, InteractableObject.InteractableColor.Green) >= 1,
+                spiritIndex = 0,
+            },
+
+
+            new Goal {
+                goalString = "I always loved pottery.",
+                goalAction = () => InteractableObject.allInteractables
+                    .Where( (a) => a.interactableType == InteractableObject.InteractableType.Vase )
+                    .Where( a => a.interactableColor != InteractableObject.InteractableColor.Blue )
+                    .All( a => a.hasBeenEnabledByPlayer ),
+                spiritIndex = 1,
+            },
+            new Goal {
+                goalString = "That blue vase is an embarrassment.",
+                goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Vase, InteractableObject.InteractableColor.Blue) == 0,
+                spiritIndex = 1,
+            },
+            new Goal {
+                goalString = "I do love blue though!",
+                goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Torch, InteractableObject.InteractableColor.Blue) >= 1,
+                spiritIndex = 1,
+            },
+
+
+            new Goal {
+                goalString = "Ewww, purple!",
+                goalAction = () => InteractableObject.allInteractables
+                    .Where( (a) => a.interactableType == InteractableObject.InteractableType.Vase )
+                    .Where( a => a.interactableColor != InteractableObject.InteractableColor.Purple )
+                    .All( a => a.hasBeenEnabledByPlayer ),
+                spiritIndex = 2,
+            },
+            new Goal {
+                goalString = "I didn't know there was a painting of me.",
+                goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Vase, InteractableObject.InteractableColor.Blue) == 0,
+                spiritIndex = 2,
+            },
+            new Goal {
+                goalString = "These vases are all hideous!",
+                goalAction = () => InteractableObject.allInteractables
+                    .Where( (a) => a.interactableType == InteractableObject.InteractableType.Vase )
+                    .All( a => a.hasBeenEnabledByPlayer ),
+                spiritIndex = 2,
+            },
+
+            
             new Goal {
                 goalString = "Extinguish all candles.",
                 goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Candle) <= 0
@@ -59,13 +115,10 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
         ghostPlayers = new List<GhostPlayer>();
         CreateAllGoals();
 
-        // TODO: get all the players that have connected to the Futz here. Assign them goals.
-
         pressPlayToBeginMsg.SetActive(false);
         needTwoPhonePlayersMsg.SetActive(true);
         readyToBegin = false;
         Player.i.gameObject.SetActive(false);
-
     }
 
     public void Update(){
@@ -75,7 +128,6 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
             pressPlayToBeginMsg.SetActive(true);
             if(Input.GetKeyDown(KeyCode.Space)){
                 GameStarted();
-                
             }
         }
 
@@ -100,16 +152,24 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
         var actors = GameSysClip.I.GhostAct.Current.Actors.Current;
 
         ghostPlayers = new List<GhostPlayer>();
+        int goalsPerPlayer = (int) Mathf.Ceil(9.0f / actors.Count);
+
         foreach(var phonePlayer in actors){
             var ghost = new GhostPlayer
             {
                 name = phonePlayer.Nickname,
                 actor = phonePlayer
             };
-            var goal = allSharedGoals[Random.Range(0, allSharedGoals.Count)];
 
             ghost.ClearHints();
-            ghost.AssignGoal(goal);
+            for(int i = 0; i < goalsPerPlayer; i ++){
+                if(allSharedGoals.Count > 0){
+                    var goal = allSharedGoals[Random.Range(0, allSharedGoals.Count)];
+                    ghost.AssignGoal(goal);
+                    allSharedGoals.Remove(goal);
+                }
+            }
+
             ghostPlayers.Add(ghost);
         }
    
@@ -148,7 +208,7 @@ public class GhostPlayer {
     {
         activeGoals.Add(goal);
         var hint = new Hint();
-        hint.Message = goal.goalString;
+        hint.Message = GhostPlayerManager.i.spiritNames[goal.spiritIndex] + ": " +  goal.goalString;
 
         actor.AssignedHints.Add(hint);
     }
@@ -163,6 +223,10 @@ public class Goal {
     public string goalString;
     public GoalType goalType;
     public System.Func<bool> goalAction;
+    /// <summary>
+    /// spirit index of -1 means it controls the exit.
+    /// </summary>
+    public int spiritIndex;
 
     public enum GoalType {
         TouchTestVase
