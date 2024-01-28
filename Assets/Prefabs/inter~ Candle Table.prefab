@@ -404,11 +404,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Hates.Array.data[0]
-      value: 'TODO Ghost want: {color} {name} NOT {label}'
+      value: Turn off that {name}. Do you want to burn this place down?
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Wants.Array.data[0]
-      value: 'TODO Ghost want: {color} {name} {label}'
+      value: I love that {name}!
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].Hates.Array.data[0]
@@ -436,11 +436,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].ExitHates.Array.data[0]
-      value: 'TODO Exit want: {color} {name} NOT {label}'
+      value: Extinguish {name} to exit.
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].ExitWants.Array.data[0]
-      value: 'TODO Exit want: {color} {name} {label}'
+      value: '{name} must blaze to open the gate.'
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].ExitHates.Array.data[0]
