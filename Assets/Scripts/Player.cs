@@ -11,8 +11,6 @@ public class Player : Singleton<Player>
 
     public Rigidbody rb;
 
-    private List<InteractableObject> haveInteractedWith = new List<InteractableObject>();
-
     void Update()
     {
         Vector2 target = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
@@ -29,26 +27,6 @@ public class Player : Singleton<Player>
             
         }
 
-    }
-
-    public void PlayerInteract(InteractableObject o){
-        if(!haveInteractedWith.Contains(o)){
-            haveInteractedWith.Add(o);
-        }
-    }
-
-    internal int InteractCount(InteractableObject.InteractableType interactionType, InteractableObject.InteractableColor color = InteractableObject.InteractableColor.Any)
-    {
-        int count = 0;
-        foreach(var v in haveInteractedWith){
-            bool matchType = v.interactableType == interactionType;
-            bool matchColor = color == InteractableObject.InteractableColor.Any
-                || v.interactableColor == color;
-            if(matchType && matchColor) {
-                count += 1;
-            }
-        }
-        return count;
     }
 
     private InteractableObject mostRecentTouch;

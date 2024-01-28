@@ -39,17 +39,17 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
         {
             new Goal {
                 goalString = "I hate the smell of burning cauldrons.",
-                goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Cauldron) == 0,
+                goalAction = () => MatchesInteraction(InteractableObject.InteractableType.Cauldron) == 0,
                 spiritIndex = 0,
             },
             new Goal {
                 goalString = "But I can't stand the dark.",
-                goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Candle) >= 1,
+                goalAction = () => MatchesInteraction(InteractableObject.InteractableType.Candle) >= 1,
                 spiritIndex = 0,
             },
             new Goal {
                 goalString = "Ooooh that vase reminds me of limes!",
-                goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Vase, InteractableObject.InteractableColor.Green) >= 1,
+                goalAction = () => MatchesInteraction(InteractableObject.InteractableType.Vase, InteractableObject.InteractableColor.Green) >= 1,
                 spiritIndex = 0,
             },
 
@@ -64,12 +64,12 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
             },
             new Goal {
                 goalString = "That blue vase is an embarrassment.",
-                goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Vase, InteractableObject.InteractableColor.Blue) == 0,
+                goalAction = () => MatchesInteraction(InteractableObject.InteractableType.Vase, InteractableObject.InteractableColor.Blue) == 0,
                 spiritIndex = 1,
             },
             new Goal {
                 goalString = "I do love blue though!",
-                goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Cauldron, InteractableObject.InteractableColor.Blue) >= 1,
+                goalAction = () => MatchesInteraction(InteractableObject.InteractableType.Cauldron, InteractableObject.InteractableColor.Blue) >= 1,
                 spiritIndex = 1,
             },
 
@@ -84,7 +84,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
             },
             new Goal {
                 goalString = "I didn't know there was a painting of me.",
-                goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Portrait, InteractableObject.InteractableColor.Blue) == 0,
+                goalAction = () => MatchesInteraction(InteractableObject.InteractableType.Portrait, InteractableObject.InteractableColor.Blue) > 0,
                 spiritIndex = 2,
             },
             new Goal {
@@ -114,7 +114,19 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
             
         };
     }
-
+    internal int MatchesInteraction(InteractableObject.InteractableType interactionType, InteractableObject.InteractableColor color = InteractableObject.InteractableColor.Any)
+    {
+        int count = 0;
+        foreach(var v in InteractableObject.allInteractables){
+            bool matchType = v.interactableType == interactionType;
+            bool matchColor = color == InteractableObject.InteractableColor.Any
+                || v.interactableColor == color;
+            if(matchType && matchColor && v.hasBeenEnabledByPlayer) {
+                count += 1;
+            }
+        }
+        return count;
+    }
 
     public void Start(){
         ghostPlayers = new List<GhostPlayer>();
@@ -262,6 +274,8 @@ public class Goal {
 
     public bool Evaluate(){
         bool b = goalAction();
+        Debug.Log("Goal " + goalString + " = " + b);
+
         if(b){
             if(!hasBeenFinished){
                 // first time finishing this goal!
