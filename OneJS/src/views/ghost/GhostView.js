@@ -31,7 +31,8 @@ function InfoPanel(props) {
         (0, preact_1.h)(L_PhaseTitle, { text: phaseTitle }),
         (0, preact_1.h)(L_PhaseDesc, { text: phaseDesc }),
         (0, preact_1.h)(_tyle_1.Grow, null),
-        (0, preact_1.h)(GhostActorList_1.GhostActorList, { act: act })));
+        (0, preact_1.h)(GhostActorList_1.GhostActorList, { act: act }),
+        (0, preact_1.h)(DebugView, { act: act })));
 }
 var W_InfoPanel = (0, _tyle_1.$div)('W_InfoPanel')(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n\tposition: absolute;\n\tleft: 0;\n\tright: 0;\n\ttop: 0;\n\tbottom: 0;\n\tpadding: 8px;\n"], ["\n\tposition: absolute;\n\tleft: 0;\n\tright: 0;\n\ttop: 0;\n\tbottom: 0;\n\tpadding: 8px;\n"])));
 var L_PhaseTitle = (0, _tyle_1.$label)('L_PhaseTitle')(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n\tfont-size: 24px;\n\twhite-space: normal;\n\tmargin-left: 400px;\n"], ["\n\tfont-size: 24px;\n\twhite-space: normal;\n\tmargin-left: 400px;\n"])));
@@ -42,6 +43,12 @@ function Timer(props) {
         (0, preact_1.h)(TrackLabel_1.TrackLabel, { track: act.TimerString, fnText: function (s) { return s; }, fontSize: 64, mono: true })));
 }
 var W_Timer = (0, _tyle_1.$div)('W_Timer')(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n\tposition: absolute;\n\tright: 32px;\n\ttop: 32px;\n\t-unity-font-style: bold;\n\tcolor: rgb(255, 25, 25);\n\t-unity-text-align: middle-center;\n\tmargin: 0;\n\tbackground-color: rgb(0, 0, 0);\n\tpadding: 16px;\n"], ["\n\tposition: absolute;\n\tright: 32px;\n\ttop: 32px;\n\t-unity-font-style: bold;\n\tcolor: rgb(255, 25, 25);\n\t-unity-text-align: middle-center;\n\tmargin: 0;\n\tbackground-color: rgb(0, 0, 0);\n\tpadding: 16px;\n"])));
+function DebugView(props) {
+    var act = props.act;
+    return ((0, preact_1.h)(W_DebugView, null,
+        (0, preact_1.h)(TrackLabel_1.TrackLabel, { track: act.DebugString, fnText: function (s) { return s; }, fontSize: 14 })));
+}
+var W_DebugView = (0, _tyle_1.$div)('W_DebugView')(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n\tposition: absolute;\n\tright: 32px;\n\tbottom: 32px;\n\tcolor: rgb(255, 255, 255);\n\tmargin: 0;\n\tbackground-color: rgba(0, 0, 0, 0.46);\n\tpadding: 16px;\n"], ["\n\tposition: absolute;\n\tright: 32px;\n\tbottom: 32px;\n\tcolor: rgb(255, 255, 255);\n\tmargin: 0;\n\tbackground-color: rgba(0, 0, 0, 0.46);\n\tpadding: 16px;\n"])));
 function EndScreen(props) {
     var act = props.act;
     var rescued = (0, Track_1.useTrack)(act.GhostsRescued);
@@ -52,6 +59,6 @@ function EndScreen(props) {
     return ((0, preact_1.h)(W_EndScreen, null,
         (0, preact_1.h)(L_End, { text: text })));
 }
-var W_EndScreen = (0, _tyle_1.$div)('W_EndScreen')(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n\tposition: absolute;\n\tleft: 200px;\n\tright: 32px;\n\ttop: 32px;\n\tbottom: 32px;\n\tcolor: rgb(255, 255, 255);\n\t-unity-text-align: middle-center;\n\tmargin: 0;\n\tbackground-color: rgb(0, 0, 0);\n\tpadding: 16px;\n\tjustify-content: center;\n"], ["\n\tposition: absolute;\n\tleft: 200px;\n\tright: 32px;\n\ttop: 32px;\n\tbottom: 32px;\n\tcolor: rgb(255, 255, 255);\n\t-unity-text-align: middle-center;\n\tmargin: 0;\n\tbackground-color: rgb(0, 0, 0);\n\tpadding: 16px;\n\tjustify-content: center;\n"])));
-var L_End = (0, _tyle_1.$label)('L_End = $label')(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n\tfont-size: 64px;\n\twhite-space: normal;\n"], ["\n\tfont-size: 64px;\n\twhite-space: normal;\n"])));
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7;
+var W_EndScreen = (0, _tyle_1.$div)('W_EndScreen')(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n\tposition: absolute;\n\tleft: 200px;\n\tright: 32px;\n\ttop: 32px;\n\tbottom: 32px;\n\tcolor: rgb(255, 255, 255);\n\t-unity-text-align: middle-center;\n\tmargin: 0;\n\tbackground-color: rgb(0, 0, 0);\n\tpadding: 16px;\n\tjustify-content: center;\n"], ["\n\tposition: absolute;\n\tleft: 200px;\n\tright: 32px;\n\ttop: 32px;\n\tbottom: 32px;\n\tcolor: rgb(255, 255, 255);\n\t-unity-text-align: middle-center;\n\tmargin: 0;\n\tbackground-color: rgb(0, 0, 0);\n\tpadding: 16px;\n\tjustify-content: center;\n"])));
+var L_End = (0, _tyle_1.$label)('L_End = $label')(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n\tfont-size: 64px;\n\twhite-space: normal;\n"], ["\n\tfont-size: 64px;\n\twhite-space: normal;\n"])));
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8;

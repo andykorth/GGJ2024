@@ -43,6 +43,7 @@ function InfoPanel(props: P_GhostView) {
 			<L_PhaseDesc text={phaseDesc}/>
 			<Grow/>
 			<GhostActorList act={act}/>
+			<DebugView act={act}/>
 		</W_InfoPanel>
 	);
 }
@@ -71,7 +72,6 @@ const L_PhaseDesc = $label('L_PhaseDesc')`
 function Timer(props: P_GhostView) {
 	const act = props.act;
 	
-	
 	return (
 		<W_Timer>
 			<TrackLabel
@@ -93,6 +93,30 @@ const W_Timer = $div('W_Timer')`
 	-unity-text-align: middle-center;
 	margin: 0;
 	background-color: rgb(0, 0, 0);
+	padding: 16px;
+`;
+
+function DebugView(props: P_GhostView) {
+	const act = props.act;
+	
+	return (
+		<W_DebugView>
+			<TrackLabel
+				track={act.DebugString}
+				fnText={s => s}
+				fontSize={14}
+			/>
+		</W_DebugView>
+	);
+}
+
+const W_DebugView = $div('W_DebugView')`
+	position: absolute;
+	right: 32px;
+	bottom: 32px;
+	color: rgb(255, 255, 255);
+	margin: 0;
+	background-color: rgba(0, 0, 0, 0.46);
 	padding: 16px;
 `;
 
