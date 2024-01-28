@@ -21,6 +21,9 @@ public class GhostFig : ScriptableObject
 	public int NumOfGhosts = 3;
 	public int GhostOptions = 3;
 	public int ExitOptions = 3;
+	public List<GameObject> WallObjPrefabs = new();
+	public List<GameObject> FloorObjPrefabs = new();
+	public List<GameObject> GhostPrefabs = new();
 	
 	// TEMP
 	[Header("Temp Strings")]

@@ -427,6 +427,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8725489599390174896}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4474569934845710634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2865662830457774076}
+  m_Layer: 0
+  m_Name: Ghost Spawn (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2865662830457774076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4474569934845710634}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.73, y: 1.82, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3719004786433506707}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4555313931936938072
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,6 +551,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 395800290147071250}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5100430476700210575
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3719004786433506707}
+  m_Layer: 0
+  m_Name: Ghost Spawns
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3719004786433506707
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5100430476700210575}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2609323366729542149}
+  - {fileID: 5903795826686899826}
+  - {fileID: 1978328022586165014}
+  - {fileID: 2865662830457774076}
+  - {fileID: 3868879441814984544}
+  m_Father: {fileID: 6186132081091208831}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5155954152939687858
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,6 +617,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8725489599390174896}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5171527217671746632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5903795826686899826}
+  m_Layer: 0
+  m_Name: Ghost Spawn (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5903795826686899826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5171527217671746632}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.82, y: 0.48, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3719004786433506707}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5254575460266213871
 GameObject:
@@ -583,6 +681,7 @@ Transform:
   m_Children:
   - {fileID: 395800290147071250}
   - {fileID: 8725489599390174896}
+  - {fileID: 3719004786433506707}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &276509340369455659
@@ -598,17 +697,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Fig: {fileID: 11400000, guid: 5f4c9c4a3883cf84cb1feb7fc6e400e8, type: 2}
-  WallObjPrefabs:
-  - {fileID: 6904585005940535332, guid: 968e9541265067d46b1fcb3269ccac7e, type: 3}
-  - {fileID: 8330280542918482216, guid: 842fac5185f35d142a5fe7c85110a585, type: 3}
-  FloorObjPrefabs:
-  - {fileID: 5017708859137192792, guid: 5f1a0e62bddc8c54ba07f0a2e44245e9, type: 3}
-  - {fileID: 5017708859137192792, guid: 4f379060567cbd648aa36b0e97a4ff68, type: 3}
-  - {fileID: 5017708859137192792, guid: bbf7112d19a0a854786675ce0492b880, type: 3}
-  - {fileID: 1160931559147425978, guid: e78a89bb3078ffc489b65a949f531c6c, type: 3}
-  - {fileID: 1160931559147425978, guid: b8267f65aff701748aabae875d0b98f4, type: 3}
-  - {fileID: 1160931559147425978, guid: 433f7566f0f84fa43b36192fc3c130d4, type: 3}
-  - {fileID: 298358061540657556, guid: 1b61e6bfce6fb5c4d942ca4c59af62cc, type: 3}
+  PossibleGhostSpawns:
+  - {fileID: 2609323366729542149}
+  - {fileID: 5903795826686899826}
+  - {fileID: 1978328022586165014}
+  - {fileID: 2865662830457774076}
+  - {fileID: 3868879441814984544}
   PossibleWallSpawns:
   - {fileID: 8210568671598000509}
   - {fileID: 8096529762780753611}
@@ -623,29 +717,27 @@ MonoBehaviour:
   - {fileID: 8482010061368191447}
   - {fileID: 3569001988779974352}
   - {fileID: 534549830545053214}
-  - {fileID: 0}
   - {fileID: 5337321894881713158}
   - {fileID: 6030337024171204366}
   - {fileID: 1735401710271736458}
   - {fileID: 8755784907066617915}
   - {fileID: 6634940654513657742}
   - {fileID: 2616583022181917317}
-  - {fileID: 0}
   - {fileID: 7855320284355431245}
   - {fileID: 3922860437880053288}
   - {fileID: 2633787140369934996}
   - {fileID: 971050245823430524}
   - {fileID: 4066234305534952800}
   - {fileID: 8190318416749072484}
-  - {fileID: 0}
-  InteractablesRoot: {fileID: 0}
   StateToExit:
-    Label: 
     Criteria: []
-    PrevCheck: 0
+    IsMet: 0
+    Percent: 0
   Ghosts: []
   AllCriteria: []
   RoomInteractables: []
+  InteractablesRoot: {fileID: 0}
+  GhostsRoot: {fileID: 0}
 --- !u!1 &5354164397764551294
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,6 +893,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8725489599390174896}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7679829481480373158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3868879441814984544}
+  m_Layer: 0
+  m_Name: Ghost Spawn (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3868879441814984544
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7679829481480373158}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.06, y: -0.56, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3719004786433506707}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7694854019767890786
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,4 +1047,66 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8725489599390174896}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8718028747585297082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2609323366729542149}
+  m_Layer: 0
+  m_Name: Ghost Spawn (0)
+  m_TagString: Untagged
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2609323366729542149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8718028747585297082}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.98, y: 1.57, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3719004786433506707}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8978789485691019132
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1978328022586165014}
+  m_Layer: 0
+  m_Name: Ghost Spawn (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1978328022586165014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8978789485691019132}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6, y: 0.64, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3719004786433506707}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -21,7 +21,7 @@ public class Player : Singleton<Player>
 
         if(Input.GetKeyDown(KeyCode.Space)){
             if(mostRecentTouch != null){
-                Debug.Log("Interact with " + mostRecentTouch.name);
+                // Debug.Log("Interact with " + mostRecentTouch.name);
                 mostRecentTouch.PlayerInteract();
                 
                 GhostPlayerManager.i.AssessRoomStates();

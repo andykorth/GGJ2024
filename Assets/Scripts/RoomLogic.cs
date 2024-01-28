@@ -4,6 +4,29 @@ using uRandom = UnityEngine.Random;
 
 public static class RoomLogic
 {
+	public static void UpdateRoomState(RoomState room)
+	{
+		var numMet = 0;
+
+		foreach (var crit in room.Criteria)
+		{
+			var isMet = crit.Assess();
+			if (isMet) numMet++;
+		}
+
+		if (numMet >= room.Criteria.Count)
+		{
+			room.IsMet = true;
+			room.Percent = 1f;
+		}
+		else
+		{
+			room.IsMet = false;
+			room.Percent = numMet / (float)room.Criteria.Count;
+		}
+	}
+	
+	
 	static List<InteractableObject> _availableObjs = new();
 
 	public static RoomState GenerateGhostDesire(RoomManager room)
