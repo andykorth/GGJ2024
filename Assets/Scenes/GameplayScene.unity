@@ -233,6 +233,60 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 5694954092260416372, guid: fd9ab3349847f4104add60f64262226b, type: 3}
   m_PrefabInstance: {fileID: 8434671658509497922}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &223014259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 223014261}
+  - component: {fileID: 223014260}
+  m_Layer: 0
+  m_Name: Room Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &223014260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223014259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dd2fc8a541649738335947f1c8e44b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fig: {fileID: 11400000, guid: 5f4c9c4a3883cf84cb1feb7fc6e400e8, type: 2}
+  StateToExit:
+    Criteria: []
+    PrevCheck: 0
+  Ghosts: []
+  AllCriteria: []
+  AllInteractables:
+  - {fileID: 1583595009}
+  - {fileID: 1420286244}
+  - {fileID: 1077405578}
+--- !u!4 &223014261
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223014259}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &283025204
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,11 +437,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6169755691731684502, guid: 15b0c9cc23e1e1d47a2c04810db4d4b0, type: 3}
       propertyPath: m_Color.g
-      value: 0.4198113
+      value: 0.6253426
       objectReference: {fileID: 0}
     - target: {fileID: 6169755691731684502, guid: 15b0c9cc23e1e1d47a2c04810db4d4b0, type: 3}
       propertyPath: m_Color.r
-      value: 0.43723896
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -743,15 +797,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6169755691731684502, guid: 15b0c9cc23e1e1d47a2c04810db4d4b0, type: 3}
       propertyPath: m_Color.b
-      value: 0.86391133
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6169755691731684502, guid: 15b0c9cc23e1e1d47a2c04810db4d4b0, type: 3}
       propertyPath: m_Color.g
-      value: 0.34603062
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6169755691731684502, guid: 15b0c9cc23e1e1d47a2c04810db4d4b0, type: 3}
       propertyPath: m_Color.r
-      value: 0.9056604
+      value: 0.68977356
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1189,6 +1243,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8123997238548897083, guid: 239e42bfc874e4a80be28666b5c7aaab, type: 3}
   m_PrefabInstance: {fileID: 1829533499}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1077405578 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5037489682818742910, guid: 15b0c9cc23e1e1d47a2c04810db4d4b0, type: 3}
+  m_PrefabInstance: {fileID: 475100974}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c91a8e8852548018aaba4685d6efa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1080995129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2168,6 +2233,17 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &1420286244 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5037489682818742910, guid: 15b0c9cc23e1e1d47a2c04810db4d4b0, type: 3}
+  m_PrefabInstance: {fileID: 540256656}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c91a8e8852548018aaba4685d6efa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1543292349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2229,6 +2305,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79b0f9091fb720e49963496adaa155c2, type: 3}
+--- !u!114 &1583595009 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5037489682818742910, guid: 15b0c9cc23e1e1d47a2c04810db4d4b0, type: 3}
+  m_PrefabInstance: {fileID: 327171842}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c91a8e8852548018aaba4685d6efa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &1598571337 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3838940715975666352, guid: a1be50cba36be45f7a251bbbd10f2e3c, type: 3}
@@ -3433,6 +3520,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1829533503}
     - target: {fileID: 5485184607237011676, guid: 627f9df5520ff4d28b981add2fc41a87, type: 3}
+      propertyPath: RoomManager
+      value: 
+      objectReference: {fileID: 223014260}
+    - target: {fileID: 5485184607237011676, guid: 627f9df5520ff4d28b981add2fc41a87, type: 3}
       propertyPath: exitGoalMsg
       value: 
       objectReference: {fileID: 992059240}
@@ -3711,6 +3802,7 @@ SceneRoots:
   - {fileID: 553696214}
   - {fileID: 1624550303}
   - {fileID: 1972243467672967252}
+  - {fileID: 223014261}
   - {fileID: 1921353556084886418}
   - {fileID: 2133821889}
   - {fileID: 562327858}

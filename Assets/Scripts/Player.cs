@@ -23,6 +23,9 @@ public class Player : Singleton<Player>
             if(mostRecentTouch != null){
                 Debug.Log("Interact with " + mostRecentTouch.name);
                 mostRecentTouch.PlayerInteract();
+                
+                GhostPlayerManager.i.AssessRoomStates();
+                
             }else{
                 Debug.Log("Nothing to interact with!");
             }

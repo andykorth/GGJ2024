@@ -1,9 +1,37 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using Sonic;
-using UnityEditor;
+using Swoonity.CSharp;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using Random = UnityEngine.Random;
+
+
+[Serializable]
+public class StateOption
+{
+	[Header("Config")]
+	public string StateName = "?";
+	// public string Verb = "poke"; // TODO?
+		
+	[Header("Ghosts")]
+	[Tooltip("if this state is chosen to be 'wanted' (meaning the object MUST be in this state)")]
+	[TextArea]
+	public List<string> Wants = new();
+	
+	[Tooltip("if this state is chosen to be 'hated' (meaning the object CANNOT be in this state)")]
+	[TextArea]
+	public List<string> Hates = new();
+	
+	[Header("Exit")]
+	[Tooltip("if this state is chosen to be 'wanted' (meaning the object MUST be in this state)")]
+	[TextArea]
+	public List<string> ExitWants = new();
+	
+	[Tooltip("if this state is chosen to be 'hated' (meaning the object CANNOT be in this state)")]
+	[TextArea]
+	public List<string> ExitHates = new();
+}
 
 public class InteractableObject : MonoBehaviour
 {
@@ -39,7 +67,13 @@ public class InteractableObject : MonoBehaviour
 
 	public bool hasBeenEnabledByPlayer = false;
 
-	[Header("Sounds")] public SonicSfx SfxInteract;
+
+	[Header("Room State")]
+	public List<StateOption> Options = new();
+	public int CurrentStateId;
+
+	[Header("Sounds")] 
+	public SonicSfx SfxInteract;
 	public SonicSfx SfxLoop;
 
 
@@ -75,21 +109,22 @@ public class InteractableObject : MonoBehaviour
 			hasBeenEnabledByPlayer = Random.value > 0.5f;
 		}
 
-		if (interactionMode == InteractionMode.CrookedPainting)
+		switch (interactionMode)
 		{
-			float angle = Random.value > 0.5f ? 25f : -25f;
-			transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : angle);
-		}
-		else if (interactionMode == InteractionMode.FlipUpsideDown)
-		{
-			transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : 180f);
-		}
-		else if (interactionMode == InteractionMode.SwapToActivatedSprite)
-		{
-			if (hasBeenEnabledByPlayer)
-				mainSprite.sprite = spriteWhenActivated;
-			else
-				mainSprite.sprite = originalSprite;
+			case InteractionMode.CrookedPainting:
+				float angle = Random.value > 0.5f ? 25f : -25f;
+				transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : angle);
+				break;
+			case InteractionMode.FlipUpsideDown:
+				transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : 180f);
+				break;
+			case InteractionMode.SwapToActivatedSprite:
+				mainSprite.sprite = hasBeenEnabledByPlayer ? spriteWhenActivated : originalSprite;
+				break;
+			case InteractionMode.NoneOrCustom:
+				break;
+			default:
+				throw new ArgumentOutOfRangeException();
 		}
 
 		if (tiedToLight != null)
@@ -130,6 +165,13 @@ public class InteractableObject : MonoBehaviour
 
 	public void PlayerInteract()
 	{
+		
+		CurrentStateId++;
+		if (CurrentStateId >= Options.Count) CurrentStateId = 0;
+		// TODO
+		// TODO
+		
+		
 		SfxInteract.PlayAt(transform.position);
 
 		if (interactEffectPrefab != null)
@@ -144,35 +186,48 @@ public class InteractableObject : MonoBehaviour
 			tiedToLight.enabled = hasBeenEnabledByPlayer;
 		}
 
-		if (interactionMode == InteractionMode.CrookedPainting)
+		switch (interactionMode)
 		{
-			float angle = Random.value > 0.5f ? 25f : -25f;
-			Quaternion original = transform.GetChild(0).rotation;
-			Quaternion target = transform.GetChild(0).rotation =
-				Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : angle);
-			this.AddTween(0.7f,
-				(a) =>
-				{
-					transform.GetChild(0).rotation = Quaternion.SlerpUnclamped(original, target, Mathfx.Berp(0, 1, a));
-				});
-		}
-		else if (interactionMode == InteractionMode.FlipUpsideDown)
-		{
-			float angle = hasBeenEnabledByPlayer ? 0f : 180f;
-			Quaternion original = transform.GetChild(0).rotation;
-			Quaternion target = transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, angle);
-			this.AddTween(0.7f,
-				(a) =>
-				{
-					transform.GetChild(0).rotation = Quaternion.SlerpUnclamped(original, target, Mathfx.Berp(0, 1, a));
-				});
-		}
-		else if (interactionMode == InteractionMode.SwapToActivatedSprite)
-		{
-			if (hasBeenEnabledByPlayer)
+			case InteractionMode.CrookedPainting:
+			{
+				float angle = Random.value > 0.5f ? 25f : -25f;
+				Quaternion original = transform.GetChild(0).rotation;
+				Quaternion target = transform.GetChild(0).rotation =
+					Quaternion.Euler(0f, 0f, hasBeenEnabledByPlayer ? 0f : angle);
+				this.AddTween(0.7f,
+					(a) =>
+					{
+						transform.GetChild(0).rotation = Quaternion.SlerpUnclamped(original, target, Mathfx.Berp(0, 1, a));
+					});
+				break;
+			}
+			
+			case InteractionMode.FlipUpsideDown:
+			{
+				float angle = hasBeenEnabledByPlayer ? 0f : 180f;
+				Quaternion original = transform.GetChild(0).rotation;
+				Quaternion target = transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, angle);
+				this.AddTween(0.7f,
+					(a) =>
+					{
+						transform.GetChild(0).rotation = Quaternion.SlerpUnclamped(original, target, Mathfx.Berp(0, 1, a));
+					});
+				break;
+			}
+			
+			case InteractionMode.SwapToActivatedSprite when hasBeenEnabledByPlayer:
 				mainSprite.sprite = spriteWhenActivated;
-			else
+				break;
+			
+			case InteractionMode.SwapToActivatedSprite:
 				mainSprite.sprite = originalSprite;
+				break;
+			
+			case InteractionMode.NoneOrCustom:
+				break;
+			
+			default:
+				throw new ArgumentOutOfRangeException();
 		}
 	}
 }

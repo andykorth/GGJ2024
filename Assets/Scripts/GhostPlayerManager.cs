@@ -3,6 +3,7 @@ using UnityEngine;
 using Foundational;
 using futz.ActGhost;
 using Cysharp.Threading.Tasks;
+using Lumberjack;
 using UnityEngine.Serialization;
 using InterType = InteractableObject.InteractableType;
 using InterColor = InteractableObject.InteractableColor;
@@ -31,8 +32,11 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
 	public string[] spiritNames;
 
-	[FormerlySerializedAs("ghostsToFade")] public SpriteRenderer[] spiritsToFade;
+	public SpriteRenderer[] spiritsToFade;
 	public ExitDoor exitDoor;
+	
+	[Header("Room State stuff")]
+	public RoomManager RoomManager;
 
 	public const int SPIRIT_COUNT = 3;
 
@@ -158,6 +162,9 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
 	public void Start()
 	{
+		RoomManager.CreateRoom();
+		
+		
 		ghostPlayers = new List<GhostPlayer>();
 		CreateAllGoals();
 
@@ -209,7 +216,9 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 		timeTilUpdate -= Time.deltaTime;
 		if (timeTilUpdate < 0f)
 		{
+			AssessRoomStates();
 			EvaluateGoals();
+			
 			timeTilUpdate = 1.0f;
 		}
 
@@ -240,6 +249,18 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 	private int[] spiritGoalCount = new int[SPIRIT_COUNT];
 	private int[] spiritGoalComplete = new int[SPIRIT_COUNT];
 
+	public void AssessRoomStates()
+	{
+		RoomManager.StateToExit.Assess();
+		$"check: {RoomManager.StateToExit.PrevCheck}".LgOrange0();
+		
+		foreach (var ghost in RoomManager.Ghosts)
+		{
+			ghost.Assess();
+			$"check: {ghost.PrevCheck}".LgOrange0();
+		}
+	}
+	
 	public void EvaluateGoals()
 	{
 		if (assignedGoals == null) return;
@@ -263,7 +284,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 			Color c = spiritsToFade[i].color;
 			float alpha = spiritGoalComplete[i] / (float)spiritGoalCount[i];
 			spiritsToFade[i].color = c.WithAlpha(alpha);
-			Debug.Log($"At {Time.time} spirit {i} = {alpha}");
+			// Debug.Log($"At {Time.time} spirit {i} = {alpha}");
 		}
 
 		if (!exitGoalMsg.activeSelf && GameSysClip.I.GhostAct.Current.TimeLeftSec < 100)
@@ -314,6 +335,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 			};
 
 			ghost.ClearHints();
+			
 			for (int i = 0; i < goalsPerPlayer; i++)
 			{
 				if (allSharedGoals.Count > 0)
@@ -336,10 +358,7 @@ public class GhostPlayer
 	public List<Goal> activeGoals = new List<Goal>();
 	internal GhostActor actor;
 
-	public override string ToString()
-	{
-		return $"{name} score: {goalsComplete}";
-	}
+	public override string ToString() => $"{name} score: {goalsComplete}";
 
 	internal void AssignGoal(Goal goal)
 	{

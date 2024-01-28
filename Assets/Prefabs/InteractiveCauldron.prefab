@@ -76,6 +76,82 @@ PrefabInstance:
       propertyPath: interactableType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].StateName
+      value: Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].StateName
+      value: Flipped
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].Hates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].Wants.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].Hates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].Wants.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].Hates.Array.data[0]
+      value: 'Ghost hate: cauldron {color} up'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].Wants.Array.data[0]
+      value: 'Ghost want: cauldron {color} up'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].Hates.Array.data[0]
+      value: 'Ghost hate: cauldron {color} flip'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].Wants.Array.data[0]
+      value: 'Ghost want: cauldron {color} flip'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].ExitHates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].ExitWants.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].ExitHates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].ExitWants.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].ExitHates.Array.data[0]
+      value: 'Exit hate: cauldron {color} up'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].ExitWants.Array.data[0]
+      value: 'Exit want: cauldron {color} up'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].ExitHates.Array.data[0]
+      value: 'Exit hate: cauldron {color} flip'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].ExitWants.Array.data[0]
+      value: 'Exit want: cauldron {color} flip'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
