@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Idealist;
 using Lumberjack;
 using Sonic;
-using Swoonity.Collections;
-using Swoonity.CSharp;
 using Swoonity.Unity;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -16,9 +13,14 @@ public class StateOption
 {
 	[Header("Config")] public string Label = "?";
 
+	public Sprite UseSprite;
+	public GameObject EnableObj;
+
 	[Tooltip("verb used while in this state (indicating the NEXT state)")]
 	public string VerbToNext = "poke";
-	// public string Verb = "poke"; // TODO?
+
+	public SonicSfx SfxInteract;
+	public float RotateAmount;
 
 	[Header("Ghosts")]
 	[Tooltip("if this state is chosen to be 'wanted' (meaning the object MUST be in this state)")]
@@ -37,53 +39,16 @@ public class StateOption
 	public List<string> ExitHates = new();
 }
 
-public enum InteractableType
-{
-	Cauldron,
-	Vase,
-	Crate,
-	Candle,
-	Portrait
-}
-
-public enum InteractableColor
-{
-	Any,
-	Blue,
-	Purple,
-	Green
-}
-
-public enum InteractionMode
-{
-	NoneOrCustom,
-	CrookedPainting,
-	FlipUpsideDown,
-	SwapToActivatedSprite
-}
-
 
 [SelectionBase]
 public class InteractableObject : MonoBehaviour
 {
 	[Header("Interact config")] public string Name = "";
 	public GameObject interactEffectPrefab;
-	public InteractableType interactableType;
-	public InteractableColor interactableColor;
-	public InteractionMode interactionMode;
-	public float flipAngle;
+	public string ColorText;
 
-	[Header("Misc config")] public GameObject tiedToChild;
-	public Light2D tiedToLight;
-	public Sprite spriteWhenActivated;
-	private Sprite originalSprite;
-	private SpriteRenderer[] allSprites;
+	[Header("Misc config")] public Vector3 TextOffset;
 	public SpriteRenderer mainSprite;
-	private Color originalSpriteColor;
-
-	public bool hasBeenEnabledByPlayer = false;
-
-	[Header("Sounds")] public SonicSfx SfxInteract;
 
 
 	[Header("Room State")] [Btn(nameof(GeneratePlaceholders))]
@@ -105,11 +70,11 @@ public class InteractableObject : MonoBehaviour
 	{
 		if (Name == "") Name = name;
 
-		allSprites = GetComponentsInChildren<SpriteRenderer>();
+		// allSprites = GetComponentsInChildren<SpriteRenderer>();
 		allInteractables.Add(this);
 		// Debug.Log("Interactable count: " + allInteractables.Count);
-		originalSprite = mainSprite.sprite;
-		originalSpriteColor = mainSprite.color;
+		// originalSprite = mainSprite.sprite;
+		// originalSpriteColor = mainSprite.color;
 
 		SetState(RandomStart ? Random.Range(0, Options.Count) : 0);
 	}
@@ -132,32 +97,33 @@ public class InteractableObject : MonoBehaviour
 		{
 			// the player has interacted with this, activate it. 
 			player.PlayerEndTouch(this);
-			SetColor(originalSpriteColor);
+			// SetColor(originalSpriteColor);
 		}
 	}
 
-	private void SetColor(Color c)
-	{
-		foreach (var s in allSprites)
-		{
-			s.color = c;
-		}
-	}
+	// private void SetColor(Color c)
+	// {
+	// 	foreach (var s in allSprites)
+	// 	{
+	// 		s.color = c;
+	// 	}
+	// }
 
 	public void PlayerInteract()
 	{
+		var option = Options[CurrentStateId];
+		option.SfxInteract.PlayAt(transform);
+
+		// SfxInteract.PlayAt(transform);
+
 		SetState(CurrentStateId + 1);
-
-		SfxInteract.PlayAt(transform.position);
-
-		// TODO
-		// TODO: update below
-		// TODO
 
 		if (interactEffectPrefab != null)
 		{
-			GameObject go = Instantiate(interactEffectPrefab, transform.position, Quaternion.identity);
-			Destroy(go, 10.0f);
+			Destroy(
+				Instantiate(interactEffectPrefab, transform.position, Quaternion.identity),
+				10.0f
+			);
 		}
 	}
 
@@ -168,64 +134,79 @@ public class InteractableObject : MonoBehaviour
 
 		$"{name} set: {stateId}, {Options[stateId].Label}".LgOrange0(this);
 
+		var option = Options[stateId];
 		var spriteTf = mainSprite.transform;
 
 
-		switch (interactionMode)
+		var rotStart = spriteTf.rotation;
+		var rotEnd = Quaternion.Euler(0f, 0f, option.RotateAmount);
+		this.AddTween(0.3f,
+			a => spriteTf.rotation =
+				Quaternion.SlerpUnclamped(rotStart, rotEnd, Mathfx.Berp(0, 1, a)));
+
+
+		// switch (interactionMode)
+		// {
+		// 	case InteractionMode.CrookedPainting:
+		// 	{
+		// 		var angle = stateId switch
+		// 		{
+		// 			0 => 0f, // straight
+		// 			1 => Random.value > 0.5f ? flipAngle : -flipAngle // crooked
+		// 		};
+		//
+		// 		var original = spriteTf.rotation;
+		// 		var target = Quaternion.Euler(0f, 0f, angle);
+		// 		this.AddTween(0.7f,
+		// 			a => spriteTf.rotation =
+		// 				Quaternion.SlerpUnclamped(original, target, Mathfx.Berp(0, 1, a)));
+		// 		// spriteTf.rotation = target;
+		// 		break;
+		// 	}
+		//
+		// 	case InteractionMode.FlipUpsideDown:
+		// 	{
+		// 		var angle = stateId switch
+		// 		{
+		// 			0 => 0f, // normal
+		// 			1 => flipAngle // flipped
+		// 		};
+		// 		var original = spriteTf.rotation;
+		// 		var target = Quaternion.Euler(0f, 0f, angle);
+		// 		this.AddTween(0.7f,
+		// 			(a) =>
+		// 			{
+		// 				spriteTf.rotation =
+		// 					Quaternion.SlerpUnclamped(original, target, Mathfx.Berp(0, 1, a));
+		// 			});
+		// 		// spriteTf.rotation = target;
+		// 		break;
+		// 	}
+		//
+		// 	case InteractionMode.SwapToActivatedSprite:
+		// 		mainSprite.sprite = stateId switch
+		// 		{
+		// 			0 => originalSprite, // default
+		// 			1 => spriteWhenActivated // activated
+		// 		};
+		// 		break;
+		//
+		// 	case InteractionMode.NoneOrCustom:
+		// 		break;
+		//
+		// 	case InteractionMode.Dynamic:
+		// 		break;
+		//
+		// 	default:
+		// 		throw new ArgumentOutOfRangeException();
+		// }
+
+		foreach (var otherOption in Options)
 		{
-			case InteractionMode.CrookedPainting:
-			{
-				var angle = stateId switch
-				{
-					0 => 0f, // straight
-					1 => Random.value > 0.5f ? flipAngle : -flipAngle // crooked
-				};
-
-				var original = spriteTf.rotation;
-				var target = Quaternion.Euler(0f, 0f, angle);
-				this.AddTween(0.7f,
-					a => spriteTf.rotation =
-						Quaternion.SlerpUnclamped(original, target, Mathfx.Berp(0, 1, a)));
-				// spriteTf.rotation = target;
-				break;
-			}
-
-			case InteractionMode.FlipUpsideDown:
-			{
-				var angle = stateId switch
-				{
-					0 => 0f, // normal
-					1 => flipAngle // flipped
-				};
-				var original = spriteTf.rotation;
-				var target = Quaternion.Euler(0f, 0f, angle);
-				this.AddTween(0.7f,
-					(a) =>
-					{
-						spriteTf.rotation =
-							Quaternion.SlerpUnclamped(original, target, Mathfx.Berp(0, 1, a));
-					});
-				// spriteTf.rotation = target;
-				break;
-			}
-
-			case InteractionMode.SwapToActivatedSprite:
-				mainSprite.sprite = stateId switch
-				{
-					0 => originalSprite, // default
-					1 => spriteWhenActivated // activated
-				};
-				break;
-
-			case InteractionMode.NoneOrCustom:
-				break;
-
-			default:
-				throw new ArgumentOutOfRangeException();
+			if (otherOption.EnableObj) otherOption.EnableObj.SetActive(otherOption == option);
 		}
 
-		if (tiedToChild != null) tiedToChild.SetActive(stateId == 1);
-		if (tiedToLight != null) tiedToLight.enabled = stateId == 1;
+		if (option.UseSprite) mainSprite.sprite = option.UseSprite;
 
 		CurrentStateId = stateId;
 	}

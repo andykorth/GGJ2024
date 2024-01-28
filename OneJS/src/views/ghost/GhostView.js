@@ -45,6 +45,9 @@ function Timer(props) {
 var W_Timer = (0, _tyle_1.$div)('W_Timer')(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n\tposition: absolute;\n\tright: 32px;\n\ttop: 32px;\n\t-unity-font-style: bold;\n\tcolor: rgb(255, 25, 25);\n\t-unity-text-align: middle-center;\n\tmargin: 0;\n\tbackground-color: rgb(0, 0, 0);\n\tpadding: 16px;\n"], ["\n\tposition: absolute;\n\tright: 32px;\n\ttop: 32px;\n\t-unity-font-style: bold;\n\tcolor: rgb(255, 25, 25);\n\t-unity-text-align: middle-center;\n\tmargin: 0;\n\tbackground-color: rgb(0, 0, 0);\n\tpadding: 16px;\n"])));
 function DebugView(props) {
     var act = props.act;
+    var show = (0, Track_1.useTrack)(act.ShowDebug);
+    if (!show)
+        return (0, preact_1.h)("div", null);
     return ((0, preact_1.h)(W_DebugView, null,
         (0, preact_1.h)(TrackLabel_1.TrackLabel, { track: act.DebugString, fnText: function (s) { return s; }, fontSize: 14 })));
 }

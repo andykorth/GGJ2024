@@ -9,6 +9,7 @@ export interface T_GhostActivity {
 	PhaseDesc: Track<string>;
 	// ForceNextRound: TrackEvt;
 	
+	ShowDebug: Track<boolean>;
 	DebugString: Track<string>;
 	
 	TimerString: Track<string>;

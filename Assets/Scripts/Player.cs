@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using Foundational;
 using futz.ActGhost;
 using UnityEngine;
@@ -12,8 +8,6 @@ public class Player : Singleton<Player>
     public float accel = 0.5f;
 
     public Rigidbody rb;
-
-    // public Color interactColor = Color.red;
 
     void Update()
     {
