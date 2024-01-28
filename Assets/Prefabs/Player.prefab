@@ -110,6 +110,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6285905818220669376}
+  - component: {fileID: 5748397711124780096}
   - component: {fileID: 8846844719936382319}
   m_Layer: 0
   m_Name: PlayerLight
@@ -133,6 +134,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8487555925506317589}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5748397711124780096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294841338072032034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfdc21bc4a3384ff8a5516540da28006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightToChange: {fileID: 0}
+  minIntensity: 2.1
+  intensityVariance: 0.35
+  noiseSpeed: 6
 --- !u!114 &8846844719936382319
 MonoBehaviour:
   m_ObjectHideFlags: 0

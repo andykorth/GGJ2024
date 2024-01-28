@@ -11,8 +11,6 @@ public class Player : Singleton<Player>
 
     public Rigidbody rb;
 
-    // public Color interactColor = Color.red;
-
     void Update()
     {
         Vector2 target = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
