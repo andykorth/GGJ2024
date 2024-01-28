@@ -18,6 +18,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
     public GameObject needTwoPhonePlayersMsg;
 
     public TMPro.TMP_Text ghostText;
+    public TMPro.TMP_Text goalDebugText;
 
     public List<GhostPlayer>  ghostPlayers;
 
@@ -28,6 +29,8 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
     [FormerlySerializedAs("ghostsToFade")]
     public SpriteRenderer[] spiritsToFade;
     public GameObject exit;
+
+    public const int SPIRIT_COUNT = 3;
 
     public void CreateAllGoals(){
         allSharedGoals = new List<Goal>
@@ -91,21 +94,21 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
             },
 
             
-            new Goal {
-                goalString = "Extinguish all candles.",
-                goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Candle) <= 0
-            },
-            new Goal {
-                goalString = "Straighten one portrait.",
-                goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Portrait) <= 0
-            },
-            new Goal {
-                goalString = "I hate crooked paintings!",
-                goalAction = () => InteractableObject.allInteractables.All(
-                    (a) => a.interactableType != InteractableObject.InteractableType.Portrait
-                    || a.hasBeenEnabledByPlayer )
-                    // that means all the portraits must be "enabled".
-            },
+            // new Goal {
+            //     goalString = "Extinguish all candles.",
+            //     goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Candle) <= 0
+            // },
+            // new Goal {
+            //     goalString = "Straighten one portrait.",
+            //     goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Portrait) <= 0
+            // },
+            // new Goal {
+            //     goalString = "I hate crooked paintings!",
+            //     goalAction = () => InteractableObject.allInteractables.All(
+            //         (a) => a.interactableType != InteractableObject.InteractableType.Portrait
+            //         || a.hasBeenEnabledByPlayer )
+            //         // that means all the portraits must be "enabled".
+            // },
             
         };
     }
@@ -121,6 +124,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
         Player.i.gameObject.SetActive(false);
     }
 
+    private float timeTilUpdate = 1.0f;
     public void Update(){
 
         if(readyToBegin){
@@ -131,10 +135,12 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
             }
         }
 
-        foreach(GhostPlayer g in ghostPlayers){
-            g.EvaluateGoals();
+        timeTilUpdate -= Time.deltaTime;
+        if(timeTilUpdate < 0f){
+            EvaluateGoals();
+            timeTilUpdate = 1.0f;
         }
-
+        
         string s = $"Ghosts: {ghostPlayers.Count}\n";
         foreach(var ghost in ghostPlayers){
             s += "   " + ghost.ToString() + "\n";
@@ -142,6 +148,34 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
         ghostText.text = s;
     }
+
+    public string goalDebugString;
+    public void EvaluateGoals(){
+
+        goalDebugString = "Debugging String:\n";
+
+        int[] spiritGoalCount = new int[SPIRIT_COUNT];
+        int[] spiritGoalComplete = new int[SPIRIT_COUNT];
+        foreach(GhostPlayer g in ghostPlayers){
+            foreach(Goal goal in g.activeGoals){
+                spiritGoalCount[goal.spiritIndex] += 1;
+                bool b = goal.Evaluate();
+                goalDebugString += (b ? "YES" : "NO" ) + $" spirit {goal.spiritIndex}: {goal.goalString}\n";
+                if(b){
+                    spiritGoalComplete[goal.spiritIndex] += 1;
+                }
+            }
+        }
+        // update spirits:
+        for(int i = 0; i < SPIRIT_COUNT; i++){
+            Color c = spiritsToFade[i].color;
+            float alpha = spiritGoalComplete[i] / (float) spiritGoalCount[i];
+            spiritsToFade[i].color = c.WithAlpha(alpha);
+        }
+
+        if(goalDebugText != null) goalDebugText.text = goalDebugString;
+    }
+
 
     public void GameStarted(){
         readyToBegin = false;
@@ -184,21 +218,6 @@ public class GhostPlayer {
     public int goalsComplete = 0;
     public List<Goal> activeGoals = new List<Goal>();
     internal GhostActor actor;
-
-    public void EvaluateGoals(){
-        List<Goal> toRemove = new List<Goal>();
-
-        foreach(Goal g in activeGoals){
-            if(g.Evaluate()){
-                goalsComplete += 1;
-                toRemove.Add(g);
-            }
-        }
-
-        if(toRemove.Count > 0){
-            activeGoals.RemoveAll(x => toRemove.Contains(x));
-        }
-    }
     
     public override string ToString(){
         return $"{name} score: {goalsComplete}";
@@ -209,6 +228,7 @@ public class GhostPlayer {
         activeGoals.Add(goal);
         var hint = new Hint();
         hint.Message = GhostPlayerManager.i.spiritNames[goal.spiritIndex] + ": " +  goal.goalString;
+        Debug.Log("Assign hint to " + this.name + ": " + hint.Message);
 
         actor.AssignedHints.Add(hint);
     }
@@ -221,25 +241,24 @@ public class GhostPlayer {
 
 public class Goal {
     public string goalString;
-    public GoalType goalType;
     public System.Func<bool> goalAction;
+    public bool hasBeenFinished = false;
     /// <summary>
     /// spirit index of -1 means it controls the exit.
     /// </summary>
     public int spiritIndex;
 
-    public enum GoalType {
-        TouchTestVase
-    }
 
     public bool Evaluate(){
-        switch(goalType){
-            case GoalType.TouchTestVase:
-                return Player.i.InteractCount(InteractableObject.InteractableType.Vase) > 0;
-
-            default:
-                return false;
+        bool b = goalAction();
+        if(b){
+            if(!hasBeenFinished){
+                // first time finishing this goal!
+                Debug.Log($"Finished goal for spirit {spiritIndex}: {goalString}");
+            }
+            hasBeenFinished = true;
         }
+        return b;
     }
 
 }
