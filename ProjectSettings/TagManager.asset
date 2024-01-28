@@ -50,6 +50,9 @@ TagManager:
   - name: Front
     uniqueID: 2790999989
     locked: 0
+  - name: Player
+    uniqueID: 3921198827
+    locked: 0
   - name: ForegroundOverlay
     uniqueID: 2372240807
     locked: 0

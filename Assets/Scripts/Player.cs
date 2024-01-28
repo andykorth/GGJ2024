@@ -4,49 +4,56 @@ using UnityEngine;
 
 public class Player : Singleton<Player>
 {
-    public float speed = 3f;
-    public float accel = 0.5f;
+	public Animer Animer;
+	public float WalkThreshold = .1f;
+	public float speed = 3f;
+	public float accel = 0.5f;
 
-    public Rigidbody rb;
+	public Rigidbody rb;
 
-    void Update()
-    {
-	    
-	    var act = GameSysClip.I.GhostAct.Current;
-	    if (!act) return;
-	    
-	    if (act.Phase.Current != GhostActivity.PhaseEnum.PLAYING_ROOM) return;
-	    
-        Vector2 target = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        rb.AddForce( new Vector3(target.x, target.y) * speed * Time.deltaTime);
-        // rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(target.x, 0f, target.y) * speed, accel);
+	void Update()
+	{
+		var act = GameSysClip.I.GhostAct.Current;
+		if (!act) return;
 
-        if(Input.GetKeyDown(KeyCode.Space)){
-            if(mostRecentTouch != null){
-                // Debug.Log("Interact with " + mostRecentTouch.name);
-                mostRecentTouch.PlayerInteract();
-                
-                GhostPlayerManager.i.AssessRoomStates();
-                
-            }else{
-                Debug.Log("Nothing to interact with!");
-            }
-            
-        }
+		if (act.Phase.Current != GhostActivity.PhaseEnum.PLAYING_ROOM) return;
 
-    }
+		Vector2 target = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+		rb.AddForce(new Vector3(target.x, target.y) * speed * Time.deltaTime);
 
-    public InteractableObject mostRecentTouch;
+		var velocityMag = rb.velocity.magnitude;
+		Animer.SetWalking(velocityMag >= WalkThreshold);
 
-    internal void PlayerStartTouch(InteractableObject interactableObject)
-    {
-        mostRecentTouch = interactableObject;
-    }
+		// rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(target.x, 0f, target.y) * speed, accel);
 
-    internal void PlayerEndTouch(InteractableObject interactableObject)
-    {
-        if(mostRecentTouch == interactableObject){
-            mostRecentTouch = null;
-        }
-    }
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			if (mostRecentTouch != null)
+			{
+				// Debug.Log("Interact with " + mostRecentTouch.name);
+				mostRecentTouch.PlayerInteract();
+
+				GhostPlayerManager.i.AssessRoomStates();
+			}
+			else
+			{
+				Debug.Log("Nothing to interact with!");
+			}
+		}
+	}
+
+	public InteractableObject mostRecentTouch;
+
+	internal void PlayerStartTouch(InteractableObject interactableObject)
+	{
+		mostRecentTouch = interactableObject;
+	}
+
+	internal void PlayerEndTouch(InteractableObject interactableObject)
+	{
+		if (mostRecentTouch == interactableObject)
+		{
+			mostRecentTouch = null;
+		}
+	}
 }
