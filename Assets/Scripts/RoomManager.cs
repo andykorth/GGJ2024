@@ -11,11 +11,13 @@ public class RoomManager : MonoBehaviour
 {
 	[Header("Config")] 
 	public GhostFig Fig;
+	public ExitDoor Door;
 	public List<Transform> PossibleGhostSpawns = new();
 	public List<Transform> PossibleWallSpawns = new();
 	public List<Transform> PossibleFloorSpawns = new();
 
 	[Header("State")]
+	public bool UnblockDoor;
 	public RoomState StateToExit;
 	public List<Ghost> Ghosts = new();
 
@@ -29,6 +31,8 @@ public class RoomManager : MonoBehaviour
 	{
 		var act = GameSysClip.I.GhostAct.Current;
 		var fig = Fig;
+
+		UnblockDoor = false;
 
 		RoomInteractables.Clear();
 		if (InteractablesRoot) Destroy(InteractablesRoot.gameObject);

@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Foundational;
+using futz.ActGhost;
 using UnityEngine;
 
 public class Player : Singleton<Player>
@@ -15,6 +17,12 @@ public class Player : Singleton<Player>
 
     void Update()
     {
+	    
+	    var act = GameSysClip.I.GhostAct.Current;
+	    if (!act) return;
+	    
+	    if (act.Phase.Current != GhostActivity.PhaseEnum.PLAYING_ROOM) return;
+	    
         Vector2 target = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         rb.AddForce( new Vector3(target.x, target.y) * speed * Time.deltaTime);
         // rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(target.x, 0f, target.y) * speed, accel);
