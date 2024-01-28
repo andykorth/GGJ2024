@@ -36,8 +36,8 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
         allSharedGoals = new List<Goal>
         {
             new Goal {
-                goalString = "I hate the smell of burning torches.",
-                goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Torch) == 0,
+                goalString = "I hate the smell of burning cauldrons.",
+                goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Cauldron) == 0,
                 spiritIndex = 0,
             },
             new Goal {
@@ -67,7 +67,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
             },
             new Goal {
                 goalString = "I do love blue though!",
-                goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Torch, InteractableObject.InteractableColor.Blue) >= 1,
+                goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Cauldron, InteractableObject.InteractableColor.Blue) >= 1,
                 spiritIndex = 1,
             },
 
