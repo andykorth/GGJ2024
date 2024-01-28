@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fbe1d18042343b7b43812981b3ee5da, type: 3}
-  m_Name: Wood_Step_5
+  m_Name: Light_Candle
   m_EditorClassIdentifier: 
   MixerGroup: {fileID: 0}
   Clips:
-  - {fileID: 8300000, guid: 61ca83a5b62bc4f37966cf502925e7a5, type: 3}
+  - {fileID: 8300000, guid: be026f85501de964a9eb752f5a84d168, type: 3}
   PitchDeviation: 0
   Volume: 1
   Loop: 0
