@@ -7,8 +7,6 @@ using System.Linq;
 using Foundational;
 using futz.ActGhost;
 using Cysharp.Threading.Tasks;
-using DefaultNamespace;
-using Unity.VisualScripting;
 using UnityEngine.Serialization;
 
 public class GhostPlayerManager : Singleton<GhostPlayerManager>
@@ -17,14 +15,19 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
     public bool readyToBegin = false;
     public GameObject pressPlayToBeginMsg;
     public GameObject needTwoPhonePlayersMsg;
+    public GameObject exitGoalMsg;
 
     public TMPro.TMP_Text ghostText;
     public TMPro.TMP_Text goalDebugText;
+    public TMPro.TMP_Text exitGoalText;
 
-    public List<GhostPlayer>  ghostPlayers;
+    public List<GhostPlayer> ghostPlayers;
 
     public List<Goal> allSharedGoals;
     public List<Goal> assignedGoals;
+    public List<Goal> possibleExitGoals;
+
+    private Goal selectedExitGoal1, selectedExitGoal2;
 
     public string[] spiritNames;
 
@@ -89,24 +92,37 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
                 spiritIndex = 2,
             },
 
-            
-            // new Goal {
-            //     goalString = "Extinguish all candles.",
-            //     goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Candle) <= 0
-            // },
-            // new Goal {
-            //     goalString = "Straighten one portrait.",
-            //     goalAction = () => Player.i.InteractCount(InteractableObject.InteractableType.Portrait) <= 0
-            // },
-            // new Goal {
-            //     goalString = "I hate crooked paintings!",
-            //     goalAction = () => InteractableObject.allInteractables.All(
-            //         (a) => a.interactableType != InteractableObject.InteractableType.Portrait
-            //         || a.hasBeenEnabledByPlayer )
-            //         // that means all the portraits must be "enabled".
-            // },
-            
         };
+
+        possibleExitGoals = new List<Goal>
+        {
+            new Goal {
+                goalString = $"Only {spiritNames[0]} can open the exit!",
+                goalAction = () => spiritGoalComplete[0] == spiritGoalCount[0]
+            },
+            new Goal {
+                goalString = $"We need one disordered painting to leave.",
+                goalAction = () => MatchesInteraction(InteractableObject.InteractableType.Portrait, InteractableObject.InteractableColor.Blue) < 2
+            },
+            new Goal {
+                goalString = $"You cannot leave without {spiritNames[1]}!",
+                goalAction = () => spiritGoalComplete[1] == spiritGoalCount[1]
+            },
+            new Goal {
+                goalString = $"The candle on the table will light the way",
+                goalAction = () => MatchesInteraction(InteractableObject.InteractableType.Candle, InteractableObject.InteractableColor.Blue) >= 1
+            },
+            new Goal {
+                goalString = $"Do not unleash {spiritNames[2]}!",
+                goalAction = () => spiritGoalComplete[2] != spiritGoalCount[2]
+            },
+            new Goal {
+                goalString = $"Believe in yourself to open the exit!",
+                goalAction = () => true
+            },
+
+        };
+
     }
     internal int MatchesInteraction(InteractableObject.InteractableType interactionType, InteractableObject.InteractableColor color = InteractableObject.InteractableColor.Any)
     {
@@ -128,6 +144,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
         pressPlayToBeginMsg.SetActive(false);
         needTwoPhonePlayersMsg.SetActive(true);
+        exitGoalMsg.SetActive(false);
         readyToBegin = false;
         Player.i.gameObject.SetActive(false);
     }
@@ -154,6 +171,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
             EvaluateGoals();
             timeTilUpdate = 1.0f;
         }
+
         
         string s = $"Ghosts: {ghostPlayers.Count}\n";
         foreach(var ghost in ghostPlayers){
@@ -164,13 +182,13 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
     }
 
     public string goalDebugString;
+    private int[] spiritGoalCount = new int[SPIRIT_COUNT];
+    private int[] spiritGoalComplete = new int[SPIRIT_COUNT];
     public void EvaluateGoals(){
         if(assignedGoals == null) return;
 
         goalDebugString = "Debugging String:\n";
 
-        int[] spiritGoalCount = new int[SPIRIT_COUNT];
-        int[] spiritGoalComplete = new int[SPIRIT_COUNT];
         foreach(Goal goal in assignedGoals){
             spiritGoalCount[goal.spiritIndex] += 1;
             bool b = goal.Evaluate();
@@ -185,6 +203,16 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
             float alpha = spiritGoalComplete[i] / (float) spiritGoalCount[i];
             spiritsToFade[i].color = c.WithAlpha(alpha);
             Debug.Log($"At {Time.time} spirit {i} = {alpha}");
+        }
+
+        if(!exitGoalMsg.activeSelf && GameSysClip.I.GhostAct.Current.TimeLeftSec < 100){
+            exitGoalText.text = selectedExitGoal1.goalString + "\n" + selectedExitGoal2.goalString;
+            exitGoalMsg.SetActive(true);
+        }
+        if(exitGoalMsg.activeSelf){
+            if(selectedExitGoal1.Evaluate() && selectedExitGoal2.Evaluate()){
+                exitDoor.SetDoor(true);
+            }
         }
 
         if(goalDebugText != null) goalDebugText.text = goalDebugString;
@@ -204,6 +232,12 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
         assignedGoals = new List<Goal>();
         assignedGoals.AddRange(allSharedGoals);
+
+
+        int index = Random.Range(0, possibleExitGoals.Count);
+        selectedExitGoal1 = possibleExitGoals[index];
+        selectedExitGoal2 = possibleExitGoals[ (index + 1) % possibleExitGoals.Count ];
+        
 
         foreach(var phonePlayer in actors){
             var ghost = new GhostPlayer
@@ -260,9 +294,6 @@ public class Goal {
     public string goalString;
     public System.Func<bool> goalAction;
     public bool hasBeenFinished = false;
-    /// <summary>
-    /// spirit index of -1 means it controls the exit.
-    /// </summary>
     public int spiritIndex;
 
 

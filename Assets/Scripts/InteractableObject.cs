@@ -24,6 +24,7 @@ public class InteractableObject : MonoBehaviour
     private SpriteRenderer[] allSprites;
     public SpriteRenderer mainSprite;
     private Color originalSpriteColor;
+    public ExitDoor isTheExitDoor;
 
     public bool hasBeenEnabledByPlayer = false;
 
@@ -111,6 +112,10 @@ public class InteractableObject : MonoBehaviour
         hasBeenEnabledByPlayer = !hasBeenEnabledByPlayer;
         if(tiedToLight != null){
             tiedToLight.enabled = hasBeenEnabledByPlayer;
+        }
+
+        if(isTheExitDoor != null){
+            isTheExitDoor.TryToGoInsideTheDoor();
         }
 
         if(interactionMode == InteractionMode.CrookedPainting){
