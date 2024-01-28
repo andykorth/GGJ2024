@@ -11,7 +11,7 @@ public static class RoomLogic
 		var fig = room.Fig;
 
 		_availableObjs.Clear();
-		_availableObjs.AddRange(room.AllInteractables);
+		_availableObjs.AddRange(room.RoomInteractables);
 
 		var state = new RoomState();
 
@@ -42,7 +42,7 @@ public static class RoomLogic
 		var fig = room.Fig;
 
 		_availableObjs.Clear();
-		_availableObjs.AddRange(room.AllInteractables);
+		_availableObjs.AddRange(room.RoomInteractables);
 
 		var state = new RoomState();
 
