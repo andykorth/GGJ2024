@@ -10,11 +10,11 @@ public class GhostActor : ActorBase
 {
 	public Track<StatusEnum> Status = new();
 
-	public TrackList<Hint> AssignedHints = new();
+	public TrackList<ObjCriteria> AssignedHints = new();
 
-	[Btn(nameof(AddTestHint))]
-	public string TestHintAdder;
-	public void AddTestHint() => AssignedHints.Add(new Hint { Message = TestHintAdder});
+	// [Btn(nameof(AddTestHint))]
+	// public string TestHintAdder;
+	// public void AddTestHint() => AssignedHints.Add(new Hint { Message = TestHintAdder});
 
 	public enum StatusEnum
 	{

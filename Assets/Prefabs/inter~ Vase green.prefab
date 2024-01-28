@@ -1,0 +1,259 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1852817112493076272
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 696635461832015754, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_Name
+      value: inter~ Vase green
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513418714737658706, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513418714737658706, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513418714737658706, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947809476831853665, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947809476831853665, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947809476831853665, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947809476831853665, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947809476831853665, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947809476831853665, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947809476831853665, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947809476831853665, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947809476831853665, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947809476831853665, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_InstanceId
+      value: -831202
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePathHash
+      value: -566503819
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalBounds.m_Center.x
+      value: 0.010274887
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalBounds.m_Center.y
+      value: -0.34063816
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.y
+      value: 0.14570594
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[0].x
+      value: -0.21920538
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[0].y
+      value: -0.4863441
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[1].x
+      value: -0.30825424
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[1].y
+      value: -0.22233105
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[2].x
+      value: 0.32880402
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[2].y
+      value: -0.19493222
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[3].x
+      value: 0.22605562
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_ShapePath.Array.data[3].y
+      value: -0.4794941
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614533666950543312, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_Size.x
+      value: 0.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614533666950543312, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_Size.y
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614533666950543312, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 64e048c4f2aef4d12ae073d27492bf2f, type: 3}
+    - target: {fileID: 5614533666950543312, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_Color.b
+      value: 0.076838315
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614533666950543312, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6320754
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614533666950543312, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Name
+      value: Vase
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: verb
+      value: kick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: interactionMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: interactableType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: interactableColor
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: randomInteractionModeState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].Label
+      value: normal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].Label
+      value: flipped
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].VerbToNext
+      value: flip
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].VerbToNext
+      value: unflip
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].Hates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].Wants.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].Hates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].Wants.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].Hates.Array.data[0]
+      value: The {color} vase is an embarrassment!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].Wants.Array.data[0]
+      value: 'TODO Ghost want: {color} {name} {label}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].Wants.Array.data[1]
+      value: I really like pottery
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].Hates.Array.data[0]
+      value: 'TODO Ghost want: {color} {name} NOT {label}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].Wants.Array.data[0]
+      value: 'TODO Ghost want: {color} {name} {label}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].ExitHates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].ExitWants.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].ExitHates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].ExitWants.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].ExitHates.Array.data[0]
+      value: 'TODO Exit want: {color} {name} NOT {label}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[0].ExitWants.Array.data[0]
+      value: 'TODO Exit want: {color} {name} {label}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].ExitHates.Array.data[0]
+      value: 'TODO Exit want: {color} {name} NOT {label}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
+      propertyPath: Options.Array.data[1].ExitWants.Array.data[0]
+      value: 'TODO Exit want: {color} {name} {label}'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bf55b48be37b44036b5947547737c692, type: 3}

@@ -629,7 +629,7 @@ MonoBehaviour:
       RequiredTypeNames:
       - futz.ActGhost.GhostActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      - Regent.Syncers.TrackList`1[[futz.ActGhost.Hint, Assembly-CSharp, Version=0.0.0.0,
+      - Regent.Syncers.TrackList`1[[ObjCriteria, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null]], Regent, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       RequiredTypeNamesShort:
@@ -637,7 +637,7 @@ MonoBehaviour:
       - TrackList`1
       RequiredTypeHashes:
       - Value: 2247973205
-      - Value: 3298293186
+      - Value: 3986937195
       Cycle: 2
       StageName: UNSURE_WHAT_STAGE
       StageHash:
@@ -942,7 +942,7 @@ MonoBehaviour:
     RequiredTypeNames:
     - futz.ActGhost.GhostActor, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-    - Regent.Syncers.TrackList`1[[futz.ActGhost.Hint, Assembly-CSharp, Version=0.0.0.0,
+    - Regent.Syncers.TrackList`1[[ObjCriteria, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null]], Regent, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     RequiredTypeNamesShort:
@@ -950,7 +950,7 @@ MonoBehaviour:
     - TrackList`1
     RequiredTypeHashes:
     - Value: 2247973205
-    - Value: 3298293186
+    - Value: 3986937195
     Cycle: 2
     StageName: UNSURE_WHAT_STAGE
     StageHash:

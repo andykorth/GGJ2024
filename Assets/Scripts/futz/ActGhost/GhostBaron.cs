@@ -50,9 +50,9 @@ namespace futz.ActGhost
 
 
         [React.Native(UNSURE_WHAT_STAGE, nameof(GhostActor.AssignedHints))]
-        static void React_AssignedHints(GhostActor actor, TrackList<Hint> hints)
+        static void React_AssignedHints(GhostActor actor, TrackList<ObjCriteria> hints)
         {
-	        var hintsString = hints.Current.Join(h => h.Message, "|");
+	        var hintsString = hints.Current.Join(c => c.Hint, "|");
 	        
 	        Act_.PkHints.SendTo(
 		        actor,

@@ -16,6 +16,8 @@ public class StateOption
 {
 	[Header("Config")]
 	public string Label = "?";
+	[Tooltip("verb used while in this state (indicating the NEXT state)")]
+	public string VerbToNext = "poke";
 	// public string Verb = "poke"; // TODO?
 
 	[Header("Ghosts")]
@@ -67,7 +69,6 @@ public class InteractableObject : MonoBehaviour
 
 	[Header("Interact config")] 
 	public string Name = "";
-	public string verb = "poke";
 	public GameObject interactEffectPrefab;
 	public InteractableType interactableType;
 	public InteractableColor interactableColor;
