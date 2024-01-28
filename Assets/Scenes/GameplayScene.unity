@@ -2230,6 +2230,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 276509340369455659, guid: 077b954c58cef6942a76a2d1b4d93531, type: 3}
+      propertyPath: Door
+      value: 
+      objectReference: {fileID: 1924499504}
     - target: {fileID: 5254575460266213871, guid: 077b954c58cef6942a76a2d1b4d93531, type: 3}
       propertyPath: m_Name
       value: Room Manager
@@ -2290,6 +2294,10 @@ PrefabInstance:
     - target: {fileID: 66779414568619804, guid: a1be50cba36be45f7a251bbbd10f2e3c, type: 3}
       propertyPath: m_Name
       value: GhostCharacterFadesIn (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 66779414568619804, guid: a1be50cba36be45f7a251bbbd10f2e3c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9174476053968929501, guid: a1be50cba36be45f7a251bbbd10f2e3c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2505,6 +2513,10 @@ PrefabInstance:
     - target: {fileID: 4595482033058071796, guid: b6a994c5694114f07b7fe5197cdf637f, type: 3}
       propertyPath: m_Name
       value: GhostCharacterFadesIn
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595482033058071796, guid: b6a994c5694114f07b7fe5197cdf637f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2770,6 +2782,10 @@ PrefabInstance:
     - target: {fileID: 4756990255315295605, guid: fd9ab3349847f4104add60f64262226b, type: 3}
       propertyPath: m_Name
       value: GhostCharacterFadesIn (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756990255315295605, guid: fd9ab3349847f4104add60f64262226b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

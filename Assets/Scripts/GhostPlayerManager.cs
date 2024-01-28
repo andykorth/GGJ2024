@@ -6,8 +6,8 @@ using Cysharp.Threading.Tasks;
 using Idealist;
 using Lumberjack;
 using UnityEngine.Serialization;
-using InterType = InteractableObject.InteractableType;
-using InterColor = InteractableObject.InteractableColor;
+using InterType = InteractableType;
+using InterColor = InteractableColor;
 
 public class GhostPlayerManager : Singleton<GhostPlayerManager>
 {
@@ -23,147 +23,144 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 	public TMPro.TMP_Text goalDebugText;
 	public TMPro.TMP_Text exitGoalText;
 
-	public List<GhostPlayer> ghostPlayers;
+	public List<DEPRECATED_GhostPlayer> ghostPlayers;
 
-	public List<Goal> allSharedGoals;
-	public List<Goal> assignedGoals;
-	public List<Goal> possibleExitGoals;
+	public List<DEPRECATED_Goal> allSharedGoals;
+	public List<DEPRECATED_Goal> assignedGoals;
+	public List<DEPRECATED_Goal> possibleExitGoals;
 
-	private Goal selectedExitGoal1, selectedExitGoal2;
+	private DEPRECATED_Goal selectedExitGoal1, selectedExitGoal2;
 
 	public string[] spiritNames;
-
-	public SpriteRenderer[] spiritsToFade;
-	public ExitDoor exitDoor;
 
 	[Header("Room State stuff")] public RoomManager RoomManager;
 
 	public const int SPIRIT_COUNT = 3;
 
-	public void CreateAllGoals()
-	{
-		allSharedGoals = new List<Goal>
-		{
-			new Goal
-			{
-				goalString = "I hate the smell of burning cauldrons.",
-				goalAction = () => MatchesInteraction(InterType.Cauldron) == 0,
-				spiritIndex = 0,
-			},
-			new Goal
-			{
-				goalString = "But I can't stand the dark.",
-				goalAction = () => MatchesInteraction(InterType.Candle) >= 1,
-				spiritIndex = 0,
-			},
-			new Goal
-			{
-				goalString = "Ooooh that vase reminds me of limes!",
-				goalAction = () => MatchesInteraction(InterType.Vase, InterColor.Green) >= 1,
-				spiritIndex = 0,
-			},
-
-
-			new Goal
-			{
-				goalString = "I always loved pottery.",
-				goalAction = () =>
-					MatchesInteraction(InterType.Vase, InterColor.Green) >= 1
-					&& MatchesInteraction(InterType.Vase, InterColor.Purple) >= 1,
-				spiritIndex = 1,
-			},
-			new Goal
-			{
-				goalString = "That blue vase is an embarrassment.",
-				goalAction = () =>
-					MatchesInteraction(InterType.Vase,
-						InterColor.Blue) == 0,
-				spiritIndex = 1,
-			},
-			new Goal
-			{
-				goalString = "I do love blue though!",
-				goalAction = () => MatchesInteraction(InterType.Cauldron, InterColor.Blue) >= 1,
-				spiritIndex = 1,
-			},
-
-
-			new Goal
-			{
-				goalString = "Ewww, purple!",
-				goalAction = () => MatchesInteraction(InterType.Cauldron, InterColor.Purple) <= 0,
-				spiritIndex = 2,
-			},
-			new Goal
-			{
-				goalString = "I didn't know there was a painting of me.",
-				goalAction = () => MatchesInteraction(InterType.Portrait, InterColor.Blue) > 0,
-				spiritIndex = 2,
-			},
-			new Goal
-			{
-				goalString = "These vases are all hideous!",
-				goalAction = () => MatchesInteraction(InterType.Vase) <= 0,
-				spiritIndex = 2,
-			},
-		};
-
-		possibleExitGoals = new List<Goal>
-		{
-			new Goal
-			{
-				goalString = $"Only {spiritNames[0]} can open the exit!",
-				goalAction = () => spiritGoalComplete[0] == spiritGoalCount[0]
-			},
-			new Goal
-			{
-				goalString = $"We need one disordered painting to leave.",
-				goalAction = () => MatchesInteraction(InterType.Portrait, InterColor.Blue) < 2
-			},
-			new Goal
-			{
-				goalString = $"You cannot leave without {spiritNames[1]}!",
-				goalAction = () => spiritGoalComplete[1] == spiritGoalCount[1]
-			},
-			new Goal
-			{
-				goalString = $"The candle on the table will light the way",
-				goalAction = () => MatchesInteraction(InterType.Candle, InterColor.Blue) >= 1
-			},
-			new Goal
-			{
-				goalString = $"Do not unleash {spiritNames[2]}!",
-				goalAction = () => spiritGoalComplete[2] != spiritGoalCount[2]
-			},
-			new Goal
-			{
-				goalString = $"Believe in yourself to open the exit!",
-				goalAction = () => true
-			},
-		};
-	}
-
-	internal int MatchesInteraction(InterType interactionType, InterColor color = InterColor.Any)
-	{
-		int count = 0;
-		foreach (var v in InteractableObject.allInteractables)
-		{
-			bool matchType = v.interactableType == interactionType;
-			bool matchColor = color == InterColor.Any
-			                  || v.interactableColor == color;
-			if (matchType && matchColor && v.hasBeenEnabledByPlayer)
-			{
-				count += 1;
-			}
-		}
-
-		return count;
-	}
+	// public void CreateAllGoals()
+	// {
+	// 	allSharedGoals = new List<DEPRECATED_Goal>
+	// 	{
+	// 		new DEPRECATED_Goal
+	// 		{
+	// 			goalString = "I hate the smell of burning cauldrons.",
+	// 			goalAction = () => MatchesInteraction(InterType.Cauldron) == 0,
+	// 			spiritIndex = 0,
+	// 		},
+	// 		new DEPRECATED_Goal
+	// 		{
+	// 			goalString = "But I can't stand the dark.",
+	// 			goalAction = () => MatchesInteraction(InterType.Candle) >= 1,
+	// 			spiritIndex = 0,
+	// 		},
+	// 		new DEPRECATED_Goal
+	// 		{
+	// 			goalString = "Ooooh that vase reminds me of limes!",
+	// 			goalAction = () => MatchesInteraction(InterType.Vase, InterColor.Green) >= 1,
+	// 			spiritIndex = 0,
+	// 		},
+	//
+	//
+	// 		new DEPRECATED_Goal
+	// 		{
+	// 			goalString = "I always loved pottery.",
+	// 			goalAction = () =>
+	// 				MatchesInteraction(InterType.Vase, InterColor.Green) >= 1
+	// 				&& MatchesInteraction(InterType.Vase, InterColor.Purple) >= 1,
+	// 			spiritIndex = 1,
+	// 		},
+	// 		new DEPRECATED_Goal
+	// 		{
+	// 			goalString = "That blue vase is an embarrassment.",
+	// 			goalAction = () =>
+	// 				MatchesInteraction(InterType.Vase,
+	// 					InterColor.Blue) == 0,
+	// 			spiritIndex = 1,
+	// 		},
+	// 		new DEPRECATED_Goal
+	// 		{
+	// 			goalString = "I do love blue though!",
+	// 			goalAction = () => MatchesInteraction(InterType.Cauldron, InterColor.Blue) >= 1,
+	// 			spiritIndex = 1,
+	// 		},
+	//
+	//
+	// 		new DEPRECATED_Goal
+	// 		{
+	// 			goalString = "Ewww, purple!",
+	// 			goalAction = () => MatchesInteraction(InterType.Cauldron, InterColor.Purple) <= 0,
+	// 			spiritIndex = 2,
+	// 		},
+	// 		new DEPRECATED_Goal
+	// 		{
+	// 			goalString = "I didn't know there was a painting of me.",
+	// 			goalAction = () => MatchesInteraction(InterType.Portrait, InterColor.Blue) > 0,
+	// 			spiritIndex = 2,
+	// 		},
+	// 		new DEPRECATED_Goal
+	// 		{
+	// 			goalString = "These vases are all hideous!",
+	// 			goalAction = () => MatchesInteraction(InterType.Vase) <= 0,
+	// 			spiritIndex = 2,
+	// 		},
+	// 	};
+	//
+	// 	possibleExitGoals = new List<DEPRECATED_Goal>
+	// 	{
+	// 		new DEPRECATED_Goal
+	// 		{
+	// 			goalString = $"Only {spiritNames[0]} can open the exit!",
+	// 			goalAction = () => spiritGoalComplete[0] == spiritGoalCount[0]
+	// 		},
+	// 		new DEPRECATED_Goal
+	// 		{
+	// 			goalString = $"We need one disordered painting to leave.",
+	// 			goalAction = () => MatchesInteraction(InterType.Portrait, InterColor.Blue) < 2
+	// 		},
+	// 		new DEPRECATED_Goal
+	// 		{
+	// 			goalString = $"You cannot leave without {spiritNames[1]}!",
+	// 			goalAction = () => spiritGoalComplete[1] == spiritGoalCount[1]
+	// 		},
+	// 		new DEPRECATED_Goal
+	// 		{
+	// 			goalString = $"The candle on the table will light the way",
+	// 			goalAction = () => MatchesInteraction(InterType.Candle, InterColor.Blue) >= 1
+	// 		},
+	// 		new DEPRECATED_Goal
+	// 		{
+	// 			goalString = $"Do not unleash {spiritNames[2]}!",
+	// 			goalAction = () => spiritGoalComplete[2] != spiritGoalCount[2]
+	// 		},
+	// 		new DEPRECATED_Goal
+	// 		{
+	// 			goalString = $"Believe in yourself to open the exit!",
+	// 			goalAction = () => true
+	// 		},
+	// 	};
+	// }
+	//
+	// internal int MatchesInteraction(InterType interactionType, InterColor color = InterColor.Any)
+	// {
+	// 	int count = 0;
+	// 	foreach (var v in InteractableObject.allInteractables)
+	// 	{
+	// 		bool matchType = v.interactableType == interactionType;
+	// 		bool matchColor = color == InterColor.Any
+	// 		                  || v.interactableColor == color;
+	// 		if (matchType && matchColor && v.hasBeenEnabledByPlayer)
+	// 		{
+	// 			count += 1;
+	// 		}
+	// 	}
+	//
+	// 	return count;
+	// }
 
 	public void Start()
 	{
-		ghostPlayers = new List<GhostPlayer>();
-		CreateAllGoals();
+		ghostPlayers = new List<DEPRECATED_GhostPlayer>();
+		// CreateAllGoals();
 
 		pressPlayToBeginMsg.SetActive(false);
 		needTwoPhonePlayersMsg.SetActive(true);
@@ -181,6 +178,8 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
 		if (Input.GetKeyDown(KeyCode.C))
 		{
+			readyToBegin = false;
+			Player.i.transform.position = Vector3.zero;
 			needTwoPhonePlayersMsg.SetActive(false);
 			pressPlayToBeginMsg.SetActive(false);
 			GameStarted();
@@ -249,19 +248,33 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 	public void AssessRoomStates()
 	{
 		var act = GameSysClip.I.GhostAct.Current;
-		RoomManager.StateToExit.Assess();
+		RoomLogic.UpdateRoomState(RoomManager.StateToExit);
 		// $"check: {RoomManager.StateToExit.PrevCheck}".LgOrange0();
+		
 
 		foreach (var ghost in RoomManager.Ghosts)
 		{
-			ghost.Assess();
-			// $"check: {ghost.PrevCheck}".LgOrange0();
-
-			if (ghost.PrevCheck)
-			{
-				$"SUCCESS for {ghost.Label}".LgOrange0();
-			}
+			if (ghost.IsRescued) continue;
+			
+			RoomLogic.UpdateRoomState(ghost.DesiredRoomState);
+			
+			var percent = ghost.DesiredRoomState.Percent;
+			ghost.SpriteRenderer.color = ghost.SpriteRenderer.color.WithAlpha(percent);
+			
+			if (!ghost.DesiredRoomState.IsMet) continue;
+			
+			$"RESCUED: {ghost.Name}".LgOrange0();
+			ghost.IsRescued = true;
+			RoomManager.UnblockDoor = true;
+			act.GhostsRescued.Change(act.GhostsRescued.Current + 1);
+			ghost.transform.localScale = Vector3.one * 2; // TODO
+			
 		}
+		
+		var door = RoomManager.Door;
+		
+		RoomLogic.UpdateRoomState(RoomManager.StateToExit);
+		door.SetDoor(RoomManager.StateToExit.IsMet, !RoomManager.UnblockDoor);
 
 		act.DebugString.Change(RoomManager.AllCriteria.Join(
 			c => c.PrevCheck ? $"YES {c.Hint}" : $"NO {c.Hint}",
@@ -269,48 +282,48 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 		);
 	}
 
-	public void EvaluateGoals()
-	{
-		if (assignedGoals == null) return;
-
-		goalDebugString = "Debugging String:\n";
-
-		foreach (Goal goal in assignedGoals)
-		{
-			spiritGoalCount[goal.spiritIndex] += 1;
-			bool b = goal.Evaluate();
-			goalDebugString += (b ? "<color=green>YES" : "<color=red>NO") + $"</color> spirit {goal.spiritIndex}: {goal.goalString}\n";
-			if (b)
-			{
-				spiritGoalComplete[goal.spiritIndex] += 1;
-			}
-		}
-
-		// update spirits:
-		for (int i = 0; i < SPIRIT_COUNT; i++)
-		{
-			Color c = spiritsToFade[i].color;
-			float alpha = spiritGoalComplete[i] / (float)spiritGoalCount[i];
-			spiritsToFade[i].color = c.WithAlpha(alpha);
-			// Debug.Log($"At {Time.time} spirit {i} = {alpha}");
-		}
-
-		if (!exitGoalMsg.activeSelf && GameSysClip.I.GhostAct.Current.TimeLeftSec < 100)
-		{
-			exitGoalText.text = selectedExitGoal1.goalString + "\n" + selectedExitGoal2.goalString;
-			exitGoalMsg.SetActive(true);
-		}
-
-		if (exitGoalMsg.activeSelf)
-		{
-			if (selectedExitGoal1.Evaluate() && selectedExitGoal2.Evaluate())
-			{
-				exitDoor.SetDoor(true);
-			}
-		}
-
-		if (goalDebugText != null) goalDebugText.text = goalDebugString;
-	}
+	// public void EvaluateGoals()
+	// {
+	// 	if (assignedGoals == null) return;
+	//
+	// 	goalDebugString = "Debugging String:\n";
+	//
+	// 	foreach (DEPRECATED_Goal goal in assignedGoals)
+	// 	{
+	// 		spiritGoalCount[goal.spiritIndex] += 1;
+	// 		bool b = goal.Evaluate();
+	// 		goalDebugString += (b ? "<color=green>YES" : "<color=red>NO") + $"</color> spirit {goal.spiritIndex}: {goal.goalString}\n";
+	// 		if (b)
+	// 		{
+	// 			spiritGoalComplete[goal.spiritIndex] += 1;
+	// 		}
+	// 	}
+	//
+	// 	// update spirits:
+	// 	for (int i = 0; i < SPIRIT_COUNT; i++)
+	// 	{
+	// 		Color c = spiritsToFade[i].color;
+	// 		float alpha = spiritGoalComplete[i] / (float)spiritGoalCount[i];
+	// 		spiritsToFade[i].color = c.WithAlpha(alpha);
+	// 		// Debug.Log($"At {Time.time} spirit {i} = {alpha}");
+	// 	}
+	//
+	// 	if (!exitGoalMsg.activeSelf && GameSysClip.I.GhostAct.Current.TimeLeftSec < 100)
+	// 	{
+	// 		exitGoalText.text = selectedExitGoal1.goalString + "\n" + selectedExitGoal2.goalString;
+	// 		exitGoalMsg.SetActive(true);
+	// 	}
+	//
+	// 	if (exitGoalMsg.activeSelf)
+	// 	{
+	// 		if (selectedExitGoal1.Evaluate() && selectedExitGoal2.Evaluate())
+	// 		{
+	// 			exitDoor.SetDoor(true);
+	// 		}
+	// 	}
+	//
+	// 	if (goalDebugText != null) goalDebugText.text = goalDebugString;
+	// }
 
 
 	public void GameStarted()
@@ -324,48 +337,14 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 		GhostLogic.BeginRoom(GameSysClip.I.GhostAct.Current).Forget();
 
 		var actors = GameSysClip.I.GhostAct.Current.Actors.Current;
-
-		ghostPlayers = new List<GhostPlayer>();
-		// int goalsPerPlayer = (int)Mathf.Ceil(9.0f / actors.Count);
-
-		assignedGoals = new List<Goal>();
-		assignedGoals.AddRange(allSharedGoals);
-
-
-		// int index = Random.Range(0, possibleExitGoals.Count);
-		// selectedExitGoal1 = possibleExitGoals[index];
-		// selectedExitGoal2 = possibleExitGoals[(index + 1) % possibleExitGoals.Count];
-
-		// foreach (var phonePlayer in actors)
-		// {
-		// 	var ghost = new GhostPlayer
-		// 	{
-		// 		name = phonePlayer.Nickname,
-		// 		actor = phonePlayer
-		// 	};
-		//
-		// 	ghost.ClearHints();
-		//
-		// 	for (int i = 0; i < goalsPerPlayer; i++)
-		// 	{
-		// 		
-		// 		if (allSharedGoals.Count > 0)
-		// 		{
-		// 			var goal = allSharedGoals[Random.Range(0, allSharedGoals.Count)];
-		// 			ghost.AssignGoal(goal);
-		// 			allSharedGoals.Remove(goal);
-		// 		}
-		// 	}
-		//
-		// 	ghostPlayers.Add(ghost);
-		// }
-
 		var allCriteria = new List<ObjCriteria>(RoomManager.AllCriteria);
 		
 		foreach (var phonePlayer in actors)
 		{
 			phonePlayer.AssignedHints.Clear();
 		}
+		
+		if (actors.Count == 0) return;
 		
 		var playerIndex = 0;
 		while (allCriteria.Count > 0)
@@ -379,32 +358,17 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 	}
 }
 
-public class GhostPlayer
+public class DEPRECATED_GhostPlayer
 {
 	public string name;
 	public int goalsComplete = 0;
-	public List<Goal> activeGoals = new List<Goal>();
+	public List<DEPRECATED_Goal> activeGoals = new List<DEPRECATED_Goal>();
 	internal GhostActor actor;
 
 	public override string ToString() => $"{name} score: {goalsComplete}";
-
-	// internal void AssignGoal(Goal goal)
-	// {
-	// 	activeGoals.Add(goal);
-	// 	var hint = new Hint();
-	// 	hint.Message = GhostPlayerManager.i.spiritNames[goal.spiritIndex] + ": " + goal.goalString;
-	// 	Debug.Log("Assign hint to " + this.name + ": " + hint.Message);
-	//
-	// 	actor.AssignedHints.Add(hint);
-	// }
-	//
-	// internal void ClearHints()
-	// {
-	// 	actor.AssignedHints.Clear();
-	// }
 }
 
-public class Goal
+public class DEPRECATED_Goal
 {
 	public string goalString;
 	public System.Func<bool> goalAction;
