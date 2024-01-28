@@ -75,10 +75,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
             new Goal {
                 goalString = "Ewww, purple!",
-                goalAction = () => InteractableObject.allInteractables
-                    .Where( (a) => a.interactableType == InteractableObject.InteractableType.Vase )
-                    .Where( a => a.interactableColor != InteractableObject.InteractableColor.Purple )
-                    .All( a => a.hasBeenEnabledByPlayer ),
+                goalAction = () => MatchesInteraction(InteractableObject.InteractableType.Cauldron, InteractableObject.InteractableColor.Purple) <= 0,
                 spiritIndex = 2,
             },
             new Goal {
@@ -88,9 +85,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
             },
             new Goal {
                 goalString = "These vases are all hideous!",
-                goalAction = () => InteractableObject.allInteractables
-                    .Where( (a) => a.interactableType == InteractableObject.InteractableType.Vase )
-                    .All( a => a.hasBeenEnabledByPlayer ),
+                goalAction = () => MatchesInteraction(InteractableObject.InteractableType.Vase) <= 0,
                 spiritIndex = 2,
             },
 
