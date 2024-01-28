@@ -134,10 +134,10 @@ namespace futz.ActGhost
 
 			Log($"  NEW ROOM:      <b>TODO</b>".LgOrange(skipPrefix: true));
 
-			AssignHints(act);
+			// AssignTestHints(act);
 		}
 
-		public static void AssignHints(GhostActivity act)
+		public static void AssignTestHints(GhostActivity act)
 		{
 			var fig = act.Fig;
 
