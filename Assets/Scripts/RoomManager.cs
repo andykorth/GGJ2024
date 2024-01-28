@@ -8,23 +8,51 @@ using UnityEngine.Serialization;
 
 public class RoomManager : MonoBehaviour
 {
-	[Header("Config")] public GhostFig Fig;
+	[Header("Config")] 
+	public GhostFig Fig;
+	public List<InteractableObject> PossibleWallObjs = new();
+	public List<InteractableObject> PossibleFloorObjs = new();
+	public List<Transform> PossibleWallSpawns = new();
+	public List<Transform> PossibleFloorSpawns = new();
 
 	[Header("State")] public RoomState StateToExit;
 	public List<RoomState> Ghosts = new();
 
 	public List<ObjCriteria> AllCriteria = new();
 
-	public List<InteractableObject> AllInteractables = new();
+	public List<InteractableObject> RoomInteractables = new();
 
 	public void CreateRoom()
 	{
 		var act = GameSysClip.I.GhostAct.Current;
 		var fig = Fig;
+		
+		RoomInteractables.Clear();
 
-		// TODO: gen interactables
-		// AllInteractables = InteractableObject.allInteractables;
+		foreach (var wall in PossibleWallObjs) wall.gameObject.SetActive(false);
+		foreach (var floor in PossibleFloorObjs) floor.gameObject.SetActive(false);
 
+		var availableWallObjs = new List<InteractableObject>(PossibleWallObjs);
+		var availableFloorObjs = new List<InteractableObject>(PossibleFloorObjs);
+		var availableWallSpawns = new List<Transform>(PossibleWallSpawns);
+		var availableFloorSpawns = new List<Transform>(PossibleFloorSpawns);
+
+		for (var i = 0; i < fig.NumOfWallObjs; i++)
+		{
+			var interactable = availableWallObjs.GrabRandom();
+			interactable.transform.position = availableWallSpawns.GrabRandom().position;
+			interactable.gameObject.SetActive(true);
+			RoomInteractables.Add(interactable);
+		}
+		
+		for (var i = 0; i < fig.NumOfFloorObjs; i++)
+		{
+			var interactable = availableFloorObjs.GrabRandom();
+			interactable.transform.position = availableFloorSpawns.GrabRandom().position;
+			interactable.gameObject.SetActive(true);
+			RoomInteractables.Add(interactable);
+		}
+		
 
 		Ghosts.Clear();
 		AllCriteria.Clear();

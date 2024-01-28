@@ -15,6 +15,8 @@ public class GhostFig : ScriptableObject
 	public float TimerSlowMulti = .5f;
 
 	[Header("Room Gen")]
+	public int NumOfWallObjs = 2;
+	public int NumOfFloorObjs = 6;
 	public float WantedChance = .7f;
 	public int NumOfGhosts = 3;
 	public int GhostOptions = 3;
