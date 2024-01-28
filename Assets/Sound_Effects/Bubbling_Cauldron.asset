@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fbe1d18042343b7b43812981b3ee5da, type: 3}
-  m_Name: New Sonic Sfx
+  m_Name: Bubbling_Cauldron
   m_EditorClassIdentifier: 
   MixerGroup: {fileID: 0}
-  Clips: []
+  Clips:
+  - {fileID: 8300000, guid: bf6de808c0fd40d41a47dbfa5ff16e85, type: 3}
   PitchDeviation: 0.1
   Volume: 1
   Loop: 0
