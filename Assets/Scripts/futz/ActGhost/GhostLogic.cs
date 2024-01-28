@@ -48,7 +48,8 @@ namespace futz.ActGhost
 			{
 				case Phase.UNINITIALIZED: return;
 				case Phase.WAITING_TO_START:
-				Log("PHASE WIASTING TOP START");
+					Log("PHASE waiting to START");
+					actor.AssignedHints.Add(new Hint{Message = "Waiting for others..."});
 					GhostPlayerManager.i.readyToBegin = act.Actors.Count >= fig.MinActorCount;
 					return;
 				case Phase.ROUND_INTRO: return;
