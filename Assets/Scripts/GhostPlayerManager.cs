@@ -271,7 +271,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 		{
 			spiritGoalCount[goal.spiritIndex] += 1;
 			bool b = goal.Evaluate();
-			goalDebugString += (b ? "YES" : "NO") + $" spirit {goal.spiritIndex}: {goal.goalString}\n";
+			goalDebugString += (b ? "<color=green>YES" : "<color=red>NO") + $"</color> spirit {goal.spiritIndex}: {goal.goalString}\n";
 			if (b)
 			{
 				spiritGoalComplete[goal.spiritIndex] += 1;
