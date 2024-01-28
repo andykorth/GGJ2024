@@ -71,7 +71,7 @@ public class InteractableObject : MonoBehaviour
         }
 
         if(tiedToLight != null){
-            tiedToLight.enabled = !hasBeenEnabledByPlayer;
+            tiedToLight.enabled = hasBeenEnabledByPlayer;
         }
     }
 
@@ -110,7 +110,7 @@ public class InteractableObject : MonoBehaviour
 
         hasBeenEnabledByPlayer = !hasBeenEnabledByPlayer;
         if(tiedToLight != null){
-            tiedToLight.enabled = !hasBeenEnabledByPlayer;
+            tiedToLight.enabled = hasBeenEnabledByPlayer;
         }
 
         if(interactionMode == InteractionMode.CrookedPainting){
@@ -127,6 +127,11 @@ public class InteractableObject : MonoBehaviour
             this.AddTween(0.7f, (a) => {
                 transform.GetChild(0).rotation = Quaternion.SlerpUnclamped(original, target, Mathfx.Berp(0, 1, a));
             });
+        }else if (interactionMode == InteractionMode.SwapToActivatedSprite){
+            if(hasBeenEnabledByPlayer)
+                mainSprite.sprite = spriteWhenActivated;
+            else
+                mainSprite.sprite = originalSprite;
         }
 
     }

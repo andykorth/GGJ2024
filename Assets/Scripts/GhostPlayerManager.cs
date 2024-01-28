@@ -56,10 +56,9 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
             new Goal {
                 goalString = "I always loved pottery.",
-                goalAction = () => InteractableObject.allInteractables
-                    .Where( (a) => a.interactableType == InteractableObject.InteractableType.Vase )
-                    .Where( a => a.interactableColor != InteractableObject.InteractableColor.Blue )
-                    .All( a => a.hasBeenEnabledByPlayer ),
+                goalAction = () => 
+                    MatchesInteraction(InteractableObject.InteractableType.Vase, InteractableObject.InteractableColor.Green) >= 1
+                 && MatchesInteraction(InteractableObject.InteractableType.Vase, InteractableObject.InteractableColor.Purple) >= 1,
                 spiritIndex = 1,
             },
             new Goal {
