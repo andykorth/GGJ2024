@@ -534,11 +534,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].Hates.Array.data[0]
-      value: 'TODO Ghost want: {color} {name} NOT {label}'
+      value: That {color} {name} smells great when it's boiling.
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].Wants.Array.data[0]
-      value: 'TODO Ghost want: {color} {name} {label}'
+      value: Make sure that {color} {name} is off!
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].ExitHates.Array.size
@@ -558,19 +558,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].ExitHates.Array.data[0]
-      value: 'TODO Exit want: {color} {name} NOT {label}'
+      value: Cool the gruel in the {color} {name} and you shall be set free.
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].ExitWants.Array.data[0]
-      value: 'TODO Exit want: {color} {name} {label}'
+      value: The contents of {color} {name} must boil if you no longer want to toil.
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].ExitHates.Array.data[0]
-      value: 'TODO Exit want: {color} {name} NOT {label}'
+      value: The contents of {color} {name} must boil if you no longer want to toil.
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].ExitWants.Array.data[0]
-      value: 'TODO Exit want: {color} {name} {label}'
+      value: Cool the gruel in the {color} {name} and you shall be set free.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
