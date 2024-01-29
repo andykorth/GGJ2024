@@ -28,8 +28,6 @@ function InfoPanel(props) {
     var phaseTitle = (0, Track_1.useTrack)(act.PhaseTitle);
     var phaseDesc = (0, Track_1.useTrack)(act.PhaseDesc);
     return ((0, preact_1.h)(W_InfoPanel, null,
-        (0, preact_1.h)(L_PhaseTitle, { text: phaseTitle }),
-        (0, preact_1.h)(L_PhaseDesc, { text: phaseDesc }),
         (0, preact_1.h)(_tyle_1.Grow, null),
         (0, preact_1.h)(GhostActorList_1.GhostActorList, { act: act }),
         (0, preact_1.h)(DebugView, { act: act })));
@@ -57,8 +55,8 @@ function EndScreen(props) {
     var rescued = (0, Track_1.useTrack)(act.GhostsRescued);
     var successfullyEscaped = act.SuccessfullyEscaped;
     var text = successfullyEscaped
-        ? "You escaped! You rescued ".concat(rescued, " ghosts.")
-        : "You (and ".concat(rescued, " ghosts) were consumed by the darkness.");
+        ? "You escaped! You rescued ".concat(rescued, " ghosts. \n \n'C' to continue.")
+        : "You (and ".concat(rescued, " ghosts) were consumed by the darkness.  \nDang. \n\n'C' to continue.");
     return ((0, preact_1.h)(W_EndScreen, null,
         (0, preact_1.h)(L_End, { text: text })));
 }

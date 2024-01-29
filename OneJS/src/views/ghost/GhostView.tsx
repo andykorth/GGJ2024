@@ -39,8 +39,8 @@ function InfoPanel(props: P_GhostView) {
 	
 	return (
 		<W_InfoPanel>
-			<L_PhaseTitle text={phaseTitle}/>
-			<L_PhaseDesc text={phaseDesc}/>
+			{/*<L_PhaseTitle text={phaseTitle}/>*/}
+			{/*<L_PhaseDesc text={phaseDesc}/>*/}
 			<Grow/>
 			<GhostActorList act={act}/>
 			<DebugView act={act}/>
@@ -132,8 +132,8 @@ function EndScreen(props: P_GhostView) {
 	const successfullyEscaped = act.SuccessfullyEscaped;
 	
 	const text = successfullyEscaped
-		? `You escaped! You rescued ${rescued} ghosts.`
-		: `You (and ${rescued} ghosts) were consumed by the darkness.`;
+		? `You escaped! You rescued ${rescued} ghosts. \n \n'C' to continue.`
+		: `You (and ${rescued} ghosts) were consumed by the darkness.  \nDang. \n\n'C' to continue.`;
 	
 	
 	return (

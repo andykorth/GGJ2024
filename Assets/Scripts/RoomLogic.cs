@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Idealist;
+using Swoonity.CSharp;
 using uRandom = UnityEngine.Random;
 
 public static class RoomLogic
@@ -25,11 +26,11 @@ public static class RoomLogic
 			room.Percent = numMet / (float)room.Criteria.Count;
 		}
 	}
-	
-	
+
+
 	static List<InteractableObject> _availableObjs = new();
 
-	public static RoomState GenerateGhostDesire(RoomManager room)
+	public static RoomState GenerateGhostDesire(RoomManager room, string name)
 	{
 		var fig = room.Fig;
 
@@ -37,6 +38,7 @@ public static class RoomLogic
 		_availableObjs.AddRange(room.RoomInteractables);
 
 		var state = new RoomState();
+		state.Name = name;
 
 		for (var i = 0; i < fig.GhostOptions; i++)
 		{
@@ -50,7 +52,8 @@ public static class RoomLogic
 				crit.StateOption,
 				crit.IsWanted
 					? crit.StateOption.Wants.GetRandom()
-					: crit.StateOption.Hates.GetRandom()
+					: crit.StateOption.Hates.GetRandom(),
+				$"{name}: "
 			);
 
 			state.Criteria.Add(crit);
@@ -68,6 +71,7 @@ public static class RoomLogic
 		_availableObjs.AddRange(room.RoomInteractables);
 
 		var state = new RoomState();
+		state.Name = "Exit";
 
 		for (var i = 0; i < fig.ExitOptions; i++)
 		{
@@ -94,8 +98,14 @@ public static class RoomLogic
 	const string STR_OBJ_NAME = "{name}";
 	const string STR_OPTION_LABEL = "{label}";
 
-	public static string MakeHintString(InteractableObject interactableObject, StateOption stateOption, string str) =>
+	public static string MakeHintString(
+		InteractableObject interactableObject,
+		StateOption stateOption,
+		string str,
+		string prefix = ""
+	) =>
 		str
+			.Prefix(prefix)
 			// .Replace(STR_COLOR, interactableObject.interactableColor.ToString().ToLower())
 			.Replace(STR_COLOR, interactableObject.ColorText.ToLower())
 			.Replace(STR_OBJ_NAME, interactableObject.Name.ToLower())

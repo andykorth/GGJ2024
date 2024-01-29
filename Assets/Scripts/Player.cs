@@ -21,6 +21,11 @@ public class Player : Singleton<Player>
 
 	void LateUpdate()
 	{
+		var act = GameSysClip.I.GhostAct.Current;
+		if (!act) return;
+
+		if (act.Phase.Current != GhostActivity.PhaseEnum.PLAYING_ROOM) return;
+		
 		var target = new Vector2(
 				Input.GetAxis("Horizontal"),
 				Input.GetAxis("Vertical"))

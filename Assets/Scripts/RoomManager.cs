@@ -69,6 +69,7 @@ public class RoomManager : MonoBehaviour
 		
 		var availableGhostPrefabs = new List<GameObject>(fig.GhostPrefabs);
 		var availableGhostSpawns = new List<Transform>(PossibleGhostSpawns);
+		var availableGhostNames = new List<string>(fig.GhostNames);
 
 		AllCriteria.Clear();
 
@@ -83,9 +84,10 @@ public class RoomManager : MonoBehaviour
 			).GetComponent<Ghost>();
 			ghost.transform.position = availableGhostSpawns.GrabRandom().position;
 			
-			ghost.Name = $"Ghost {i}";
-			ghost.DesiredRoomState = RoomLogic.GenerateGhostDesire(this);
+			ghost.Name = availableGhostNames.GrabRandom();
+			ghost.DesiredRoomState = RoomLogic.GenerateGhostDesire(this, ghost.Name);
 			AllCriteria.AddRange(ghost.DesiredRoomState.Criteria);
+			ghost.gameObject.name = ghost.Name;
 			
 			Ghosts.Add(ghost);
 		}
@@ -98,6 +100,7 @@ public class RoomManager : MonoBehaviour
 [Serializable]
 public class RoomState
 {
+	public string Name;
 	public List<ObjCriteria> Criteria = new();
 	public bool IsMet;
 	public float Percent;

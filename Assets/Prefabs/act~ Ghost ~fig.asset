@@ -17,6 +17,28 @@ MonoBehaviour:
   RoomTimeSec: 120
   TimerSlowThreshold: 10
   TimerSlowMulti: 0.5
+  GhostNames:
+  - Mortimer
+  - Stanley
+  - Reginald
+  - Herb
+  - Harrison
+  - Washington
+  - Abraham
+  - Napeleon
+  - Samuel
+  - Mildred
+  - Rose
+  - Margot
+  - Merideth
+  - Pamela
+  - Gertrude
+  - Yvette
+  - Cheryl
+  - Loraine
+  - Lizzabeth
+  - Jasmine
+  - Juniper
   NumOfWallObjs: 2
   NumOfFloorObjs: 6
   WantedChance: 0.7

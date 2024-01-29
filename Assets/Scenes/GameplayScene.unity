@@ -2106,6 +2106,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1829533504 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3510358845074104169, guid: 239e42bfc874e4a80be28666b5c7aaab, type: 3}
+  m_PrefabInstance: {fileID: 1829533499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1871326953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2950,6 +2955,10 @@ PrefabInstance:
       propertyPath: goalDebugText
       value: 
       objectReference: {fileID: 1829533502}
+    - target: {fileID: 5485184607237011676, guid: 627f9df5520ff4d28b981add2fc41a87, type: 3}
+      propertyPath: InstructionsObj
+      value: 
+      objectReference: {fileID: 1829533504}
     - target: {fileID: 5485184607237011676, guid: 627f9df5520ff4d28b981add2fc41a87, type: 3}
       propertyPath: pressPlayToBeginMsg
       value: 

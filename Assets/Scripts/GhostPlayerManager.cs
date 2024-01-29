@@ -21,6 +21,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 	public TMPro.TMP_Text ghostText;
 	public TMPro.TMP_Text goalDebugText;
 	public TMPro.TMP_Text exitGoalText;
+	public GameObject InstructionsObj;
 
 	public List<DEPRECATED_GhostPlayer> ghostPlayers;
 
@@ -328,6 +329,8 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
 	public void GameStarted()
 	{
+		InstructionsObj.SetActive(false);
+		
 		RoomManager.CreateRoom();
 
 		readyToBegin = false;
