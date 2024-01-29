@@ -146,7 +146,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 75e05d0ee8cb99c4b8a0a86034b0fdc0, type: 3}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].VerbToNext
-      value: taunt
+      value: beckon
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].VerbToNext
@@ -182,19 +182,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Hates.Array.data[0]
-      value: 'TODO Ghost want: {color} {name} NOT {label}'
+      value: I love creepy spiders.
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Wants.Array.data[0]
-      value: 'TODO Ghost want: {color} {name} {label}'
+      value: Get rid of that spider!
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].Hates.Array.data[0]
-      value: 'TODO Ghost want: {color} {name} NOT {label}'
+      value: Omg a spider! AHHHH!
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].Wants.Array.data[0]
-      value: 'TODO Ghost want: {color} {name} {label}'
+      value: I had a pet spider when I was little.
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].ExitHates.Array.size
@@ -214,19 +214,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].ExitHates.Array.data[0]
-      value: 'TODO Exit want: {color} {name} NOT {label}'
+      value: To Exit, reveal the spider!
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].ExitWants.Array.data[0]
-      value: 'TODO Exit want: {color} {name} {label}'
+      value: The exit is afraid of spiders.
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].ExitHates.Array.data[0]
-      value: 'TODO Exit want: {color} {name} NOT {label}'
+      value: The exit won't open if there's creepy crawlies around!
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].ExitWants.Array.data[0]
-      value: 'TODO Exit want: {color} {name} {label}'
+      value: The exit likes spiders.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
