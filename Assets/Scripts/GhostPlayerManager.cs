@@ -330,7 +330,6 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 	{
 		RoomManager.CreateRoom();
 
-
 		readyToBegin = false;
 		Player.i.gameObject.SetActive(true);
 		pressPlayToBeginMsg.SetActive(false);
@@ -355,6 +354,8 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 			playerIndex++;
 			if (playerIndex >= actors.Count) playerIndex = 0;
 		}
+
+		AssessRoomStates();
 	}
 }
 

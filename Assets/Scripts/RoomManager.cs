@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using Foundational;
 using futz.ActGhost;
 using Idealist;
-using Swoonity.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class RoomManager : MonoBehaviour
 {
