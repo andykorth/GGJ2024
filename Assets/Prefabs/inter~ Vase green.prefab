@@ -210,11 +210,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Hates.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Wants.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].Hates.Array.size
@@ -230,7 +230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Hates.Array.data[1]
-      value: My nemisis made that stupid {color} {name}.
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Wants.Array.data[0]
@@ -238,7 +238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Wants.Array.data[1]
-      value: I think I might have made that {color} {name}.
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].Hates.Array.data[0]
