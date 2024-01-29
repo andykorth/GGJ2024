@@ -190,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].Label
-      value: flipped
+      value: tipped
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].VerbToNext
@@ -198,7 +198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].VerbToNext
-      value: tip
+      value: fix
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].SfxInteract
@@ -242,11 +242,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].Hates.Array.data[0]
-      value: 'TODO Ghost want: {color} {name} NOT {label}'
+      value: '{label} {color} {name}? Absurd!'
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].Wants.Array.data[0]
-      value: 'TODO Ghost want: {color} {name} {label}'
+      value: You know what's cool? {label} {color} {name}!
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].ExitHates.Array.size
@@ -266,19 +266,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].ExitHates.Array.data[0]
-      value: 'TODO Exit want: {color} {name} NOT {label}'
+      value: To exit, the {color} {name} CANNOT be {label}.
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].ExitWants.Array.data[0]
-      value: 'TODO Exit want: {color} {name} {label}'
+      value: To exit, the {color} {name} must be {label}.
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].ExitHates.Array.data[0]
-      value: 'TODO Exit want: {color} {name} NOT {label}'
+      value: To exit, the {color} {name} CANNOT be {label}.
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].ExitWants.Array.data[0]
-      value: 'TODO Exit want: {color} {name} {label}'
+      value: To exit, the {color} {name} must be {label}.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
