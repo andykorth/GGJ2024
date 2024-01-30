@@ -62,6 +62,7 @@ MonoBehaviour:
   - {fileID: 1160931559147425978, guid: 0a12021106c80744f9a0853cc09d8f86, type: 3}
   - {fileID: 1160931559147425978, guid: 619c2e1ce1ec99c4bad74d9473560367, type: 3}
   - {fileID: 5017708859137192792, guid: c14d38bdd9c7f2d4ca1bc91a920742ec, type: 3}
+  - {fileID: 1160931559147425978, guid: a79cb80ae998ce24c9ef13c15bba6496, type: 3}
   GhostPrefabs:
   - {fileID: 5501528592465054408, guid: 40814836d4d72124a9ea8dde1651fac1, type: 3}
   - {fileID: 5501528592465054408, guid: 37ed60e01d4a5b846a4b6c7b59c27b9a, type: 3}
