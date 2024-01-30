@@ -22,6 +22,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 	public TMPro.TMP_Text goalDebugText;
 	public TMPro.TMP_Text exitGoalText;
 	public GameObject InstructionsObj;
+	public Transform GhostFlyTarget;
 
 	public List<DEPRECATED_GhostPlayer> ghostPlayers;
 
@@ -251,29 +252,35 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 		var act = GameSysClip.I.GhostAct.Current;
 		RoomLogic.UpdateRoomState(RoomManager.StateToExit);
 		// $"check: {RoomManager.StateToExit.PrevCheck}".LgOrange0();
-		
+
 
 		foreach (var ghost in RoomManager.Ghosts)
 		{
 			if (ghost.IsRescued) continue;
-			
+
 			RoomLogic.UpdateRoomState(ghost.DesiredRoomState);
-			
+
 			var percent = ghost.DesiredRoomState.Percent;
 			ghost.SpriteRenderer.color = ghost.SpriteRenderer.color.WithAlpha(percent);
-			
+
 			if (!ghost.DesiredRoomState.IsMet) continue;
-			
+
 			$"RESCUED: {ghost.Name}".LgOrange0();
 			ghost.IsRescued = true;
 			RoomManager.UnblockDoor = true;
 			act.GhostsRescued.Change(act.GhostsRescued.Current + 1);
 			ghost.transform.localScale = Vector3.one * 2; // TODO
-			
+
+			var startPos = ghost.transform.position;
+			var endPos = GhostFlyTarget.position;
+
+			this.AddTween(2f,
+				a => ghost.transform.position = Vector3.Lerp(startPos, endPos, a)
+			);
 		}
-		
+
 		var door = RoomManager.Door;
-		
+
 		RoomLogic.UpdateRoomState(RoomManager.StateToExit);
 		door.SetDoor(RoomManager.StateToExit.IsMet, !RoomManager.UnblockDoor);
 
@@ -330,7 +337,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 	public void GameStarted()
 	{
 		InstructionsObj.SetActive(false);
-		
+
 		RoomManager.CreateRoom();
 
 		readyToBegin = false;
@@ -340,14 +347,14 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
 		var actors = GameSysClip.I.GhostAct.Current.Actors.Current;
 		var allCriteria = new List<ObjCriteria>(RoomManager.AllCriteria);
-		
+
 		foreach (var phonePlayer in actors)
 		{
 			phonePlayer.AssignedHints.Clear();
 		}
-		
+
 		if (actors.Count == 0) return;
-		
+
 		var playerIndex = 0;
 		while (allCriteria.Count > 0)
 		{

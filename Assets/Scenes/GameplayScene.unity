@@ -3443,6 +3443,14 @@ PrefabInstance:
       propertyPath: spiritsToFade.Array.data[3]
       value: 
       objectReference: {fileID: 154116445}
+    - target: {fileID: 8785504631937966073, guid: 627f9df5520ff4d28b981add2fc41a87, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785504631937966073, guid: 627f9df5520ff4d28b981add2fc41a87, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
