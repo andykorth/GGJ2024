@@ -11,7 +11,7 @@ const version: VersionNumber = {
 	Hour: 'TODO',
 	Minute: 'TODO',
 	Version: 'TODO',
-	NameAndVersion: 'TODO',
+	NameAndVersion: 'GGJ2023',
 	
 };
 

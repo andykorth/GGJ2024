@@ -6,7 +6,6 @@ using Cysharp.Threading.Tasks;
 using Idealist;
 using Lumberjack;
 using Swoonity.CSharp;
-using UnityEngine.Serialization;
 
 public class GhostPlayerManager : Singleton<GhostPlayerManager>
 {
@@ -170,7 +169,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 		Player.i.gameObject.SetActive(false);
 	}
 
-	private float timeTilUpdate = 1.0f;
+	private float timeTilUpdate = .3f;
 
 	public void Update()
 	{
@@ -217,7 +216,7 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 			AssessRoomStates();
 			// EvaluateGoals();
 
-			timeTilUpdate = 1.0f;
+			timeTilUpdate = .3f;
 		}
 
 
@@ -256,82 +255,45 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 
 		foreach (var ghost in RoomManager.Ghosts)
 		{
-			if (ghost.IsRescued) continue;
+			if (ghost.IsRescued)
+			{
+				ghost.SpriteRenderer.color = ghost.SpriteRenderer.color.WithAlpha(1f);
+				continue;
+			}
 
 			RoomLogic.UpdateRoomState(ghost.DesiredRoomState);
 
 			var percent = ghost.DesiredRoomState.Percent;
-			ghost.SpriteRenderer.color = ghost.SpriteRenderer.color.WithAlpha(percent);
+			// ghost.SpriteRenderer.color = ghost.SpriteRenderer.color.WithAlpha(percent);
+			ghost.SpriteRenderer.color = ghost.SpriteRenderer.color
+				.WithAlpha(percent * .2f + .15f);
 
 			if (!ghost.DesiredRoomState.IsMet) continue;
 
 			$"RESCUED: {ghost.Name}".LgOrange0();
 			ghost.IsRescued = true;
-			RoomManager.UnblockDoor = true;
 			act.GhostsRescued.Change(act.GhostsRescued.Current + 1);
-			ghost.transform.localScale = Vector3.one * 2; // TODO
+			// ghost.transform.localScale = Vector3.one * 2; // TODO
+			ghost.SpriteRenderer.color.WithAlpha(1f);
 
 			var startPos = ghost.transform.position;
 			var endPos = GhostFlyTarget.position;
 
-			this.AddTween(2f,
-				a => ghost.transform.position = Vector3.Lerp(startPos, endPos, a)
-			);
+			// this.AddTween(2f,
+			// 	a => ghost.transform.position = Vector3.Lerp(startPos, endPos, a)
+			// );
 		}
 
 		var door = RoomManager.Door;
 
 		RoomLogic.UpdateRoomState(RoomManager.StateToExit);
-		door.SetDoor(RoomManager.StateToExit.IsMet, !RoomManager.UnblockDoor);
+		door.SetDoor(RoomManager.StateToExit.IsMet, act.GhostsRescued.Current < act.Fig.GhostsNeededToExit);
 
 		act.DebugString.Change(RoomManager.AllCriteria.Join(
 			c => c.PrevCheck ? $"YES {c.Hint}" : $"NO {c.Hint}",
 			"\n")
 		);
 	}
-
-	// public void EvaluateGoals()
-	// {
-	// 	if (assignedGoals == null) return;
-	//
-	// 	goalDebugString = "Debugging String:\n";
-	//
-	// 	foreach (DEPRECATED_Goal goal in assignedGoals)
-	// 	{
-	// 		spiritGoalCount[goal.spiritIndex] += 1;
-	// 		bool b = goal.Evaluate();
-	// 		goalDebugString += (b ? "<color=green>YES" : "<color=red>NO") + $"</color> spirit {goal.spiritIndex}: {goal.goalString}\n";
-	// 		if (b)
-	// 		{
-	// 			spiritGoalComplete[goal.spiritIndex] += 1;
-	// 		}
-	// 	}
-	//
-	// 	// update spirits:
-	// 	for (int i = 0; i < SPIRIT_COUNT; i++)
-	// 	{
-	// 		Color c = spiritsToFade[i].color;
-	// 		float alpha = spiritGoalComplete[i] / (float)spiritGoalCount[i];
-	// 		spiritsToFade[i].color = c.WithAlpha(alpha);
-	// 		// Debug.Log($"At {Time.time} spirit {i} = {alpha}");
-	// 	}
-	//
-	// 	if (!exitGoalMsg.activeSelf && GameSysClip.I.GhostAct.Current.TimeLeftSec < 100)
-	// 	{
-	// 		exitGoalText.text = selectedExitGoal1.goalString + "\n" + selectedExitGoal2.goalString;
-	// 		exitGoalMsg.SetActive(true);
-	// 	}
-	//
-	// 	if (exitGoalMsg.activeSelf)
-	// 	{
-	// 		if (selectedExitGoal1.Evaluate() && selectedExitGoal2.Evaluate())
-	// 		{
-	// 			exitDoor.SetDoor(true);
-	// 		}
-	// 	}
-	//
-	// 	if (goalDebugText != null) goalDebugText.text = goalDebugString;
-	// }
 
 
 	public void GameStarted()
@@ -353,6 +315,8 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 			phonePlayer.AssignedHints.Clear();
 		}
 
+		AssessRoomStates();
+
 		if (actors.Count == 0) return;
 
 		var playerIndex = 0;
@@ -364,8 +328,6 @@ public class GhostPlayerManager : Singleton<GhostPlayerManager>
 			playerIndex++;
 			if (playerIndex >= actors.Count) playerIndex = 0;
 		}
-
-		AssessRoomStates();
 	}
 }
 

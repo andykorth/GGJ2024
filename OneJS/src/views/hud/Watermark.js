@@ -16,7 +16,7 @@ var version = {
     Hour: 'TODO',
     Minute: 'TODO',
     Version: 'TODO',
-    NameAndVersion: 'TODO',
+    NameAndVersion: 'GGJ2023',
 };
 function Watermark() {
     return ((0, preact_1.h)(W_Watermark, null,

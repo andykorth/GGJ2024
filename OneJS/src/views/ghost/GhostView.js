@@ -29,10 +29,17 @@ function InfoPanel(props) {
     var phaseDesc = (0, Track_1.useTrack)(act.PhaseDesc);
     return ((0, preact_1.h)(W_InfoPanel, null,
         (0, preact_1.h)(_tyle_1.Grow, null),
+        (0, preact_1.h)(GhostsRescued, { act: act }),
         (0, preact_1.h)(GhostActorList_1.GhostActorList, { act: act }),
         (0, preact_1.h)(DebugView, { act: act })));
 }
 var W_InfoPanel = (0, _tyle_1.$div)('W_InfoPanel')(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n\tposition: absolute;\n\tleft: 0;\n\tright: 0;\n\ttop: 0;\n\tbottom: 0;\n\tpadding: 8px;\n"], ["\n\tposition: absolute;\n\tleft: 0;\n\tright: 0;\n\ttop: 0;\n\tbottom: 0;\n\tpadding: 8px;\n"])));
+function GhostsRescued(props) {
+    var act = props.act;
+    return ((0, preact_1.h)(TrackLabel_1.TrackLabel, { track: act.GhostsRescued, fnText: function (n) { return "Ghosts: ".concat(n); }, style: {
+            color: '#fff',
+        } }));
+}
 var L_PhaseTitle = (0, _tyle_1.$label)('L_PhaseTitle')(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n\tfont-size: 24px;\n\twhite-space: normal;\n\tmargin-left: 400px;\n"], ["\n\tfont-size: 24px;\n\twhite-space: normal;\n\tmargin-left: 400px;\n"])));
 var L_PhaseDesc = (0, _tyle_1.$label)('L_PhaseDesc')(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n\tfont-size: 28px;\n\twhite-space: normal;\n\tmargin: 0 16px;\n"], ["\n\tfont-size: 28px;\n\twhite-space: normal;\n\tmargin: 0 16px;\n"])));
 function Timer(props) {
@@ -55,11 +62,11 @@ function EndScreen(props) {
     var rescued = (0, Track_1.useTrack)(act.GhostsRescued);
     var successfullyEscaped = act.SuccessfullyEscaped;
     var text = successfullyEscaped
-        ? "You escaped! You rescued ".concat(rescued, " ghosts. \n \n'C' to continue.")
-        : "You (and ".concat(rescued, " ghosts) were consumed by the darkness.  \nDang. \n\n'C' to continue.");
+        ? "You escaped! You rescued ".concat(rescued, " ghosts. \n \n\n'C' to continue.")
+        : "You (and ".concat(rescued, " ghosts) were consumed by the darkness.  \nDang. \n\n\n'C' to continue.");
     return ((0, preact_1.h)(W_EndScreen, null,
         (0, preact_1.h)(L_End, { text: text })));
 }
 var W_EndScreen = (0, _tyle_1.$div)('W_EndScreen')(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n\tposition: absolute;\n\tleft: 200px;\n\tright: 32px;\n\ttop: 32px;\n\tbottom: 32px;\n\tcolor: rgb(255, 255, 255);\n\t-unity-text-align: middle-center;\n\tmargin: 0;\n\tbackground-color: rgb(0, 0, 0);\n\tpadding: 16px;\n\tjustify-content: center;\n"], ["\n\tposition: absolute;\n\tleft: 200px;\n\tright: 32px;\n\ttop: 32px;\n\tbottom: 32px;\n\tcolor: rgb(255, 255, 255);\n\t-unity-text-align: middle-center;\n\tmargin: 0;\n\tbackground-color: rgb(0, 0, 0);\n\tpadding: 16px;\n\tjustify-content: center;\n"])));
-var L_End = (0, _tyle_1.$label)('L_End = $label')(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n\tfont-size: 64px;\n\twhite-space: normal;\n"], ["\n\tfont-size: 64px;\n\twhite-space: normal;\n"])));
+var L_End = (0, _tyle_1.$label)('L_End = $label')(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n\tfont-size: 58px;\n\twhite-space: normal;\n"], ["\n\tfont-size: 58px;\n\twhite-space: normal;\n"])));
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8;

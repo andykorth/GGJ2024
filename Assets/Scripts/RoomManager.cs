@@ -15,7 +15,6 @@ public class RoomManager : MonoBehaviour
 	public List<Transform> PossibleFloorSpawns = new();
 
 	[Header("State")]
-	public bool UnblockDoor;
 	public RoomState StateToExit;
 	public List<Ghost> Ghosts = new();
 
@@ -30,7 +29,7 @@ public class RoomManager : MonoBehaviour
 		var act = GameSysClip.I.GhostAct.Current;
 		var fig = Fig;
 
-		UnblockDoor = false;
+		act.GhostsRescued.Change(0);
 
 		RoomInteractables.Clear();
 		if (InteractablesRoot) Destroy(InteractablesRoot.gameObject);
@@ -88,6 +87,7 @@ public class RoomManager : MonoBehaviour
 			ghost.DesiredRoomState = RoomLogic.GenerateGhostDesire(this, ghost.Name);
 			AllCriteria.AddRange(ghost.DesiredRoomState.Criteria);
 			ghost.gameObject.name = ghost.Name;
+			ghost.SpriteRenderer.color = ghost.SpriteRenderer.color.WithAlpha(.15f);
 			
 			Ghosts.Add(ghost);
 		}

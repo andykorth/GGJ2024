@@ -42,6 +42,7 @@ function InfoPanel(props: P_GhostView) {
 			{/*<L_PhaseTitle text={phaseTitle}/>*/}
 			{/*<L_PhaseDesc text={phaseDesc}/>*/}
 			<Grow/>
+			<GhostsRescued act={act}/>
 			<GhostActorList act={act}/>
 			<DebugView act={act}/>
 		</W_InfoPanel>
@@ -56,6 +57,21 @@ const W_InfoPanel = $div('W_InfoPanel')`
 	bottom: 0;
 	padding: 8px;
 `;
+
+
+function GhostsRescued(props: P_GhostView) {
+	const act = props.act;
+	
+	return (
+		<TrackLabel
+			track={act.GhostsRescued}
+			fnText={n => `Ghosts: ${n}`}
+			style={{
+				color: '#fff',
+			}}
+		/>
+	);
+}
 
 const L_PhaseTitle = $label('L_PhaseTitle')`
 	font-size: 24px;
@@ -132,8 +148,8 @@ function EndScreen(props: P_GhostView) {
 	const successfullyEscaped = act.SuccessfullyEscaped;
 	
 	const text = successfullyEscaped
-		? `You escaped! You rescued ${rescued} ghosts. \n \n'C' to continue.`
-		: `You (and ${rescued} ghosts) were consumed by the darkness.  \nDang. \n\n'C' to continue.`;
+		? `You escaped! You rescued ${rescued} ghosts. \n \n\n'C' to continue.`
+		: `You (and ${rescued} ghosts) were consumed by the darkness.  \nDang. \n\n\n'C' to continue.`;
 	
 	
 	return (
@@ -160,7 +176,7 @@ const W_EndScreen = $div('W_EndScreen')`
 `;
 
 const L_End = $label('L_End = $label')`
-	font-size: 64px;
+	font-size: 58px;
 	white-space: normal;
 `;
 

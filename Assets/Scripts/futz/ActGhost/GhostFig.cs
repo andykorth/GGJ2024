@@ -21,6 +21,7 @@ public class GhostFig : ScriptableObject
 	public int NumOfFloorObjs = 6;
 	public float WantedChance = .7f;
 	public int NumOfGhosts = 3;
+	public int GhostsNeededToExit = 3;
 	public int GhostOptions = 3;
 	public int ExitOptions = 3;
 	public List<GameObject> WallObjPrefabs = new();
