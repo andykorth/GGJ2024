@@ -205,7 +205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_InstanceId
-      value: -65736
+      value: -156596
       objectReference: {fileID: 0}
     - target: {fileID: 4273644978958668726, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: m_ShapePathHash
@@ -461,7 +461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Hates.Array.data[0]
-      value: It sure is chilly in here.
+      value: That jack-o'-lantern looks sad and neglected.
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Hates.Array.data[1]
@@ -469,7 +469,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Wants.Array.data[0]
-      value: You know what's cool? A {label} {name}!
+      value: Jack-o'-lanterns scare me.
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].Wants.Array.data[1]
@@ -481,11 +481,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].Hates.Array.data[0]
-      value: Ugh, I don't want to feel hot!
+      value: Pumpkins are scary!
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[1].Wants.Array.data[0]
-      value: I want a {label} {name}.
+      value: Spookify that pumpkin!
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Options.Array.data[0].ExitHates.Array.size

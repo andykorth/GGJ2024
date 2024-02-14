@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 2c93fc97276773d449a1d5d3e863eb8e, type: 3}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: Name
-      value: Painting
+      value: Cat Painting
       objectReference: {fileID: 0}
     - target: {fileID: 6745678310233686328, guid: bf55b48be37b44036b5947547737c692, type: 3}
       propertyPath: verb
